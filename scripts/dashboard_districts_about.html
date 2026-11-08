@@ -1,6 +1,7 @@
 <h3>兩種口徑</h3>
 <p><b>USCBC／Trade Partnership Worldwide 估計</b>（來源：US-China Business Council, <i>US Exports to China 2025</i>，各州與各選區一頁式 PDF，共 51 州頁＋429 選區頁，另 7 個單一選區州以州頁代表）：對中商品出口（2024）、服務出口（2023）、支撐就業（直接＋間接，2023）、中國在該區出口市場的名次與占比、前五大對中出口商品／服務。方法：以 Census、USDA、BEA 與 Moody's 資料，按產業將州級數字配置到第 119 屆國會選區；<b>農產品歸種植地</b>而非出口港所在區。總額（圖表為圖片）取自「出口市場」清單中的 China 列。</p>
 <p><b>Shift-share 配置</b>（本專案）：曝險<sub>g</sub>(y) = Σ<sub>i</sub> [ L<sub>g,i</sub> / L<sub>i</sub> ] × X<sub>i</sub>(y)。i 為 NAICS 四位碼產業；郡的 L 為 <b>BLS QCEW 2024</b> 年均就業（county × NAICS4，private；含農場受雇者，故油籽穀物等農業出口可配置，涵蓋率 96%），QCEW 揭露抑制的格（58%）以 CBP 2023 雜訊值補；選區的 L 為 <b>ZBP 2023 ZIP × NAICS4 設立數 × 全國每設立平均就業</b>，再以 ZCTA 在第 119 屆選區的土地面積占比配置（Census rel2020 cd119–ZCTA 關係檔；ZIP 比郡細得多，都會郡切分問題大幅減輕；98% 的 ZIP 就業對得上）。權重分母為各地區加總，使每個產業的全國值完整配置。X 為全國對中（台）出口或進口（Census statenaics 端點，2020–2025 年值與 2026 年 1–9 月累計）。郡再除以 BEA 郡 GDP（CAGDP2，2024 後沿用 2024）。第一版（CBP 郡就業＋郡→選區面積配置）保留於 <code>*_v1_cbp_area.csv</code>。這與 Autor–Dorn–Hanson「China shock」的曝險定義同構，但用的是水準而非變動。</p>
+<p>選區頁另有 <b>中／台出口比</b>（shift-share 對中出口 ÷ 對台出口）與 <b>中／台進口比</b>：>1 表示該選區的產業結構與中國往來大於與台灣，<1 則台灣較重要；地圖用紅—灰—藍發散色階（1× 為灰）。兩者都來自同一套 shift-share 配置，所以比值反映的是產業組合的相對曝險，不受地區大小影響。</p>
 <h3>怎麼讀</h3>
 <ul>
 <li>兩種口徑都是<b>結構性估計</b>，不是觀測到的貿易流；美國官方貿易統計只到州與都會區（出口），沒有郡或選區。</li>
