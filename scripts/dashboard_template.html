@@ -47,8 +47,7 @@ td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
   <div class="ctl">基準年<select id="year"></select></div>
   <div class="ctl">地圖／排序變數<select id="mapvar"></select></div>
   <div class="ctl">搜尋<input type="search" id="q" placeholder="州名／代碼" style="width:140px"></div>
-  <div class="ctl">&nbsp;<button class="btn primary" id="dl">下載 CSV</button></div>
-</div>
+  </div>
 <main>
 <section id="tab-dash">
   <div class="grid">
@@ -162,7 +161,6 @@ $('sx').onchange=e=>{state.sx=e.target.value;drawScatter(rows());}; $('sy').onch
 $('radarsel').onchange=e=>{addRadar(e.target.value);e.target.value='';}; $('radarbase').onchange=e=>{state.radarBase=e.target.checked;drawRadar();}; $('radarclear').onclick=()=>{state.radar=[];drawRadar();};
 $('stsel').onchange=e=>{state.st=e.target.value;drawState();}; $('stpartner').onchange=e=>{state.stpartner=e.target.value;drawState();}; $('styear').onchange=e=>{state.styear=+e.target.value;drawState();}; $('stlvl').onchange=e=>{state.stlvl=e.target.value;drawState();};
 document.querySelectorAll('nav.tabs button').forEach(b=>b.onclick=()=>{document.querySelectorAll('nav.tabs button').forEach(x=>x.classList.toggle('active',x===b)); ['dash','state','about'].forEach(t=>$('tab-'+t).style.display=t===b.dataset.tab?'':'none'); $('controls').style.display=b.dataset.tab==='dash'?'':'none'; if(b.dataset.tab==='state')drawState(); window.dispatchEvent(new Event('resize'));});
-$('dl').onclick=()=>{const keys=[...state.on]; const cols=['state','state_name','state_name_zh','year','score','s_exp','s_imp','s_vul','s_asset','score_china','score_taiwan','s_exp_china','s_exp_taiwan','s_imp_china','s_imp_taiwan','s_vul_china','s_vul_taiwan',...keys,...keys.map(k=>'pctile_'+k),'exports_china_usd_mn','exports_world_usd_mn','imports_china_usd_mn','imports_world_usd_mn','gdp_usd_mn']; const esc=v=>v==null?'':/[",\n]/.test(String(v))?'"'+String(v).replace(/"/g,'""')+'"':String(v); const lines=[cols.join(',')].concat(current.map(r=>cols.map(c=>esc(c.startsWith('pctile_')?r['p_'+c.slice(7)]:r[c])).join(','))); const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob(['﻿'+lines.join('\n')],{type:'text/csv;charset=utf-8'})); a.download=`us_states_china_exposure_${state.year}.csv`; a.click();};
 renderChecks(); $('about').innerHTML=ABOUT; update();
 </script>
 </body></html>

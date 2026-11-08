@@ -45,15 +45,13 @@ td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
   <div class="ctl">年（shift-share）<select id="cdyear"></select></div>
   <div class="ctl">州<select id="cdstate"><option value="">全部</option></select></div>
   <div class="ctl">搜尋<input type="search" id="cdq" placeholder="TX-21 / 州" style="width:140px"></div>
-  <div class="ctl">&nbsp;<button class="btn primary" id="cddl">下載 CSV</button></div>
-</div>
+  </div>
 <div class="controls" id="ctl-cty" style="display:none">
   <div class="ctl">地圖變數<select id="ctyvar"></select></div>
   <div class="ctl">年<select id="ctyyear"></select></div>
   <div class="ctl">州<select id="ctystate"><option value="">全部</option></select></div>
   <div class="ctl">搜尋<input type="search" id="ctyq" placeholder="郡名" style="width:140px"></div>
-  <div class="ctl">&nbsp;<button class="btn primary" id="ctydl">下載 CSV</button></div>
-</div>
+  </div>
 <main>
 <section id="tab-cd">
   <div class="grid"><div class="card"><div class="h2row"><h2 id="cdmaptitle">選區地圖</h2><span class="note">點選區看詳情。</span></div><div id="cdmap" style="height:470px"></div></div>
@@ -148,8 +146,6 @@ function drawStateCheck(rows){
 function updateCty(){const rows=ctyRows(); drawCtyMap(rows); drawCtyTable(rows); drawStateCheck(rows);}
 $('cdvar').onchange=e=>{st.cdvar=e.target.value;if(!st.cdvar.startsWith('ratio'))st.cdsort=st.cdvar;updateCD();}; $('cdyear').onchange=e=>{st.cdyear=+e.target.value;updateCD();}; $('cdstate').onchange=e=>{st.cdstate=e.target.value;updateCD();}; $('cdq').oninput=e=>{st.cdq=e.target.value;drawCDTable(cdRows());}; $('sxc').onchange=e=>{st.sxc=e.target.value;drawCDScatter(cdRows());}; $('syc').onchange=e=>{st.syc=e.target.value;drawCDScatter(cdRows());}; $('logxc').onchange=e=>{st.logxc=e.target.checked;drawCDScatter(cdRows());}; $('logyc').onchange=e=>{st.logyc=e.target.checked;drawCDScatter(cdRows());};
 $('ctyvar').onchange=e=>{st.ctyvar=e.target.value;st.ctysort=null;updateCty();}; $('ctyyear').onchange=e=>{st.ctyyear=+e.target.value;updateCty();}; $('ctystate').onchange=e=>{st.ctystate=e.target.value;updateCty();}; $('ctyq').oninput=e=>{st.ctyq=e.target.value;drawCtyTable(ctyRows());}; $('cmode').onchange=e=>{st.cmode=e.target.value;drawStateCheck(ctyRows());}; $('sxy').onchange=e=>{st.sxy=e.target.value;drawStateCheck(ctyRows());}; $('syy').onchange=e=>{st.syy=e.target.value;drawStateCheck(ctyRows());}; $('logxy').onchange=e=>{st.logxy=e.target.checked;drawStateCheck(ctyRows());}; $('logyy').onchange=e=>{st.logyy=e.target.checked;drawStateCheck(ctyRows());};
-const dl=(rows,name)=>{if(!rows.length)return; const cols=Object.keys(rows[0]).filter(c=>c!=='y'); const esc=v=>v==null?'':/[",\n]/.test(String(v))?'"'+String(v).replace(/"/g,'""')+'"':String(v); const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob(['﻿'+[cols.join(',')].concat(rows.map(r=>cols.map(c=>esc(r[c])).join(','))).join('\n')],{type:'text/csv;charset=utf-8'})); a.download=name; a.click();};
-$('cddl').onclick=()=>dl(cdCur,`districts_china_exposure_${st.cdyear}.csv`); $('ctydl').onclick=()=>dl(ctyCur,`counties_china_exposure_${st.ctyyear}.csv`);
 let ctyDrawn=false;
 document.querySelectorAll('nav.tabs button').forEach(b=>b.onclick=()=>{document.querySelectorAll('nav.tabs button').forEach(x=>x.classList.toggle('active',x===b)); ['cd','cty','about'].forEach(t=>$('tab-'+t).style.display=t===b.dataset.tab?'':'none'); $('ctl-cd').style.display=b.dataset.tab==='cd'?'':'none'; $('ctl-cty').style.display=b.dataset.tab==='cty'?'':'none'; if(b.dataset.tab==='cty'&&!ctyDrawn){ctyDrawn=true;updateCty();} window.dispatchEvent(new Event('resize'));});
 $('about').innerHTML=ABOUT; updateCD();
