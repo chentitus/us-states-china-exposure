@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>美國各州對中國／台灣貿易依賴與曝險</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+:root{--bg:#fcfcfb;--panel:#fff;--line:#e4e3df;--text:#0b0b0b;--text2:#52514e;--muted:#8a8984;--accent:#2a78d6}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,"PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;font-size:14px;line-height:1.5}
+header{padding:14px 20px 8px;border-bottom:1px solid var(--line);background:var(--panel)}
+header h1{font-size:18px;margin:0 0 2px;font-weight:600}
+header .sub{color:var(--text2);font-size:12px;max-width:1150px}
+nav.tabs{display:flex;gap:4px;padding:0 20px;background:var(--panel);border-bottom:1px solid var(--line)}
+nav.tabs button{background:none;border:none;border-bottom:2px solid transparent;padding:10px 12px;font:inherit;color:var(--text2);cursor:pointer}
+nav.tabs button.active{color:var(--text);border-bottom-color:var(--accent);font-weight:600}
+.controls{display:flex;flex-wrap:wrap;gap:18px;align-items:flex-start;padding:12px 20px;background:var(--panel);border-bottom:1px solid var(--line)}
+.ctl{display:flex;flex-direction:column;gap:4px;font-size:12px;color:var(--text2)}
+.ctl select,.ctl input{font:inherit;font-size:13px;padding:5px 8px;border:1px solid var(--line);border-radius:4px;background:#fff;color:var(--text)}
+.checks{display:grid;grid-template-columns:repeat(4,auto);gap:2px 18px;font-size:12.5px;color:var(--text)}
+.checks>div{display:flex;flex-direction:column;gap:2px}.checks label{display:flex;gap:5px;align-items:center;white-space:nowrap}
+.note{font-size:12px;color:var(--muted)}
+main{padding:16px 20px;max-width:1500px;margin:0 auto}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:12px 14px;min-width:0;margin-bottom:16px}
+.card h2{font-size:14px;margin:0 0 6px;font-weight:600}
+.h2row{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.grid>div{min-width:0}
+table{border-collapse:collapse;width:100%;font-size:12.5px}
+th,td{padding:4px 7px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{color:var(--text2);font-weight:600;white-space:nowrap;position:sticky;top:0;background:var(--panel);cursor:pointer;user-select:none}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+.tablewrap{max-height:560px;overflow:auto;border:1px solid var(--line);border-radius:4px}
+.btn{font:inherit;font-size:13px;padding:5px 10px;border:1px solid var(--line);border-radius:4px;background:#fff;cursor:pointer;color:var(--text)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.bar{display:inline-block;height:9px;background:#2a78d6;border-radius:2px;vertical-align:middle;margin-right:4px}
+.about{max-width:950px;line-height:1.7}
+@media (max-width:1000px){.grid{grid-template-columns:1fr !important}}
+</style>
+</head>
+<body>
+<header><h1>美國各州對中國／台灣貿易依賴與曝險（2020–2026）</h1>
+<div class="sub">各州對中國的商品出口（起運州）與進口（目的州），換算成占州 GDP 與占州總貿易的比例，加上商品集中度、中資農地等；指標分<b>出口依賴</b>、<b>進口依賴</b>、<b>脆弱性</b>（商品集中度、報復關稅曝險）三個概念（資產與其他為可選），各算百分位平均子分數，總分 = 子分數平均。<b>這是曝險排序，不是政治行為的預測。</b></div></header>
+<nav class="tabs"><button class="active" data-tab="dash">曝險分數</button><button data-tab="state">州詳情</button><button data-tab="about">說明</button></nav>
+<div class="controls" id="controls">
+  <div class="ctl">納入分數的指標（即時重算）<div class="checks" id="checks"></div></div>
+  <div class="ctl">貿易對象（分數計算）<select id="partner"><option value="china">中國</option><option value="taiwan">台灣</option></select></div>
+  <div class="ctl">基準年<select id="year"></select></div>
+  <div class="ctl">地圖／排序變數<select id="mapvar"></select></div>
+  <div class="ctl">搜尋<input type="search" id="q" placeholder="州名／代碼" style="width:140px"></div>
+  <div class="ctl">&nbsp;<button class="btn primary" id="dl">下載 CSV</button></div>
+</div>
+<main>
+<section id="tab-dash">
+  <div class="grid">
+    <div class="card"><div class="h2row"><h2 id="maptitle">地圖</h2><span class="note">點州看詳情。</span></div><div id="map" style="height:430px"></div></div>
+    <div class="card"><div class="h2row"><h2>散點圖</h2><div style="display:flex;gap:8px;font-size:12px;align-items:center;flex-wrap:wrap">X <select id="sx"></select> Y <select id="sy"></select></div></div><div id="scatter" style="height:430px"></div></div>
+  </div>
+  <div class="card"><div class="h2row"><h2>曝險分數表</h2><span class="note" id="tcount"></span></div><div class="tablewrap"><table id="t"></table></div></div>
+  <div class="card"><div class="h2row"><h2>州比較（雷達圖）</h2><div style="display:flex;gap:8px;font-size:12px;align-items:center;flex-wrap:wrap">加入 <select id="radarsel"><option value="">— 選擇 —</option></select> <label><input type="checkbox" id="radarbase"> 全國中位數基準線</label> <button class="btn" id="radarclear">清除</button></div></div>
+    <div class="note">從表格點州名也會加入（最多 6 州）。軸為各指標的百分位（0–1）；依「貿易對象」計算，對中以紅色系、對台以藍色系呈現，各州以深淺與線型區分。</div>
+    <div class="grid"><div id="radar" style="height:380px"></div><div><div class="tablewrap" style="max-height:380px"><table id="t_radar"></table></div></div></div></div>
+</section>
+<section id="tab-state" style="display:none">
+  <div class="card"><div class="h2row"><h2 id="sttitle">州詳情</h2><div style="display:flex;gap:8px;font-size:12px;align-items:center">州 <select id="stsel"></select> 商品年份 <select id="styear"></select> 商品層級 <select id="stlvl"><option value="HS4">HS4</option><option value="HS2">HS2</option><option value="HS6">HS6</option></select></div></div>
+    <div class="grid" style="grid-template-columns:1fr 1fr 1fr"><div id="c0" style="height:260px"></div><div id="c1" style="height:260px"></div><div id="c2" style="height:260px"></div><div id="c3" style="height:260px"></div></div>
+    <div class="tablewrap" style="max-height:260px;margin-top:10px"><table id="t_sy"></table></div>
+    <div style="margin-top:12px;font-size:12px">商品對象 <select id="stpartner"><option value="China">中國</option><option value="Taiwan">台灣</option></select></div>
+    <div class="grid" style="margin-top:6px"><div><h2 id="texp">出口前十大商品</h2><div class="tablewrap" style="max-height:420px"><table id="t_exp"></table></div></div><div><h2 id="timp">自中國進口前十大商品</h2><div class="tablewrap" style="max-height:420px"><table id="t_imp"></table></div></div></div>
+    <div id="stextra" class="note" style="margin-top:10px"></div>
+  </div>
+</section>
+<section id="tab-about" style="display:none"><div class="card about" id="about"></div></section>
+</main>
+<script>
+/*__DATA__*/
+const P=DATA.panel, TOP=DATA.top, SUM=DATA.summary, ABOUT=DATA.about, YEARS=DATA.years, LATEST=DATA.latest;
+const GROUPS=[['exp','出口依賴：州經濟靠{P}市場'],['imp','進口依賴：州經濟靠{P}供應'],['vul','脆弱性：曝險集中在少數可被針對的點'],['asset','資產與其他（預設不計入）']];
+// key, label, default, fmt, group ; value computed per base year from P unless static
+const IND=[
+  ['exports_{p}_pct_gdp','對{P}出口占州 GDP %',true,'pct','exp'],
+  ['exports_{p}_share','對{P}出口占州總出口比',true,'share','exp'],
+  ['services_exp_china_pct_gdp_2023','對中服務出口占 GDP %（2023，僅前 10 州）',false,'pct','exp'],
+  ['top1_hs4_share{t}','對{P}出口最大商品（HS4）占比',true,'share','vul'],
+  ['hhi_hs4{t}','對{P}出口商品集中度 HHI（HS4）',true,'hhi','vul'],
+  ['tariff_exposed_share_2025','受中國產品別報復關稅出口比（2025-04，僅前 10 州）',false,'share','vul'],
+  ['imports_{p}_pct_gdp','自{P}進口占州 GDP %',true,'pct','imp'],
+  ['imports_{p}_share','自{P}進口占州總進口比',true,'share','imp'],
+  ['afida_china_acres_2024','中國投資者持有農地（英畝，2024）',false,'int','asset'],
+];
+const STATIC=new Set(['services_exp_china_pct_gdp_2023','tariff_exposed_share_2025','afida_china_acres_2024']);
+const SUB={exp:'s_exp',imp:'s_imp',vul:'s_vul',asset:'s_asset'}, SUBLABEL={s_exp:'出口依賴子分數',s_imp:'進口依賴子分數',s_vul:'脆弱性子分數',s_asset:'資產子分數'};
+const SHORT={'exports_{p}_pct_gdp':'出口/GDP','exports_{p}_share':'出口占比','top1_hs4_share{t}':'最大商品占比','hhi_hs4{t}':'HHI',services_exp_china_pct_gdp_2023:'服務/GDP',tariff_exposed_share_2025:'關稅曝險','imports_{p}_pct_gdp':'進口/GDP','imports_{p}_share':'進口占比',afida_china_acres_2024:'中資農地'};
+const RATIO=[['ratio_exp','中／台出口比（對中出口 ÷ 對台出口）'],['ratio_imp','中／台進口比（自中進口 ÷ 自台進口）']];
+const resolve=k=>k.replace('{p}',state.partner).replace('{t}',state.partner==='taiwan'?'_tw':'');
+const PNAME={china:'中',taiwan:'台'}; const PCOL={china:'#d03b3b',taiwan:'#2a78d6'}; const RAMP={china:[[0,'#fbe3e0'],[0.25,'#f3b4ae'],[0.5,'#e67b73'],[0.75,'#c93f3a'],[1,'#7a1b17']],taiwan:[[0,'#cde2fb'],[0.25,'#9ec5f4'],[0.5,'#5598e7'],[0.75,'#256abf'],[1,'#0d366b']]};
+const resolveP=(k,pn)=>k.replace('{p}',pn).replace('{t}',pn==='taiwan'?'_tw':'');
+const $=id=>document.getElementById(id);
+const fmtv=(v,f)=>v==null||isNaN(v)||!isFinite(v)?'–':f==='share'?(v*100).toFixed(1)+'%':f==='hhi'?v.toFixed(3):f==='int'?Math.round(v).toLocaleString():f==='score'?v.toFixed(3):f==='ratio'?(v>=100?Math.round(v).toLocaleString()+'×':v.toFixed(1)+'×'):v.toLocaleString('zh-Hant-TW',{maximumFractionDigits:2});
+const BOTH={score_china:'曝險總分（對中）',score_taiwan:'曝險總分（對台）',s_exp_china:'出口依賴（對中）',s_exp_taiwan:'出口依賴（對台）',s_imp_china:'進口依賴（對中）',s_imp_taiwan:'進口依賴（對台）',s_vul_china:'脆弱性（對中）',s_vul_taiwan:'脆弱性（對台）'};
+const label=k=>{if(k==='score')return '曝險總分（對'+PNAME[state.partner]+'）'; if(BOTH[k])return BOTH[k]; if(SUBLABEL[k])return SUBLABEL[k]; const r=RATIO.find(x=>x[0]===k); if(r)return r[1]; const i=IND.find(i=>i[0]===k); return i[1].replace('{P}',PNAME[state.partner]);}; const fmtk=k=>(k==='score'||SUBLABEL[k]||BOTH[k])?'score':RATIO.some(x=>x[0]===k)?'ratio':IND.find(i=>i[0]===k)[3]; const isScoreKey=k=>k==='score'||!!SUBLABEL[k]||!!BOTH[k];
+const state={on:new Set(IND.filter(i=>i[2]).map(i=>i[0])),partner:'china',year:2025,mapvar:'score',q:'',sortCol:'score',sortDir:-1,sx:'score_china',sy:'score_taiwan',radar:[],radarBase:false,st:'TX',styear:2025,stlvl:'HS4',stpartner:'China'};
+let S=[];
+function renderChecks(){$('checks').innerHTML=''; GROUPS.forEach(([g,gl])=>{const box=document.createElement('div');box.innerHTML=`<div style="font-weight:600;color:var(--text2);margin:4px 0 2px">${gl.replace('{P}',state.partner==='china'?'中國':'台灣')}</div>`;IND.filter(i=>i[4]===g).forEach(([k,l])=>{const lab=document.createElement('label');lab.innerHTML=`<input type="checkbox" value="${k}" ${state.on.has(k)?'checked':''}> ${l.replace('{P}',PNAME[state.partner])}`;box.appendChild(lab);});$('checks').appendChild(box);});
+  $('checks').querySelectorAll('input').forEach(c=>c.onchange=()=>{c.checked?state.on.add(c.value):state.on.delete(c.value); if(!state.on.size){c.checked=true;state.on.add(c.value);} update();});}
+YEARS.forEach(y=>{const o=document.createElement('option');o.value=y;o.textContent=y===LATEST.year?`${y}（至 ${LATEST.month} 月累計）`:y;$('year').appendChild(o);const o2=o.cloneNode(true);$('styear').appendChild(o2);}); $('year').value=2025; $('styear').value=2025;
+function renderVarSelects(){[$('mapvar'),$('sx'),$('sy')].forEach(sel=>{const v=sel.value; sel.innerHTML=''; [['score','曝險總分（目前對象）'],['s_exp','出口依賴子分數'],['s_imp','進口依賴子分數'],['s_vul','脆弱性子分數'],['s_asset','資產子分數'],...Object.entries(BOTH),...RATIO,...IND.map(i=>[i[0],i[1].replace('{P}',PNAME[state.partner])])].forEach(([k,l])=>{const o=document.createElement('option');o.value=k;o.textContent=l;sel.appendChild(o);}); sel.value=v||'score';});}
+renderVarSelects(); $('mapvar').value='score'; $('sx').value='score_china'; $('sy').value='score_taiwan';
+function rankPct(vals){const idx=vals.map((v,i)=>[v,i]).filter(x=>x[0]!=null&&!isNaN(x[0])); idx.sort((a,b)=>a[0]-b[0]); const out=new Array(vals.length).fill(null); let i=0; while(i<idx.length){let j=i;while(j+1<idx.length&&idx[j+1][0]===idx[i][0])j++; const r=((i+1)+(j+1))/2/idx.length; for(let k=i;k<=j;k++)out[idx[k][1]]=r; i=j+1;} return out;}
+function build(){
+  const py=P.filter(r=>r.year===state.year); S=py.map(r=>{const s=SUM.find(x=>x.state===r.state)||{}; return {...r, services_exp_china_pct_gdp_2023:s.services_exp_china_pct_gdp_2023??null, tariff_exposed_share_2025:s.tariff_exposed_share_2025??null, afida_china_acres_2024:s.afida_china_acres_2024??0};});
+  S.forEach(r=>{r.ratio_exp=(r.exports_taiwan_usd_mn>0)?r.exports_china_usd_mn/r.exports_taiwan_usd_mn:null; r.ratio_imp=(r.imports_taiwan_usd_mn>0)?r.imports_china_usd_mn/r.imports_taiwan_usd_mn:null;});
+  const keys=[...state.on];
+  ['china','taiwan'].forEach(pn=>{const pct={}; keys.forEach(k=>pct[k]=rankPct(S.map(r=>r[resolveP(k,pn)])));
+    S.forEach((r,i)=>{const subs=[]; GROUPS.forEach(([g])=>{const vals=keys.filter(k=>IND.find(x=>x[0]===k)[4]===g).map(k=>pct[k][i]).filter(v=>v!=null); r[SUB[g]+'_'+pn]=vals.length?vals.reduce((a,b)=>a+b,0)/vals.length:null; if(vals.length)subs.push(r[SUB[g]+'_'+pn]);}); r['score_'+pn]=subs.length?subs.reduce((a,b)=>a+b,0)/subs.length:null;
+      if(pn===state.partner){keys.forEach(k=>{r['p_'+k]=pct[k][i]; r[k]=r[resolveP(k,pn)];}); r.n=keys.map(k=>pct[k][i]).filter(v=>v!=null).length; r.score=r['score_'+pn]; GROUPS.forEach(([g])=>r[SUB[g]]=r[SUB[g]+'_'+pn]);}});});
+}
+function rows(){const q=state.q.trim().toLowerCase(); return S.filter(r=>r.score!=null&&(!q||r.state.toLowerCase().includes(q)||r.state_name.toLowerCase().includes(q)||(r.state_name_zh||'').includes(q)));}
+function drawMap(rs){const k=state.mapvar; const isR=fmtk(k)==='ratio'; const d=rs.filter(r=>r[k]!=null&&!isNaN(r[k])&&isFinite(r[k])&&!['PR','VI'].includes(r.state));
+  Plotly.react('map',[{type:'choropleth',locationmode:'USA-states',locations:d.map(r=>r.state),z:d.map(r=>isR?Math.log10(r[k]):r[k]),customdata:d.map(r=>r.state),text:d.map(r=>`${r.state_name_zh} ${r.state_name}<br>${label(k)}：${fmtv(r[k],fmtk(k))}<br>曝險總分：${fmtv(r.score,'score')}`),hoverinfo:'text',
+    colorscale:isR?[[0,'#0d366b'],[0.5,'#f0efec'],[1,'#7a1b17']]:RAMP[/taiwan/.test(k)?'taiwan':/china/.test(k)?'china':state.partner],marker:{line:{color:'#fff',width:0.5}},colorbar:isR?{thickness:10,len:0.7,outlinewidth:0,tickvals:[-1,0,1,2],ticktext:['0.1×','1×','10×','100×'],title:{text:'對數',font:{size:11}}}:{thickness:10,len:0.7,outlinewidth:0,title:{text:isScoreKey(k)?'分數':'',font:{size:11}}}}],
+    {geo:{scope:'usa',showlakes:false,bgcolor:'rgba(0,0,0,0)',landcolor:'#f0efec'},margin:{l:0,r:0,t:0,b:0},paper_bgcolor:'rgba(0,0,0,0)'},{displayModeBar:false,responsive:true});
+  $('maptitle').textContent=`地圖 — ${label(k)}，${state.year}${isR?'（對數色階：紅＝中國較重要，藍＝台灣較重要）':''}`; $('map').removeAllListeners&&$('map').removeAllListeners('plotly_click'); $('map').on('plotly_click',ev=>openState(ev.points[0].customdata));}
+function drawScatter(rs){const kx=state.sx,ky=state.sy; const d=rs.filter(r=>r[kx]!=null&&r[ky]!=null);
+  Plotly.react('scatter',[{type:'scatter',mode:'markers+text',x:d.map(r=>r[kx]),y:d.map(r=>r[ky]),text:d.map(r=>r.state),textposition:'top center',textfont:{size:10,color:'#52514e'},customdata:d.map(r=>r.state),marker:{color:PCOL[state.partner],size:d.map(r=>Math.max(7,Math.min(34,Math.sqrt((r.gdp_usd_mn||1e5)/1e4)*2))),opacity:0.75,line:{color:'#fff',width:1}},hovertemplate:d.map(r=>`${r.state_name_zh} ${r.state_name}<br>${label(kx)}：${fmtv(r[kx],fmtk(kx))}<br>${label(ky)}：${fmtv(r[ky],fmtk(ky))}<br>GDP ${Math.round((r.gdp_usd_mn||0)/1000).toLocaleString()} 十億<extra></extra>`)}],
+    {margin:{l:55,r:10,t:10,b:45},shapes:(isScoreKey(kx)&&isScoreKey(ky))?[{type:'line',x0:0,y0:0,x1:1,y1:1,line:{color:'#b5b4ae',dash:'dot',width:1}}]:[],xaxis:{title:{text:label(kx),font:{size:11}},gridcolor:'#eeede9',zeroline:false,type:fmtk(kx)==='ratio'?'log':'linear'},yaxis:{title:{text:label(ky),font:{size:11}},gridcolor:'#eeede9',zeroline:false,type:fmtk(ky)==='ratio'?'log':'linear'},paper_bgcolor:'rgba(0,0,0,0)',plot_bgcolor:'rgba(0,0,0,0)',font:{size:11}},{displayModeBar:false,responsive:true});
+  $('scatter').removeAllListeners&&$('scatter').removeAllListeners('plotly_click'); $('scatter').on('plotly_click',ev=>openState(ev.points[0].customdata));}
+let current=[];
+function drawTable(rs){const keys=[...state.on]; const sc=state.sortCol,d=state.sortDir; rs=rs.slice().sort((a,b)=>{const x=a[sc],y=b[sc]; if(x==null)return 1; if(y==null)return -1; return (typeof x==='number'?x-y:String(x).localeCompare(String(y)))*d;}); current=rs; $('tcount').textContent=`${rs.length} 州，基準年 ${state.year}，分數對象：${state.partner==='china'?'中國':'台灣'}`;
+  const subCols=GROUPS.filter(([g])=>keys.some(k=>IND.find(x=>x[0]===k)[4]===g)).map(([g,gl])=>[SUB[g],gl.split('：')[0]]);
+  const head=[['rank','#'],['state_name_zh','州'],['state','代碼'],['score','總分'],...subCols,...keys.map(k=>[k,label(k)]),['exports_china_usd_mn','對中出口（百萬美元）'],['exports_taiwan_usd_mn','對台出口'],['ratio_exp','中／台出口比'],['imports_china_usd_mn','自中進口（百萬美元）'],['imports_taiwan_usd_mn','自台進口'],['ratio_imp','中／台進口比'],['gdp_usd_mn','GDP（百萬）']];
+  $('t').innerHTML='<thead><tr>'+head.map(([k,l])=>`<th data-k="${k}" class="${['rank','state_name_zh','state'].includes(k)?'':'num'}">${l}${sc===k?(d<0?' ▼':' ▲'):''}</th>`).join('')+'</tr></thead><tbody>'+rs.map((r,i)=>'<tr>'+head.map(([k])=>{if(k==='rank')return `<td>${i+1}</td>`; if(k==='state_name_zh')return `<td><a href="#" data-st="${r.state}" style="color:inherit">${r.state_name_zh}</a> <span class="note">${r.state_name}</span></td>`; if(k==='state')return `<td>${r.state}</td>`; if(k==='score')return `<td class="num"><span class="bar" style="width:${Math.round(r.score*60)}px;background:${PCOL[state.partner]}"></span>${fmtv(r.score,'score')}</td>`; if(SUBLABEL[k])return `<td class="num">${r[k]==null?'–':`<span class="bar" style="width:${Math.round(r[k]*40)}px;background:${{s_exp:'#2a78d6',s_imp:'#eb6834',s_vul:'#1baf7a',s_asset:'#6250d6'}[k]}"></span>${r[k].toFixed(2)}`}</td>`; if(['exports_china_usd_mn','imports_china_usd_mn','exports_taiwan_usd_mn','imports_taiwan_usd_mn','gdp_usd_mn'].includes(k))return `<td class="num">${r[k]==null?'–':Math.round(r[k]).toLocaleString()}</td>`; if(k==='ratio_exp'||k==='ratio_imp')return `<td class="num">${fmtv(r[k],'ratio')}</td>`; return `<td class="num" title="百分位 ${r['p_'+k]==null?'–':(r['p_'+k]*100).toFixed(0)}">${fmtv(r[k],fmtk(k))}</td>`;}).join('')+'</tr>').join('')+'</tbody>';
+  $('t').querySelectorAll('th').forEach(th=>th.onclick=()=>{const k=th.dataset.k; if(k==='rank')return; if(state.sortCol===k)state.sortDir*=-1; else{state.sortCol=k;state.sortDir=['state_name_zh','state'].includes(k)?1:-1;} drawTable(rows());});
+  $('t').querySelectorAll('a[data-st]').forEach(a=>a.onclick=e=>{e.preventDefault();addRadar(a.dataset.st);});}
+const RADPAL={china:['#d03b3b','#7a1b17','#e67b73','#a52a2a','#f0a39e','#c93f3a'],taiwan:['#2a78d6','#0d366b','#5598e7','#184f95','#9ec5f4','#256abf']}; const RADDASH=['solid','dash','dot','dashdot','longdash','solid']; const rc=i=>RADPAL[state.partner][i%6];
+function axesKeys(){const keys=[...state.on]; return GROUPS.flatMap(([g])=>IND.filter(i=>i[4]===g&&keys.includes(i[0])).map(i=>['p_'+i[0],SHORT[i[0]]]));}
+function median(a){a=a.filter(v=>v!=null).sort((x,y)=>x-y); if(!a.length)return null; const m=Math.floor(a.length/2); return a.length%2?a[m]:(a[m-1]+a[m])/2;}
+function radarTrace(name,vals,color,dash,base){const ax=axesKeys(); return {type:'scatterpolar',name,theta:[...ax.map(a=>a[1]),ax[0][1]],r:[...vals,vals[0]].map(v=>v==null?0:v),fill:base?'none':'toself',fillcolor:base?undefined:color+'26',line:{color,width:2,dash:dash||'solid'},marker:{size:6},hovertemplate:'%{theta}：%{r:.2f}<extra>'+name+'</extra>'};}
+function drawRadar(){const ax=axesKeys(); const tr=state.radar.map((st,i)=>{const r=S.find(x=>x.state===st); return radarTrace(`${r.state_name_zh} ${st}（對${PNAME[state.partner]}總分 ${fmtv(r.score,'score')}）`,ax.map(a=>r[a[0]]),rc(i),RADDASH[i%6]);});
+  if(state.radarBase){tr.push(radarTrace('全國中位數',ax.map(a=>median(S.map(r=>r[a[0]]))),'#8a8984','dot',true));}
+  Plotly.react('radar',tr,{polar:{radialaxis:{range:[0,1],tickvals:[0.25,0.5,0.75,1],tickfont:{size:9},gridcolor:'#e4e3df'},angularaxis:{tickfont:{size:10},gridcolor:'#e4e3df'},bgcolor:'rgba(0,0,0,0)'},showlegend:true,legend:{orientation:'h',y:-0.12,font:{size:10}},margin:{l:50,r:50,t:30,b:30},paper_bgcolor:'rgba(0,0,0,0)',font:{size:11}},{displayModeBar:false,responsive:true});
+  const keys=[...state.on]; $('t_radar').innerHTML='<thead><tr><th>州</th><th class="num">總分</th>'+keys.map(k=>`<th class="num">${label(k)}</th>`).join('')+'<th></th></tr></thead><tbody>'+state.radar.map((st,i)=>{const r=S.find(x=>x.state===st); return `<tr><td><span class="bar" style="background:${rc(i)};width:10px"></span>${r.state_name_zh} ${r.state_name}</td><td class="num">${fmtv(r.score,'score')}</td>${keys.map(k=>`<td class="num">${fmtv(r[k],fmtk(k))}</td>`).join('')}<td><a href="#" data-rm="${st}" style="color:var(--muted)">✕</a></td></tr>`;}).join('')+'</tbody>';
+  $('t_radar').querySelectorAll('a[data-rm]').forEach(a=>a.onclick=e=>{e.preventDefault();state.radar=state.radar.filter(x=>x!==a.dataset.rm);drawRadar();});}
+function addRadar(st){if(!st||state.radar.includes(st))return; if(state.radar.length>=6)state.radar.shift(); state.radar.push(st); drawRadar();}
+// ---- state tab
+function openState(st){state.st=st; $('stsel').value=st; document.querySelector('nav.tabs button[data-tab=state]').click(); drawState();}
+function drawState(){const st=state.st; const d=P.filter(r=>r.state===st).sort((a,b)=>a.year-b.year); const info=SUM.find(x=>x.state===st)||{}; const nm=`${STATES_ZH[st]} ${STATES[st]}`;
+  $('sttitle').textContent=`州詳情 — ${nm}（${st}）`; const ys=d.map(r=>r.year), lab=ys.map(y=>y===LATEST.year?`${y} YTD`:String(y));
+  Plotly.react('c0',[{type:'bar',name:'對中出口',x:lab,y:d.map(r=>r.exports_china_usd_mn),marker:{color:'#d03b3b'}},{type:'bar',name:'自中進口',x:lab,y:d.map(r=>r.imports_china_usd_mn),marker:{color:'#f0a39e'}},{type:'bar',name:'對台出口',x:lab,y:d.map(r=>r.exports_taiwan_usd_mn),marker:{color:'#2a78d6'}},{type:'bar',name:'自台進口',x:lab,y:d.map(r=>r.imports_taiwan_usd_mn),marker:{color:'#9ec5f4'}}],{title:{text:'對中 vs 對台貿易（百萬美元）',font:{size:12},x:0,xanchor:'left'},barmode:'group',margin:{l:55,r:10,t:30,b:30},legend:{orientation:'h',y:-0.18,font:{size:10}},yaxis:{gridcolor:'#eeede9',tickformat:',.0f'},paper_bgcolor:'rgba(0,0,0,0)',plot_bgcolor:'rgba(0,0,0,0)',font:{size:11}},{displayModeBar:false,responsive:true});
+  Plotly.react('c1',[{type:'scatter',mode:'lines+markers',name:'中／台出口比',x:lab,y:d.map(r=>r.exports_taiwan_usd_mn>0?r.exports_china_usd_mn/r.exports_taiwan_usd_mn:null),line:{color:'#52514e',width:2}},{type:'scatter',mode:'lines+markers',name:'中／台進口比',x:lab,y:d.map(r=>r.imports_taiwan_usd_mn>0?r.imports_china_usd_mn/r.imports_taiwan_usd_mn:null),line:{color:'#8a8984',width:2,dash:'dot'}}],{title:{text:'對中／對台相對依賴比（倍，對數軸；1× 為持平）',font:{size:12},x:0,xanchor:'left'},margin:{l:55,r:10,t:30,b:30},legend:{orientation:'h',y:-0.18,font:{size:10}},yaxis:{type:'log',gridcolor:'#eeede9'},shapes:[{type:'line',xref:'paper',x0:0,x1:1,y0:1,y1:1,line:{color:'#8a8984',dash:'dot',width:1}}],paper_bgcolor:'rgba(0,0,0,0)',plot_bgcolor:'rgba(0,0,0,0)',font:{size:11}},{displayModeBar:false,responsive:true});
+  Plotly.react('c2',[{type:'scatter',mode:'lines+markers',name:'對中出口占州總出口',x:lab,y:d.map(r=>r.exports_china_share*100),line:{color:'#d03b3b',width:2}},{type:'scatter',mode:'lines+markers',name:'自中進口占州總進口',x:lab,y:d.map(r=>r.imports_china_share*100),line:{color:'#d03b3b',width:2,dash:'dot'}},{type:'scatter',mode:'lines+markers',name:'對台出口占州總出口',x:lab,y:d.map(r=>r.exports_taiwan_share*100),line:{color:'#2a78d6',width:2}},{type:'scatter',mode:'lines+markers',name:'自台進口占州總進口',x:lab,y:d.map(r=>r.imports_taiwan_share*100),line:{color:'#2a78d6',width:2,dash:'dot'}}],{title:{text:'中國／台灣占該州貿易比重（%）',font:{size:12},x:0,xanchor:'left'},margin:{l:45,r:10,t:30,b:30},legend:{orientation:'h',y:-0.18,font:{size:10}},yaxis:{gridcolor:'#eeede9',rangemode:'tozero'},paper_bgcolor:'rgba(0,0,0,0)',plot_bgcolor:'rgba(0,0,0,0)',font:{size:11}},{displayModeBar:false,responsive:true});
+  Plotly.react('c3',[{type:'scatter',mode:'lines+markers',name:'對中出口占 GDP',x:lab,y:d.map(r=>r.exports_china_pct_gdp),line:{color:'#d03b3b',width:2}},{type:'scatter',mode:'lines+markers',name:'自中進口占 GDP',x:lab,y:d.map(r=>r.imports_china_pct_gdp),line:{color:'#d03b3b',width:2,dash:'dot'}},{type:'scatter',mode:'lines+markers',name:'對台出口占 GDP',x:lab,y:d.map(r=>r.exports_taiwan_pct_gdp),line:{color:'#2a78d6',width:2}},{type:'scatter',mode:'lines+markers',name:'自台進口占 GDP',x:lab,y:d.map(r=>r.imports_taiwan_pct_gdp),line:{color:'#2a78d6',width:2,dash:'dot'}}],{title:{text:'占州 GDP（%；2026 為 YTD／2025 GDP）',font:{size:12},x:0,xanchor:'left'},margin:{l:45,r:10,t:30,b:30},legend:{orientation:'h',y:-0.18,font:{size:10}},yaxis:{gridcolor:'#eeede9',rangemode:'tozero'},paper_bgcolor:'rgba(0,0,0,0)',plot_bgcolor:'rgba(0,0,0,0)',font:{size:11}},{displayModeBar:false,responsive:true});
+  const f=(v,p=1)=>v==null?'–':Number(v).toLocaleString('zh-Hant-TW',{maximumFractionDigits:p}); const pc=v=>v==null?'–':(v*100).toFixed(1)+'%';
+  $('t_sy').innerHTML='<thead><tr><th>年</th><th class="num">州 GDP</th><th class="num">州總出口</th><th class="num">對中出口</th><th class="num">占比</th><th class="num">對台出口</th><th class="num">占比</th><th class="num">中／台</th><th class="num">州總進口</th><th class="num">自中進口</th><th class="num">占比</th><th class="num">自台進口</th><th class="num">占比</th><th class="num">中／台</th><th class="num">對中最大商品集中度</th><th class="num">對台</th></tr></thead><tbody>'+d.map((r,i)=>`<tr><td>${lab[i]}</td><td class="num">${f(r.gdp_usd_mn,0)}</td><td class="num">${f(r.exports_world_usd_mn,0)}</td><td class="num">${f(r.exports_china_usd_mn,0)}</td><td class="num">${pc(r.exports_china_share)}</td><td class="num">${f(r.exports_taiwan_usd_mn,0)}</td><td class="num">${pc(r.exports_taiwan_share)}</td><td class="num">${fmtv(r.exports_taiwan_usd_mn>0?r.exports_china_usd_mn/r.exports_taiwan_usd_mn:null,'ratio')}</td><td class="num">${f(r.imports_world_usd_mn,0)}</td><td class="num">${f(r.imports_china_usd_mn,0)}</td><td class="num">${pc(r.imports_china_share)}</td><td class="num">${f(r.imports_taiwan_usd_mn,0)}</td><td class="num">${pc(r.imports_taiwan_share)}</td><td class="num">${fmtv(r.imports_taiwan_usd_mn>0?r.imports_china_usd_mn/r.imports_taiwan_usd_mn:null,'ratio')}</td><td class="num">${pc(r.top1_hs4_share)}</td><td class="num">${pc(r.top1_hs4_share_tw)}</td></tr>`).join('')+'</tbody>';
+  const yr=state.styear, lvl=state.stlvl, pn=state.stpartner; const mk=(flow,el,title)=>{const t=TOP.filter(r=>r.state===st&&r.year===yr&&r.flow===flow&&r.hs_level===lvl&&r.partner===pn); $(title).textContent=(flow==='exports'?`出口到${pn==='China'?'中國':'台灣'}前十大商品`:`自${pn==='China'?'中國':'台灣'}進口前十大商品`)+`（${yr===LATEST.year?yr+' YTD':yr}，${lvl}）`; $(el).innerHTML='<thead><tr><th>#</th><th>HS</th><th>商品</th><th class="num">百萬美元</th><th class="num">占對中'+(flow==='exports'?'出口':'進口')+'</th></tr></thead><tbody>'+t.map(r=>`<tr><td>${r.rank}</td><td>${r.hs}</td><td>${r.hs_desc}</td><td class="num">${f(r.value_usd_mn,1)}</td><td class="num">${pc(r.share)}</td></tr>`).join('')+'</tbody>';};
+  mk('exports','t_exp','texp'); mk('imports','t_imp','timp');
+  $('stextra').innerHTML=`其他層：中國投資者持有農地（AFIDA 2024）${f(info.afida_china_acres_2024,0)} 英畝${info.services_exp_china_2023_usd_mn?`；對中服務出口（USCBC，2023）${f(info.services_exp_china_2023_usd_mn,0)} 百萬美元（占 GDP ${f(info.services_exp_china_pct_gdp_2023,2)}%）`:'；對中服務出口：不在 USCBC 前 10 州，無資料'}${info.tariff_exposed_share_2025?`；受中國產品別報復關稅的出口比（2025-04）${pc(info.tariff_exposed_share_2025)}`:''}。`;}
+Object.keys(STATES).filter(s=>P.some(r=>r.state===s)).sort((a,b)=>STATES[a].localeCompare(STATES[b])).forEach(s=>{[$('stsel'),$('radarsel')].forEach(sel=>{const o=document.createElement('option');o.value=s;o.textContent=`${STATES_ZH[s]} ${STATES[s]} (${s})`;sel.appendChild(o);});}); $('stsel').value='TX';
+function update(){build(); const rs=rows(); drawMap(rs); drawScatter(rs); drawTable(rs); drawRadar();}
+$('checks').querySelectorAll('input').forEach(c=>c.onchange=()=>{c.checked?state.on.add(c.value):state.on.delete(c.value); if(!state.on.size){c.checked=true;state.on.add(c.value);} update();});
+$('year').onchange=e=>{state.year=+e.target.value;update();}; $('partner').onchange=e=>{state.partner=e.target.value;renderChecks();renderVarSelects();update();}; $('mapvar').onchange=e=>{state.mapvar=e.target.value;drawMap(rows());}; $('q').oninput=e=>{state.q=e.target.value;drawTable(rows());};
+$('sx').onchange=e=>{state.sx=e.target.value;drawScatter(rows());}; $('sy').onchange=e=>{state.sy=e.target.value;drawScatter(rows());};
+$('radarsel').onchange=e=>{addRadar(e.target.value);e.target.value='';}; $('radarbase').onchange=e=>{state.radarBase=e.target.checked;drawRadar();}; $('radarclear').onclick=()=>{state.radar=[];drawRadar();};
+$('stsel').onchange=e=>{state.st=e.target.value;drawState();}; $('stpartner').onchange=e=>{state.stpartner=e.target.value;drawState();}; $('styear').onchange=e=>{state.styear=+e.target.value;drawState();}; $('stlvl').onchange=e=>{state.stlvl=e.target.value;drawState();};
+document.querySelectorAll('nav.tabs button').forEach(b=>b.onclick=()=>{document.querySelectorAll('nav.tabs button').forEach(x=>x.classList.toggle('active',x===b)); ['dash','state','about'].forEach(t=>$('tab-'+t).style.display=t===b.dataset.tab?'':'none'); $('controls').style.display=b.dataset.tab==='dash'?'':'none'; if(b.dataset.tab==='state')drawState(); window.dispatchEvent(new Event('resize'));});
+$('dl').onclick=()=>{const keys=[...state.on]; const cols=['state','state_name','state_name_zh','year','score','s_exp','s_imp','s_vul','s_asset','score_china','score_taiwan','s_exp_china','s_exp_taiwan','s_imp_china','s_imp_taiwan','s_vul_china','s_vul_taiwan',...keys,...keys.map(k=>'pctile_'+k),'exports_china_usd_mn','exports_world_usd_mn','imports_china_usd_mn','imports_world_usd_mn','gdp_usd_mn']; const esc=v=>v==null?'':/[",\n]/.test(String(v))?'"'+String(v).replace(/"/g,'""')+'"':String(v); const lines=[cols.join(',')].concat(current.map(r=>cols.map(c=>esc(c.startsWith('pctile_')?r['p_'+c.slice(7)]:r[c])).join(','))); const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob(['﻿'+lines.join('\n')],{type:'text/csv;charset=utf-8'})); a.download=`us_states_china_exposure_${state.year}.csv`; a.click();};
+renderChecks(); $('about').innerHTML=ABOUT; update();
+</script>
+</body></html>

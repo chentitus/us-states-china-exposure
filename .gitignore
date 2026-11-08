@@ -1,0 +1,5 @@
+.env
+data/raw/*
+!data/raw/MANIFEST.md
+scripts/__pycache__/
+.DS_Store

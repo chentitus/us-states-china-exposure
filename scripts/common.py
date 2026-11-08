@@ -1,0 +1,9 @@
+import os, json, time, requests, pandas as pd
+from pathlib import Path
+ROOT = Path(__file__).resolve().parents[1]; RAW, CLEAN, SCRIPTS = ROOT/'data/raw', ROOT/'data/clean', ROOT/'scripts'
+def env(k):
+    for line in (ROOT/'.env').read_text().splitlines():
+        if line.startswith(k+'='): return line.split('=',1)[1].strip()
+    raise KeyError(k)
+STATES = {'AL':'Alabama','AK':'Alaska','AZ':'Arizona','AR':'Arkansas','CA':'California','CO':'Colorado','CT':'Connecticut','DE':'Delaware','DC':'District of Columbia','FL':'Florida','GA':'Georgia','HI':'Hawaii','ID':'Idaho','IL':'Illinois','IN':'Indiana','IA':'Iowa','KS':'Kansas','KY':'Kentucky','LA':'Louisiana','ME':'Maine','MD':'Maryland','MA':'Massachusetts','MI':'Michigan','MN':'Minnesota','MS':'Mississippi','MO':'Missouri','MT':'Montana','NE':'Nebraska','NV':'Nevada','NH':'New Hampshire','NJ':'New Jersey','NM':'New Mexico','NY':'New York','NC':'North Carolina','ND':'North Dakota','OH':'Ohio','OK':'Oklahoma','OR':'Oregon','PA':'Pennsylvania','RI':'Rhode Island','SC':'South Carolina','SD':'South Dakota','TN':'Tennessee','TX':'Texas','UT':'Utah','VT':'Vermont','VA':'Virginia','WA':'Washington','WV':'West Virginia','WI':'Wisconsin','WY':'Wyoming','PR':'Puerto Rico','VI':'U.S. Virgin Islands'}
+STATES_ZH = {'AL':'阿拉巴馬','AK':'阿拉斯加','AZ':'亞利桑那','AR':'阿肯色','CA':'加州','CO':'科羅拉多','CT':'康乃狄克','DE':'德拉瓦','DC':'華盛頓特區','FL':'佛羅里達','GA':'喬治亞','HI':'夏威夷','ID':'愛達荷','IL':'伊利諾','IN':'印第安納','IA':'愛荷華','KS':'堪薩斯','KY':'肯塔基','LA':'路易斯安那','ME':'緬因','MD':'馬里蘭','MA':'麻薩諸塞','MI':'密西根','MN':'明尼蘇達','MS':'密西西比','MO':'密蘇里','MT':'蒙大拿','NE':'內布拉斯加','NV':'內華達','NH':'新罕布夏','NJ':'紐澤西','NM':'新墨西哥','NY':'紐約','NC':'北卡羅來納','ND':'北達科他','OH':'俄亥俄','OK':'奧克拉荷馬','OR':'奧勒岡','PA':'賓夕法尼亞','RI':'羅德島','SC':'南卡羅來納','SD':'南達科他','TN':'田納西','TX':'德州','UT':'猶他','VT':'佛蒙特','VA':'維吉尼亞','WA':'華盛頓州','WV':'西維吉尼亞','WI':'威斯康辛','WY':'懷俄明','PR':'波多黎各','VI':'美屬維京群島'}
