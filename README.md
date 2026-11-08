@@ -220,3 +220,37 @@ us-states-china-exposure/
 | BEA Regional Accounts (SAGDP) | 美國政府公開資料 | U.S. Bureau of Economic Analysis. *GDP by State*. https://apps.bea.gov/regional |
 | USDA FSA, AFIDA Annual Report 2024 | 美國政府公開資料 | USDA Farm Service Agency. 2026. *Foreign Holdings of U.S. Agricultural Land through December 31, 2024*. |
 | US-China Business Council, *US Exports to China 2025* | 報告公開發布；本 repo 只收錄前 10 州摘錄 | US-China Business Council. 2025. *US Exports to China: Goods and Services Exports to China and the Jobs They Support, by State and Congressional District*. |
+
+## 8. 設計決策與變更紀錄（2026-11-07／08）
+
+**動機**：延伸國家層級的「對中依賴與曝險」方法到美國各州，量化各州對中國貿易與投資的依賴，並找出各州對中最大宗出口商品；時間範圍 2020–2026。
+
+### 8.1 資料取得
+- Census 貿易 API 現在強制要 key（無 key 直接導到 missing_key）；第一次貼的 key 少一個字元（39/40），第二次正確。BEA API key 也已申請，但 BEA MNE 州級表只列加、法、德、日、荷、瑞、英七國，中國併入「其他」，所以**中資在美 FDI 按州未納入**；Rhodium US-China Investment Hub 只到 2020 年。
+- Census API 對大檔（HS6、世界 HS4）常回 Cloudflare 524，腳本改為 8 次重試＋快取；世界 HS4 不需要，放棄。
+- USCBC 網站 403 但 PDF 直連可取；全州服務出口只有地圖圖像，僅前 10 州有數值。USDA AFIDA 2024 年報頁面改版，PDF 直連可取，Report 11 用 pdftotext -layout 解析州小計（總數 247,661 ≈ USDA 公布 247,659）。
+- 台灣（CTY_CODE 5830）於 11-08 加入同一套抓取。
+
+### 8.2 口徑決策
+- 出口 = Census「起運州」(Origin of Movement)，進口 = 「目的州」。起運州不等於生產州：路易斯安那黃豆、華盛頓飛機與 USCBC 的產地調整值差一倍以上，保留 Census 原值並在 README／說明頁標註。
+- 各州加總低於全國 1–4%（未歸屬州紀錄），列於核對表。
+- 年值用 `time=YYYY-12` 的年累計欄；2026 用 1–9 月累計（YTD），GDP 分母用 2025。
+
+### 8.3 曝險分數的演變
+1. 初版兩概念：出口依賴（出口占 GDP、占州總出口、最大商品集中度）＋進口依賴。
+2. 新墨西哥以 0.94 排第一，追查後發現 82–94% 對中出口是單一 HS6（854231 處理器，Intel Rio Rancho 廠）。結論：集中度是脆弱性不是依賴。
+3. 改為三概念：**出口依賴**（占 GDP、占州總出口）／**進口依賴**／**脆弱性**（最大 HS4 商品占比、HHI；可選報復關稅曝險）。HHI = Σ sᵢ²（HS4 占比平方和）。加州因此從 0.69 降到 0.54（量大但分散）。
+4. 「貿易對象」切換（中國／台灣）；對中與對台的總分與子分數同時計算並可在散點圖 X／Y 並列（預設對中總分 × 對台總分，45° 線）；另有中／台出口比與進口比（對數尺度）。
+
+### 8.4 視覺
+- 配色：中國＝紅、台灣＝藍（地圖色階、散點、表格長條、州詳情序列、雷達圖）；雷達圖多州以深淺＋線型區分，中位數基準線灰色。
+- 雷達圖軸 = 各指標百分位；州詳情頁含對中／對台年度金額、占比、相對依賴比走勢與前十大商品（HS2／HS4／HS6、對象可切換）。
+
+### 8.5 主要發現（2024 結構年；2025 起受關稅戰影響）
+- 對中出口前五州：德州 225 億（LNG／石油氣）、加州 150 億、華盛頓 119 億（飛機）、路易斯安那 101 億（黃豆 58%）、北卡 59 億（生物製劑 57%）。
+- 對台相對重要的州（中／台出口比最低）：亞利桑那 1.3×、加州 1.6×、紐約 1.7×、德州 2.0×；對中相對重要：印第安納 19×、阿拉斯加 17×、北卡 15×、路易斯安那 14×、肯塔基 13×。
+- 全美自台進口 2025 年 2,003 億、2026 年 1–9 月 2,140 億，已超過自中進口（2,060 億）；中／台進口比由 2020 年 7.2× 降到 1.0×。
+- 政治解讀的保留：州不做外交；對中依賴高的農業與製造州在 2023–2025 多通過限制中資農地或友台決議，經濟依賴只表現為對關稅的遊說，不會表現為疏遠台灣；對台依賴高的半導體／能源州正是政治上最挺台的州。
+
+### 8.6 發布
+- 2026-11-08 發布至 https://github.com/chentitus/us-states-china-exposure 與 GitHub Pages；`.env` 與原始下載檔不上傳。姊妹專案：https://github.com/chentitus/china-exposure-dashboard
