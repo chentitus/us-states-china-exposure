@@ -265,14 +265,16 @@ us-states-china-exposure/
 - USCBC 2026 年版（2025 年商品）只有州層級一頁式，無選區頁（`data/raw/uscbc2026/`）。
 - 網站主頁擋 curl（403），PDF 直連可取；連結清單由瀏覽器讀出。
 
-### 9.2 Shift-share 配置（郡與選區，2020–2026）
-曝險<sub>g</sub>(y) = Σ<sub>i</sub> [L<sub>g,i</sub>/L<sub>i</sub>] × X<sub>i</sub>(y)，i = NAICS 四位碼，L = CBP 2023 就業（`cbp2023_county_naics.csv`、`cbp2023_us_naics.csv`），X = 全國對中／台出口或進口（`naics_national_trade.csv`，Census `statenaics` 端點 STATE='-'；`naics` 國家端點與全州查詢會逾時）。郡除以 BEA 郡 GDP（CAGDP2）。選區：CBP 選區層級只有 2 位碼產業，改以郡級曝險 × 郡在各選區的土地面積占比配置（Census rel2020 `tab20_cd11920_county20_natl.txt`）。
-- 涵蓋率：CBP 不含農場（NAICS 111x）與特殊分類（91xx、99xx），2024 年對中出口只有 83% 能配置（未配置的最大項：油籽穀物 147 億、廢料 30 億、其他農產 23 億）。
-- 腳本：`07_fetch_naics_cbp.py` → `09_shift_share.py` → `10_geo.py`（Census 5m/20m 邊界 → GeoJSON）→ `11_build_district_dashboard.py`。
+### 9.2 Shift-share 配置（郡與選區，2020–2026）— v2
+曝險<sub>g</sub>(y) = Σ<sub>i</sub> [L<sub>g,i</sub>/Σ<sub>g</sub>L<sub>g,i</sub>] × X<sub>i</sub>(y)，i = NAICS 四位碼。
+- **郡**：L = BLS QCEW 2024 年均就業（county × NAICS4，private，agglvl 76；含農場受雇者，涵蓋 2024 對中出口的 96%，v1 用 CBP 只有 83%），揭露抑制格（58%）以 CBP 2023 補（`data/raw/qcew/2024_annual_singlefile.zip`）。
+- **選區**：L = ZBP 2023 ZIP × NAICS4 設立數 × 全國每設立平均就業（CBP US）→ ZCTA → 第 119 屆選區（Census rel2020 `tab20_cd11920_zcta520_natl.txt` 土地面積占比；98% 的 ZIP 就業對上）。v1 以郡曝險 × 郡—選區面積配置，保留於 `*_v1_cbp_area.csv`。
+- X = 全國對中／台出口或進口（`naics_national_trade.csv`，Census `statenaics` STATE='-'）。郡除以 BEA 郡 GDP。權重分母為各地區加總，故每個產業的全國值完整配置到各地區。
+- 腳本：`07_fetch_naics_cbp.py` → `12_shift_share_v2.py`（v1：`09_shift_share.py`）→ `10_geo.py` → `11_build_district_dashboard.py`。
 
-### 9.3 校驗
-- 州層級：各郡 shift-share 加總 vs Census 起運州觀測值，2024 出口相關 0.85、進口 0.95；全國合計 883 億 vs 1,407 億（農業與港口州的差距）。
-- 選區層級（n=424）：shift-share vs USCBC 2024 商品出口，Pearson 0.24、Spearman 0.41；USCBC／SS 比值中位數 1.34（四分位 0.77–2.82）。USCBC 遠高於 SS 的多為農業與單一大廠選區（KY-06 飛機、NM-01 Intel、OR-06 Intel、CA-21 農業），SS 遠高於 USCBC 的多為都會郡被面積切分的選區（OK-05、CA-27、AZ-09）。結論：shift-share 適合看產業結構曝險的相對高低，不能取代 USCBC 的金額；兩者都不是觀測值。
+### 9.3 校驗（v2；括號內為 v1）
+- 州層級：各郡 shift-share 加總 vs Census 起運州觀測值，2024 出口相關 0.85（0.85）、進口 0.91（0.95）；全國合計 1,352 億 vs 1,407 億（v1 883 億）。
+- 選區層級（n=429）：shift-share vs USCBC 2024 商品出口，Pearson 0.25（0.24）、Spearman 0.37（0.41）；USCBC／SS 比值中位數 1.14（1.34）。農業涵蓋與 ZIP 配置把總量與比值中位數拉近了，但排序相關沒有改善：剩下的差異來自 USCBC 用產值（Moody's）而非就業——煉油、化工、晶圓廠等資本密集產業每位員工出口額遠高於全國平均，就業配置系統性低估這些選區（KY-06、NM-01、OR-06、TX-36）。要再逼近只能改用產業產值或工資（QCEW 有工資，可作下一步）。結論不變：shift-share 看相對結構曝險，金額以 USCBC 為準，兩者皆非觀測值。
 
 ### 9.4 USCBC 2024 對中商品出口前 20 選區
 | code   | name                          |   goods_exports_china_2024_usd_mn |   goods_china_share_2024_pct |   goods_china_rank_2024 |   services_exports_china_2023_usd_mn |   jobs_supported_2023 |
