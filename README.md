@@ -1,6 +1,6 @@
 # 美國各州對中國／台灣貿易依賴與曝險（2020–2026）
 
-**線上儀表板（GitHub Pages）**：https://chentitus.github.io/us-states-china-exposure/dashboard/index.html
+**線上儀表板（GitHub Pages）**：州 https://chentitus.github.io/us-states-china-exposure/dashboard/index.html ｜ 國會選區與郡 https://chentitus.github.io/us-states-china-exposure/dashboard/districts.html
 原始碼與資料：https://github.com/chentitus/us-states-china-exposure ｜ 姊妹專案（國家層級）：https://github.com/chentitus/china-exposure-dashboard
 
 沿用 `china-exposure-dashboard`（國家層級）的方法：把金額換成依賴比率 → 概念分組 → 百分位平均子分數 → 總分；單檔儀表板 `dashboard/index.html`（雙擊開啟，Plotly CDN）。建置日期 2026-11-08。
@@ -254,3 +254,84 @@ us-states-china-exposure/
 
 ### 8.6 發布
 - 2026-11-08 發布至 https://github.com/chentitus/us-states-china-exposure 與 GitHub Pages；`.env` 與原始下載檔不上傳。姊妹專案：https://github.com/chentitus/china-exposure-dashboard
+
+## 9. 國會選區與郡（2026-11-08 新增，`dashboard/districts.html`）
+
+美國官方貿易統計只到州（與都會區出口），沒有郡或選區；以下兩種口徑都是**結構性估計**，並列互相校驗。
+
+### 9.1 USCBC／Trade Partnership Worldwide 選區估計
+- 來源：USCBC *US Exports to China 2025* 各州＋各選區一頁式 PDF（`data/raw/uscbc2025_states/`，51 州＋429 選區頁；7 個單一選區州以州頁代表），`08_parse_uscbc_districts.py` 解析。圖表為圖片，總額取「出口市場」清單中的 China 列（名次 >5 亦列出），故 436 席全部有值。
+- 欄位：對中商品出口 2024、中國名次與占該區商品出口比、2023–24 變動、服務出口 2023、支撐就業（直接＋間接，2023）、前五大對中出口商品與服務。方法：按產業配置州級數字至第 119 屆選區，**農產品歸種植地**。
+- USCBC 2026 年版（2025 年商品）只有州層級一頁式，無選區頁（`data/raw/uscbc2026/`）。
+- 網站主頁擋 curl（403），PDF 直連可取；連結清單由瀏覽器讀出。
+
+### 9.2 Shift-share 配置（郡與選區，2020–2026）
+曝險<sub>g</sub>(y) = Σ<sub>i</sub> [L<sub>g,i</sub>/L<sub>i</sub>] × X<sub>i</sub>(y)，i = NAICS 四位碼，L = CBP 2023 就業（`cbp2023_county_naics.csv`、`cbp2023_us_naics.csv`），X = 全國對中／台出口或進口（`naics_national_trade.csv`，Census `statenaics` 端點 STATE='-'；`naics` 國家端點與全州查詢會逾時）。郡除以 BEA 郡 GDP（CAGDP2）。選區：CBP 選區層級只有 2 位碼產業，改以郡級曝險 × 郡在各選區的土地面積占比配置（Census rel2020 `tab20_cd11920_county20_natl.txt`）。
+- 涵蓋率：CBP 不含農場（NAICS 111x）與特殊分類（91xx、99xx），2024 年對中出口只有 83% 能配置（未配置的最大項：油籽穀物 147 億、廢料 30 億、其他農產 23 億）。
+- 腳本：`07_fetch_naics_cbp.py` → `09_shift_share.py` → `10_geo.py`（Census 5m/20m 邊界 → GeoJSON）→ `11_build_district_dashboard.py`。
+
+### 9.3 校驗
+- 州層級：各郡 shift-share 加總 vs Census 起運州觀測值，2024 出口相關 0.85、進口 0.95；全國合計 883 億 vs 1,407 億（農業與港口州的差距）。
+- 選區層級（n=424）：shift-share vs USCBC 2024 商品出口，Pearson 0.24、Spearman 0.41；USCBC／SS 比值中位數 1.34（四分位 0.77–2.82）。USCBC 遠高於 SS 的多為農業與單一大廠選區（KY-06 飛機、NM-01 Intel、OR-06 Intel、CA-21 農業），SS 遠高於 USCBC 的多為都會郡被面積切分的選區（OK-05、CA-27、AZ-09）。結論：shift-share 適合看產業結構曝險的相對高低，不能取代 USCBC 的金額；兩者都不是觀測值。
+
+### 9.4 USCBC 2024 對中商品出口前 20 選區
+| code   | name                          |   goods_exports_china_2024_usd_mn |   goods_china_share_2024_pct |   goods_china_rank_2024 |   services_exports_china_2023_usd_mn |   jobs_supported_2023 |
+|:-------|:------------------------------|----------------------------------:|-----------------------------:|------------------------:|-------------------------------------:|----------------------:|
+| TX-38  | Texas' 38th District          |                              3700 |                            5 |                       6 |                                   76 |                  9840 |
+| IN-07  | Indiana's 7th District        |                              2400 |                           13 |                       2 |                                  129 |                  6010 |
+| OR-01  | Oregon's 1st District         |                              2300 |                           28 |                       1 |                                   91 |                  5340 |
+| OR-06  | Oregon's 6th District         |                              2200 |                           23 |                       1 |                                   90 |                  5580 |
+| KY-06  | Kentucky's 6th District       |                              2100 |                           11 |                       4 |                                   60 |                  5070 |
+| WA-01  | Washington's 1st District     |                              2000 |                           22 |                       1 |                                  193 |                  4080 |
+| WA-02  | Washington's 2nd District     |                              1800 |                           16 |                       1 |                                   68 |                  3640 |
+| NM-01  | New Mexico's 1st District     |                              1700 |                           20 |                       2 |                                   53 |                   840 |
+| TX-36  | Texas' 36th District          |                              1600 |                            5 |                       4 |                                   66 |                  4710 |
+| CA-17  | California's 17th District    |                              1600 |                            7 |                       4 |                                  461 |                  8980 |
+| LA-03  | Louisiana's 3rd District      |                              1300 |                            7 |                       2 |                                   80 |                  4440 |
+| NC-04  | North Carolina's 4th District |                              1300 |                           23 |                       1 |                                  246 |                  4940 |
+| KY-04  | Kentucky's 4th District       |                              1300 |                           12 |                       3 |                                   38 |                  3440 |
+| TX-07  | Texas' 7th District           |                              1200 |                            6 |                       5 |                                  106 |                  3970 |
+| TX-37  | Texas' 37th District          |                              1200 |                            6 |                       3 |                                  279 |                  6850 |
+| TX-11  | Texas' 11th District          |                              1200 |                            6 |                       5 |                                   36 |                  3570 |
+| IA-04  | Iowa's 4th District           |                              1100 |                           17 |                       2 |                                   67 |                  8370 |
+| TX-14  | Texas' 14th District          |                              1100 |                            4 |                       6 |                                   89 |                  3380 |
+| IL-15  | Illinois' 15th District       |                              1000 |                           12 |                       3 |                                   53 |                  7900 |
+| NE-03  | Nebraska's 3rd District       |                              1000 |                           17 |                       2 |                                   29 |                  8060 |
+
+### 9.5 中國占選區商品出口比最高 15
+| code   | name                           |   goods_exports_china_2024_usd_mn |   goods_china_share_2024_pct |   jobs_supported_2023 |
+|:-------|:-------------------------------|----------------------------------:|-----------------------------:|----------------------:|
+| OR-01  | Oregon's 1st District          |                              2300 |                           28 |                  5340 |
+| OR-06  | Oregon's 6th District          |                              2200 |                           23 |                  5580 |
+| NC-04  | North Carolina's 4th District  |                              1300 |                           23 |                  4940 |
+| NC-03  | North Carolina's 3rd District  |                               642 |                           22 |                  2270 |
+| WA-01  | Washington's 1st District      |                              2000 |                           22 |                  4080 |
+| WA-09  | Washington's 9th District      |                               960 |                           20 |                  3090 |
+| NC-13  | North Carolina's 13th District |                               983 |                           20 |                  2810 |
+| NM-01  | New Mexico's 1st District      |                              1700 |                           20 |                   840 |
+| AL-06  | Alabama's 6th District         |                               570 |                           19 |                  1870 |
+| AL-03  | Alabama's 3rd District         |                               673 |                           18 |                  2700 |
+| MA-06  | Massachusetts' 6th District    |                              1000 |                           18 |                  4080 |
+| NE-03  | Nebraska's 3rd District        |                              1000 |                           17 |                  8060 |
+| IA-04  | Iowa's 4th District            |                              1100 |                           17 |                  8370 |
+| MN-07  | Minnesota's 7th District       |                               953 |                           16 |                  7180 |
+| NC-01  | North Carolina's 1st District  |                               604 |                           16 |                  2480 |
+
+### 9.6 Shift-share 2024：對中出口占郡 GDP 最高 15 郡（就業 ≥ 5,000）
+| county_name      |   exports_china_usd_mn |   exports_china_pct_gdp |   imports_china_pct_gdp |   gdp_usd_mn |   emp_total_2023 |
+|:-----------------|-----------------------:|------------------------:|------------------------:|-------------:|-----------------:|
+| Ouachita, AR     |                  75.3  |                    8.73 |                    1.47 |       862.92 |             7973 |
+| Storey, NV       |                 140.57 |                    5.08 |                    2.86 |      2769.25 |            13213 |
+| Williamsburg, SC |                  46.76 |                    4.38 |                    1.02 |      1066.62 |             6046 |
+| Iberville, LA    |                 144.47 |                    4.2  |                    1.81 |      3436.27 |            10214 |
+| Chambers, TX     |                 144.73 |                    3.87 |                    1.93 |      3740.25 |            15806 |
+| Humboldt, NV     |                  63.89 |                    3.52 |                    0.1  |      1815.21 |             6392 |
+| Elko, NV         |                 139.68 |                    3.5  |                    0.24 |      3994.74 |            21652 |
+| Logan, WV        |                  64.7  |                    3.08 |                    0.04 |      2101.2  |             8673 |
+| Calhoun, TX      |                 143.13 |                    2.79 |                    0.67 |      5126.82 |             9399 |
+| Marshall, WV     |                  99.26 |                    2.7  |                    0.04 |      3675.8  |             9654 |
+| Lafourche, LA    |                 169.29 |                    2.69 |                    0.03 |      6287.2  |            28210 |
+| Wyoming, PA      |                  50.13 |                    2.69 |                    0.17 |      1865.59 |             8032 |
+| Marshall, KY     |                  46.1  |                    2.62 |                    3.72 |      1759.8  |             9645 |
+| Campbell, WY     |                 167.3  |                    2.52 |                    0.05 |      6628.4  |            19308 |
+| Midland, MI      |                 192.02 |                    2.47 |                    4.46 |      7778.57 |            37324 |

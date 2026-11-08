@@ -1,0 +1,481 @@
+unit,code,state,district,name,goods_exports_china_2024_usd_mn,goods_china_rank_2024,goods_change_2023_2024_pct,goods_china_share_2024_pct,services_exports_china_2023_usd_mn,services_china_rank_2023,services_change_2022_2023_pct,services_china_share_2023_pct,jobs_supported_2023,top_goods_market_2024
+state,AK,AK,,Alaska's,1500.0,1,29.0,26.0,146.0,3,10,8.0,4600,China
+state,AL,AL,,Alabama's,4200.0,3,12.0,16.0,327.0,4,15,6.0,15010,Canada
+district,AL-01,AL,1,Alabama's 1st District,492.0,2,14.0,16.0,25.0,5,32,5.0,1660,Mexico
+district,AL-02,AL,2,Alabama's 2nd District,328.0,3,15.0,13.0,71.0,3,10,7.0,1350,Mexico
+district,AL-03,AL,3,Alabama's 3rd District,673.0,1,9.0,18.0,55.0,1,19,10.0,2700,China
+district,AL-04,AL,4,Alabama's 4th District,781.0,3,7.0,15.0,28.0,3,19,6.0,2830,Mexico
+district,AL-05,AL,5,Alabama's 5th District,616.0,4,14.0,13.0,48.0,9,4,4.0,2080,Canada
+district,AL-06,AL,6,Alabama's 6th District,570.0,1,15.0,19.0,34.0,8,12,4.0,1870,China
+district,AL-07,AL,7,Alabama's 7th District,704.0,2,15.0,15.0,65.0,3,19,8.0,2560,Mexico
+state,AR,AR,,Arkansas',746.0,3,-22.0,9.0,149.0,4,26,6.0,6760,Mexico
+district,AR-01,AR,1,Arkansas' 1st District,535.0,3,-17.0,16.0,29.0,4,25,6.0,4260,Mexico
+district,AR-02,AR,2,Arkansas' 2nd District,36.0,7,-33.0,3.0,42.0,5,28,5.0,560,Mexico
+district,AR-03,AR,3,Arkansas' 3rd District,37.0,3,-11.0,3.0,41.0,5,28,6.0,520,Mexico
+district,AR-04,AR,4,Arkansas' 4th District,139.0,3,-36.0,6.0,38.0,3,24,7.0,1410,Mexico
+state,AZ,AZ,,Arizona's,1600.0,4,6.0,5.0,912.0,5,21,6.0,13350,Mexico
+district,AZ-01,AZ,1,Arizona's 1st District,244.0,5,4.0,5.0,190.0,10,19,4.0,1970,Mexico
+district,AZ-02,AZ,2,Arizona's 2nd District,121.0,4,13.0,4.0,37.0,4,57,7.0,890,Mexico
+district,AZ-03,AZ,3,Arizona's 3rd District,166.0,3,3.0,6.0,89.0,8,19,4.0,1190,Mexico
+district,AZ-04,AZ,4,Arizona's 4th District,279.0,4,-1.0,5.0,294.0,1,16,9.0,3770,Mexico
+district,AZ-05,AZ,5,Arizona's 5th District,108.0,4,6.0,5.0,39.0,10,17,4.0,640,Mexico
+district,AZ-06,AZ,6,Arizona's 6th District,357.0,3,11.0,6.0,33.0,10,37,4.0,1520,Mexico
+district,AZ-07,AZ,7,Arizona's 7th District,190.0,4,13.0,5.0,134.0,1,19,12.0,1990,Mexico
+district,AZ-08,AZ,8,Arizona's 8th District,118.0,4,5.0,5.0,71.0,10,19,4.0,900,Mexico
+district,AZ-09,AZ,9,Arizona's 9th District,62.0,3,1.0,5.0,25.0,5,47,4.0,480,Mexico
+state,CA,CA,,California's,15000.0,3,-10.0,8.0,8800.0,8,6,,123140,Mexico
+district,CA-01,CA,1,California's 1st District,281.0,3,-7.0,9.0,38.0,5,32,4.0,1990,Mexico
+district,CA-02,CA,2,California's 2nd District,430.0,3,8.0,11.0,87.0,11,8,3.0,2300,Mexico
+district,CA-03,CA,3,California's 3rd District,109.0,3,-11.0,8.0,58.0,10,18,3.0,950,Mexico
+district,CA-04,CA,4,California's 4th District,303.0,3,0.0,8.0,185.0,1,19,12.0,3240,Canada
+district,CA-05,CA,5,California's 5th District,276.0,3,-10.0,9.0,38.0,5,45,4.0,1840,Mexico
+district,CA-06,CA,6,California's 6th District,73.0,4,-26.0,7.0,51.0,10,24,3.0,740,Mexico
+district,CA-07,CA,7,California's 7th District,128.0,3,-31.0,9.0,52.0,8,21,4.0,1100,Mexico
+district,CA-08,CA,8,California's 8th District,201.0,4,-27.0,7.0,35.0,11,12,3.0,910,Mexico
+district,CA-09,CA,9,California's 9th District,241.0,3,-18.0,9.0,35.0,4,20,6.0,1700,Mexico
+district,CA-10,CA,10,California's 10th District,77.0,2,-7.0,11.0,59.0,11,0,3.0,650,Mexico
+district,CA-11,CA,11,California's 11th District,27.0,4,-17.0,5.0,642.0,11,5,3.0,3920,Mexico
+district,CA-12,CA,12,California's 12th District,530.0,3,-37.0,12.0,376.0,3,3,7.0,5900,Mexico
+district,CA-13,CA,13,California's 13th District,413.0,3,-9.0,9.0,21.0,4,48,5.0,2630,Mexico
+district,CA-14,CA,14,California's 14th District,492.0,2,-33.0,12.0,111.0,9,-2,4.0,3460,Mexico
+district,CA-15,CA,15,California's 15th District,278.0,2,1.0,9.0,311.0,10,-3,3.0,2140,Germany
+district,CA-16,CA,16,California's 16th District,842.0,4,-10.0,8.0,552.0,9,-9,4.0,6530,Mexico
+district,CA-17,CA,17,California's 17th District,1600.0,4,-11.0,7.0,461.0,9,-9,4.0,8980,Mexico
+district,CA-18,CA,18,California's 18th District,264.0,4,-9.0,8.0,159.0,5,2,5.0,2240,Mexico
+district,CA-19,CA,19,California's 19th District,279.0,4,-13.0,7.0,141.0,7,11,5.0,2300,Mexico
+district,CA-20,CA,20,California's 20th District,239.0,3,-6.0,9.0,37.0,4,25,5.0,1470,Mexico
+district,CA-21,CA,21,California's 21st District,354.0,3,-12.0,9.0,26.0,4,41,4.0,2320,Mexico
+district,CA-22,CA,22,California's 22nd District,167.0,3,-11.0,9.0,20.0,6,56,4.0,1070,Mexico
+district,CA-23,CA,23,California's 23rd District,63.0,3,-9.0,8.0,22.0,5,24,5.0,410,Mexico
+district,CA-24,CA,24,California's 24th District,334.0,3,-7.0,9.0,193.0,3,12,7.0,3130,Mexico
+district,CA-25,CA,25,California's 25th District,93.0,3,8.0,9.0,25.0,4,42,5.0,620,Mexico
+district,CA-26,CA,26,California's 26th District,335.0,3,-1.0,9.0,96.0,10,5,4.0,1960,Mexico
+district,CA-27,CA,27,California's 27th District,76.0,3,-7.0,7.0,61.0,8,18,4.0,730,Mexico
+district,CA-28,CA,28,California's 28th District,185.0,2,-8.0,9.0,148.0,9,18,3.0,1700,Mexico
+district,CA-29,CA,29,California's 29th District,193.0,4,-8.0,7.0,100.0,12,19,3.0,1380,Mexico
+district,CA-30,CA,30,California's 30th District,243.0,3,-4.0,8.0,336.0,7,12,4.0,3170,Mexico
+district,CA-31,CA,31,California's 31st District,134.0,4,-7.0,7.0,54.0,9,21,4.0,940,Mexico
+district,CA-32,CA,32,California's 32nd District,265.0,2,-5.0,8.0,270.0,8,12,3.0,2740,Mexico
+district,CA-33,CA,33,California's 33rd District,97.0,3,-9.0,8.0,30.0,6,26,5.0,610,Mexico
+district,CA-34,CA,34,California's 34th District,108.0,3,-1.0,7.0,100.0,7,30,4.0,1160,Mexico
+district,CA-35,CA,35,California's 35th District,309.0,3,-8.0,7.0,61.0,7,23,5.0,1670,Mexico
+district,CA-36,CA,36,California's 36th District,315.0,2,-8.0,8.0,503.0,5,12,4.0,4860,Mexico
+district,CA-37,CA,37,California's 37th District,155.0,3,-13.0,6.0,401.0,3,14,8.0,4300,Mexico
+district,CA-38,CA,38,California's 38th District,131.0,3,-4.0,8.0,61.0,10,21,3.0,920,Mexico
+district,CA-39,CA,39,California's 39th District,146.0,3,13.0,7.0,84.0,2,25,9.0,1370,Mexico
+district,CA-40,CA,40,California's 40th District,506.0,2,0.0,9.0,185.0,10,4,4.0,3080,Mexico
+district,CA-41,CA,41,California's 41st District,173.0,3,10.0,6.0,40.0,6,38,4.0,1040,Mexico
+district,CA-42,CA,42,California's 42nd District,156.0,3,-11.0,7.0,702.0,2,-8,14.0,4020,Mexico
+district,CA-43,CA,43,California's 43rd District,167.0,4,-14.0,7.0,342.0,4,9,7.0,2240,Mexico
+district,CA-44,CA,44,California's 44th District,173.0,3,-14.0,7.0,51.0,10,24,3.0,1040,Mexico
+district,CA-45,CA,45,California's 45th District,335.0,3,2.0,8.0,141.0,9,12,4.0,2280,Mexico
+district,CA-46,CA,46,California's 46th District,405.0,3,-1.0,8.0,113.0,9,10,4.0,2330,Mexico
+district,CA-47,CA,47,California's 47th District,439.0,2,2.0,9.0,348.0,6,10,6.0,4500,Mexico
+district,CA-48,CA,48,California's 48th District,334.0,3,-1.0,8.0,69.0,10,12,4.0,1890,Mexico
+district,CA-49,CA,49,California's 49th District,448.0,2,6.0,10.0,131.0,11,2,3.0,2460,Mexico
+district,CA-50,CA,50,California's 50th District,314.0,2,-5.0,9.0,308.0,5,11,6.0,3740,Mexico
+district,CA-51,CA,51,California's 51st District,508.0,4,-11.0,8.0,245.0,8,7,4.0,3630,Mexico
+district,CA-52,CA,52,California's 52nd District,99.0,3,-7.0,8.0,67.0,8,24,4.0,860,Mexico
+state,CO,CO,,Colorado's,783.0,3,-15.0,8.0,725.0,9,14,,9810,Mexico
+district,CO-01,CO,1,Colorado's 1st District,61.0,3,-5.0,10.0,178.0,9,25,3.0,1530,Mexico
+district,CO-02,CO,2,Colorado's 2nd District,186.0,3,-14.0,8.0,172.0,6,7,6.0,2410,Canada
+district,CO-03,CO,3,Colorado's 3rd District,46.0,3,-15.0,7.0,60.0,4,37,5.0,820,Canada
+district,CO-04,CO,4,Colorado's 4th District,179.0,4,-25.0,9.0,47.0,8,8,4.0,1600,Mexico
+district,CO-05,CO,5,Colorado's 5th District,51.0,6,4.0,6.0,74.0,9,18,4.0,740,Malaysia
+district,CO-06,CO,6,Colorado's 6th District,35.0,3,3.0,7.0,91.0,10,-1,4.0,670,Mexico
+district,CO-07,CO,7,Colorado's 7th District,78.0,3,1.0,6.0,73.0,9,7,4.0,850,Mexico
+district,CO-08,CO,8,Colorado's 8th District,147.0,5,-22.0,7.0,30.0,5,27,5.0,1200,Mexico
+state,CT,CT,,Connecticut's,1400.0,4,50.0,,568.0,6,12,,8260,Canada
+district,CT-01,CT,1,Connecticut's 1st District,617.0,3,69.0,11.0,82.0,12,14,3.0,1920,Germany
+district,CT-02,CT,2,Connecticut's 2nd District,242.0,5,46.0,8.0,110.0,4,16,7.0,1610,Canada
+district,CT-03,CT,3,Connecticut's 3rd District,195.0,4,26.0,7.0,185.0,1,13,9.0,2300,Canada
+district,CT-04,CT,4,Connecticut's 4th District,149.0,5,39.0,8.0,142.0,9,7,2.0,1470,Netherlands
+district,CT-05,CT,5,Connecticut's 5th District,221.0,5,39.0,7.0,49.0,11,14,3.0,950,Canada
+state,DC,DC,,District of Columbia's,2.2,35,171.0,,378.0,7,14,,2800,Switzerland
+state,DE,DE,,Delaware's,553.0,2,25.0,12.0,227.0,3,7,,2980,Canada
+state,FL,FL,,Florida's,1600.0,14,0.0,2.0,2200.0,7,31,4.0,22540,Brazil
+district,FL-01,FL,1,Florida's 1st District,136.0,5,4.0,4.0,52.0,5,47,4.0,800,Mexico
+district,FL-02,FL,2,Florida's 2nd District,41.0,13,-29.0,2.0,69.0,4,36,5.0,820,Canada
+district,FL-03,FL,3,Florida's 3rd District,69.0,17,-9.0,2.0,98.0,1,27,10.0,1190,Canada
+district,FL-04,FL,4,Florida's 4th District,71.0,11,-21.0,2.0,56.0,10,27,3.0,740,Brazil
+district,FL-05,FL,5,Florida's 5th District,66.0,12,-13.0,2.0,74.0,10,18,3.0,810,Brazil
+district,FL-06,FL,6,Florida's 6th District,56.0,11,3.0,2.0,56.0,4,38,7.0,710,Canada
+district,FL-07,FL,7,Florida's 7th District,49.0,12,-4.0,2.0,52.0,10,24,3.0,530,Mexico
+district,FL-08,FL,8,Florida's 8th District,186.0,14,-4.0,2.0,62.0,6,20,5.0,1190,Brazil
+district,FL-09,FL,9,Florida's 9th District,22.0,15,-1.0,2.0,83.0,7,67,4.0,820,Brazil
+district,FL-10,FL,10,Florida's 10th District,91.0,14,-4.0,2.0,272.0,5,33,5.0,2770,Brazil
+district,FL-11,FL,11,Florida's 11th District,36.0,14,0.0,2.0,54.0,5,28,5.0,640,Brazil
+district,FL-12,FL,12,Florida's 12th District,27.0,10,20.0,3.0,31.0,5,45,5.0,340,Mexico
+district,FL-13,FL,13,Florida's 13th District,125.0,17,6.0,2.0,62.0,10,31,3.0,890,Paraguay
+district,FL-14,FL,14,Florida's 14th District,60.0,12,-3.0,2.0,92.0,9,15,4.0,850,Canada
+district,FL-15,FL,15,Florida's 15th District,35.0,10,15.0,2.0,113.0,4,15,7.0,1050,Canada
+district,FL-16,FL,16,Florida's 16th District,42.0,16,7.0,2.0,38.0,9,31,4.0,440,Canada
+district,FL-17,FL,17,Florida's 17th District,33.0,10,7.0,3.0,50.0,5,29,5.0,570,Canada
+district,FL-18,FL,18,Florida's 18th District,56.0,10,15.0,2.0,31.0,5,37,5.0,400,Canada
+district,FL-19,FL,19,Florida's 19th District,41.0,4,-5.0,4.0,70.0,5,34,4.0,800,Canada
+district,FL-20,FL,20,Florida's 20th District,50.0,12,20.0,2.0,57.0,10,39,3.0,490,United Kingdom
+district,FL-21,FL,21,Florida's 21st District,49.0,14,5.0,2.0,46.0,8,33,4.0,550,Brazil
+district,FL-22,FL,22,Florida's 22nd District,26.0,19,10.0,2.0,55.0,9,33,4.0,530,Brazil
+district,FL-23,FL,23,Florida's 23rd District,68.0,12,17.0,2.0,114.0,8,24,4.0,1010,United Kingdom
+district,FL-24,FL,24,Florida's 24th District,32.0,11,16.0,2.0,75.0,11,61,3.0,560,United Kingdom
+district,FL-25,FL,25,Florida's 25th District,38.0,10,22.0,3.0,66.0,9,32,3.0,530,United Kingdom
+district,FL-26,FL,26,Florida's 26th District,29.0,11,13.0,2.0,88.0,19,54,1.0,560,United Kingdom
+district,FL-27,FL,27,Florida's 27th District,42.0,5,15.0,4.0,157.0,6,23,5.0,1220,United Kingdom
+district,FL-28,FL,28,Florida's 28th District,12.0,7,15.0,3.0,81.0,4,35,6.0,700,United Kingdom
+state,GA,GA,,Georgia's,3100.0,3,-22.0,6.0,1300.0,7,12,4.0,25250,Canada
+district,GA-01,GA,1,Georgia's 1st District,538.0,4,-10.0,7.0,238.0,1,-5,9.0,3450,Singapore
+district,GA-02,GA,2,Georgia's 2nd District,345.0,3,-27.0,8.0,54.0,4,22,4.0,2380,Canada
+district,GA-03,GA,3,Georgia's 3rd District,279.0,6,-31.0,4.0,43.0,6,27,4.0,1800,Mexico
+district,GA-04,GA,4,Georgia's 4th District,108.0,7,-1.0,3.0,72.0,9,3,4.0,810,Mexico
+district,GA-05,GA,5,Georgia's 5th District,58.0,4,-2.0,5.0,357.0,4,22,5.0,3230,Canada
+district,GA-06,GA,6,Georgia's 6th District,64.0,5,2.0,4.0,137.0,11,5,3.0,920,Mexico
+district,GA-07,GA,7,Georgia's 7th District,136.0,9,-38.0,3.0,119.0,12,3,3.0,1540,Netherlands
+district,GA-08,GA,8,Georgia's 8th District,274.0,3,-22.0,9.0,35.0,7,34,4.0,1880,Canada
+district,GA-09,GA,9,Georgia's 9th District,269.0,3,-40.0,6.0,45.0,9,19,4.0,2460,Canada
+district,GA-10,GA,10,Georgia's 10th District,209.0,3,-21.0,7.0,49.0,4,28,6.0,1620,Canada
+district,GA-11,GA,11,Georgia's 11th District,159.0,4,-8.0,5.0,78.0,6,14,4.0,1200,Canada
+district,GA-12,GA,12,Georgia's 12th District,300.0,3,-22.0,9.0,36.0,4,31,4.0,1950,Canada
+district,GA-13,GA,13,Georgia's 13th District,108.0,3,-1.0,6.0,49.0,8,25,4.0,650,Canada
+district,GA-14,GA,14,Georgia's 14th District,229.0,3,-21.0,7.0,32.0,8,27,4.0,1300,Canada
+state,HI,HI,,Hawaii's,20.0,6,25.0,5.0,173.0,6,62,5.0,1450,Japan
+district,HI-01,HI,1,Hawaii's 1st District,6.8,14,36.0,3.0,112.0,6,50,5.0,840,Japan
+district,HI-02,HI,2,Hawaii's 2nd District,14.0,4,20.0,8.0,61.0,5,92,5.0,600,New Zealand
+state,IA,IA,,Iowa's,2700.0,3,-18.0,13.0,263.0,6,10,5.0,21010,Canada
+district,IA-01,IA,1,Iowa's 1st District,542.0,3,-17.0,10.0,60.0,3,12,7.0,4040,Canada
+district,IA-02,IA,2,Iowa's 2nd District,721.0,3,-18.0,12.0,65.0,6,8,5.0,5590,Canada
+district,IA-03,IA,3,Iowa's 3rd District,361.0,3,-17.0,15.0,70.0,10,8,3.0,3030,Canada
+district,IA-04,IA,4,Iowa's 4th District,1100.0,2,-19.0,17.0,67.0,2,13,8.0,8370,Canada
+state,ID,ID,,Idaho's,216.0,6,5.0,5.0,121.0,6,26,5.0,1850,Canada
+district,ID-01,ID,1,Idaho's 1st District,75.0,6,8.0,4.0,39.0,5,34,5.0,650,Canada
+district,ID-02,ID,2,Idaho's 2nd District,140.0,6,4.0,5.0,82.0,7,23,5.0,1200,Canada
+state,IL,IL,,Illinois',5600.0,3,-13.0,7.0,2700.0,4,14,6.0,51170,Canada
+district,IL-01,IL,1,Illinois' 1st District,94.0,6,0.0,4.0,252.0,1,24,8.0,2820,Canada
+district,IL-02,IL,2,Illinois' 2nd District,347.0,3,-16.0,9.0,62.0,11,17,4.0,2660,Canada
+district,IL-03,IL,3,Illinois' 3rd District,136.0,4,2.0,5.0,67.0,11,15,4.0,1000,Canada
+district,IL-04,IL,4,Illinois' 4th District,108.0,3,8.0,5.0,52.0,11,27,3.0,770,Canada
+district,IL-05,IL,5,Illinois' 5th District,103.0,5,-4.0,5.0,805.0,3,10,9.0,3970,Canada
+district,IL-06,IL,6,Illinois' 6th District,147.0,5,0.0,4.0,99.0,11,16,3.0,1200,Canada
+district,IL-07,IL,7,Illinois' 7th District,130.0,3,16.0,5.0,294.0,5,13,4.0,2840,Canada
+district,IL-08,IL,8,Illinois' 8th District,243.0,4,0.0,5.0,97.0,11,8,3.0,1530,Canada
+district,IL-09,IL,9,Illinois' 9th District,113.0,4,5.0,5.0,206.0,4,21,5.0,2280,Canada
+district,IL-10,IL,10,Illinois' 10th District,440.0,8,-30.0,4.0,125.0,9,-1,4.0,2450,Canada
+district,IL-11,IL,11,Illinois' 11th District,235.0,5,1.0,5.0,72.0,9,10,4.0,1410,Canada
+district,IL-12,IL,12,Illinois' 12th District,770.0,3,-14.0,12.0,50.0,6,24,5.0,5750,Canada
+district,IL-13,IL,13,Illinois' 13th District,225.0,4,-7.0,5.0,255.0,1,17,13.0,3860,Canada
+district,IL-14,IL,14,Illinois' 14th District,234.0,3,-8.0,7.0,59.0,3,20,7.0,1840,Canada
+district,IL-15,IL,15,Illinois' 15th District,1000.0,3,-17.0,12.0,53.0,7,19,5.0,7900,Canada
+district,IL-16,IL,16,Illinois' 16th District,716.0,3,-14.0,8.0,44.0,7,19,5.0,5070,Canada
+district,IL-17,IL,17,Illinois' 17th District,522.0,4,-12.0,6.0,99.0,5,15,5.0,3830,Canada
+state,IN,IN,,Indiana's,6100.0,4,-1.0,10.0,690.0,4,13,7.0,27770,Canada
+district,IN-01,IN,1,Indiana's 1st District,62.0,3,-15.0,3.0,32.0,4,25,7.0,550,Canada
+district,IN-02,IN,2,Indiana's 2nd District,486.0,3,-2.0,6.0,81.0,3,12,9.0,3110,Canada
+district,IN-03,IN,3,Indiana's 3rd District,596.0,3,-3.0,9.0,40.0,6,19,6.0,3420,Canada
+district,IN-04,IN,4,Indiana's 4th District,408.0,3,-6.0,9.0,164.0,1,15,14.0,3640,Canada
+district,IN-05,IN,5,Indiana's 5th District,224.0,3,-2.0,8.0,41.0,7,21,4.0,1370,Canada
+district,IN-06,IN,6,Indiana's 6th District,470.0,3,-4.0,8.0,37.0,9,13,5.0,2360,Mexico
+district,IN-07,IN,7,Indiana's 7th District,2400.0,2,4.0,13.0,129.0,9,6,4.0,6010,Italy
+district,IN-08,IN,8,Indiana's 8th District,858.0,3,-3.0,11.0,54.0,6,11,5.0,3760,Canada
+district,IN-09,IN,9,Indiana's 9th District,626.0,3,-2.0,10.0,112.0,1,15,11.0,3570,Canada
+state,KS,KS,,Kansas',1100.0,4,-15.0,7.0,221.0,6,9,5.0,8720,Mexico
+district,KS-01,KS,1,Kansas' 1st District,530.0,4,-16.0,10.0,58.0,1,15,8.0,4160,Mexico
+district,KS-02,KS,2,Kansas' 2nd District,270.0,3,-6.0,9.0,32.0,4,14,6.0,1840,Mexico
+district,KS-03,KS,3,Kansas' 3rd District,104.0,6,-24.0,4.0,63.0,10,1,3.0,890,Canada
+district,KS-04,KS,4,Kansas' 4th District,227.0,6,-16.0,5.0,67.0,3,11,7.0,1820,Mexico
+state,KY,KY,,Kentucky's,4700.0,4,42.0,10.0,287.0,4,30,,15710,Canada
+district,KY-01,KY,1,Kentucky's 1st District,563.0,3,-2.0,9.0,92.0,1,21,11.0,3380,Canada
+district,KY-02,KY,2,Kentucky's 2nd District,448.0,3,20.0,8.0,26.0,6,42,5.0,1990,Canada
+district,KY-03,KY,3,Kentucky's 3rd District,228.0,4,14.0,5.0,55.0,8,21,4.0,1030,Canada
+district,KY-04,KY,4,Kentucky's 4th District,1300.0,3,58.0,12.0,38.0,6,51,4.0,3440,France
+district,KY-05,KY,5,Kentucky's 5th District,128.0,4,0.0,8.0,17.0,4,60,5.0,790,Canada
+district,KY-06,KY,6,Kentucky's 6th District,2100.0,4,68.0,11.0,60.0,4,29,7.0,5070,United Kingdom
+state,LA,LA,,Louisiana's,4100.0,5,-35.0,6.0,461.0,5,14,,15890,Netherlands
+district,LA-01,LA,1,Louisiana's 1st District,1000.0,2,-41.0,8.0,76.0,3,19,7.0,3950,Netherlands
+district,LA-02,LA,2,Louisiana's 2nd District,815.0,7,-33.0,5.0,166.0,9,9,3.0,3200,Mexico
+district,LA-03,LA,3,Louisiana's 3rd District,1300.0,2,-37.0,7.0,80.0,3,16,6.0,4440,Netherlands
+district,LA-04,LA,4,Louisiana's 4th District,426.0,3,-34.0,7.0,30.0,5,22,6.0,1550,United Kingdom
+district,LA-05,LA,5,Louisiana's 5th District,216.0,6,-19.0,4.0,63.0,2,14,8.0,1540,Mexico
+district,LA-06,LA,6,Louisiana's 6th District,322.0,9,-24.0,3.0,45.0,7,11,5.0,1240,Mexico
+state,MA,MA,,Massachusetts',3900.0,1,17.0,,2300.0,6,8,,32590,China
+district,MA-01,MA,1,Massachusetts' 1st District,397.0,2,27.0,11.0,62.0,4,23,6.0,1910,United Kingdom
+district,MA-02,MA,2,Massachusetts' 2nd District,563.0,3,18.0,11.0,182.0,2,12,9.0,3620,Mexico
+district,MA-03,MA,3,Massachusetts' 3rd District,645.0,1,12.0,11.0,136.0,9,-5,4.0,3070,China
+district,MA-04,MA,4,Massachusetts' 4th District,390.0,5,14.0,8.0,175.0,7,3,5.0,2730,United Kingdom
+district,MA-05,MA,5,Massachusetts' 5th District,359.0,1,12.0,12.0,401.0,5,3,6.0,4550,China
+district,MA-06,MA,6,Massachusetts' 6th District,1000.0,1,22.0,18.0,101.0,9,1,4.0,4080,China
+district,MA-07,MA,7,Massachusetts' 7th District,171.0,5,19.0,8.0,955.0,3,12,8.0,9450,Belgium
+district,MA-08,MA,8,Massachusetts' 8th District,127.0,3,7.0,8.0,210.0,12,8,2.0,1880,Mexico
+district,MA-09,MA,9,Massachusetts' 9th District,188.0,3,0.0,10.0,57.0,5,25,5.0,1300,Mexico
+state,MD,MD,,Maryland's,1200.0,3,10.0,7.0,850.0,6,10,,11010,Canada
+district,MD-01,MD,1,Maryland's 1st District,231.0,3,-5.0,7.0,50.0,8,23,4.0,1510,Canada
+district,MD-02,MD,2,Maryland's 2nd District,230.0,6,21.0,5.0,74.0,10,5,4.0,1180,France
+district,MD-03,MD,3,Maryland's 3rd District,78.0,5,2.0,5.0,110.0,10,7,3.0,970,Canada
+district,MD-04,MD,4,Maryland's 4th District,104.0,2,52.0,10.0,120.0,2,18,9.0,1360,Japan
+district,MD-05,MD,5,Maryland's 5th District,105.0,2,27.0,10.0,48.0,10,26,4.0,660,Japan
+district,MD-06,MD,6,Maryland's 6th District,310.0,2,13.0,9.0,51.0,10,10,3.0,1340,Canada
+district,MD-07,MD,7,Maryland's 7th District,104.0,7,6.0,5.0,280.0,1,13,10.0,3090,France
+district,MD-08,MD,8,Maryland's 8th District,58.0,6,-17.0,6.0,117.0,10,-3,3.0,900,United Kingdom
+state,ME,ME,,Maine's,130.0,5,9.0,5.0,96.0,5,28,5.0,1180,Canada
+district,ME-01,ME,1,Maine's 1st District,57.0,6,-8.0,4.0,55.0,6,27,4.0,630,Canada
+district,ME-02,ME,2,Maine's 2nd District,73.0,2,27.0,5.0,41.0,4,29,5.0,550,Canada
+state,MI,MI,,Michigan's,2400.0,3,-15.0,4.0,947.0,4,14,,20400,Canada
+district,MI-01,MI,1,Michigan's 1st District,141.0,3,-8.0,5.0,34.0,4,37,5.0,1030,Canada
+district,MI-02,MI,2,Michigan's 2nd District,240.0,3,-8.0,5.0,34.0,4,20,7.0,1630,Canada
+district,MI-03,MI,3,Michigan's 3rd District,318.0,3,-4.0,4.0,62.0,6,14,6.0,1870,Mexico
+district,MI-04,MI,4,Michigan's 4th District,373.0,4,-11.0,5.0,69.0,4,9,7.0,2250,Mexico
+district,MI-05,MI,5,Michigan's 5th District,327.0,3,-7.0,5.0,32.0,5,16,7.0,1980,Canada
+district,MI-06,MI,6,Michigan's 6th District,117.0,4,-31.0,3.0,226.0,1,15,12.0,2740,Canada
+district,MI-07,MI,7,Michigan's 7th District,132.0,3,-16.0,4.0,104.0,1,13,10.0,1680,Canada
+district,MI-08,MI,8,Michigan's 8th District,152.0,3,-17.0,4.0,35.0,6,19,6.0,1030,Canada
+district,MI-09,MI,9,Michigan's 9th District,187.0,3,-22.0,3.0,37.0,9,27,3.0,1410,Canada
+district,MI-10,MI,10,Michigan's 10th District,160.0,3,-21.0,3.0,36.0,8,2,4.0,1180,Canada
+district,MI-11,MI,11,Michigan's 11th District,133.0,3,-15.0,4.0,82.0,8,-3,4.0,1200,Mexico
+district,MI-12,MI,12,Michigan's 12th District,94.0,3,-27.0,3.0,114.0,4,18,7.0,1440,Canada
+district,MI-13,MI,13,Michigan's 13th District,68.0,4,-41.0,2.0,81.0,8,25,3.0,950,Canada
+state,MN,MN,,Minnesota's,3200.0,3,-12.0,,577.0,7,10,,22000,Canada
+district,MN-01,MN,1,Minnesota's 1st District,703.0,3,-17.0,11.0,60.0,5,14,7.0,5080,Canada
+district,MN-02,MN,2,Minnesota's 2nd District,174.0,3,-5.0,4.0,50.0,7,17,5.0,1110,Canada
+district,MN-03,MN,3,Minnesota's 3rd District,379.0,1,-8.0,11.0,117.0,11,-5,3.0,2110,China
+district,MN-04,MN,4,Minnesota's 4th District,273.0,3,1.0,11.0,77.0,5,10,5.0,1460,Canada
+district,MN-05,MN,5,Minnesota's 5th District,245.0,3,-7.0,12.0,164.0,5,15,4.0,2030,Canada
+district,MN-06,MN,6,Minnesota's 6th District,373.0,3,-3.0,12.0,44.0,5,13,6.0,1900,Canada
+district,MN-07,MN,7,Minnesota's 7th District,953.0,3,-18.0,16.0,34.0,7,10,5.0,7180,Canada
+district,MN-08,MN,8,Minnesota's 8th District,148.0,3,-15.0,7.0,31.0,4,22,5.0,1130,Canada
+state,MO,MO,,Missouri's,1500.0,3,-11.0,7.0,702.0,3,17,6.0,15470,Canada
+district,MO-01,MO,1,Missouri's 1st District,77.0,9,-5.0,3.0,225.0,3,13,8.0,2200,Canada
+district,MO-02,MO,2,Missouri's 2nd District,78.0,6,-14.0,3.0,63.0,11,9,4.0,820,Canada
+district,MO-03,MO,3,Missouri's 3rd District,137.0,3,-11.0,6.0,72.0,4,21,6.0,1480,Canada
+district,MO-04,MO,4,Missouri's 4th District,277.0,3,-13.0,13.0,80.0,3,19,7.0,2650,Mexico
+district,MO-05,MO,5,Missouri's 5th District,33.0,6,-12.0,2.0,96.0,7,15,4.0,860,Canada
+district,MO-06,MO,6,Missouri's 6th District,585.0,3,-14.0,11.0,51.0,5,19,6.0,4660,Canada
+district,MO-07,MO,7,Missouri's 7th District,85.0,4,-7.0,5.0,68.0,4,29,6.0,1000,Canada
+district,MO-08,MO,8,Missouri's 8th District,249.0,3,1.0,13.0,46.0,3,24,7.0,1800,Mexico
+state,MS,MS,,Mississippi's,969.0,4,-20.0,7.0,116.0,4,45,,7340,Canada
+district,MS-01,MS,1,Mississippi's 1st District,328.0,3,-21.0,8.0,31.0,4,35,6.0,2340,Canada
+district,MS-02,MS,2,Mississippi's 2nd District,322.0,3,-22.0,11.0,21.0,4,50,5.0,2690,Panama
+district,MS-03,MS,3,Mississippi's 3rd District,201.0,3,-19.0,7.0,30.0,4,29,6.0,1450,Canada
+district,MS-04,MS,4,Mississippi's 4th District,118.0,8,-14.0,3.0,34.0,4,72,5.0,870,Panama
+state,MT,MT,,Montana's,157.0,4,-3.0,6.0,69.0,4,37,5.0,1290,Canada
+district,MT-01,MT,1,Montana's 1st District,59.0,6,-30.0,5.0,42.0,4,37,6.0,660,Canada
+district,MT-02,MT,2,Montana's 2nd District,98.0,4,26.0,6.0,27.0,4,38,4.0,630,Canada
+state,NC,NC,,North Carolina's,6100.0,2,2.0,,1300.0,9,15,,27800,Canada
+district,NC-01,NC,1,North Carolina's 1st District,604.0,2,0.0,16.0,50.0,10,18,4.0,2480,Canada
+district,NC-02,NC,2,North Carolina's 2nd District,69.0,3,28.0,15.0,170.0,8,5,4.0,1460,Canada
+district,NC-03,NC,3,North Carolina's 3rd District,642.0,1,3.0,22.0,45.0,10,31,4.0,2270,China
+district,NC-04,NC,4,North Carolina's 4th District,1300.0,1,7.0,23.0,246.0,4,5,6.0,4940,China
+district,NC-05,NC,5,North Carolina's 5th District,342.0,2,-3.0,12.0,60.0,7,23,5.0,1750,Canada
+district,NC-06,NC,6,North Carolina's 6th District,319.0,3,0.0,10.0,47.0,7,35,4.0,1420,Canada
+district,NC-07,NC,7,North Carolina's 7th District,216.0,3,-4.0,12.0,57.0,8,20,4.0,1410,Canada
+district,NC-08,NC,8,North Carolina's 8th District,372.0,2,1.0,13.0,65.0,10,19,4.0,1800,Canada
+district,NC-09,NC,9,North Carolina's 9th District,221.0,3,1.0,9.0,40.0,7,36,4.0,1120,Canada
+district,NC-10,NC,10,North Carolina's 10th District,319.0,3,6.0,8.0,76.0,5,35,5.0,1800,Canada
+district,NC-11,NC,11,North Carolina's 11th District,297.0,3,-6.0,10.0,49.0,7,32,4.0,1490,Canada
+district,NC-12,NC,12,North Carolina's 12th District,108.0,3,4.0,9.0,225.0,8,15,3.0,1530,Canada
+district,NC-13,NC,13,North Carolina's 13th District,983.0,1,2.0,20.0,55.0,9,9,4.0,2810,China
+district,NC-14,NC,14,North Carolina's 14th District,252.0,3,-2.0,7.0,73.0,11,13,3.0,1290,Canada
+state,ND,ND,,North Dakota's,803.0,3,-9.0,,47.0,3,8,,5940,Canada
+state,NE,NE,,Nebraska's,1500.0,3,-15.0,14.0,135.0,6,15,,11550,Mexico
+district,NE-01,NE,1,Nebraska's 1st District,347.0,3,-11.0,11.0,54.0,5,15,6.0,2620,Canada
+district,NE-02,NE,2,Nebraska's 2nd District,85.0,3,-9.0,6.0,52.0,8,13,4.0,870,Canada
+district,NE-03,NE,3,Nebraska's 3rd District,1000.0,2,-17.0,17.0,29.0,6,19,5.0,8060,Mexico
+state,NH,NH,,New Hampshire's,368.0,5,6.0,,200.0,6,14,,3270,Germany
+district,NH-01,NH,1,New Hampshire's 1st District,155.0,4,7.0,5.0,97.0,8,16,4.0,1380,Germany
+district,NH-02,NH,2,New Hampshire's 2nd District,214.0,5,5.0,6.0,103.0,5,12,6.0,1890,Germany
+state,NJ,NJ,,New Jersey's,2200.0,4,-4.0,,1200.0,9,6,,15970,Canada
+district,NJ-01,NJ,1,New Jersey's 1st District,214.0,5,-31.0,5.0,47.0,9,22,4.0,1340,Canada
+district,NJ-02,NJ,2,New Jersey's 2nd District,113.0,3,-28.0,5.0,50.0,4,63,5.0,1100,Canada
+district,NJ-03,NJ,3,New Jersey's 3rd District,209.0,7,-11.0,4.0,77.0,10,-1,3.0,1360,Canada
+district,NJ-04,NJ,4,New Jersey's 4th District,57.0,3,8.0,6.0,42.0,9,22,4.0,520,Canada
+district,NJ-05,NJ,5,New Jersey's 5th District,223.0,3,15.0,7.0,73.0,9,12,4.0,1170,Canada
+district,NJ-06,NJ,6,New Jersey's 6th District,193.0,3,11.0,6.0,172.0,4,8,7.0,1930,Canada
+district,NJ-07,NJ,7,New Jersey's 7th District,292.0,4,-7.0,5.0,87.0,10,-3,3.0,1520,Canada
+district,NJ-08,NJ,8,New Jersey's 8th District,57.0,8,31.0,4.0,105.0,5,12,6.0,1020,Canada
+district,NJ-09,NJ,9,New Jersey's 9th District,238.0,3,-9.0,6.0,51.0,7,13,4.0,1210,Canada
+district,NJ-10,NJ,10,New Jersey's 10th District,87.0,6,7.0,5.0,234.0,7,-6,4.0,1680,Canada
+district,NJ-11,NJ,11,New Jersey's 11th District,282.0,4,10.0,6.0,118.0,10,9,3.0,1590,Canada
+district,NJ-12,NJ,12,New Jersey's 12th District,194.0,4,17.0,6.0,143.0,8,0,4.0,1520,Canada
+state,NM,NM,,New Mexico's,2000.0,2,632.0,,118.0,7,38,,1820,Mexico
+district,NM-01,NM,1,New Mexico's 1st District,1700.0,2,,20.0,53.0,8,41,4.0,840,Mexico
+district,NM-02,NM,2,New Mexico's 2nd District,139.0,2,45.0,7.0,31.0,4,33,6.0,580,Mexico
+district,NM-03,NM,3,New Mexico's 3rd District,142.0,2,171.0,10.0,34.0,8,37,4.0,390,Mexico
+state,NV,NV,,Nevada's,890.0,4,13.0,9.0,385.0,4,73,5.0,5980,Canada
+district,NV-01,NV,1,Nevada's 1st District,20.0,7,-1.0,3.0,131.0,5,87,5.0,1220,India
+district,NV-02,NV,2,Nevada's 2nd District,771.0,2,12.0,11.0,57.0,4,19,6.0,2790,Canada
+district,NV-03,NV,3,Nevada's 3rd District,36.0,7,3.0,2.0,125.0,5,89,4.0,1210,Switzerland
+district,NV-04,NV,4,Nevada's 4th District,63.0,4,35.0,8.0,71.0,4,85,4.0,750,Canada
+state,NY,NY,,New York's,2900.0,10,-23.0,4.0,5200.0,5,15,,52960,Canada
+district,NY-01,NY,1,New York's 1st District,159.0,8,-25.0,4.0,145.0,4,17,6.0,2150,Hong Kong
+district,NY-02,NY,2,New York's 2nd District,227.0,10,-29.0,4.0,67.0,10,22,4.0,1930,Hong Kong
+district,NY-03,NY,3,New York's 3rd District,53.0,10,-28.0,4.0,102.0,6,23,4.0,990,Canada
+district,NY-04,NY,4,New York's 4th District,21.0,10,-32.0,4.0,96.0,6,23,5.0,900,Canada
+district,NY-05,NY,5,New York's 5th District,21.0,7,-27.0,4.0,190.0,12,50,3.0,1160,Hong Kong
+district,NY-06,NY,6,New York's 6th District,28.0,10,-36.0,4.0,45.0,5,43,4.0,490,Hong Kong
+district,NY-07,NY,7,New York's 7th District,67.0,9,-31.0,4.0,90.0,3,27,7.0,1020,Hong Kong
+district,NY-08,NY,8,New York's 8th District,15.0,7,-30.0,5.0,26.0,6,29,4.0,270,Hong Kong
+district,NY-09,NY,9,New York's 9th District,17.0,7,-35.0,4.0,32.0,7,21,4.0,310,Hong Kong
+district,NY-10,NY,10,New York's 10th District,40.0,7,-34.0,4.0,1100.0,5,10,5.0,8590,Canada
+district,NY-11,NY,11,New York's 11th District,7.7,5,-25.0,4.0,36.0,7,27,4.0,260,Canada
+district,NY-12,NY,12,New York's 12th District,89.0,5,-41.0,5.0,1400.0,11,6,2.0,7450,Canada
+district,NY-13,NY,13,New York's 13th District,3.0,5,-31.0,5.0,470.0,2,15,11.0,4230,Canada
+district,NY-14,NY,14,New York's 14th District,25.0,7,-29.0,4.0,29.0,6,63,4.0,400,Hong Kong
+district,NY-15,NY,15,New York's 15th District,5.8,3,-13.0,7.0,58.0,1,22,13.0,720,Canada
+district,NY-16,NY,16,New York's 16th District,67.0,10,-36.0,3.0,73.0,8,20,4.0,970,Hong Kong
+district,NY-17,NY,17,New York's 17th District,94.0,11,-16.0,4.0,52.0,10,21,3.0,760,Switzerland
+district,NY-18,NY,18,New York's 18th District,139.0,11,-19.0,3.0,74.0,5,32,5.0,1210,Switzerland
+district,NY-19,NY,19,New York's 19th District,183.0,6,-17.0,5.0,206.0,1,18,11.0,2920,Canada
+district,NY-20,NY,20,New York's 20th District,198.0,4,-1.0,6.0,152.0,5,16,5.0,1900,Canada
+district,NY-21,NY,21,New York's 21st District,221.0,9,-21.0,4.0,68.0,5,26,4.0,1750,Canada
+district,NY-22,NY,22,New York's 22nd District,233.0,10,-20.0,3.0,187.0,3,18,7.0,2800,Switzerland
+district,NY-23,NY,23,New York's 23rd District,260.0,8,-22.0,4.0,71.0,8,24,4.0,1900,Canada
+district,NY-24,NY,24,New York's 24th District,237.0,10,-27.0,4.0,64.0,4,31,5.0,1920,Canada
+district,NY-25,NY,25,New York's 25th District,284.0,9,-12.0,5.0,205.0,1,14,10.0,3180,Canada
+district,NY-26,NY,26,New York's 26th District,215.0,10,-27.0,3.0,193.0,3,16,5.0,2640,Canada
+state,OH,OH,,Ohio's,3800.0,3,1.0,7.0,1300.0,4,12,5.0,26910,Canada
+district,OH-01,OH,1,Ohio's 1st District,298.0,3,56.0,7.0,174.0,4,8,5.0,1860,Canada
+district,OH-02,OH,2,Ohio's 2nd District,250.0,3,-6.0,10.0,29.0,8,24,4.0,1560,Canada
+district,OH-03,OH,3,Ohio's 3rd District,41.0,5,12.0,4.0,228.0,3,14,6.0,1800,Canada
+district,OH-04,OH,4,Ohio's 4th District,430.0,3,-5.0,6.0,44.0,8,8,5.0,2650,Canada
+district,OH-05,OH,5,Ohio's 5th District,521.0,3,-5.0,8.0,54.0,4,13,6.0,3310,Canada
+district,OH-06,OH,6,Ohio's 6th District,176.0,3,-26.0,6.0,38.0,5,16,5.0,1220,Canada
+district,OH-07,OH,7,Ohio's 7th District,231.0,3,-4.0,7.0,146.0,8,20,3.0,1880,Canada
+district,OH-08,OH,8,Ohio's 8th District,357.0,3,21.0,8.0,80.0,4,9,6.0,1870,Canada
+district,OH-09,OH,9,Ohio's 9th District,273.0,3,-5.0,5.0,63.0,3,11,6.0,1900,Canada
+district,OH-10,OH,10,Ohio's 10th District,165.0,3,9.0,6.0,101.0,3,15,6.0,1420,Canada
+district,OH-11,OH,11,Ohio's 11th District,138.0,3,10.0,6.0,166.0,3,13,7.0,1780,Canada
+district,OH-12,OH,12,Ohio's 12th District,255.0,3,-8.0,7.0,59.0,3,16,6.0,1910,Canada
+district,OH-13,OH,13,Ohio's 13th District,138.0,3,-5.0,5.0,59.0,7,7,5.0,930,Canada
+district,OH-14,OH,14,Ohio's 14th District,326.0,3,4.0,7.0,57.0,5,13,7.0,1640,Canada
+district,OH-15,OH,15,Ohio's 15th District,175.0,3,-1.0,6.0,50.0,6,2,4.0,1180,Canada
+state,OK,OK,,Oklahoma's,265.0,9,-3.0,3.0,222.0,4,36,,3110,Canada
+district,OK-01,OK,1,Oklahoma's 1st District,38.0,18,-3.0,1.0,46.0,4,30,5.0,510,Canada
+district,OK-02,OK,2,Oklahoma's 2nd District,85.0,6,2.0,6.0,23.0,4,69,4.0,570,Canada
+district,OK-03,OK,3,Oklahoma's 3rd District,89.0,5,-5.0,6.0,46.0,4,30,7.0,880,Canada
+district,OK-04,OK,4,Oklahoma's 4th District,29.0,7,-12.0,3.0,53.0,4,39,7.0,590,Canada
+district,OK-05,OK,5,Oklahoma's 5th District,25.0,11,1.0,2.0,55.0,4,31,6.0,560,Canada
+state,OR,OR,,Oregon's,5700.0,2,42.0,17.0,457.0,6,18,5.0,17290,Mexico
+district,OR-01,OR,1,Oregon's 1st District,2300.0,1,70.0,28.0,91.0,7,8,5.0,5340,China
+district,OR-02,OR,2,Oregon's 2nd District,335.0,3,-6.0,10.0,39.0,5,48,4.0,1520,Mexico
+district,OR-03,OR,3,Oregon's 3rd District,143.0,3,-32.0,4.0,97.0,7,25,4.0,1400,Mexico
+district,OR-04,OR,4,Oregon's 4th District,410.0,3,7.0,12.0,95.0,2,24,9.0,2120,Canada
+district,OR-05,OR,5,Oregon's 5th District,218.0,3,-20.0,5.0,45.0,6,21,4.0,1320,Mexico
+district,OR-06,OR,6,Oregon's 6th District,2200.0,1,58.0,23.0,90.0,8,4,4.0,5580,China
+state,PA,PA,,Pennsylvania's,3600.0,3,13.0,,1500.0,5,14,,24580,Canada
+district,PA-01,PA,1,Pennsylvania's 1st District,254.0,3,7.0,6.0,60.0,10,4,4.0,1170,Canada
+district,PA-02,PA,2,Pennsylvania's 2nd District,7.3,5,36.0,4.0,82.0,7,20,4.0,740,Canada
+district,PA-03,PA,3,Pennsylvania's 3rd District,5.1,4,41.0,5.0,247.0,1,16,10.0,2640,Canada
+district,PA-04,PA,4,Pennsylvania's 4th District,327.0,6,17.0,5.0,81.0,10,-3,3.0,1350,Canada
+district,PA-05,PA,5,Pennsylvania's 5th District,130.0,5,60.0,6.0,71.0,11,9,3.0,830,Canada
+district,PA-06,PA,6,Pennsylvania's 6th District,248.0,3,-5.0,6.0,69.0,11,1,2.0,1350,Canada
+district,PA-07,PA,7,Pennsylvania's 7th District,203.0,3,6.0,6.0,72.0,4,18,7.0,1330,Canada
+district,PA-08,PA,8,Pennsylvania's 8th District,141.0,3,15.0,5.0,43.0,6,32,5.0,750,Canada
+district,PA-09,PA,9,Pennsylvania's 9th District,335.0,3,23.0,9.0,26.0,8,13,5.0,1170,Canada
+district,PA-10,PA,10,Pennsylvania's 10th District,134.0,4,-5.0,4.0,77.0,5,20,5.0,1280,Canada
+district,PA-11,PA,11,Pennsylvania's 11th District,191.0,3,-10.0,6.0,48.0,5,20,5.0,1230,Canada
+district,PA-12,PA,12,Pennsylvania's 12th District,169.0,3,13.0,7.0,248.0,1,14,10.0,3070,Canada
+district,PA-13,PA,13,Pennsylvania's 13th District,221.0,3,-4.0,7.0,35.0,5,24,6.0,1230,Canada
+district,PA-14,PA,14,Pennsylvania's 14th District,507.0,2,46.0,12.0,40.0,4,19,6.0,1340,Canada
+district,PA-15,PA,15,Pennsylvania's 15th District,305.0,2,18.0,9.0,177.0,1,15,16.0,2920,Canada
+district,PA-16,PA,16,Pennsylvania's 16th District,218.0,3,-1.0,6.0,58.0,4,18,7.0,1380,Canada
+district,PA-17,PA,17,Pennsylvania's 17th District,166.0,3,17.0,7.0,55.0,10,10,4.0,830,Canada
+state,RI,RI,,Rhode Island's,122.0,8,35.0,,158.0,3,19,,1660,Canada
+district,RI-01,RI,1,Rhode Island's 1st District,61.0,8,47.0,5.0,115.0,1,18,10.0,1140,Canada
+district,RI-02,RI,2,Rhode Island's 2nd District,62.0,8,25.0,4.0,44.0,7,24,4.0,520,Canada
+state,SC,SC,,South Carolina's,3500.0,4,-12.0,,374.0,7,22,,17640,Germany
+district,SC-01,SC,1,South Carolina's 1st District,319.0,3,-1.0,8.0,37.0,6,48,4.0,1430,Germany
+district,SC-02,SC,2,South Carolina's 2nd District,300.0,3,-13.0,10.0,29.0,8,32,4.0,1460,Canada
+district,SC-03,SC,3,South Carolina's 3rd District,622.0,3,-15.0,11.0,41.0,3,20,8.0,3240,Canada
+district,SC-04,SC,4,South Carolina's 4th District,1000.0,3,-14.0,10.0,61.0,8,15,5.0,4940,Germany
+district,SC-05,SC,5,South Carolina's 5th District,545.0,3,-10.0,11.0,30.0,7,22,5.0,2480,Germany
+district,SC-06,SC,6,South Carolina's 6th District,373.0,7,-10.0,5.0,132.0,5,9,5.0,2490,Korea
+district,SC-07,SC,7,South Carolina's 7th District,272.0,4,-12.0,10.0,44.0,4,70,5.0,1620,Mexico
+state,SD,SD,,South Dakota's,844.0,2,-14.0,,90.0,4,15,,6670,Canada
+state,TN,TN,,Tennessee's,3600.0,3,12.0,9.0,648.0,6,28,,18460,Canada
+district,TN-01,TN,1,Tennessee's 1st District,700.0,3,41.0,13.0,66.0,5,46,5.0,2080,Mexico
+district,TN-02,TN,2,Tennessee's 2nd District,401.0,4,8.0,8.0,70.0,6,26,5.0,1960,Mexico
+district,TN-03,TN,3,Tennessee's 3rd District,434.0,3,5.0,7.0,48.0,7,26,4.0,1880,Canada
+district,TN-04,TN,4,Tennessee's 4th District,332.0,3,12.0,7.0,50.0,4,25,5.0,1770,Canada
+district,TN-05,TN,5,Tennessee's 5th District,331.0,4,1.0,8.0,88.0,10,37,3.0,1960,Canada
+district,TN-06,TN,6,Tennessee's 6th District,240.0,3,21.0,8.0,76.0,6,11,4.0,1600,Canada
+district,TN-07,TN,7,Tennessee's 7th District,282.0,3,7.0,9.0,129.0,5,32,5.0,2200,Canada
+district,TN-08,TN,8,Tennessee's 8th District,463.0,3,2.0,11.0,37.0,7,32,4.0,2550,Mexico
+district,TN-09,TN,9,Tennessee's 9th District,461.0,3,6.0,13.0,84.0,5,19,6.0,2450,Mexico
+state,TX,TX,,Texas',21000.0,5,-16.0,5.0,3100.0,7,10,5.0,87940,Mexico
+district,TX-01,TX,1,Texas' 1st District,585.0,4,-14.0,5.0,38.0,7,15,5.0,2240,Mexico
+district,TX-02,TX,2,Texas' 2nd District,800.0,5,-22.0,6.0,66.0,5,4,5.0,2620,Mexico
+district,TX-03,TX,3,Texas' 3rd District,277.0,3,-3.0,4.0,83.0,7,1,4.0,1550,Mexico
+district,TX-04,TX,4,Texas' 4th District,451.0,4,11.0,4.0,83.0,10,3,4.0,2010,Mexico
+district,TX-05,TX,5,Texas' 5th District,250.0,3,-1.0,5.0,40.0,10,7,4.0,1120,Mexico
+district,TX-06,TX,6,Texas' 6th District,406.0,3,-1.0,4.0,53.0,10,11,4.0,1680,Mexico
+district,TX-07,TX,7,Texas' 7th District,1200.0,5,-24.0,6.0,106.0,5,4,5.0,3970,Netherlands
+district,TX-08,TX,8,Texas' 8th District,181.0,5,-21.0,6.0,8.1,10,3,4.0,540,Mexico
+district,TX-09,TX,9,Texas' 9th District,324.0,3,-14.0,5.0,60.0,7,2,5.0,1400,Mexico
+district,TX-10,TX,10,Texas' 10th District,381.0,3,-12.0,6.0,118.0,2,12,8.0,2540,Mexico
+district,TX-11,TX,11,Texas' 11th District,1200.0,5,-27.0,6.0,36.0,6,6,5.0,3570,Netherlands
+district,TX-12,TX,12,Texas' 12th District,344.0,5,-8.0,3.0,84.0,7,18,5.0,1830,Mexico
+district,TX-13,TX,13,Texas' 13th District,810.0,5,-20.0,5.0,98.0,1,18,9.0,3690,Mexico
+district,TX-14,TX,14,Texas' 14th District,1100.0,6,-10.0,4.0,89.0,7,9,6.0,3380,Mexico
+district,TX-15,TX,15,Texas' 15th District,136.0,3,-13.0,4.0,30.0,4,20,6.0,810,Mexico
+district,TX-16,TX,16,Texas' 16th District,106.0,7,-7.0,2.0,65.0,5,10,7.0,890,Mexico
+district,TX-17,TX,17,Texas' 17th District,442.0,3,-7.0,6.0,55.0,5,16,7.0,2030,Mexico
+district,TX-18,TX,18,Texas' 18th District,352.0,5,-16.0,3.0,119.0,3,5,7.0,2120,Mexico
+district,TX-19,TX,19,Texas' 19th District,455.0,5,-25.0,5.0,63.0,2,19,8.0,2000,Mexico
+district,TX-20,TX,20,Texas' 20th District,46.0,6,-35.0,1.0,49.0,6,20,5.0,740,Mexico
+district,TX-21,TX,21,Texas' 21st District,199.0,3,-13.0,4.0,62.0,11,16,3.0,1270,Mexico
+district,TX-22,TX,22,Texas' 22nd District,384.0,3,-14.0,6.0,28.0,8,1,4.0,1240,Mexico
+district,TX-23,TX,23,Texas' 23rd District,229.0,5,-25.0,5.0,28.0,11,17,3.0,880,Mexico
+district,TX-24,TX,24,Texas' 24th District,423.0,3,-4.0,4.0,284.0,10,11,4.0,2860,Mexico
+district,TX-25,TX,25,Texas' 25th District,358.0,4,-15.0,5.0,134.0,3,22,6.0,2380,Mexico
+district,TX-26,TX,26,Texas' 26th District,154.0,3,-5.0,3.0,49.0,10,9,4.0,900,Mexico
+district,TX-27,TX,27,Texas' 27th District,562.0,5,-15.0,4.0,58.0,11,24,3.0,1960,Mexico
+district,TX-28,TX,28,Texas' 28th District,133.0,5,-13.0,4.0,37.0,5,18,4.0,760,Mexico
+district,TX-29,TX,29,Texas' 29th District,720.0,5,-20.0,5.0,147.0,9,-2,4.0,2810,Mexico
+district,TX-30,TX,30,Texas' 30th District,196.0,5,-12.0,5.0,85.0,9,25,4.0,1190,Mexico
+district,TX-31,TX,31,Texas' 31st District,224.0,3,0.0,5.0,37.0,9,15,4.0,1050,Mexico
+district,TX-32,TX,32,Texas' 32nd District,566.0,3,-1.0,6.0,223.0,6,4,5.0,3410,Mexico
+district,TX-33,TX,33,Texas' 33rd District,270.0,6,-2.0,3.0,97.0,9,30,3.0,1520,Mexico
+district,TX-34,TX,34,Texas' 34th District,120.0,3,-12.0,5.0,25.0,4,30,6.0,620,Mexico
+district,TX-35,TX,35,Texas' 35th District,584.0,3,-3.0,8.0,74.0,10,15,4.0,2960,Mexico
+district,TX-36,TX,36,Texas' 36th District,1600.0,4,-14.0,5.0,66.0,8,-1,4.0,4710,Mexico
+district,TX-37,TX,37,Texas' 37th District,1200.0,3,-2.0,6.0,279.0,8,5,4.0,6850,Mexico
+district,TX-38,TX,38,Texas' 38th District,3700.0,6,-26.0,5.0,76.0,11,-9,3.0,9840,Netherlands
+state,UT,UT,,Utah's,1100.0,3,-6.0,6.0,432.0,5,8,4.0,7450,United Kingdom
+district,UT-01,UT,1,Utah's 1st District,444.0,4,1.0,7.0,137.0,4,9,7.0,2910,United Kingdom
+district,UT-02,UT,2,Utah's 2nd District,312.0,3,-17.0,4.0,92.0,8,21,3.0,1880,United Kingdom
+district,UT-03,UT,3,Utah's 3rd District,249.0,3,0.0,9.0,142.0,8,0,4.0,1690,United Kingdom
+district,UT-04,UT,4,Utah's 4th District,143.0,3,-9.0,9.0,61.0,9,8,4.0,970,United Kingdom
+state,VA,VA,,Virginia's,1500.0,2,5.0,7.0,1100.0,8,14,4.0,13610,Canada
+district,VA-01,VA,1,Virginia's 1st District,127.0,2,27.0,11.0,63.0,4,27,5.0,880,Canada
+district,VA-02,VA,2,Virginia's 2nd District,61.0,4,3.0,6.0,48.0,4,33,4.0,630,Canada
+district,VA-03,VA,3,Virginia's 3rd District,30.0,5,29.0,3.0,109.0,7,4,4.0,770,Canada
+district,VA-04,VA,4,Virginia's 4th District,262.0,2,17.0,13.0,88.0,4,23,5.0,1500,Canada
+district,VA-05,VA,5,Virginia's 5th District,167.0,3,-7.0,7.0,111.0,3,18,7.0,1760,Canada
+district,VA-06,VA,6,Virginia's 6th District,368.0,3,-2.0,7.0,50.0,4,37,5.0,2130,Canada
+district,VA-07,VA,7,Virginia's 7th District,47.0,4,8.0,7.0,38.0,10,32,3.0,440,India
+district,VA-08,VA,8,Virginia's 8th District,11.0,9,2.0,3.0,163.0,12,10,3.0,1040,Canada
+district,VA-09,VA,9,Virginia's 9th District,352.0,4,3.0,6.0,83.0,1,21,9.0,2110,Canada
+district,VA-10,VA,10,Virginia's 10th District,59.0,8,15.0,4.0,83.0,13,16,3.0,720,Norway
+district,VA-11,VA,11,Virginia's 11th District,6.0,8,-2.0,3.0,217.0,8,1,4.0,1620,Canada
+state,VT,VT,,Vermont's,139.0,3,-8.0,8.0,65.0,5,27,5.0,1050,Canada
+state,WA,WA,,Washington's,6600.0,2,65.0,,1400.0,8,-5,,23770,Canada
+district,WA-01,WA,1,Washington's 1st District,2000.0,1,117.0,22.0,193.0,10,-18,4.0,4080,China
+district,WA-02,WA,2,Washington's 2nd District,1800.0,1,103.0,16.0,68.0,8,9,4.0,3640,China
+district,WA-03,WA,3,Washington's 3rd District,269.0,5,-6.0,7.0,57.0,6,1,6.0,1480,Canada
+district,WA-04,WA,4,Washington's 4th District,380.0,5,-2.0,7.0,32.0,7,36,4.0,2050,Canada
+district,WA-05,WA,5,Washington's 5th District,435.0,3,-6.0,9.0,73.0,4,27,7.0,2670,Canada
+district,WA-06,WA,6,Washington's 6th District,110.0,3,-3.0,6.0,90.0,4,9,7.0,1000,Canada
+district,WA-07,WA,7,Washington's 7th District,335.0,2,20.0,12.0,468.0,8,-6,5.0,3940,Canada
+district,WA-08,WA,8,Washington's 8th District,306.0,2,64.0,13.0,122.0,9,-9,4.0,1350,Canada
+district,WA-09,WA,9,Washington's 9th District,960.0,1,109.0,20.0,308.0,8,-13,4.0,3090,China
+district,WA-10,WA,10,Washington's 10th District,84.0,3,21.0,7.0,32.0,6,33,4.0,460,Canada
+state,WI,WI,,Wisconsin's,1900.0,3,-1.0,7.0,462.0,4,16,,12670,Canada
+district,WI-01,WI,1,Wisconsin's 1st District,179.0,3,17.0,5.0,32.0,7,36,5.0,880,Canada
+district,WI-02,WI,2,Wisconsin's 2nd District,195.0,3,-11.0,8.0,196.0,2,5,8.0,2540,Canada
+district,WI-03,WI,3,Wisconsin's 3rd District,315.0,3,-1.0,9.0,34.0,6,24,4.0,1980,Canada
+district,WI-04,WI,4,Wisconsin's 4th District,122.0,3,-19.0,6.0,63.0,5,27,5.0,1050,Canada
+district,WI-05,WI,5,Wisconsin's 5th District,246.0,3,-14.0,6.0,42.0,9,13,4.0,1450,Canada
+district,WI-06,WI,6,Wisconsin's 6th District,342.0,3,14.0,6.0,37.0,6,24,5.0,1680,Canada
+district,WI-07,WI,7,Wisconsin's 7th District,285.0,3,-3.0,8.0,24.0,6,35,4.0,1740,Canada
+district,WI-08,WI,8,Wisconsin's 8th District,239.0,3,8.0,7.0,34.0,7,33,4.0,1350,Canada
+state,WV,WV,,West Virginia's,443.0,2,-16.0,,78.0,4,23,,2020,Canada
+district,WV-01,WV,1,West Virginia's 1st District,113.0,2,-45.0,5.0,30.0,4,26,6.0,820,Canada
+district,WV-02,WV,2,West Virginia's 2nd District,329.0,2,2.0,12.0,47.0,2,21,8.0,1200,Canada
+state,WY,WY,,Wyoming's,130.0,4,45.0,6.0,33.0,4,38,,500,Canada

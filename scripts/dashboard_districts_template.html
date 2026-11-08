@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>美國國會選區與郡：對中國／台灣貿易曝險</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+:root{--bg:#fcfcfb;--panel:#fff;--line:#e4e3df;--text:#0b0b0b;--text2:#52514e;--muted:#8a8984;--accent:#2a78d6}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,"PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;font-size:14px;line-height:1.5}
+header{padding:14px 20px 8px;border-bottom:1px solid var(--line);background:var(--panel);display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:8px}
+header h1{font-size:18px;margin:0 0 2px;font-weight:600}
+header .sub{color:var(--text2);font-size:12px;max-width:1150px}
+header nav a{font-size:13px;color:var(--accent);margin-left:14px}
+nav.tabs{display:flex;gap:4px;padding:0 20px;background:var(--panel);border-bottom:1px solid var(--line)}
+nav.tabs button{background:none;border:none;border-bottom:2px solid transparent;padding:10px 12px;font:inherit;color:var(--text2);cursor:pointer}
+nav.tabs button.active{color:var(--text);border-bottom-color:var(--accent);font-weight:600}
+.controls{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end;padding:12px 20px;background:var(--panel);border-bottom:1px solid var(--line)}
+.ctl{display:flex;flex-direction:column;gap:4px;font-size:12px;color:var(--text2)}
+.ctl select,.ctl input{font:inherit;font-size:13px;padding:5px 8px;border:1px solid var(--line);border-radius:4px;background:#fff;color:var(--text)}
+.note{font-size:12px;color:var(--muted)}
+main{padding:16px 20px;max-width:1500px;margin:0 auto}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:12px 14px;min-width:0;margin-bottom:16px}
+.card h2{font-size:14px;margin:0 0 6px;font-weight:600}
+.h2row{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.grid{display:grid;grid-template-columns:3fr 2fr;gap:16px}.grid>div{min-width:0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}.grid2>div{min-width:0}
+table{border-collapse:collapse;width:100%;font-size:12.5px}
+th,td{padding:4px 7px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{color:var(--text2);font-weight:600;white-space:nowrap;position:sticky;top:0;background:var(--panel);cursor:pointer;user-select:none}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+.tablewrap{max-height:560px;overflow:auto;border:1px solid var(--line);border-radius:4px}
+.btn{font:inherit;font-size:13px;padding:5px 10px;border:1px solid var(--line);border-radius:4px;background:#fff;cursor:pointer;color:var(--text)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.about{max-width:950px;line-height:1.7}
+@media (max-width:1000px){.grid,.grid2{grid-template-columns:1fr !important}}
+</style>
+</head>
+<body>
+<header><div><h1>美國國會選區與郡：對中國／台灣貿易曝險</h1><div class="sub">兩種口徑並列互相校驗：<b>USCBC／Trade Partnership 估計</b>（第 119 屆國會 435 選區＋DC：對中商品出口 2024、服務出口 2023、支撐就業；農產品歸種植地）與本專案的 <b>shift-share 配置</b>（全國各產業對中／對台出口與進口 × 該地區占全國該產業就業比例；郡與選區皆有，2020–2026）。<b>兩者都是結構性估計，不是觀測到的貿易流。</b>配色：中國＝紅、台灣＝藍。</div></div>
+<nav><a href="index.html">州儀表板</a></nav></header>
+<nav class="tabs"><button class="active" data-tab="cd">國會選區</button><button data-tab="cty">郡</button><button data-tab="about">說明</button></nav>
+<div class="controls" id="ctl-cd">
+  <div class="ctl">地圖變數<select id="cdvar"></select></div>
+  <div class="ctl">年（shift-share）<select id="cdyear"></select></div>
+  <div class="ctl">州<select id="cdstate"><option value="">全部</option></select></div>
+  <div class="ctl">搜尋<input type="search" id="cdq" placeholder="TX-21 / 州" style="width:140px"></div>
+  <div class="ctl">&nbsp;<button class="btn primary" id="cddl">下載 CSV</button></div>
+</div>
+<div class="controls" id="ctl-cty" style="display:none">
+  <div class="ctl">地圖變數<select id="ctyvar"></select></div>
+  <div class="ctl">年<select id="ctyyear"></select></div>
+  <div class="ctl">州<select id="ctystate"><option value="">全部</option></select></div>
+  <div class="ctl">搜尋<input type="search" id="ctyq" placeholder="郡名" style="width:140px"></div>
+  <div class="ctl">&nbsp;<button class="btn primary" id="ctydl">下載 CSV</button></div>
+</div>
+<main>
+<section id="tab-cd">
+  <div class="grid"><div class="card"><div class="h2row"><h2 id="cdmaptitle">選區地圖</h2><span class="note">點選區看詳情。</span></div><div id="cdmap" style="height:470px"></div></div>
+    <div class="card"><div class="h2row"><h2>校驗：USCBC 估計 vs shift-share（2024 對中商品出口）</h2></div><div id="cdscatter" style="height:470px"></div></div></div>
+  <div class="card"><div class="h2row"><h2>選區表</h2><span class="note" id="cdcount"></span></div><div class="tablewrap"><table id="cdt"></table></div></div>
+  <div class="card" id="cddetail" style="display:none"><h2 id="cdtitle"></h2><div class="grid2"><div id="cdtrend" style="height:280px"></div><div><h2 id="cdprodt">USCBC：前五大對中出口商品（2024）與服務（2023）</h2><div class="tablewrap" style="max-height:280px"><table id="cdprod"></table></div></div></div>
+    <div style="margin-top:10px"><h2>shift-share：貢獻最大的產業（NAICS4）</h2><div class="tablewrap" style="max-height:260px"><table id="cdind"></table></div></div></div>
+</section>
+<section id="tab-cty" style="display:none">
+  <div class="grid"><div class="card"><div class="h2row"><h2 id="ctymaptitle">郡地圖</h2><span class="note">點郡看詳情；無 CBP 就業或 GDP 的郡為灰色。</span></div><div id="ctymap" style="height:520px"></div></div>
+    <div class="card"><div class="h2row"><h2>郡表（依地圖變數排序）</h2><span class="note" id="ctycount"></span></div><div class="tablewrap" style="max-height:520px"><table id="ctyt"></table></div></div></div>
+  <div class="card" id="ctydetail" style="display:none"><h2 id="ctytitle"></h2><div class="grid2"><div id="ctytrend" style="height:280px"></div><div><h2>shift-share：貢獻最大的產業（NAICS4）</h2><div class="tablewrap" style="max-height:280px"><table id="ctyind"></table></div></div></div></div>
+  <div class="card"><h2>校驗：各州郡加總（shift-share）vs Census 起運州觀測值（2024，十億美元）</h2><div id="stchk" style="height:360px"></div></div>
+</section>
+<section id="tab-about" style="display:none"><div class="card about" id="about"></div></section>
+<script>
+/*__DATA__*/
+const $=id=>document.getElementById(id); const PCOL={china:'#d03b3b',taiwan:'#2a78d6'};
+const RAMP={china:[[0,'#fbe3e0'],[0.25,'#f3b4ae'],[0.5,'#e67b73'],[0.75,'#c93f3a'],[1,'#7a1b17']],taiwan:[[0,'#cde2fb'],[0.25,'#9ec5f4'],[0.5,'#5598e7'],[0.75,'#256abf'],[1,'#0d366b']],grey:[[0,'#eeede9'],[1,'#52514e']]};
+const f0=v=>v==null||isNaN(v)?'–':Math.round(v).toLocaleString(); const f1=v=>v==null||isNaN(v)?'–':Number(v).toLocaleString('zh-Hant-TW',{maximumFractionDigits:1}); const f2=v=>v==null||isNaN(v)?'–':Number(v).toFixed(2);
+const CDVARS=[['u_goods','USCBC 對中商品出口 2024（百萬美元）','china','log'],['u_goods_share','USCBC 中國占選區商品出口 %（2024）','china','lin'],['u_services','USCBC 對中服務出口 2023（百萬美元）','china','log'],['u_jobs','USCBC 支撐就業（2023）','china','log'],
+  ['ss_exp_cn','shift-share 對中出口（百萬美元）','china','log'],['ss_exp_cn_pw','shift-share 對中出口／每位員工（美元）','china','lin'],['ss_imp_cn','shift-share 自中進口（百萬美元）','china','log'],['ss_imp_cn_pw','shift-share 自中進口／每位員工','china','lin'],
+  ['ss_exp_tw','shift-share 對台出口（百萬美元）','taiwan','log'],['ss_exp_tw_pw','shift-share 對台出口／每位員工','taiwan','lin'],['ss_imp_tw','shift-share 自台進口（百萬美元）','taiwan','log'],['ratio_u_ss','USCBC ÷ shift-share（2024 商品出口）','grey','log']];
+const CTYVARS=[['exports_china_pct_gdp','對中出口占郡 GDP %','china','lin'],['exports_china_usd_mn','對中出口（百萬美元）','china','log'],['exports_china_per_worker','對中出口／每位員工（美元）','china','lin'],['imports_china_pct_gdp','自中進口占郡 GDP %','china','lin'],['imports_china_usd_mn','自中進口（百萬美元）','china','log'],['imports_china_per_worker','自中進口／每位員工','china','lin'],
+  ['exports_taiwan_pct_gdp','對台出口占郡 GDP %','taiwan','lin'],['exports_taiwan_usd_mn','對台出口（百萬美元）','taiwan','log'],['imports_taiwan_pct_gdp','自台進口占郡 GDP %','taiwan','lin'],['ratio_exp','中／台出口比','grey','log']];
+const st={cdvar:'u_goods',cdyear:2024,cdstate:'',cdq:'',cdsort:'u_goods',cddir:-1,ctyvar:'exports_china_pct_gdp',ctyyear:2024,ctystate:'',ctyq:'',ctysort:null,ctydir:-1};
+CDVARS.forEach(([k,l])=>{const o=document.createElement('option');o.value=k;o.textContent=l;$('cdvar').appendChild(o);}); CTYVARS.forEach(([k,l])=>{const o=document.createElement('option');o.value=k;o.textContent=l;$('ctyvar').appendChild(o);});
+YEARS.forEach(y=>{[$('cdyear'),$('ctyyear')].forEach(s=>{const o=document.createElement('option');o.value=y;o.textContent=y===LATEST.year?`${y}（至 ${LATEST.month} 月）`:y;s.appendChild(o);});}); $('cdyear').value=2024;$('ctyyear').value=2024;
+Object.keys(STATES).filter(s=>!['PR','VI'].includes(s)).sort().forEach(s=>{[$('cdstate'),$('ctystate')].forEach(sel=>{const o=document.createElement('option');o.value=s;o.textContent=`${STATES_ZH[s]} ${s}`;sel.appendChild(o);});});
+// ---- CD rows
+function cdRows(){const y=st.cdyear; return CD.map(r=>{const ss=(SS_CD[r.code]||{})[y]||{}; return {...r, ss_exp_cn:ss.ec, ss_imp_cn:ss.ic, ss_exp_tw:ss.et, ss_imp_tw:ss.it, ss_exp_cn_pw:ss.ec!=null&&r.emp?ss.ec*1e6/r.emp:null, ss_imp_cn_pw:ss.ic!=null&&r.emp?ss.ic*1e6/r.emp:null, ss_exp_tw_pw:ss.et!=null&&r.emp?ss.et*1e6/r.emp:null, ratio_u_ss:(r.u_goods&&((SS_CD[r.code]||{})[2024]||{}).ec)?r.u_goods/((SS_CD[r.code]||{})[2024]||{}).ec:null};}).filter(r=>(!st.cdstate||r.state===st.cdstate)&&(!st.cdq||r.code.toLowerCase().includes(st.cdq.toLowerCase())||r.name.toLowerCase().includes(st.cdq.toLowerCase())));}
+function drawCDMap(rows){const [k,l,pal,sc]=CDVARS.find(v=>v[0]===st.cdvar); const d=rows.filter(r=>r[k]!=null&&r[k]>0||(sc==='lin'&&r[k]!=null)); const z=d.map(r=>sc==='log'?Math.log10(r[k]):r[k]);
+  Plotly.react('cdmap',[{type:'choropleth',geojson:GEO_CD,featureidkey:'id',locations:d.map(r=>r.geoid),z,customdata:d.map(r=>r.code),text:d.map(r=>`${r.code} ${r.name}<br>${l}：${k.includes('share')?f1(r[k])+'%':k.includes('_pw')||k.startsWith('ratio')?f2(r[k]):f0(r[k])}`),hoverinfo:'text',colorscale:RAMP[pal],marker:{line:{color:'#fff',width:0.3}},colorbar:{thickness:10,len:0.7,outlinewidth:0,...(sc==='log'?{tickvals:[0,1,2,3,4],ticktext:['1','10','100','1k','10k']}:{})}}],
+    {geo:{scope:'usa',fitbounds:st.cdstate?'locations':false,bgcolor:'rgba(0,0,0,0)',landcolor:'#f0efec',showlakes:false},margin:{l:0,r:0,t:0,b:0},paper_bgcolor:'rgba(0,0,0,0)'},{displayModeBar:false,responsive:true});
+  $('cdmaptitle').textContent=`選區地圖 — ${l}${k.startsWith('ss')?'，'+st.cdyear:''}`; $('cdmap').removeAllListeners&&$('cdmap').removeAllListeners('plotly_click'); $('cdmap').on('plotly_click',ev=>showCD(ev.points[0].customdata));}
+function drawCDScatter(rows){const d=rows.filter(r=>r.u_goods>0&&((SS_CD[r.code]||{})[2024]||{}).ec>0); const x=d.map(r=>((SS_CD[r.code]||{})[2024]||{}).ec), y=d.map(r=>r.u_goods);
+  Plotly.react('cdscatter',[{type:'scatter',mode:'markers+text',x,y,text:d.map(r=>r.code),textposition:'top center',textfont:{size:8,color:'#8a8984'},customdata:d.map(r=>r.code),marker:{color:'#d03b3b',size:7,opacity:0.6},hovertemplate:d.map(r=>`${r.code} ${r.name}<br>shift-share %{x:,.0f}<br>USCBC %{y:,.0f}<extra></extra>`)},{type:'scatter',mode:'lines',x:[1,30000],y:[1,30000],line:{color:'#b5b4ae',dash:'dot',width:1},hoverinfo:'skip',showlegend:false}],
+    {margin:{l:60,r:10,t:10,b:45},xaxis:{title:{text:'shift-share 對中出口 2024（百萬美元，對數）',font:{size:11}},type:'log',gridcolor:'#eeede9'},yaxis:{title:{text:'USCBC 對中商品出口 2024（百萬美元，對數）',font:{size:11}},type:'log',gridcolor:'#eeede9'},showlegend:false,paper_bgcolor:'rgba(0,0,0,0)',plot_bgcolor:'rgba(0,0,0,0)',font:{size:11}},{displayModeBar:false,responsive:true});
+  $('cdscatter').removeAllListeners&&$('cdscatter').removeAllListeners('plotly_click'); $('cdscatter').on('plotly_click',ev=>{if(ev.points[0].customdata)showCD(ev.points[0].customdata);});}
+let cdCur=[];
+function drawCDTable(rows){const k=st.cdsort,d=st.cddir; rows=rows.slice().sort((a,b)=>{const x=a[k],y=b[k]; if(x==null)return 1; if(y==null)return -1; return (typeof x==='number'?x-y:String(x).localeCompare(String(y)))*d;}); cdCur=rows; $('cdcount').textContent=`${rows.length} 個選區`;
+  const cols=[['code','選區'],['u_goods','USCBC 對中商品出口 2024'],['u_goods_share','中國占比 %'],['u_goods_rank','中國名次'],['u_services','USCBC 服務出口 2023'],['u_jobs','支撐就業'],['ss_exp_cn',`shift-share 對中出口 ${st.cdyear}`],['ss_exp_cn_pw','／員工'],['ss_imp_cn',`自中進口 ${st.cdyear}`],['ss_exp_tw',`對台出口 ${st.cdyear}`],['ratio_u_ss','USCBC÷SS'],['emp','就業 2023']];
+  $('cdt').innerHTML='<thead><tr>'+cols.map(([c,l])=>`<th data-k="${c}" class="${c==='code'?'':'num'}">${l}${k===c?(d<0?' ▼':' ▲'):''}</th>`).join('')+'</tr></thead><tbody>'+rows.map(r=>'<tr>'+cols.map(([c])=>c==='code'?`<td><a href="#" data-cd="${r.code}" style="color:inherit">${r.code}</a> <span class="note">${r.name}</span></td>`:`<td class="num">${c==='u_goods_share'?f1(r[c]):c==='ratio_u_ss'||c.endsWith('_pw')?f2(r[c]):f0(r[c])}</td>`).join('')+'</tr>').join('')+'</tbody>';
+  $('cdt').querySelectorAll('th').forEach(th=>th.onclick=()=>{const c=th.dataset.k; if(st.cdsort===c)st.cddir*=-1; else{st.cdsort=c;st.cddir=c==='code'?1:-1;} drawCDTable(cdRows());}); $('cdt').querySelectorAll('a[data-cd]').forEach(a=>a.onclick=e=>{e.preventDefault();showCD(a.dataset.cd);});}
+function showCD(code){const r=CD.find(x=>x.code===code); if(!r)return; $('cddetail').style.display=''; $('cdtitle').textContent=`${code} ${r.name}　USCBC：對中商品出口 ${f0(r.u_goods)} 百萬（中國為第 ${r.u_goods_rank??'–'} 大市場，占 ${f1(r.u_goods_share)}%）、服務 ${f0(r.u_services)} 百萬、支撐 ${f0(r.u_jobs)} 個工作`;
+  const ss=SS_CD[code]||{}; const ys=YEARS.filter(y=>ss[y]); const lab=ys.map(y=>y===LATEST.year?y+' YTD':String(y));
+  Plotly.react('cdtrend',[{type:'bar',name:'對中出口',x:lab,y:ys.map(y=>ss[y].ec),marker:{color:'#d03b3b'}},{type:'bar',name:'自中進口',x:lab,y:ys.map(y=>ss[y].ic),marker:{color:'#f0a39e'}},{type:'bar',name:'對台出口',x:lab,y:ys.map(y=>ss[y].et),marker:{color:'#2a78d6'}},{type:'bar',name:'自台進口',x:lab,y:ys.map(y=>ss[y].it),marker:{color:'#9ec5f4'}}],{title:{text:'shift-share 配置（百萬美元）',font:{size:12},x:0,xanchor:'left'},barmode:'group',margin:{l:55,r:10,t:30,b:30},legend:{orientation:'h',y:-0.18,font:{size:10}},yaxis:{gridcolor:'#eeede9',tickformat:',.0f'},paper_bgcolor:'rgba(0,0,0,0)',plot_bgcolor:'rgba(0,0,0,0)',font:{size:11}},{displayModeBar:false,responsive:true});
+  const pr=(PROD[code]||[]); $('cdprod').innerHTML='<thead><tr><th>類別</th><th>#</th><th>產品</th><th class="num">百萬美元</th></tr></thead><tbody>'+pr.map(p=>`<tr><td>${p[0]==='goods'?'商品':'服務'}</td><td>${p[1]}</td><td>${p[2]}</td><td class="num">${f1(p[3])}</td></tr>`).join('')+'</tbody>';
+  const ind=(IND_CD[code]||[]).filter(i=>i[2]===2024||i[2]===2025); $('cdind').innerHTML='<thead><tr><th>流向</th><th>對象</th><th>年</th><th>NAICS</th><th>產業</th><th class="num">就業</th><th class="num">配置金額（百萬）</th></tr></thead><tbody>'+ind.map(i=>`<tr><td>${i[0]==='exports'?'出口':'進口'}</td><td style="color:${PCOL[i[1]]}">${i[1]==='china'?'中國':'台灣'}</td><td>${i[2]}</td><td>${i[3]}</td><td>${i[4]}</td><td class="num">${f0(i[5])}</td><td class="num">${f1(i[6])}</td></tr>`).join('')+'</tbody>';
+  $('cddetail').scrollIntoView({behavior:'smooth',block:'start'});}
+function updateCD(){const rows=cdRows(); drawCDMap(rows); drawCDScatter(rows); drawCDTable(rows);}
+// ---- counties
+function ctyRows(){const y=st.ctyyear; return CTY.map(r=>{const v=(r.y||{})[y]||{}; return {...r,...v, ratio_exp:(v.exports_taiwan_usd_mn>0)?v.exports_china_usd_mn/v.exports_taiwan_usd_mn:null};}).filter(r=>(!st.ctystate||r.state===st.ctystate)&&(!st.ctyq||(r.name||'').toLowerCase().includes(st.ctyq.toLowerCase())));}
+function drawCtyMap(rows){const [k,l,pal,sc]=CTYVARS.find(v=>v[0]===st.ctyvar); const d=rows.filter(r=>r[k]!=null&&isFinite(r[k])&&(sc!=='log'||r[k]>0)); const z=d.map(r=>sc==='log'?Math.log10(r[k]):r[k]); const zs=z.slice().sort((a,b)=>a-b); const zmax=zs[Math.floor(zs.length*0.98)]||1;
+  Plotly.react('ctymap',[{type:'choropleth',geojson:GEO_CTY,featureidkey:'id',locations:d.map(r=>r.geofips),z,zmin:sc==='log'?Math.min(...z):0,zmax,customdata:d.map(r=>r.geofips),text:d.map(r=>`${r.name}<br>${l}：${k.includes('pct')?f2(r[k])+'%':k.includes('_per_')||k.startsWith('ratio')?f2(r[k]):f0(r[k])}<br>GDP ${f0(r.gdp_usd_mn)} 百萬`),hoverinfo:'text',colorscale:RAMP[pal],marker:{line:{color:'#fff',width:0.2}},colorbar:{thickness:10,len:0.7,outlinewidth:0,title:{text:'98 百分位截斷',font:{size:10}},...(sc==='log'?{tickvals:[-1,0,1,2,3],ticktext:['0.1','1','10','100','1k']}:{})}}],
+    {geo:{scope:'usa',fitbounds:st.ctystate?'locations':false,bgcolor:'rgba(0,0,0,0)',landcolor:'#f0efec',showlakes:false},margin:{l:0,r:0,t:0,b:0},paper_bgcolor:'rgba(0,0,0,0)'},{displayModeBar:false,responsive:true});
+  $('ctymaptitle').textContent=`郡地圖 — ${l}，${st.ctyyear}`; $('ctymap').removeAllListeners&&$('ctymap').removeAllListeners('plotly_click'); $('ctymap').on('plotly_click',ev=>showCty(ev.points[0].customdata));}
+let ctyCur=[];
+function drawCtyTable(rows){const k=st.ctysort||st.ctyvar,d=st.ctydir; rows=rows.filter(r=>r[k]!=null&&isFinite(r[k])).sort((a,b)=>(a[k]-b[k])*d); ctyCur=rows; $('ctycount').textContent=`${rows.length} 郡，顯示前 200`;
+  const cols=[['name','郡'],['gdp_usd_mn','GDP（百萬）'],['exports_china_usd_mn','對中出口'],['exports_china_pct_gdp','% GDP'],['imports_china_usd_mn','自中進口'],['imports_china_pct_gdp','% GDP'],['exports_taiwan_usd_mn','對台出口'],['ratio_exp','中／台'],['emp_total_2023','就業']];
+  $('ctyt').innerHTML='<thead><tr>'+cols.map(([c,l])=>`<th data-k="${c}" class="${c==='name'?'':'num'}">${l}${k===c?(d<0?' ▼':' ▲'):''}</th>`).join('')+'</tr></thead><tbody>'+rows.slice(0,200).map(r=>'<tr>'+cols.map(([c])=>c==='name'?`<td><a href="#" data-g="${r.geofips}" style="color:inherit">${r.name}</a></td>`:`<td class="num">${c.includes('pct')||c==='ratio_exp'?f2(r[c]):f0(r[c])}</td>`).join('')+'</tr>').join('')+'</tbody>';
+  $('ctyt').querySelectorAll('th').forEach(th=>th.onclick=()=>{const c=th.dataset.k; if(c==='name')return; if(st.ctysort===c)st.ctydir*=-1; else{st.ctysort=c;st.ctydir=-1;} drawCtyTable(ctyRows());}); $('ctyt').querySelectorAll('a[data-g]').forEach(a=>a.onclick=e=>{e.preventDefault();showCty(a.dataset.g);});}
+function showCty(g){const r=CTY.find(x=>x.geofips===g); if(!r)return; $('ctydetail').style.display=''; $('ctytitle').textContent=`${r.name}（${g}）　GDP ${f0((r.y[2024]||{}).gdp_usd_mn)} 百萬，就業 ${f0(r.emp_total_2023)}`;
+  const ys=YEARS.filter(y=>r.y[y]); const lab=ys.map(y=>y===LATEST.year?y+' YTD':String(y));
+  Plotly.react('ctytrend',[{type:'bar',name:'對中出口',x:lab,y:ys.map(y=>r.y[y].exports_china_usd_mn),marker:{color:'#d03b3b'}},{type:'bar',name:'自中進口',x:lab,y:ys.map(y=>r.y[y].imports_china_usd_mn),marker:{color:'#f0a39e'}},{type:'bar',name:'對台出口',x:lab,y:ys.map(y=>r.y[y].exports_taiwan_usd_mn),marker:{color:'#2a78d6'}},{type:'bar',name:'自台進口',x:lab,y:ys.map(y=>r.y[y].imports_taiwan_usd_mn),marker:{color:'#9ec5f4'}}],{title:{text:'shift-share 配置（百萬美元）',font:{size:12},x:0,xanchor:'left'},barmode:'group',margin:{l:55,r:10,t:30,b:30},legend:{orientation:'h',y:-0.18,font:{size:10}},yaxis:{gridcolor:'#eeede9',tickformat:',.0f'},paper_bgcolor:'rgba(0,0,0,0)',plot_bgcolor:'rgba(0,0,0,0)',font:{size:11}},{displayModeBar:false,responsive:true});
+  const ind=(IND_CTY[g]||[]); $('ctyind').innerHTML='<thead><tr><th>流向</th><th>對象</th><th>年</th><th>NAICS</th><th>產業</th><th class="num">就業</th><th class="num">配置金額（百萬）</th></tr></thead><tbody>'+ind.map(i=>`<tr><td>${i[0]==='exports'?'出口':'進口'}</td><td style="color:${PCOL[i[1]]}">${i[1]==='china'?'中國':'台灣'}</td><td>${i[2]}</td><td>${i[3]}</td><td>${i[4]}</td><td class="num">${f0(i[5])}</td><td class="num">${f1(i[6])}</td></tr>`).join('')+'</tbody>';
+  $('ctydetail').scrollIntoView({behavior:'smooth',block:'start'});}
+function drawStateCheck(){const d=STCHK; Plotly.react('stchk',[{type:'scatter',mode:'markers+text',x:d.map(r=>r.census/1000),y:d.map(r=>r.ss/1000),text:d.map(r=>r.state),textposition:'top center',textfont:{size:9,color:'#52514e'},marker:{color:'#d03b3b',size:8,opacity:0.7},hovertemplate:d.map(r=>`${r.state}<br>Census 起運州 %{x:.1f}<br>郡加總 shift-share %{y:.1f}<extra></extra>`)},{type:'scatter',mode:'lines',x:[0.05,30],y:[0.05,30],line:{color:'#b5b4ae',dash:'dot',width:1},hoverinfo:'skip'}],{margin:{l:60,r:10,t:10,b:45},xaxis:{title:{text:'Census 州對中出口 2024（起運州，十億，對數）',font:{size:11}},type:'log',gridcolor:'#eeede9'},yaxis:{title:{text:'郡 shift-share 加總（十億，對數）',font:{size:11}},type:'log',gridcolor:'#eeede9'},showlegend:false,paper_bgcolor:'rgba(0,0,0,0)',plot_bgcolor:'rgba(0,0,0,0)',font:{size:11}},{displayModeBar:false,responsive:true});}
+function updateCty(){const rows=ctyRows(); drawCtyMap(rows); drawCtyTable(rows); drawStateCheck();}
+$('cdvar').onchange=e=>{st.cdvar=e.target.value;if(!st.cdvar.startsWith('ratio'))st.cdsort=st.cdvar;updateCD();}; $('cdyear').onchange=e=>{st.cdyear=+e.target.value;updateCD();}; $('cdstate').onchange=e=>{st.cdstate=e.target.value;updateCD();}; $('cdq').oninput=e=>{st.cdq=e.target.value;drawCDTable(cdRows());};
+$('ctyvar').onchange=e=>{st.ctyvar=e.target.value;st.ctysort=null;updateCty();}; $('ctyyear').onchange=e=>{st.ctyyear=+e.target.value;updateCty();}; $('ctystate').onchange=e=>{st.ctystate=e.target.value;updateCty();}; $('ctyq').oninput=e=>{st.ctyq=e.target.value;drawCtyTable(ctyRows());};
+const dl=(rows,name)=>{if(!rows.length)return; const cols=Object.keys(rows[0]).filter(c=>c!=='y'); const esc=v=>v==null?'':/[",\n]/.test(String(v))?'"'+String(v).replace(/"/g,'""')+'"':String(v); const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob(['﻿'+[cols.join(',')].concat(rows.map(r=>cols.map(c=>esc(r[c])).join(','))).join('\n')],{type:'text/csv;charset=utf-8'})); a.download=name; a.click();};
+$('cddl').onclick=()=>dl(cdCur,`districts_china_exposure_${st.cdyear}.csv`); $('ctydl').onclick=()=>dl(ctyCur,`counties_china_exposure_${st.ctyyear}.csv`);
+let ctyDrawn=false;
+document.querySelectorAll('nav.tabs button').forEach(b=>b.onclick=()=>{document.querySelectorAll('nav.tabs button').forEach(x=>x.classList.toggle('active',x===b)); ['cd','cty','about'].forEach(t=>$('tab-'+t).style.display=t===b.dataset.tab?'':'none'); $('ctl-cd').style.display=b.dataset.tab==='cd'?'':'none'; $('ctl-cty').style.display=b.dataset.tab==='cty'?'':'none'; if(b.dataset.tab==='cty'&&!ctyDrawn){ctyDrawn=true;updateCty();} window.dispatchEvent(new Event('resize'));});
+$('about').innerHTML=ABOUT; updateCD();
+</script>
+</body></html>

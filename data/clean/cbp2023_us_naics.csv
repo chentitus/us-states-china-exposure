@@ -1,0 +1,2004 @@
+NAICS2017,NAICS2017_LABEL,EMP,ESTAB,PAYANN,us
+00,Total for all sectors,139831742,8361342,9556351319,1
+11,"Agriculture, forestry, fishing and hunting",161334,22752,9180464,1
+113,Forestry and logging,47629,7917,2808333,1
+1131,Timber tract operations,3781,471,252600,1
+11311,Timber tract operations,3781,471,252600,1
+113110,Timber tract operations,3781,471,252600,1
+1132,Forest nurseries and gathering of forest products,932,185,57398,1
+11321,Forest nurseries and gathering of forest products,932,185,57398,1
+113210,Forest nurseries and gathering of forest products,932,185,57398,1
+1133,Logging,42916,7261,2498335,1
+11331,Logging,42916,7261,2498335,1
+113310,Logging,42916,7261,2498335,1
+114,"Fishing, hunting and trapping",6615,2949,497553,1
+1141,Fishing,4581,2503,404067,1
+11411,Fishing,4581,2503,404067,1
+114111,Finfish fishing,2739,1436,272429,1
+114112,Shellfish fishing,1604,940,101837,1
+114119,Other marine fishing,238,127,29801,1
+1142,Hunting and trapping,2034,446,93486,1
+11421,Hunting and trapping,2034,446,93486,1
+114210,Hunting and trapping,2034,446,93486,1
+115,Support activities for agriculture and forestry,107090,11886,5874578,1
+1151,Support activities for crop production,68364,5072,3817020,1
+11511,Support activities for crop production,68364,5072,3817020,1
+115111,Cotton ginning,1955,190,132962,1
+115112,"Soil preparation, planting, and cultivating",14132,2210,924425,1
+115113,"Crop harvesting, primarily by machine",2818,338,205936,1
+115114,Postharvest crop activities (except cotton ginning),26330,1000,1478192,1
+115115,Farm labor contractors and crew leaders,18879,650,749587,1
+115116,Farm management services,4250,684,325918,1
+1152,Support activities for animal production,23365,4791,1055308,1
+11521,Support activities for animal production,23365,4791,1055308,1
+115210,Support activities for animal production,23365,4791,1055308,1
+1153,Support activities for forestry,15361,2023,1002250,1
+11531,Support activities for forestry,15361,2023,1002250,1
+115310,Support activities for forestry,15361,2023,1002250,1
+21,"Mining, quarrying, and oil and gas extraction",553036,23360,63643926,1
+211,Oil and gas extraction,90968,5205,17499167,1
+2111,Oil and gas extraction,90968,5205,17499167,1
+21112,Crude petroleum extraction,63367,3863,12719120,1
+211120,Crude petroleum extraction,63367,3863,12719120,1
+21113,Natural gas extraction,27601,1342,4780047,1
+211130,Natural gas extraction,27601,1342,4780047,1
+212,Mining (except oil and gas),173729,6121,16276564,1
+2121,Coal mining,42347,491,4502236,1
+21211,Coal mining,42347,491,4502236,1
+212111,Bituminous coal and lignite surface mining,16376,270,1702866,1
+212112,Bituminous coal underground mining,24999,166,2723027,1
+212113,Anthracite mining,972,55,76343,1
+2122,Metal ore mining,41280,337,4357576,1
+21221,Iron ore mining,5004,23,528687,1
+212210,Iron ore mining,5004,23,528687,1
+21222,Gold ore and silver ore mining,15713,195,1764878,1
+212221,Gold ore mining,14060,183,1582645,1
+212222,Silver ore mining,1653,12,182233,1
+21223,"Copper, nickel, lead, and zinc mining",16844,61,1633052,1
+212230,"Copper, nickel, lead, and zinc mining",16844,61,1633052,1
+21229,Other metal ore mining,3719,58,430959,1
+212291,Uranium-radium-vanadium ore mining,314,24,31347,1
+212299,All other metal ore mining,3405,34,399612,1
+2123,Nonmetallic mineral mining and quarrying,90102,5293,7416752,1
+21231,Stone mining and quarrying,43124,2440,3408081,1
+212311,Dimension stone mining and quarrying,4660,379,268060,1
+212312,Crushed and broken limestone mining and quarrying,25735,1376,2044710,1
+212313,Crushed and broken granite mining and quarrying,5670,251,489158,1
+212319,Other crushed and broken stone mining and quarrying,7059,434,606153,1
+21232,"Sand, gravel, clay, and ceramic and refractory minerals mining and quarrying",36740,2617,2959569,1
+212321,Construction sand and gravel mining,25397,2282,2014205,1
+212322,Industrial sand mining,6668,216,578242,1
+212324,Kaolin and ball clay mining,2258,33,174662,1
+212325,Clay and ceramic and refractory minerals mining,2417,86,192460,1
+21239,Other nonmetallic mineral mining and quarrying,10238,236,1049102,1
+212391,"Potash, soda, and borate mineral mining",3338,23,410376,1
+212392,Phosphate rock mining,1226,8,134599,1
+212393,Other chemical and fertilizer mineral mining,2798,48,291589,1
+212399,All other nonmetallic mineral mining,2876,157,212538,1
+213,Support activities for mining,288339,12034,29868195,1
+2131,Support activities for mining,288339,12034,29868195,1
+21311,Support activities for mining,288339,12034,29868195,1
+213111,Drilling oil and gas wells,54211,1786,5369326,1
+213112,Support activities for oil and gas operations,221161,9627,23291644,1
+213113,Support activities for coal mining,4265,190,338840,1
+213114,Support activities for metal mining,5325,224,587610,1
+213115,Support activities for nonmetallic minerals (except fuels) mining,3377,207,280775,1
+22,Utilities,667277,20379,84904374,1
+221,Utilities,667277,20379,84904374,1
+2211,"Electric power generation, transmission and distribution",519711,12735,69270756,1
+22111,Electric power generation,134570,4192,18178682,1
+221111,Hydroelectric power generation,4156,561,501315,1
+221112,Fossil fuel electric power generation,68230,1788,9020279,1
+221113,Nuclear electric power generation,38822,166,5279178,1
+221114,Solar electric power generation,8867,779,1223028,1
+221115,Wind electric power generation,9251,611,1454255,1
+221116,Geothermal electric power generation,1565,48,199277,1
+221117,Biomass electric power generation,2268,116,273610,1
+221118,Other electric power generation,1411,123,227740,1
+22112,"Electric power transmission, control, and distribution",385141,8543,51092074,1
+221121,Electric bulk power transmission and control,20606,360,3277530,1
+221122,Electric power distribution,364535,8183,47814544,1
+2212,Natural gas distribution,95538,2434,11579243,1
+22121,Natural gas distribution,95538,2434,11579243,1
+221210,Natural gas distribution,95538,2434,11579243,1
+2213,"Water, sewage and other systems",52028,5210,4054375,1
+22131,Water supply and irrigation systems,43082,4554,3312570,1
+221310,Water supply and irrigation systems,43082,4554,3312570,1
+22132,Sewage treatment facilities,6989,538,511807,1
+221320,Sewage treatment facilities,6989,538,511807,1
+22133,Steam and air-conditioning supply,1957,118,229998,1
+221330,Steam and air-conditioning supply,1957,118,229998,1
+23,Construction,7659459,814557,586559516,1
+236,Construction of buildings,1621439,254630,133659908,1
+2361,Residential building construction,905357,212178,64355625,1
+23611,Residential building construction,905357,212178,64355625,1
+236115,New single-family housing construction (except for-sale builders),236076,60635,15346277,1
+236116,New multifamily housing construction (except for-sale builders),56980,4014,5918154,1
+236117,New housing for-sale builders,132029,12192,15737836,1
+236118,Residential remodelers,480272,135337,27353358,1
+2362,Nonresidential building construction,716082,42452,69304283,1
+23621,Industrial building construction,75224,3380,6978409,1
+236210,Industrial building construction,75224,3380,6978409,1
+23622,Commercial and institutional building construction,640858,39072,62325874,1
+236220,Commercial and institutional building construction,640858,39072,62325874,1
+237,Heavy and civil engineering construction,1051261,38612,95993378,1
+2371,Utility system construction,627151,20109,54674775,1
+23711,Water and sewer line and related structures construction,166727,10841,13423676,1
+237110,Water and sewer line and related structures construction,166727,10841,13423676,1
+23712,Oil and gas pipeline and related structures construction,167820,2156,14856314,1
+237120,Oil and gas pipeline and related structures construction,167820,2156,14856314,1
+23713,Power and communication line and related structures construction,292604,7112,26394785,1
+237130,Power and communication line and related structures construction,292604,7112,26394785,1
+2372,Land subdivision,24810,4441,2235276,1
+23721,Land subdivision,24810,4441,2235276,1
+237210,Land subdivision,24810,4441,2235276,1
+2373,"Highway, street, and bridge construction",314940,9256,31042415,1
+23731,"Highway, street, and bridge construction",314940,9256,31042415,1
+237310,"Highway, street, and bridge construction",314940,9256,31042415,1
+2379,Other heavy and civil engineering construction,84360,4806,8040912,1
+23799,Other heavy and civil engineering construction,84360,4806,8040912,1
+237990,Other heavy and civil engineering construction,84360,4806,8040912,1
+238,Specialty trade contractors,4986759,521315,356906230,1
+2381,"Foundation, structure, and building exterior contractors",959465,106125,65130716,1
+23811,Poured concrete foundation and structure contractors,272692,23350,19237444,1
+238110,Poured concrete foundation and structure contractors,272692,23350,19237444,1
+23812,Structural steel and precast concrete contractors,82184,4005,6181094,1
+238120,Structural steel and precast concrete contractors,82184,4005,6181094,1
+23813,Framing contractors,86861,12417,5032253,1
+238130,Framing contractors,86861,12417,5032253,1
+23814,Masonry contractors,139844,18258,8601702,1
+238140,Masonry contractors,139844,18258,8601702,1
+23815,Glass and glazing contractors,68694,6945,4785630,1
+238150,Glass and glazing contractors,68694,6945,4785630,1
+23816,Roofing contractors,215242,25519,15185724,1
+238160,Roofing contractors,215242,25519,15185724,1
+23817,Siding contractors,41885,9142,2462131,1
+238170,Siding contractors,41885,9142,2462131,1
+23819,"Other foundation, structure, and building exterior contractors",52063,6489,3644738,1
+238190,"Other foundation, structure, and building exterior contractors",52063,6489,3644738,1
+2382,Building equipment contractors,2381266,202656,180929253,1
+23821,Electrical contractors and other wiring installation contractors,1015983,83342,77768461,1
+238210,Electrical contractors and other wiring installation contractors,1015983,83342,77768461,1
+23822,"Plumbing, heating, and air-conditioning contractors",1214761,111207,89519407,1
+238220,"Plumbing, heating, and air-conditioning contractors",1214761,111207,89519407,1
+23829,Other building equipment contractors,150522,8107,13641385,1
+238290,Other building equipment contractors,150522,8107,13641385,1
+2383,Building finishing contractors,863952,128009,52454846,1
+238310,Drywall and insulation contractors,250758,20760,16706406,1
+23832,Painting and wall covering contractors,208201,38280,11485346,1
+238320,Painting and wall covering contractors,208201,38280,11485346,1
+23833,Flooring contractors,84998,17989,5156652,1
+238330,Flooring contractors,84998,17989,5156652,1
+23834,Tile and terrazzo contractors,58611,10685,3296169,1
+238340,Tile and terrazzo contractors,58611,10685,3296169,1
+23835,Finish carpentry contractors,177042,32219,10516185,1
+238350,Finish carpentry contractors,177042,32219,10516185,1
+23839,Other building finishing contractors,84342,8076,5294088,1
+238390,Other building finishing contractors,84342,8076,5294088,1
+2389,Other specialty trade contractors,782076,84525,58391415,1
+23891,Site preparation contractors,472783,41777,36471538,1
+238910,Site preparation contractors,472783,41777,36471538,1
+23899,All other specialty trade contractors,309293,42748,21919877,1
+238990,All other specialty trade contractors,309293,42748,21919877,1
+31-33,Manufacturing,12335234,284452,902962951,1
+311,Food manufacturing,1707316,31130,95405177,1
+3111,Animal food manufacturing,64800,1914,4465663,1
+31111,Animal food manufacturing,64800,1914,4465663,1
+311111,Dog and cat food manufacturing,30393,451,2198811,1
+311119,Other animal food manufacturing,34407,1463,2266852,1
+3112,Grain and oilseed milling,63946,927,4642265,1
+31121,Flour milling and malt manufacturing,22159,464,1436624,1
+311211,Flour milling,14916,333,1020168,1
+311212,Rice milling,6433,89,361239,1
+311213,Malt manufacturing,810,42,55217,1
+31122,Starch and vegetable fats and oils manufacturing,28529,369,2205069,1
+311221,Wet corn milling,7467,70,785242,1
+311224,Soybean and other oilseed processing,10887,190,863410,1
+311225,Fats and oils refining and blending,10175,109,556417,1
+31123,Breakfast cereal manufacturing,13258,94,1000572,1
+311230,Breakfast cereal manufacturing,13258,94,1000572,1
+3113,Sugar and confectionery product manufacturing,85786,1913,5182859,1
+31131,Sugar manufacturing,14778,83,1097409,1
+311313,Beet sugar manufacturing,7050,29,464914,1
+311340,Nonchocolate confectionery manufacturing,28988,577,1806893,1
+31135,Chocolate and chocolate confectionery manufacturing,42020,1253,2278557,1
+311351,Chocolate and confectionery manufacturing from cacao beans,9641,280,618331,1
+311352,Confectionery manufacturing from purchased chocolate,32379,973,1660226,1
+3114,Fruit and vegetable preserving and specialty food manufacturing,166936,1981,9746205,1
+31141,Frozen food manufacturing,93063,793,5044571,1
+311411,"Frozen fruit, juice, and vegetable manufacturing",27520,218,1599860,1
+311412,Frozen specialty food manufacturing,65543,575,3444711,1
+31142,"Fruit and vegetable canning, pickling, and drying",73873,1188,4701634,1
+311421,Fruit and vegetable canning,44903,802,2914125,1
+311422,Specialty canning,11084,110,823692,1
+311423,Dried and dehydrated food manufacturing,17886,276,963817,1
+3115,Dairy product manufacturing,164416,1750,10868812,1
+31151,Dairy product (except frozen) manufacturing,139981,1236,9397390,1
+311511,Fluid milk manufacturing,57985,440,3937676,1
+311512,Creamery butter manufacturing,4055,54,289836,1
+311513,Cheese manufacturing,60731,568,3879216,1
+311514,"Dry, condensed, and evaporated dairy product manufacturing",17210,174,1290662,1
+31152,Ice cream and frozen dessert manufacturing,24435,514,1471422,1
+311520,Ice cream and frozen dessert manufacturing,24435,514,1471422,1
+3116,Animal slaughtering and processing,556205,3716,28355751,1
+31161,Animal slaughtering and processing,556205,3716,28355751,1
+311611,Animal (except poultry) slaughtering,159965,1274,9008053,1
+311612,Meat processed from carcasses,146308,1703,8143787,1
+311613,Rendering and meat byproduct processing,11297,219,828773,1
+311615,Poultry processing,238635,520,10375138,1
+3117,Seafood product preparation and packaging,29132,516,1770539,1
+31171,Seafood product preparation and packaging,29132,516,1770539,1
+311710,Seafood product preparation and packaging,29132,516,1770539,1
+3118,Bakeries and tortilla manufacturing,318225,13577,14875181,1
+31181,Bread and bakery product manufacturing,238759,12298,10571507,1
+311811,Retail bakeries,87547,9219,2389649,1
+311812,Commercial bakeries,128252,2842,6946579,1
+311813,"Frozen cakes, pies, and other pastries manufacturing",22960,237,1235279,1
+311821,Cookie and cracker manufacturing,33887,461,1874052,1
+311824,"Dry pasta, dough, and flour mixes manufacturing from purchased flour",24501,390,1445432,1
+31183,Tortilla manufacturing,21078,428,984190,1
+311830,Tortilla manufacturing,21078,428,984190,1
+3119,Other food manufacturing,257870,4836,15497902,1
+31191,Snack food manufacturing,68548,758,4016686,1
+311911,Roasted nuts and peanut butter manufacturing,19949,267,1245714,1
+311919,Other snack food manufacturing,48599,491,2770972,1
+31192,Coffee and tea manufacturing,23998,1155,1389184,1
+311920,Coffee and tea manufacturing,23998,1155,1389184,1
+31193,Flavoring syrup and concentrate manufacturing,9468,170,758874,1
+311930,Flavoring syrup and concentrate manufacturing,9468,170,758874,1
+31194,Seasoning and dressing manufacturing,50398,849,3597179,1
+311941,"Mayonnaise, dressing, and other prepared sauce manufacturing",25059,376,1710575,1
+311942,Spice and extract manufacturing,25339,473,1886604,1
+31199,All other food manufacturing,105458,1904,5735979,1
+311991,Perishable prepared food manufacturing,73598,1032,3788523,1
+311999,All other miscellaneous food manufacturing,31860,872,1947456,1
+312,Beverage and tobacco product manufacturing,291105,12577,17090749,1
+3121,Beverage manufacturing,279743,12452,16100018,1
+31211,Soft drink and ice manufacturing,89441,1325,5988055,1
+312111,Soft drink manufacturing,71454,622,4815445,1
+312112,Bottled water manufacturing,12598,288,844393,1
+312113,Ice manufacturing,5389,415,328217,1
+31212,Breweries,98647,5218,4613459,1
+312120,Breweries,98647,5218,4613459,1
+31213,Wineries,65478,4560,3813123,1
+312130,Wineries,65478,4560,3813123,1
+31214,Distilleries,26177,1349,1685381,1
+312140,Distilleries,26177,1349,1685381,1
+3122,Tobacco manufacturing,11362,125,990731,1
+313,Textile mills,79765,1703,4166850,1
+3131,"Fiber, yarn, and thread mills",18290,250,804623,1
+31311,"Fiber, yarn, and thread mills",18290,250,804623,1
+313110,"Fiber, yarn, and thread mills",18290,250,804623,1
+3132,Fabric mills,40117,736,2184689,1
+31321,Broadwoven fabric mills,13276,234,639839,1
+313210,Broadwoven fabric mills,13276,234,639839,1
+31322,Narrow fabric mills and schiffli machine embroidery,4926,173,232550,1
+313220,Narrow fabric mills and schiffli machine embroidery,4926,173,232550,1
+31323,Nonwoven fabric mills,16687,227,1069116,1
+313230,Nonwoven fabric mills,16687,227,1069116,1
+31324,Knit fabric mills,5228,102,243184,1
+313240,Knit fabric mills,5228,102,243184,1
+3133,Textile and fabric finishing and fabric coating mills,21358,717,1177538,1
+313310,Textile and fabric finishing mills,14366,570,707086,1
+31332,Fabric coating mills,6992,147,470452,1
+313320,Fabric coating mills,6992,147,470452,1
+314,Textile product mills,96683,4997,4590785,1
+3141,Textile furnishings mills,43233,1296,2092443,1
+31411,Carpet and rug mills,25931,237,1365578,1
+314110,Carpet and rug mills,25931,237,1365578,1
+31412,Curtain and linen mills,17302,1059,726865,1
+314120,Curtain and linen mills,17302,1059,726865,1
+3149,Other textile product mills,53450,3701,2498342,1
+31491,Textile bag and canvas mills,20774,1336,1027954,1
+314910,Textile bag and canvas mills,20774,1336,1027954,1
+31499,All other textile product mills,32676,2365,1470388,1
+314994,"Rope, cordage, twine, tire cord, and tire fabric mills",6176,124,360700,1
+314999,All other miscellaneous textile product mills,26500,2241,1109688,1
+315,Apparel manufacturing,63163,4337,2601087,1
+3151,Apparel knitting mills,7656,178,289934,1
+31511,Hosiery and sock mills,5521,89,206044,1
+315110,Hosiery and sock mills,5521,89,206044,1
+31519,Other apparel knitting mills,2135,89,83890,1
+315190,Other apparel knitting mills,2135,89,83890,1
+3152,Cut and sew apparel manufacturing,47582,3430,1983868,1
+31521,Cut and sew apparel contractors,22704,2094,832283,1
+315210,Cut and sew apparel contractors,22704,2094,832283,1
+31522,Men's and boys' cut and sew apparel manufacturing,11687,388,440019,1
+315220,Men's and boys' cut and sew apparel manufacturing,11687,388,440019,1
+31524,"Women's, girls', and infants' cut and sew apparel manufacturing",7413,611,418776,1
+315240,"Women's, girls', and infants' cut and sew apparel manufacturing",7413,611,418776,1
+31528,Other cut and sew apparel manufacturing,5778,337,292790,1
+315280,Other cut and sew apparel manufacturing,5778,337,292790,1
+3159,Apparel accessories and other apparel manufacturing,7925,729,327285,1
+31599,Apparel accessories and other apparel manufacturing,7925,729,327285,1
+315990,Apparel accessories and other apparel manufacturing,7925,729,327285,1
+316,Leather and allied product manufacturing,22970,986,1037825,1
+3161,Leather and hide tanning and finishing,2884,152,165790,1
+31611,Leather and hide tanning and finishing,2884,152,165790,1
+316110,Leather and hide tanning and finishing,2884,152,165790,1
+3162,Footwear manufacturing,8781,201,382268,1
+31621,Footwear manufacturing,8781,201,382268,1
+316210,Footwear manufacturing,8781,201,382268,1
+3169,Other leather and allied product manufacturing,11305,633,489767,1
+31699,Other leather and allied product manufacturing,11305,633,489767,1
+316992,Women's handbag and purse manufacturing,1918,70,112768,1
+316998,All other leather good and allied product manufacturing,9387,563,376999,1
+321,Wood product manufacturing,432255,13900,24820383,1
+3211,Sawmills and wood preservation,91690,3053,5622277,1
+32111,Sawmills and wood preservation,91690,3053,5622277,1
+321113,Sawmills,79871,2691,4841904,1
+321114,Wood preservation,11819,362,780373,1
+3212,"Veneer, plywood, and engineered wood product manufacturing",84946,1456,5313206,1
+32121,"Veneer, plywood, and engineered wood product manufacturing",84946,1456,5313206,1
+321211,Hardwood veneer and plywood manufacturing,10831,201,568750,1
+321212,Softwood veneer and plywood manufacturing,13161,80,956703,1
+321213,Engineered wood member (except truss) manufacturing,5421,99,365596,1
+321214,Truss manufacturing,41401,884,2391497,1
+321219,Reconstituted wood product manufacturing,14132,192,1030660,1
+32191,Millwork,113205,3233,6496409,1
+321911,Wood window and door manufacturing,60645,1080,3709151,1
+321912,"Cut stock, resawing lumber, and planing",20181,708,1109105,1
+321918,Other millwork (including flooring),32379,1445,1678153,1
+32192,Wood container and pallet manufacturing,60890,2793,3037806,1
+321920,Wood container and pallet manufacturing,60890,2793,3037806,1
+32199,All other wood product manufacturing,81524,3365,4350685,1
+321991,Manufactured home (mobile home) manufacturing,27285,270,1460845,1
+321992,Prefabricated wood building manufacturing,22858,768,1262363,1
+321999,All other miscellaneous wood product manufacturing,31381,2327,1627477,1
+322,Paper manufacturing,351485,3813,26484253,1
+32211,Pulp mills,9609,35,1026282,1
+322110,Pulp mills,9609,35,1026282,1
+32212,Paper mills,42893,188,3717122,1
+322121,Paper (except newsprint) mills,41832,180,3610997,1
+322122,Newsprint mills,1061,8,106125,1
+32213,Paperboard mills,38290,179,3815671,1
+322130,Paperboard mills,38290,179,3815671,1
+3222,Converted paper product manufacturing,260693,3411,17925178,1
+32221,Paperboard container manufacturing,157227,1906,11041348,1
+322211,Corrugated and solid fiber box manufacturing,90546,1165,6689234,1
+322212,Folding paperboard box manufacturing,46088,462,3124318,1
+322219,Other paperboard container manufacturing,20593,279,1227796,1
+32222,Paper bag and coated and treated paper manufacturing,55911,715,3790819,1
+322220,Paper bag and coated and treated paper manufacturing,55911,715,3790819,1
+32223,Stationery product manufacturing,15283,321,931512,1
+322230,Stationery product manufacturing,15283,321,931512,1
+32229,Other converted paper product manufacturing,32272,469,2161499,1
+322291,Sanitary paper product manufacturing,19445,138,1401094,1
+322299,All other converted paper product manufacturing,12827,331,760405,1
+323,Printing and related support activities,386248,22301,22169465,1
+3231,Printing and related support activities,386248,22301,22169465,1
+32311,Printing,369691,21354,21245723,1
+323111,Commercial printing (except screen and books),280276,15140,17091858,1
+323113,Commercial screen printing,70664,5854,3112847,1
+323117,Books printing,18751,360,1041018,1
+32312,Support activities for printing,16557,947,923742,1
+323120,Support activities for printing,16557,947,923742,1
+324,Petroleum and coal products manufacturing,100856,2073,12914111,1
+3241,Petroleum and coal products manufacturing,100856,2073,12914111,1
+32411,Petroleum refineries,55064,143,8923191,1
+324110,Petroleum refineries,55064,143,8923191,1
+32412,"Asphalt paving, roofing, and saturated materials manufacturing",28942,1580,2467717,1
+324121,Asphalt paving mixture and block manufacturing,17655,1397,1462636,1
+324122,Asphalt shingle and coating materials manufacturing,11287,183,1005081,1
+32419,Other petroleum and coal products manufacturing,16850,350,1523203,1
+324191,Petroleum lubricating oil and grease manufacturing,13925,283,1239846,1
+324199,All other petroleum and coal products manufacturing,2925,67,283357,1
+325,Chemical manufacturing,911245,14543,89047487,1
+3251,Basic chemical manufacturing,168047,2621,18561605,1
+32511,Petrochemical manufacturing,10888,76,1679168,1
+325110,Petrochemical manufacturing,10888,76,1679168,1
+32512,Industrial gas manufacturing,13842,546,1456909,1
+325120,Industrial gas manufacturing,13842,546,1456909,1
+32513,Synthetic dye and pigment manufacturing,8305,125,760156,1
+325130,Synthetic dye and pigment manufacturing,8305,125,760156,1
+32518,Other basic inorganic chemical manufacturing,41447,705,4399961,1
+325180,Other basic inorganic chemical manufacturing,41447,705,4399961,1
+32519,Other basic organic chemical manufacturing,93565,1169,10265411,1
+325193,Ethyl alcohol manufacturing,10719,207,977015,1
+325194,"Cyclic crude, intermediate, and gum and wood chemical manufacturing",5542,68,525868,1
+325199,All other basic organic chemical manufacturing,77304,894,8762528,1
+3252,"Resin, synthetic rubber, and artificial synthetic fibers and filaments manufacturing",114089,1567,10202689,1
+32521,Resin and synthetic rubber manufacturing,100164,1438,9347669,1
+325211,Plastics material and resin manufacturing,88827,1285,8271312,1
+325212,Synthetic rubber manufacturing,11337,153,1076357,1
+32522,Artificial and synthetic fibers and filaments manufacturing,13925,129,855020,1
+325220,Artificial and synthetic fibers and filaments manufacturing,13925,129,855020,1
+3253,"Pesticide, fertilizer, and other agricultural chemical manufacturing",37403,1033,3530062,1
+32531,Fertilizer manufacturing,24723,781,2376137,1
+325311,Nitrogenous fertilizer manufacturing,7033,194,881023,1
+325312,Phosphatic fertilizer manufacturing,6248,79,716635,1
+325314,Fertilizer (mixing only) manufacturing,11442,508,778479,1
+32532,Pesticide and other agricultural chemical manufacturing,12680,252,1153925,1
+325320,Pesticide and other agricultural chemical manufacturing,12680,252,1153925,1
+3254,Pharmaceutical and medicine manufacturing,321068,2905,36467593,1
+32541,Pharmaceutical and medicine manufacturing,321068,2905,36467593,1
+325411,Medicinal and botanical manufacturing,30382,761,2351372,1
+325412,Pharmaceutical preparation manufacturing,170029,1436,19447597,1
+325413,In-vitro diagnostic substance manufacturing,45459,267,5246163,1
+325414,Biological product (except diagnostic) manufacturing,75198,441,9422461,1
+3255,"Paint, coating, and adhesive manufacturing",77815,1664,5981435,1
+32551,Paint and coating manufacturing,46345,1125,3472364,1
+325510,Paint and coating manufacturing,46345,1125,3472364,1
+32552,Adhesive manufacturing,31470,539,2509071,1
+325520,Adhesive manufacturing,31470,539,2509071,1
+3256,"Soap, cleaning compound, and toilet preparation manufacturing",106155,2502,7512288,1
+32561,Soap and cleaning compound manufacturing,57187,1406,4219785,1
+325611,Soap and other detergent manufacturing,33783,845,2218645,1
+325612,Polish and other sanitation good manufacturing,17230,455,1359215,1
+325613,Surface active agent manufacturing,6174,106,641925,1
+32562,Toilet preparation manufacturing,48968,1096,3292503,1
+3259,Other chemical product and preparation manufacturing,86668,2251,6791815,1
+32591,Printing ink manufacturing,9170,306,677449,1
+325910,Printing ink manufacturing,9170,306,677449,1
+32592,Explosives manufacturing,7034,80,543913,1
+325920,Explosives manufacturing,7034,80,543913,1
+32599,All other chemical product and preparation manufacturing,70464,1865,5570453,1
+325991,Custom compounding of purchased resins,21623,414,1586972,1
+325992,"Photographic film, paper, plate, and chemical manufacturing",6258,132,445941,1
+325998,All other miscellaneous chemical product and preparation manufacturing,42583,1319,3537540,1
+326,Plastics and rubber products manufacturing,815991,11392,49857914,1
+3261,Plastics product manufacturing,677305,9636,40508568,1
+32611,Plastics packaging materials and unlaminated film and sheet manufacturing,110199,1220,7560923,1
+326111,Plastics bag and pouch manufacturing,40114,376,2596329,1
+326112,Plastics packaging film and sheet (including laminated) manufacturing,35840,426,2414859,1
+326113,Unlaminated plastics film and sheet (except packaging) manufacturing,34245,418,2549735,1
+32612,"Plastics pipe, pipe fitting, and unlaminated profile shape manufacturing",44297,822,2908266,1
+326121,Unlaminated plastics profile shape manufacturing,18949,335,1246889,1
+326122,Plastics pipe and pipe fitting manufacturing,25348,487,1661377,1
+32613,"Laminated plastics plate, sheet (except packaging), and shape manufacturing",12368,213,829272,1
+326130,"Laminated plastics plate, sheet (except packaging), and shape manufacturing",12368,213,829272,1
+32614,Polystyrene foam product manufacturing,28573,425,1678535,1
+326140,Polystyrene foam product manufacturing,28573,425,1678535,1
+32615,Urethane and other foam product (except polystyrene) manufacturing,33466,649,1871905,1
+326150,Urethane and other foam product (except polystyrene) manufacturing,33466,649,1871905,1
+32616,Plastics bottle manufacturing,37673,474,2307899,1
+326160,Plastics bottle manufacturing,37673,474,2307899,1
+32619,Other plastics product manufacturing,410729,5833,23351768,1
+326191,Plastics plumbing fixture manufacturing,18118,287,980042,1
+326199,All other plastics product manufacturing,392611,5546,22371726,1
+3262,Rubber product manufacturing,138686,1756,9349346,1
+32621,Tire manufacturing,58826,459,4384996,1
+326211,Tire manufacturing (except retreading),52211,128,4025834,1
+326212,Tire retreading,6615,331,359162,1
+32622,Rubber and plastics hoses and belting manufacturing,20288,275,1395868,1
+326220,Rubber and plastics hoses and belting manufacturing,20288,275,1395868,1
+32629,Other rubber product manufacturing,59572,1022,3568482,1
+326291,Rubber product manufacturing for mechanical use,27163,372,1530006,1
+326299,All other rubber product manufacturing,32409,650,2038476,1
+327,Nonmetallic mineral product manufacturing,412320,15317,28580826,1
+3271,Clay product and refractory manufacturing,35582,1036,2120934,1
+32711,"Pottery, ceramics, and plumbing fixture manufacturing",12082,575,649965,1
+327110,"Pottery, ceramics, and plumbing fixture manufacturing",12082,575,649965,1
+32712,Clay building material and refractories manufacturing,23500,461,1470969,1
+3272,Glass and glass product manufacturing,87874,1541,5925703,1
+32721,Glass and glass product manufacturing,87874,1541,5925703,1
+327211,Flat glass manufacturing,12248,135,823022,1
+327212,Other pressed and blown glass and glassware manufacturing,10738,376,706213,1
+327213,Glass container manufacturing,14452,75,1115573,1
+327215,Glass product manufacturing made of purchased glass,50436,955,3280895,1
+3273,Cement and concrete product manufacturing,189833,9134,13528796,1
+32731,Cement manufacturing,12781,192,1041875,1
+327310,Cement manufacturing,12781,192,1041875,1
+32732,Ready-mix concrete manufacturing,94195,6356,7166909,1
+327320,Ready-mix concrete manufacturing,94195,6356,7166909,1
+32733,"Concrete pipe, brick, and block manufacturing",22186,765,1475932,1
+327331,Concrete block and brick manufacturing,16066,625,1077823,1
+327332,Concrete pipe manufacturing,6120,140,398109,1
+32739,Other concrete product manufacturing,60671,1821,3844080,1
+327390,Other concrete product manufacturing,60671,1821,3844080,1
+3274,Lime and gypsum product manufacturing,15543,265,1344527,1
+32741,Lime manufacturing,4068,93,317322,1
+327410,Lime manufacturing,4068,93,317322,1
+32742,Gypsum product manufacturing,11475,172,1027205,1
+327420,Gypsum product manufacturing,11475,172,1027205,1
+3279,Other nonmetallic mineral product manufacturing,83488,3341,5660866,1
+32791,Abrasive product manufacturing,10976,264,785340,1
+327910,Abrasive product manufacturing,10976,264,785340,1
+32799,All other nonmetallic mineral product manufacturing,72512,3077,4875526,1
+327991,Cut stone and stone product manufacturing,35087,2163,2032106,1
+327992,Ground or treated mineral and earth manufacturing,10279,275,875354,1
+327993,Mineral wool manufacturing,15343,224,1121649,1
+327999,All other miscellaneous nonmetallic mineral product manufacturing,11803,415,846417,1
+331,Primary metal manufacturing,354914,3570,29696869,1
+3311,Iron and steel mills and ferroalloy manufacturing,78532,359,9114696,1
+33111,Iron and steel mills and ferroalloy manufacturing,78532,359,9114696,1
+331110,Iron and steel mills and ferroalloy manufacturing,78532,359,9114696,1
+3312,Steel product manufacturing from purchased steel,55836,736,4492772,1
+33121,Iron and steel pipe and tube manufacturing from purchased steel,27433,294,2389208,1
+331210,Iron and steel pipe and tube manufacturing from purchased steel,27433,294,2389208,1
+33122,Rolling and drawing of purchased steel,28403,442,2103564,1
+331221,Rolled steel shape manufacturing,14143,244,1185551,1
+331222,Steel wire drawing,14260,198,918013,1
+3313,Alumina and aluminum production and processing,57358,431,4369348,1
+33131,Alumina and aluminum production and processing,57358,431,4369348,1
+331313,Alumina refining and primary aluminum production,3583,32,338625,1
+331314,Secondary smelting and alloying of aluminum,5746,92,449390,1
+331315,"Aluminum sheet, plate, and foil manufacturing",18025,80,1759019,1
+331318,"Other aluminum rolling, drawing, and extruding",30004,227,1822314,1
+3314,Nonferrous metal (except aluminum) production and processing,55915,709,4504523,1
+33141,Nonferrous metal (except aluminum) smelting and refining,8755,112,743431,1
+331410,Nonferrous metal (except aluminum) smelting and refining,8755,112,743431,1
+33142,"Copper rolling, drawing, extruding, and alloying",25555,211,1994390,1
+331420,"Copper rolling, drawing, extruding, and alloying",25555,211,1994390,1
+33149,"Nonferrous metal (except copper and aluminum) rolling, drawing, extruding, and alloying",21605,386,1766702,1
+331491,"Nonferrous metal (except copper and aluminum) rolling, drawing, extruding, and alloying",12115,199,1015443,1
+331492,"Secondary smelting, refining, and alloying of nonferrous metal (except copper and aluminum)",9490,187,751259,1
+3315,Foundries,107273,1335,7215530,1
+33151,Ferrous metal foundries,57092,516,3972341,1
+331511,Iron foundries,32020,269,2315537,1
+331512,Steel investment foundries,15144,106,1004535,1
+331513,Steel foundries (except investment),9928,141,652269,1
+33152,Nonferrous metal foundries,50181,819,3243189,1
+331523,Nonferrous metal die-casting foundries,27966,318,1758634,1
+331524,Aluminum foundries (except die-casting),13031,261,870957,1
+331529,Other nonferrous metal foundries (except die-casting),9184,240,613598,1
+332,Fabricated metal product manufacturing,1441471,53790,96763880,1
+3321,Forging and stamping,92778,1937,6299445,1
+33211,Forging and stamping,92778,1937,6299445,1
+332111,Iron and steel forging,17126,283,1315325,1
+332112,Nonferrous forging,6018,53,521425,1
+332114,Custom roll forming,15190,373,1049996,1
+332119,"Metal crown, closure, and other metal stamping (except automotive)",45585,1094,2879105,1
+3322,Cutlery and handtool manufacturing,31762,980,2021780,1
+33221,Cutlery and handtool manufacturing,31762,980,2021780,1
+332215,"Metal kitchen cookware, utensil, cutlery, and flatware (except precious) manufacturing",6704,205,494402,1
+332216,Saw blade and handtool manufacturing,25058,775,1527378,1
+3323,Architectural and structural metals manufacturing,423013,14533,28264929,1
+33231,Plate work and fabricated structural product manufacturing,192241,6027,13671432,1
+332311,Prefabricated metal building and component manufacturing,30845,867,2298152,1
+332312,Fabricated structural metal manufacturing,114153,3434,8351602,1
+332313,Plate work manufacturing,47243,1726,3021678,1
+33232,Ornamental and architectural metal products manufacturing,230772,8506,14593497,1
+332321,Metal window and door manufacturing,59920,1027,3762695,1
+332322,Sheet metal work manufacturing,129616,4652,8284463,1
+332323,Ornamental and architectural metal work manufacturing,41236,2827,2546339,1
+3324,"Boiler, tank, and shipping container manufacturing",88730,1337,6823404,1
+33241,Power boiler and heat exchanger manufacturing,23734,237,1938825,1
+332410,Power boiler and heat exchanger manufacturing,23734,237,1938825,1
+33242,Metal tank (heavy gauge) manufacturing,32394,678,2283936,1
+332420,Metal tank (heavy gauge) manufacturing,32394,678,2283936,1
+33243,"Metal can, box, and other metal container (light gauge) manufacturing",32602,422,2600643,1
+332431,Metal can manufacturing,22475,170,1980467,1
+332439,Other metal container manufacturing,10127,252,620176,1
+3325,Hardware manufacturing,29290,532,1924154,1
+33251,Hardware manufacturing,29290,532,1924154,1
+332510,Hardware manufacturing,29290,532,1924154,1
+3326,Spring and wire product manufacturing,34731,1051,2136801,1
+33261,Spring and wire product manufacturing,34731,1051,2136801,1
+332613,Spring manufacturing,15671,341,955890,1
+332618,Other fabricated wire product manufacturing,19060,710,1180911,1
+3327,"Machine shops; turned product; and screw, nut, and bolt manufacturing",363533,21774,23339302,1
+33271,Machine shops,223313,17156,14228383,1
+332710,Machine shops,223313,17156,14228383,1
+33272,"Turned product and screw, nut, and bolt manufacturing",140220,4618,9110919,1
+332721,Precision turned product manufacturing,102699,3897,6457719,1
+332722,"Bolt, nut, screw, rivet, and washer manufacturing",37521,721,2653200,1
+3328,"Coating, engraving, heat treating, and allied activities",120955,5359,7164896,1
+33281,"Coating, engraving, heat treating, and allied activities",120955,5359,7164896,1
+332811,Metal heat treating,18995,697,1283247,1
+332812,"Metal coating, engraving (except jewelry and silverware), and allied services to manufacturers",54251,2672,3230862,1
+332813,"Electroplating, plating, polishing, anodizing, and coloring",47709,1990,2650787,1
+3329,Other fabricated metal product manufacturing,256679,6287,18789169,1
+33291,Metal valve manufacturing,87679,1136,6517529,1
+332911,Industrial valve manufacturing,34046,472,2658337,1
+332912,Fluid power valve and hose fitting manufacturing,31136,331,2348029,1
+332913,Plumbing fixture fitting and trim manufacturing,9069,121,577480,1
+332919,Other metal valve and pipe fitting manufacturing,13428,212,933683,1
+33299,All other fabricated metal product manufacturing,169000,5151,12271640,1
+332991,Ball and roller bearing manufacturing,18800,176,1221409,1
+332992,Small arms ammunition manufacturing,13789,172,953477,1
+332993,Ammunition (except small arms) manufacturing,15596,60,1628320,1
+332994,"Small arms, ordnance, and ordnance accessories manufacturing",25999,523,2465547,1
+332996,Fabricated pipe and pipe fitting manufacturing,28534,719,1905813,1
+332999,All other miscellaneous fabricated metal product manufacturing,66282,3501,4097074,1
+333,Machinery manufacturing,1086146,21668,85056230,1
+3331,"Agriculture, construction, and mining machinery manufacturing",193869,2805,14569136,1
+333111,Farm machinery and equipment manufacturing,69047,1120,5063572,1
+333112,Lawn and garden tractor and home lawn and garden equipment manufacturing,21160,146,1218130,1
+33312,Construction machinery manufacturing,64700,651,4878862,1
+333120,Construction machinery manufacturing,64700,651,4878862,1
+33313,Mining and oil and gas field machinery manufacturing,38962,888,3408572,1
+333131,Mining machinery and equipment manufacturing,10391,266,833820,1
+333132,Oil and gas field machinery and equipment manufacturing,28571,622,2574752,1
+3332,Industrial machinery manufacturing,111497,2836,10954032,1
+33324,Industrial machinery manufacturing,111497,2836,10954032,1
+333241,Food product machinery manufacturing,19033,525,1565624,1
+333242,Semiconductor machinery manufacturing,28799,170,4343190,1
+333243,"Sawmill, woodworking, and paper machinery manufacturing",12466,391,1013791,1
+333244,Printing machinery and equipment manufacturing,5683,234,436951,1
+333249,Other industrial machinery manufacturing,45516,1516,3594476,1
+3333,Commercial and service industry machinery manufacturing,80504,1731,6645829,1
+33331,Commercial and service industry machinery manufacturing,80504,1731,6645829,1
+333314,Optical instrument and lens manufacturing,19491,438,1640458,1
+333316,Photographic and photocopying equipment manufacturing,2675,154,236623,1
+333318,Other commercial and service industry machinery manufacturing,58338,1139,4768748,1
+3334,"Ventilation, heating, air-conditioning, and commercial refrigeration equipment manufacturing",147794,1685,9825282,1
+33341,"Ventilation, heating, air-conditioning, and commercial refrigeration equipment manufacturing",147794,1685,9825282,1
+333413,Industrial and commercial fan and blower and air purification equipment manufacturing,29098,479,1766161,1
+333414,Heating equipment (except warm air furnaces) manufacturing,17079,354,1211532,1
+333415,Air-conditioning and warm air heating equipment and commercial and industrial refrigeration equipment manufacturing,101617,852,6847589,1
+3335,Metalworking machinery manufacturing,134208,5772,9305244,1
+33351,Metalworking machinery manufacturing,134208,5772,9305244,1
+333511,Industrial mold manufacturing,30855,1252,1919320,1
+333514,"Special die and tool, die set, jig, and fixture manufacturing",40467,1976,2785310,1
+333515,Cutting tool and machine tool accessory manufacturing,23991,1060,1625749,1
+333517,Machine tool manufacturing,28524,1195,2152058,1
+333519,Rolling mill and other metalworking machinery manufacturing,10371,289,822807,1
+3336,"Engine, turbine, and power transmission equipment manufacturing",96251,899,7771742,1
+33361,"Engine, turbine, and power transmission equipment manufacturing",96251,899,7771742,1
+333611,Turbine and turbine generator set units manufacturing,25748,199,2584211,1
+333612,"Speed changer, industrial high-speed drive, and gear manufacturing",10759,205,776429,1
+333613,Mechanical power transmission equipment manufacturing,17058,232,1254205,1
+333618,Other engine equipment manufacturing,42686,263,3156897,1
+3339,Other general purpose machinery manufacturing,322023,5940,25984965,1
+33391,Pump and compressor manufacturing,57688,827,4821490,1
+333912,Air and gas compressor manufacturing,20379,275,1703749,1
+333914,"Measuring, dispensing, and other pumping equipment manufacturing",37309,552,3117741,1
+33392,Material handling equipment manufacturing,105437,1653,8097280,1
+333921,Elevator and moving stairway manufacturing,8360,191,699028,1
+333922,Conveyor and conveying equipment manufacturing,44787,805,3657688,1
+333923,"Overhead traveling crane, hoist, and monorail system manufacturing",20547,321,1493467,1
+333924,"Industrial truck, trailer, and stacker machinery manufacturing",31743,336,2247097,1
+33399,All other general purpose machinery manufacturing,158898,3460,13066195,1
+333991,Power-driven handtool manufacturing,7217,118,478503,1
+333992,Welding and soldering equipment manufacturing,16525,553,1383489,1
+333993,Packaging machinery manufacturing,24451,523,2078984,1
+333994,Industrial process furnace and oven manufacturing,11055,319,851300,1
+333995,Fluid power cylinder and actuator manufacturing,20490,298,1627201,1
+333996,Fluid power pump and motor manufacturing,12597,146,970136,1
+333997,Scale and balance manufacturing,3065,77,209632,1
+333999,All other miscellaneous general purpose machinery manufacturing,63498,1426,5466950,1
+334,Computer and electronic product manufacturing,815444,11262,85840054,1
+3341,Computer and peripheral equipment manufacturing,31508,557,3844893,1
+33411,Computer and peripheral equipment manufacturing,31508,557,3844893,1
+334111,Electronic computer manufacturing,13144,212,1812832,1
+334112,Computer storage device manufacturing,7221,61,931157,1
+334118,Computer terminal and other computer peripheral equipment manufacturing,11143,284,1100904,1
+3342,Communications equipment manufacturing,73884,1138,9008179,1
+33421,Telephone apparatus manufacturing,8893,161,1336266,1
+334210,Telephone apparatus manufacturing,8893,161,1336266,1
+33422,Radio and television broadcasting and wireless communications equipment manufacturing,52536,645,6607548,1
+334220,Radio and television broadcasting and wireless communications equipment manufacturing,52536,645,6607548,1
+33429,Other communications equipment manufacturing,12455,332,1064365,1
+334290,Other communications equipment manufacturing,12455,332,1064365,1
+3343,Audio and video equipment manufacturing,10977,539,861218,1
+33431,Audio and video equipment manufacturing,10977,539,861218,1
+334310,Audio and video equipment manufacturing,10977,539,861218,1
+3344,Semiconductor and other electronic component manufacturing,279841,3686,27821560,1
+33441,Semiconductor and other electronic component manufacturing,279841,3686,27821560,1
+334412,Bare printed circuit board manufacturing,22440,394,1467132,1
+334413,Semiconductor and related device manufacturing,116831,822,16028216,1
+334416,"Capacitor, resistor, coil, transformer, and other inductor manufacturing",15225,322,921493,1
+334417,Electronic connector manufacturing,20430,206,1746250,1
+334418,Printed circuit assembly (electronic assembly) manufacturing,49932,861,3642567,1
+334419,Other electronic component manufacturing,54983,1081,4015902,1
+3345,"Navigational, measuring, electromedical, and control instruments manufacturing",414694,5050,43983732,1
+33451,"Navigational, measuring, electromedical, and control instruments manufacturing",414694,5050,43983732,1
+334510,Electromedical and electrotherapeutic apparatus manufacturing,94361,892,10326721,1
+334511,"Search, detection, navigation, guidance, aeronautical, and nautical system and instrument manufacturing",127864,522,14260433,1
+334512,"Automatic environmental control manufacturing for residential, commercial, and appliance use",13458,233,1217440,1
+334513,"Instruments and related products manufacturing for measuring, displaying, and controlling industrial process variables",39166,889,3394455,1
+334514,Totalizing fluid meter and counting device manufacturing,11939,156,980726,1
+334515,Instrument manufacturing for measuring and testing electricity and electrical systems,29914,672,3486806,1
+334516,Analytical laboratory instrument manufacturing,50576,652,5737870,1
+334517,Irradiation apparatus manufacturing,12598,121,1528249,1
+334519,Other measuring and controlling device manufacturing,34818,913,3051032,1
+3346,Manufacturing and reproducing magnetic and optical media,4540,292,320472,1
+33461,Manufacturing and reproducing magnetic and optical media,4540,292,320472,1
+334613,Blank magnetic and optical recording media manufacturing,833,45,75924,1
+334614,"Software and other prerecorded compact disc, tape, and record reproducing",3707,247,244548,1
+3351,Electric lighting equipment manufacturing,34408,1021,2532796,1
+33511,Electric lamp bulb and part manufacturing,2248,54,154218,1
+335110,Electric lamp bulb and part manufacturing,2248,54,154218,1
+33512,Lighting fixture manufacturing,32160,967,2378578,1
+335121,Residential electric lighting fixture manufacturing,5454,256,401246,1
+335122,"Commercial, industrial, and institutional electric lighting fixture manufacturing",17519,453,1214373,1
+335129,Other lighting equipment manufacturing,9187,258,762959,1
+3352,Household appliance manufacturing,56734,358,3293578,1
+33521,Small electrical appliance manufacturing,8857,178,515205,1
+335210,Small electrical appliance manufacturing,8857,178,515205,1
+33522,Major household appliance manufacturing,47877,180,2778373,1
+335220,Major household appliance manufacturing,47877,180,2778373,1
+3353,Electrical equipment manufacturing,125655,1793,9512584,1
+33531,Electrical equipment manufacturing,125655,1793,9512584,1
+335312,Motor and generator manufacturing,29856,398,2330634,1
+335313,Switchgear and switchboard apparatus manufacturing,35801,449,2623439,1
+335314,Relay and industrial control manufacturing,33267,704,2691755,1
+3359,Other electrical equipment and component manufacturing,152659,2226,12584857,1
+33591,Battery manufacturing,39723,325,3266851,1
+335911,Storage battery manufacturing,32169,229,2478658,1
+335912,Primary battery manufacturing,7554,96,788193,1
+33592,Communication and energy wire and cable manufacturing,24261,342,1756271,1
+335921,Fiber optic cable manufacturing,8325,130,590333,1
+335929,Other communication and energy wire manufacturing,15936,212,1165938,1
+33593,Wiring device manufacturing,38363,552,2668113,1
+335931,Current-carrying wiring device manufacturing,24429,397,1683495,1
+335932,Noncurrent-carrying wiring device manufacturing,13934,155,984618,1
+33599,All other electrical equipment and component manufacturing,50312,1007,4893622,1
+335991,Carbon and graphite product manufacturing,9844,179,763849,1
+335999,All other miscellaneous electrical equipment and component manufacturing,40468,828,4129773,1
+336,Transportation equipment manufacturing,1682910,11691,139099892,1
+3361,Motor vehicle manufacturing,277328,331,30892785,1
+33611,Automobile and light duty motor vehicle manufacturing,236806,222,28040625,1
+336111,Automobile manufacturing,99754,158,14205061,1
+336112,Light truck and utility vehicle manufacturing,137052,64,13835564,1
+33612,Heavy duty truck manufacturing,40522,109,2852160,1
+336120,Heavy duty truck manufacturing,40522,109,2852160,1
+3362,Motor vehicle body and trailer manufacturing,170535,2199,10070895,1
+336211,Motor vehicle body manufacturing,58318,855,3668663,1
+336212,Truck trailer manufacturing,45403,569,2612150,1
+336213,Motor home manufacturing,11862,71,736472,1
+336214,Travel trailer and camper manufacturing,54952,704,3053610,1
+3363,Motor vehicle parts manufacturing,587237,4659,36346326,1
+33631,Motor vehicle gasoline engine and engine parts manufacturing,61615,696,4306786,1
+336310,Motor vehicle gasoline engine and engine parts manufacturing,61615,696,4306786,1
+33632,Motor vehicle electrical and electronic equipment manufacturing,60662,574,3721979,1
+336320,Motor vehicle electrical and electronic equipment manufacturing,60662,574,3721979,1
+33633,Motor vehicle steering and suspension components (except spring) manufacturing,34702,267,2153725,1
+336330,Motor vehicle steering and suspension components (except spring) manufacturing,34702,267,2153725,1
+33634,Motor vehicle brake system manufacturing,20474,168,1210460,1
+336340,Motor vehicle brake system manufacturing,20474,168,1210460,1
+33635,Motor vehicle transmission and power train parts manufacturing,85065,466,6022532,1
+336350,Motor vehicle transmission and power train parts manufacturing,85065,466,6022532,1
+33636,Motor vehicle seating and interior trim manufacturing,74754,437,4024062,1
+336360,Motor vehicle seating and interior trim manufacturing,74754,437,4024062,1
+33637,Motor vehicle metal stamping,106098,728,6606179,1
+336370,Motor vehicle metal stamping,106098,728,6606179,1
+33639,Other motor vehicle parts manufacturing,143867,1323,8300603,1
+336390,Other motor vehicle parts manufacturing,143867,1323,8300603,1
+3364,Aerospace product and parts manufacturing,428728,1907,46305917,1
+33641,Aerospace product and parts manufacturing,428728,1907,46305917,1
+336411,Aircraft manufacturing,172941,358,19438900,1
+336412,Aircraft engine and engine parts manufacturing,75499,440,7625078,1
+336413,Other aircraft parts and auxiliary equipment manufacturing,104573,966,8958293,1
+336414,Guided missile and space vehicle manufacturing,29556,52,4374454,1
+336415,Guided missile and space vehicle propulsion unit and propulsion unit parts manufacturing,39117,39,5105592,1
+336419,Other guided missile and space vehicle parts and auxiliary equipment manufacturing,7042,52,803600,1
+3365,Railroad rolling stock manufacturing,27831,220,2455765,1
+33651,Railroad rolling stock manufacturing,27831,220,2455765,1
+336510,Railroad rolling stock manufacturing,27831,220,2455765,1
+3366,Ship and boat building,150621,1427,10318079,1
+33661,Ship and boat building,150621,1427,10318079,1
+336611,Ship building and repairing,99786,497,7579797,1
+336612,Boat building,50835,930,2738282,1
+3369,Other transportation equipment manufacturing,40630,948,2710125,1
+336992,"Military armored vehicle, tank, and tank component manufacturing",11831,62,884600,1
+336999,All other transportation equipment manufacturing,20354,457,1378292,1
+337,Furniture and related product manufacturing,355594,14378,18577085,1
+3371,Household and institutional furniture and kitchen cabinet manufacturing,217951,10010,10468671,1
+33711,Wood kitchen cabinet and countertop manufacturing,100225,6055,4911667,1
+337110,Wood kitchen cabinet and countertop manufacturing,100225,6055,4911667,1
+33712,Household and institutional furniture manufacturing,117726,3955,5557004,1
+337121,Upholstered household furniture manufacturing,62963,988,2760242,1
+337122,Nonupholstered wood household furniture manufacturing,22266,2075,969255,1
+337124,Metal household furniture manufacturing,8605,244,469294,1
+337125,Household furniture (except wood and metal) manufacturing,2441,132,112146,1
+337127,Institutional furniture manufacturing,21451,516,1246067,1
+3372,Office furniture (including fixtures) manufacturing,104723,3648,6307408,1
+33721,Office furniture (including fixtures) manufacturing,104723,3648,6307408,1
+337211,Wood office furniture manufacturing,13196,299,728943,1
+337212,Custom architectural woodwork and millwork manufacturing,45382,2371,2823739,1
+337214,Office furniture (except wood) manufacturing,17471,189,1070155,1
+337215,"Showcase, partition, shelving, and locker manufacturing",28674,789,1684571,1
+3379,Other furniture related product manufacturing,32920,720,1801006,1
+33791,Mattress manufacturing,22226,385,1183511,1
+337910,Mattress manufacturing,22226,385,1183511,1
+33792,Blind and shade manufacturing,10694,335,617495,1
+337920,Blind and shade manufacturing,10694,335,617495,1
+339,Miscellaneous manufacturing,557897,23626,41238214,1
+3391,Medical equipment and supplies manufacturing,308388,8825,25764377,1
+33911,Medical equipment and supplies manufacturing,308388,8825,25764377,1
+339112,Surgical and medical instrument manufacturing,132354,1310,12374125,1
+339113,Surgical appliance and supplies manufacturing,93937,1804,8258008,1
+339114,Dental equipment and supplies manufacturing,16518,503,1232175,1
+339115,Ophthalmic goods manufacturing,23391,426,1582128,1
+339116,Dental laboratories,42188,4782,2317941,1
+3399,Other miscellaneous manufacturing,249509,14801,15473837,1
+33991,Jewelry and silverware manufacturing,19188,1844,1102163,1
+339910,Jewelry and silverware manufacturing,19188,1844,1102163,1
+33992,Sporting and athletic goods manufacturing,39073,1662,2537258,1
+339920,Sporting and athletic goods manufacturing,39073,1662,2537258,1
+33993,"Doll, toy, and game manufacturing",5442,485,295486,1
+339930,"Doll, toy, and game manufacturing",5442,485,295486,1
+33994,Office supplies (except paper) manufacturing,9961,368,532187,1
+339940,Office supplies (except paper) manufacturing,9961,368,532187,1
+33995,Sign manufacturing,75898,5895,4441905,1
+339950,Sign manufacturing,75898,5895,4441905,1
+33999,All other miscellaneous manufacturing,99947,4547,6564838,1
+339991,"Gasket, packing, and sealing device manufacturing",32313,620,2384705,1
+339992,Musical instrument manufacturing,11633,609,636857,1
+339993,"Fastener, button, needle, and pin manufacturing",3341,89,199682,1
+339994,"Broom, brush, and mop manufacturing",8781,145,524782,1
+339995,Burial casket manufacturing,3369,72,168782,1
+339999,All other miscellaneous manufacturing,40510,3012,2650030,1
+42,Wholesale trade,6236357,382081,564424182,1
+423,"Merchant wholesalers, durable goods",3633921,225021,345188013,1
+4231,Motor vehicle and motor vehicle parts and supplies merchant wholesalers,426643,22883,31187176,1
+42311,Automobile and other motor vehicle merchant wholesalers,135951,6117,11988244,1
+423110,Automobile and other motor vehicle merchant wholesalers,135951,6117,11988244,1
+42312,Motor vehicle supplies and new parts merchant wholesalers,218432,12266,14753680,1
+423120,Motor vehicle supplies and new parts merchant wholesalers,218432,12266,14753680,1
+42313,Tire and tube merchant wholesalers,46488,2695,3100614,1
+423130,Tire and tube merchant wholesalers,46488,2695,3100614,1
+42314,Motor vehicle parts (used) merchant wholesalers,25772,1805,1344638,1
+423140,Motor vehicle parts (used) merchant wholesalers,25772,1805,1344638,1
+4232,Furniture and home furnishing merchant wholesalers,159067,11608,12539921,1
+42321,Furniture merchant wholesalers,67517,5023,5390445,1
+423210,Furniture merchant wholesalers,67517,5023,5390445,1
+42322,Home furnishing merchant wholesalers,91550,6585,7149476,1
+423220,Home furnishing merchant wholesalers,91550,6585,7149476,1
+4233,Lumber and other construction materials merchant wholesalers,269086,18121,21475086,1
+42331,"Lumber, plywood, millwork, and wood panel merchant wholesalers",130158,7048,10417457,1
+423310,"Lumber, plywood, millwork, and wood panel merchant wholesalers",130158,7048,10417457,1
+42332,"Brick, stone, and related construction material merchant wholesalers",37399,3736,2761504,1
+423320,"Brick, stone, and related construction material merchant wholesalers",37399,3736,2761504,1
+42333,"Roofing, siding, and insulation material merchant wholesalers",50236,3581,4350254,1
+423330,"Roofing, siding, and insulation material merchant wholesalers",50236,3581,4350254,1
+42339,Other construction material merchant wholesalers,51293,3756,3945871,1
+423390,Other construction material merchant wholesalers,51293,3756,3945871,1
+4234,Professional and commercial equipment and supplies merchant wholesalers,670408,29863,78783593,1
+42341,Photographic equipment and supplies merchant wholesalers,6620,485,637858,1
+423410,Photographic equipment and supplies merchant wholesalers,6620,485,637858,1
+42342,Office equipment merchant wholesalers,83163,5377,6476475,1
+423420,Office equipment merchant wholesalers,83163,5377,6476475,1
+42343,Computer and computer peripheral equipment and software merchant wholesalers,193943,6677,27749398,1
+423430,Computer and computer peripheral equipment and software merchant wholesalers,193943,6677,27749398,1
+42344,Other commercial equipment merchant wholesalers,49828,3637,3728276,1
+423440,Other commercial equipment merchant wholesalers,49828,3637,3728276,1
+42345,"Medical, dental, and hospital equipment and supplies merchant wholesalers",272209,10296,34138309,1
+423450,"Medical, dental, and hospital equipment and supplies merchant wholesalers",272209,10296,34138309,1
+42346,Ophthalmic goods merchant wholesalers,19689,999,1521210,1
+423460,Ophthalmic goods merchant wholesalers,19689,999,1521210,1
+42349,Other professional equipment and supplies merchant wholesalers,44956,2392,4532067,1
+423490,Other professional equipment and supplies merchant wholesalers,44956,2392,4532067,1
+4235,Metal and mineral (except petroleum) merchant wholesalers,147358,8892,12681504,1
+42351,Metal service centers and other metal merchant wholesalers,145207,8608,12396896,1
+423510,Metal service centers and other metal merchant wholesalers,145207,8608,12396896,1
+42352,Coal and other mineral and ore merchant wholesalers,2151,284,284608,1
+423520,Coal and other mineral and ore merchant wholesalers,2151,284,284608,1
+4236,Household appliances and electrical and electronic goods merchant wholesalers,537347,25969,69218386,1
+42361,"Electrical apparatus and equipment, wiring supplies, and related equipment merchant wholesalers",229921,13379,22312476,1
+423610,"Electrical apparatus and equipment, wiring supplies, and related equipment merchant wholesalers",229921,13379,22312476,1
+42362,"Household appliances, electric housewares, and consumer electronics merchant wholesalers",52157,2514,5125165,1
+423620,"Household appliances, electric housewares, and consumer electronics merchant wholesalers",52157,2514,5125165,1
+42369,Other electronic parts and equipment merchant wholesalers,255269,10076,41780745,1
+423690,Other electronic parts and equipment merchant wholesalers,255269,10076,41780745,1
+4237,"Hardware, plumbing and heating equipment and supplies merchant wholesalers",291227,20116,24967181,1
+423710,Hardware merchant wholesalers,99773,5967,7777177,1
+42372,Plumbing and heating equipment and supplies (hydronics) merchant wholesalers,84257,6410,7155450,1
+423720,Plumbing and heating equipment and supplies (hydronics) merchant wholesalers,84257,6410,7155450,1
+42373,Warm air heating and air-conditioning equipment and supplies merchant wholesalers,94849,6477,9055215,1
+423730,Warm air heating and air-conditioning equipment and supplies merchant wholesalers,94849,6477,9055215,1
+42374,Refrigeration equipment and supplies merchant wholesalers,12348,1262,979339,1
+423740,Refrigeration equipment and supplies merchant wholesalers,12348,1262,979339,1
+4238,"Machinery, equipment, and supplies merchant wholesalers",799752,55426,70118026,1
+42381,Construction and mining (except oil well) machinery and equipment merchant wholesalers,107724,4701,10452901,1
+423810,Construction and mining (except oil well) machinery and equipment merchant wholesalers,107724,4701,10452901,1
+42382,Farm and garden machinery and equipment merchant wholesalers,112992,7500,8430915,1
+423820,Farm and garden machinery and equipment merchant wholesalers,112992,7500,8430915,1
+42383,Industrial machinery and equipment merchant wholesalers,374989,25949,34437110,1
+423830,Industrial machinery and equipment merchant wholesalers,374989,25949,34437110,1
+42384,Industrial supplies merchant wholesalers,114267,9605,9994891,1
+423840,Industrial supplies merchant wholesalers,114267,9605,9994891,1
+42385,Service establishment equipment and supplies merchant wholesalers,54608,5296,3487086,1
+423850,Service establishment equipment and supplies merchant wholesalers,54608,5296,3487086,1
+42386,Transportation equipment and supplies (except motor vehicle) merchant wholesalers,35172,2375,3315123,1
+423860,Transportation equipment and supplies (except motor vehicle) merchant wholesalers,35172,2375,3315123,1
+4239,Miscellaneous durable goods merchant wholesalers,333033,32143,24217140,1
+42391,Sporting and recreational goods and supplies merchant wholesalers,69851,5355,5301496,1
+423910,Sporting and recreational goods and supplies merchant wholesalers,69851,5355,5301496,1
+42392,Toy and hobby goods and supplies merchant wholesalers,33519,1984,3441317,1
+423920,Toy and hobby goods and supplies merchant wholesalers,33519,1984,3441317,1
+42393,Recyclable material merchant wholesalers,106002,7744,6649143,1
+423930,Recyclable material merchant wholesalers,106002,7744,6649143,1
+42394,"Jewelry, watch, precious stone, and precious metal merchant wholesalers",38194,6949,2774922,1
+423940,"Jewelry, watch, precious stone, and precious metal merchant wholesalers",38194,6949,2774922,1
+42399,Other miscellaneous durable goods merchant wholesalers,85467,10111,6050262,1
+423990,Other miscellaneous durable goods merchant wholesalers,85467,10111,6050262,1
+424,"Merchant wholesalers, nondurable goods",2358648,122098,201687177,1
+4241,Paper and paper product merchant wholesalers,128040,7603,9934744,1
+42411,Printing and writing paper merchant wholesalers,7540,643,680434,1
+424110,Printing and writing paper merchant wholesalers,7540,643,680434,1
+42412,Stationery and office supplies merchant wholesalers,54346,3190,3374122,1
+424120,Stationery and office supplies merchant wholesalers,54346,3190,3374122,1
+42413,Industrial and personal service paper merchant wholesalers,66154,3770,5880188,1
+424130,Industrial and personal service paper merchant wholesalers,66154,3770,5880188,1
+4242,Drugs and druggists' sundries merchant wholesalers,302952,8919,48354712,1
+42421,Drugs and druggists' sundries merchant wholesalers,302952,8919,48354712,1
+424210,Drugs and druggists' sundries merchant wholesalers,302952,8919,48354712,1
+4243,"Apparel, piece goods, and notions merchant wholesalers",172343,13318,12980253,1
+42431,"Piece goods, notions, and other dry goods merchant wholesalers",21231,2844,1347317,1
+424310,"Piece goods, notions, and other dry goods merchant wholesalers",21231,2844,1347317,1
+42432,Men's and boys' clothing and furnishings merchant wholesalers,48623,2954,3394596,1
+424320,Men's and boys' clothing and furnishings merchant wholesalers,48623,2954,3394596,1
+42433,"Women's, children's, and infants' clothing and accessories merchant wholesalers",74390,6367,5437730,1
+424330,"Women's, children's, and infants' clothing and accessories merchant wholesalers",74390,6367,5437730,1
+42434,Footwear merchant wholesalers,28099,1153,2800610,1
+424340,Footwear merchant wholesalers,28099,1153,2800610,1
+4244,Grocery and related product merchant wholesalers,872150,34928,59199935,1
+42441,General line grocery merchant wholesalers,176062,3383,12319553,1
+424410,General line grocery merchant wholesalers,176062,3383,12319553,1
+42442,Packaged frozen food merchant wholesalers,78266,2994,5553736,1
+424420,Packaged frozen food merchant wholesalers,78266,2994,5553736,1
+42443,Dairy product (except dried or canned) merchant wholesalers,38803,1766,2833564,1
+424430,Dairy product (except dried or canned) merchant wholesalers,38803,1766,2833564,1
+42444,Poultry and poultry product merchant wholesalers,8296,407,532510,1
+424440,Poultry and poultry product merchant wholesalers,8296,407,532510,1
+42445,Confectionery merchant wholesalers,42754,2245,3140334,1
+424450,Confectionery merchant wholesalers,42754,2245,3140334,1
+42446,Fish and seafood merchant wholesalers,22111,2008,1339304,1
+424460,Fish and seafood merchant wholesalers,22111,2008,1339304,1
+42447,Meat and meat product merchant wholesalers,53190,2220,3778902,1
+424470,Meat and meat product merchant wholesalers,53190,2220,3778902,1
+42448,Fresh fruit and vegetable merchant wholesalers,110154,4914,6954744,1
+424480,Fresh fruit and vegetable merchant wholesalers,110154,4914,6954744,1
+42449,Other grocery and related products merchant wholesalers,342514,14991,22747288,1
+424490,Other grocery and related products merchant wholesalers,342514,14991,22747288,1
+4245,Farm product raw material merchant wholesalers,60156,6100,4493700,1
+42451,Grain and field bean merchant wholesalers,44260,4407,3497929,1
+424510,Grain and field bean merchant wholesalers,44260,4407,3497929,1
+42452,Livestock merchant wholesalers,4594,573,158230,1
+424520,Livestock merchant wholesalers,4594,573,158230,1
+42459,Other farm product raw material merchant wholesalers,11302,1120,837541,1
+424590,Other farm product raw material merchant wholesalers,11302,1120,837541,1
+4246,Chemical and allied products merchant wholesalers,168556,11364,16141551,1
+42461,Plastics materials and basic forms and shapes merchant wholesalers,33494,2519,2995631,1
+424610,Plastics materials and basic forms and shapes merchant wholesalers,33494,2519,2995631,1
+42469,Other chemical and allied products merchant wholesalers,135062,8845,13145920,1
+424690,Other chemical and allied products merchant wholesalers,135062,8845,13145920,1
+4247,Petroleum and petroleum products merchant wholesalers,101780,6213,10777892,1
+42471,Petroleum bulk stations and terminals,67377,3747,6405872,1
+424710,Petroleum bulk stations and terminals,67377,3747,6405872,1
+42472,Petroleum and petroleum products merchant wholesalers (except bulk stations and terminals),34403,2466,4372020,1
+424720,Petroleum and petroleum products merchant wholesalers (except bulk stations and terminals),34403,2466,4372020,1
+4248,"Beer, wine, and distilled alcoholic beverage merchant wholesalers",215170,4859,16695334,1
+42481,Beer and ale merchant wholesalers,116337,1915,7515148,1
+424810,Beer and ale merchant wholesalers,116337,1915,7515148,1
+42482,Wine and distilled alcoholic beverage merchant wholesalers,98833,2944,9180186,1
+4249,Miscellaneous nondurable goods merchant wholesalers,337501,28794,23109056,1
+42491,Farm supplies merchant wholesalers,109915,9322,9075194,1
+424910,Farm supplies merchant wholesalers,109915,9322,9075194,1
+42492,"Book, periodical, and newspaper merchant wholesalers",16762,1020,908621,1
+424920,"Book, periodical, and newspaper merchant wholesalers",16762,1020,908621,1
+42493,"Flower, nursery stock, and florists' supplies merchant wholesalers",51155,4105,2615916,1
+424930,"Flower, nursery stock, and florists' supplies merchant wholesalers",51155,4105,2615916,1
+42494,Tobacco and tobacco product merchant wholesalers,60669,1784,3991449,1
+424940,Tobacco and tobacco product merchant wholesalers,60669,1784,3991449,1
+424950,"Paint, varnish, and supplies merchant wholesalers",21208,1992,1579407,1
+42499,Other miscellaneous nondurable goods merchant wholesalers,77792,10571,4938469,1
+424990,Other miscellaneous nondurable goods merchant wholesalers,77792,10571,4938469,1
+425,Wholesale electronic markets and agents and brokers,243788,34962,17548992,1
+4251,Wholesale electronic markets and agents and brokers,243788,34962,17548992,1
+42511,Business to business electronic markets,3781,367,346748,1
+425110,Business to business electronic markets,3781,367,346748,1
+42512,Wholesale trade agents and brokers,240007,34595,17202244,1
+425120,Wholesale trade agents and brokers,240007,34595,17202244,1
+44-45,Retail trade,16046207,1043373,605675581,1
+441,Motor vehicle and parts dealers,2015007,119780,131191362,1
+4411,Automobile dealers,1293388,47057,98760973,1
+44111,New car dealers,1131340,21910,89715562,1
+441110,New car dealers,1131340,21910,89715562,1
+44112,Used car dealers,162048,25147,9045411,1
+441120,Used car dealers,162048,25147,9045411,1
+4412,Other motor vehicle dealers,171382,13906,10311467,1
+44121,Recreational vehicle dealers,58913,2972,3853475,1
+441210,Recreational vehicle dealers,58913,2972,3853475,1
+44122,"Motorcycle, boat, and other motor vehicle dealers",112469,10934,6457992,1
+441222,Boat dealers,37587,4246,2424012,1
+441228,"Motorcycle, ATV, and all other motor vehicle dealers",74882,6688,4033980,1
+4413,"Automotive parts, accessories, and tire stores",550237,58817,22118922,1
+44131,Automotive parts and accessories stores,380068,38567,13046177,1
+441310,Automotive parts and accessories stores,380068,38567,13046177,1
+44132,Tire dealers,170169,20250,9072745,1
+441320,Tire dealers,170169,20250,9072745,1
+442,Furniture and home furnishings stores,409563,44942,17611091,1
+4421,Furniture stores,194508,21964,9824294,1
+44211,Furniture stores,194508,21964,9824294,1
+442110,Furniture stores,194508,21964,9824294,1
+4422,Home furnishings stores,215055,22978,7786797,1
+44221,Floor covering stores,69378,9723,3987440,1
+442210,Floor covering stores,69378,9723,3987440,1
+44229,Other home furnishings stores,145677,13255,3799357,1
+442291,Window treatment stores,8671,2209,435989,1
+442299,All other home furnishings stores,137006,11046,3363368,1
+443,Electronics and appliance stores,196557,19048,8521150,1
+4431,Electronics and appliance stores,196557,19048,8521150,1
+44314,Electronics and appliance stores,196557,19048,8521150,1
+443141,Household appliance stores,48490,5433,2596239,1
+443142,Electronics stores,148067,13615,5924911,1
+444,Building material and garden equipment and supplies dealers,1424157,72618,55433187,1
+4441,Building material and supplies dealers,1248320,55545,48710988,1
+44411,Home centers,774888,5834,23278366,1
+444110,Home centers,774888,5834,23278366,1
+44412,Paint and wallpaper stores,41487,7284,2253112,1
+444120,Paint and wallpaper stores,41487,7284,2253112,1
+44413,Hardware stores,153041,15694,5229959,1
+444130,Hardware stores,153041,15694,5229959,1
+44419,Other building material dealers,278904,26733,17949551,1
+444190,Other building material dealers,278904,26733,17949551,1
+4442,Lawn and garden equipment and supplies stores,175837,17073,6722199,1
+44421,Outdoor power equipment stores,29187,3878,1433327,1
+444210,Outdoor power equipment stores,29187,3878,1433327,1
+44422,"Nursery, garden center, and farm supply stores",146650,13195,5288872,1
+444220,"Nursery, garden center, and farm supply stores",146650,13195,5288872,1
+445,Food and beverage stores,3333898,160298,97708829,1
+4451,Grocery stores,2974201,99939,87727154,1
+44511,Supermarkets and other grocery (except convenience) stores,2808118,62947,83729007,1
+445110,Supermarkets and other grocery (except convenience) stores,2808118,62947,83729007,1
+44512,Convenience stores,166083,36992,3998147,1
+445120,Convenience stores,166083,36992,3998147,1
+4452,Specialty food stores,166164,23926,4535156,1
+44521,Meat markets,50096,5676,1432774,1
+445210,Meat markets,50096,5676,1432774,1
+44522,Fish and seafood markets,11284,1910,414546,1
+445220,Fish and seafood markets,11284,1910,414546,1
+44523,Fruit and vegetable markets,21062,4255,698832,1
+445230,Fruit and vegetable markets,21062,4255,698832,1
+44529,Other specialty food stores,83722,12085,1989004,1
+445291,Baked goods stores,17776,2554,428860,1
+445292,Confectionery and nut stores,21913,3409,506875,1
+445299,All other specialty food stores,44033,6122,1053269,1
+4453,"Beer, wine, and liquor stores",193533,36433,5446519,1
+445310,"Beer, wine, and liquor stores",193533,36433,5446519,1
+446,Health and personal care stores,1066142,89276,42952979,1
+4461,Health and personal care stores,1066142,89276,42952979,1
+44611,Pharmacies and drug stores,691152,41792,30740561,1
+446110,Pharmacies and drug stores,691152,41792,30740561,1
+44612,"Cosmetics, beauty supplies, and perfume stores",188956,17328,4349004,1
+446120,"Cosmetics, beauty supplies, and perfume stores",188956,17328,4349004,1
+44613,Optical goods stores,79762,11719,3282400,1
+446130,Optical goods stores,79762,11719,3282400,1
+44619,Other health and personal care stores,106272,18437,4581014,1
+446191,Food (health) supplement stores,33917,8267,948107,1
+446199,All other health and personal care stores,72355,10170,3632907,1
+447,Gasoline stations,1016960,109174,29687977,1
+4471,Gasoline stations,1016960,109174,29687977,1
+44711,Gasoline stations with convenience stores,848306,96002,23711327,1
+447110,Gasoline stations with convenience stores,848306,96002,23711327,1
+44719,Other gasoline stations,168654,13172,5976650,1
+447190,Other gasoline stations,168654,13172,5976650,1
+448,Clothing and clothing accessories stores,1505822,122162,38895071,1
+4481,Clothing stores,1190123,83287,28240763,1
+448110,Men's clothing stores,47131,6582,1678446,1
+44812,Women's clothing stores,218437,26279,4970231,1
+448120,Women's clothing stores,218437,26279,4970231,1
+44813,Children's and infants' clothing stores,26068,3666,576327,1
+448130,Children's and infants' clothing stores,26068,3666,576327,1
+44814,Family clothing stores,739932,27986,16468650,1
+448140,Family clothing stores,739932,27986,16468650,1
+44815,Clothing accessories stores,52995,7488,1793285,1
+448150,Clothing accessories stores,52995,7488,1793285,1
+44819,Other clothing stores,105560,11286,2753824,1
+448190,Other clothing stores,105560,11286,2753824,1
+4482,Shoe stores,202988,18177,4744784,1
+44821,Shoe stores,202988,18177,4744784,1
+448210,Shoe stores,202988,18177,4744784,1
+4483,"Jewelry, luggage, and leather goods stores",112711,20698,5909524,1
+44831,Jewelry stores,106903,19897,5478648,1
+448310,Jewelry stores,106903,19897,5478648,1
+44832,Luggage and leather goods stores,5808,801,430876,1
+448320,Luggage and leather goods stores,5808,801,430876,1
+451,"Sporting goods, hobby, musical instrument, and book stores",471722,42352,12618946,1
+4511,"Sporting goods, hobby, and musical instrument stores",419984,36008,11417408,1
+45111,Sporting goods stores,252338,20373,7425397,1
+451110,Sporting goods stores,252338,20373,7425397,1
+45112,"Hobby, toy, and game stores",104990,8803,2547527,1
+451120,"Hobby, toy, and game stores",104990,8803,2547527,1
+45113,"Sewing, needlework, and piece goods stores",34437,3602,565072,1
+451130,"Sewing, needlework, and piece goods stores",34437,3602,565072,1
+45114,Musical instrument and supplies stores,28219,3230,879412,1
+451140,Musical instrument and supplies stores,28219,3230,879412,1
+4512,Book stores and news dealers,51738,6344,1201538,1
+45121,Book stores and news dealers,51738,6344,1201538,1
+451211,Book stores,48997,5629,1132707,1
+451212,News dealers and newsstands,2741,715,68831,1
+452,General merchandise stores,2666463,59516,81799865,1
+4522,Department stores,195673,2434,5838119,1
+45221,Department stores,195673,2434,5838119,1
+452210,Department stores,195673,2434,5838119,1
+4523,"General merchandise stores, including warehouse clubs and supercenters",2470790,57082,75961746,1
+45231,"General merchandise stores, including warehouse clubs and supercenters",2470790,57082,75961746,1
+452311,Warehouse clubs and supercenters,1966549,7961,65520076,1
+452319,All other general merchandise stores,504241,49121,10441670,1
+453,Miscellaneous store retailers,831551,116482,25882989,1
+4531,Florists,55143,11834,1386900,1
+45311,Florists,55143,11834,1386900,1
+453110,Florists,55143,11834,1386900,1
+4532,"Office supplies, stationery, and gift stores",173149,23106,4538574,1
+45321,Office supplies and stationery stores,45450,4210,1278029,1
+453210,Office supplies and stationery stores,45450,4210,1278029,1
+45322,"Gift, novelty, and souvenir stores",127699,18896,3260545,1
+453220,"Gift, novelty, and souvenir stores",127699,18896,3260545,1
+4533,Used merchandise stores,222478,19466,5455824,1
+45331,Used merchandise stores,222478,19466,5455824,1
+453310,Used merchandise stores,222478,19466,5455824,1
+4539,Other miscellaneous store retailers,380781,62076,14501691,1
+45391,Pet and pet supplies stores,122102,9921,3704424,1
+453910,Pet and pet supplies stores,122102,9921,3704424,1
+45392,Art dealers,17120,4729,1263400,1
+453920,Art dealers,17120,4729,1263400,1
+45393,Manufactured (mobile) home dealers,10216,1746,903476,1
+453930,Manufactured (mobile) home dealers,10216,1746,903476,1
+45399,All other miscellaneous store retailers,231343,45680,8630391,1
+453991,Tobacco stores,76360,21082,2158019,1
+453998,All other miscellaneous store retailers (except tobacco stores),154983,24598,6472372,1
+454,Nonstore retailers,1108365,87725,63372135,1
+4541,Electronic shopping and mail-order houses,881019,54707,51558658,1
+45411,Electronic shopping and mail-order houses,881019,54707,51558658,1
+454110,Electronic shopping and mail-order houses,881019,54707,51558658,1
+4542,Vending machine operators,40901,3227,1710501,1
+45421,Vending machine operators,40901,3227,1710501,1
+454210,Vending machine operators,40901,3227,1710501,1
+4543,Direct selling establishments,186445,29791,10102976,1
+45431,Fuel dealers,71790,7703,4392271,1
+454310,Fuel dealers,71790,7703,4392271,1
+45439,Other direct selling establishments,114655,22088,5710705,1
+454390,Other direct selling establishments,114655,22088,5710705,1
+48-49,Transportation and warehousing,6548924,291155,402043443,1
+481,Air transportation,573362,4745,59811176,1
+4811,Scheduled air transportation,501126,2233,51088996,1
+48111,Scheduled air transportation,501126,2233,51088996,1
+481111,Scheduled passenger air transportation,487672,1858,49313429,1
+481112,Scheduled freight air transportation,13454,375,1775567,1
+4812,Nonscheduled air transportation,72236,2512,8722180,1
+48121,Nonscheduled air transportation,72236,2512,8722180,1
+481211,Nonscheduled chartered passenger air transportation,41913,1631,4994919,1
+481212,Nonscheduled chartered freight air transportation,23321,260,3085320,1
+481219,Other nonscheduled air transportation,7002,621,641941,1
+483,Water transportation,62806,1790,6798291,1
+4831,"Deep sea, coastal, and great lakes water transportation",41670,1098,4858414,1
+48311,"Deep sea, coastal, and great lakes water transportation",41670,1098,4858414,1
+483111,Deep sea freight transportation,6574,333,785022,1
+483112,Deep sea passenger transportation,14045,85,1642264,1
+483113,Coastal and great lakes freight transportation,17775,483,2168050,1
+483114,Coastal and great lakes passenger transportation,3276,197,263078,1
+4832,Inland water transportation,21136,692,1939877,1
+48321,Inland water transportation,21136,692,1939877,1
+483212,Inland water passenger transportation,3378,299,228195,1
+484,Truck transportation,1693228,170286,103474053,1
+4841,General freight trucking,1185495,117181,71739111,1
+48411,"General freight trucking, local",284101,46302,14718527,1
+484110,"General freight trucking, local",284101,46302,14718527,1
+48412,"General freight trucking, long-distance",901394,70879,57020584,1
+484121,"General freight trucking, long-distance, truckload",613274,60137,37481659,1
+484122,"General freight trucking, long-distance, less than truckload",288120,10742,19538925,1
+4842,Specialized freight trucking,507733,53105,31734942,1
+48421,Used household and office goods moving,102745,9436,4688962,1
+484210,Used household and office goods moving,102745,9436,4688962,1
+48422,"Specialized freight (except used goods) trucking, local",233012,32207,15425641,1
+484220,"Specialized freight (except used goods) trucking, local",233012,32207,15425641,1
+48423,"Specialized freight (except used goods) trucking, long-distance",171976,11462,11620339,1
+484230,"Specialized freight (except used goods) trucking, long-distance",171976,11462,11620339,1
+485,Transit and ground passenger transportation,458871,20377,18503271,1
+4851,Urban transit systems,47318,618,3055099,1
+48511,Urban transit systems,47318,618,3055099,1
+485111,Mixed mode transit systems,656,17,44501,1
+485112,Commuter rail systems,4081,16,383482,1
+485113,Bus and other motor vehicle transit systems,41501,523,2537806,1
+485119,Other urban transit systems,1080,62,89310,1
+4852,Interurban and rural bus transportation,17592,615,803528,1
+48521,Interurban and rural bus transportation,17592,615,803528,1
+485210,Interurban and rural bus transportation,17592,615,803528,1
+4853,Taxi and limousine service,51826,7747,2583215,1
+48531,Taxi service,22790,3441,1453723,1
+485310,Taxi service,22790,3441,1453723,1
+48532,Limousine service,29036,4306,1129492,1
+485320,Limousine service,29036,4306,1129492,1
+4854,School and employee bus transportation,221741,4027,7119049,1
+48541,School and employee bus transportation,221741,4027,7119049,1
+485410,School and employee bus transportation,221741,4027,7119049,1
+4855,Charter bus industry,29436,1165,1408675,1
+48551,Charter bus industry,29436,1165,1408675,1
+485510,Charter bus industry,29436,1165,1408675,1
+4859,Other transit and ground passenger transportation,90958,6205,3533705,1
+48599,Other transit and ground passenger transportation,90958,6205,3533705,1
+485991,Special needs transportation,65974,3920,2507230,1
+485999,All other transit and ground passenger transportation,24984,2285,1026475,1
+486,Pipeline transportation,45688,3517,6791419,1
+4861,Pipeline transportation of crude oil,11939,725,1826922,1
+48611,Pipeline transportation of crude oil,11939,725,1826922,1
+486110,Pipeline transportation of crude oil,11939,725,1826922,1
+4862,Pipeline transportation of natural gas,24190,1908,3576332,1
+48621,Pipeline transportation of natural gas,24190,1908,3576332,1
+486210,Pipeline transportation of natural gas,24190,1908,3576332,1
+4869,Other pipeline transportation,9559,884,1388165,1
+48691,Pipeline transportation of refined petroleum products,9350,849,1360139,1
+486910,Pipeline transportation of refined petroleum products,9350,849,1360139,1
+48699,All other pipeline transportation,209,35,28026,1
+486990,All other pipeline transportation,209,35,28026,1
+487,Scenic and sightseeing transportation,27127,3199,1411533,1
+4871,"Scenic and sightseeing transportation, land",9244,727,422957,1
+48711,"Scenic and sightseeing transportation, land",9244,727,422957,1
+487110,"Scenic and sightseeing transportation, land",9244,727,422957,1
+4872,"Scenic and sightseeing transportation, water",14913,2217,806376,1
+48721,"Scenic and sightseeing transportation, water",14913,2217,806376,1
+487210,"Scenic and sightseeing transportation, water",14913,2217,806376,1
+4879,"Scenic and sightseeing transportation, other",2970,255,182200,1
+48799,"Scenic and sightseeing transportation, other",2970,255,182200,1
+487990,"Scenic and sightseeing transportation, other",2970,255,182200,1
+488,Support activities for transportation,853486,49494,57019820,1
+4881,Support activities for air transportation,245625,6822,13052446,1
+48811,Airport operations,142448,2585,5534889,1
+488111,Air traffic control,1574,212,130101,1
+488119,Other airport operations,140874,2373,5404788,1
+48819,Other support activities for air transportation,103177,4237,7517557,1
+488190,Other support activities for air transportation,103177,4237,7517557,1
+4882,Support activities for rail transportation,49372,1695,3341888,1
+48821,Support activities for rail transportation,49372,1695,3341888,1
+488210,Support activities for rail transportation,49372,1695,3341888,1
+4883,Support activities for water transportation,101459,2635,8992824,1
+48831,Port and harbor operations,13933,326,1065918,1
+488310,Port and harbor operations,13933,326,1065918,1
+48832,Marine cargo handling,66890,485,6021749,1
+488320,Marine cargo handling,66890,485,6021749,1
+48833,Navigational services to shipping,12850,1065,1269110,1
+488330,Navigational services to shipping,12850,1065,1269110,1
+48839,Other support activities for water transportation,7786,759,636047,1
+488390,Other support activities for water transportation,7786,759,636047,1
+4884,Support activities for road transportation,109993,14137,5422371,1
+48841,Motor vehicle towing,73320,10566,3786569,1
+488410,Motor vehicle towing,73320,10566,3786569,1
+48849,Other support activities for road transportation,36673,3571,1635802,1
+488490,Other support activities for road transportation,36673,3571,1635802,1
+4885,Freight transportation arrangement,324765,21873,24790431,1
+48851,Freight transportation arrangement,324765,21873,24790431,1
+488510,Freight transportation arrangement,324765,21873,24790431,1
+4889,Other support activities for transportation,22272,2332,1419860,1
+48899,Other support activities for transportation,22272,2332,1419860,1
+488991,Packing and crating,18419,1572,887734,1
+488999,All other support activities for transportation,3853,760,532126,1
+492,Couriers and messengers,1185718,16226,63311818,1
+4921,Couriers and express delivery services,1036160,10859,55409968,1
+49211,Couriers and express delivery services,1036160,10859,55409968,1
+492110,Couriers and express delivery services,1036160,10859,55409968,1
+4922,Local messengers and local delivery,149558,5367,7901850,1
+49221,Local messengers and local delivery,149558,5367,7901850,1
+492210,Local messengers and local delivery,149558,5367,7901850,1
+493,Warehousing and storage,1648638,21521,84922062,1
+4931,Warehousing and storage,1648638,21521,84922062,1
+49311,General warehousing and storage,1514034,16753,76288762,1
+493110,General warehousing and storage,1514034,16753,76288762,1
+493120,Refrigerated warehousing and storage,66236,1376,3769171,1
+49313,Farm product warehousing and storage,6190,722,445455,1
+493130,Farm product warehousing and storage,6190,722,445455,1
+49319,Other warehousing and storage,62178,2670,4418674,1
+493190,Other warehousing and storage,62178,2670,4418674,1
+51,Information,3809059,160704,568303975,1
+511,Publishing industries (except internet),1262348,32332,223553256,1
+5111,"Newspaper, periodical, book, and directory publishers",251161,13907,19874375,1
+51111,Newspaper publishers,91350,5851,5345060,1
+511110,Newspaper publishers,91350,5851,5345060,1
+51112,Periodical publishers,64983,3869,6491700,1
+511120,Periodical publishers,64983,3869,6491700,1
+51113,Book publishers,65282,2347,6108176,1
+511130,Book publishers,65282,2347,6108176,1
+51114,Directory and mailing list publishers,10320,491,962057,1
+511140,Directory and mailing list publishers,10320,491,962057,1
+51119,Other publishers,19226,1349,967382,1
+511191,Greeting card publishers,13005,106,458809,1
+511199,All other publishers,6221,1243,508573,1
+5112,Software publishers,1011187,18425,203678881,1
+51121,Software publishers,1011187,18425,203678881,1
+511210,Software publishers,1011187,18425,203678881,1
+512,Motion picture and sound recording industries,333045,30226,22111737,1
+5121,Motion picture and video industries,307031,25641,18794727,1
+51211,Motion picture and video production,158632,17366,13691268,1
+512110,Motion picture and video production,158632,17366,13691268,1
+51212,Motion picture and video distribution,2525,493,301037,1
+512120,Motion picture and video distribution,2525,493,301037,1
+51213,Motion picture and video exhibition,122339,4347,2295086,1
+512131,Motion picture theaters (except drive-ins),121566,4057,2260611,1
+512132,Drive-in motion picture theaters,773,290,34475,1
+51219,Postproduction services and other motion picture and video industries,23535,3435,2507336,1
+512191,Teleproduction and other postproduction services,22670,3144,2429915,1
+512199,Other motion picture and video industries,865,291,77421,1
+5122,Sound recording industries,26014,4585,3317010,1
+51223,Music publishers,5355,833,598247,1
+512230,Music publishers,5355,833,598247,1
+51224,Sound recording studios,6596,2131,480717,1
+512240,Sound recording studios,6596,2131,480717,1
+51225,Record production and distribution,11458,888,2032136,1
+512250,Record production and distribution,11458,888,2032136,1
+51229,Other sound recording industries,2605,733,205910,1
+512290,Other sound recording industries,2605,733,205910,1
+515,Broadcasting (except internet),262310,7208,26542616,1
+5151,Radio and television broadcasting,212144,6611,19221470,1
+51511,Radio broadcasting,69919,4645,5343622,1
+515111,Radio networks,10859,701,1283593,1
+515112,Radio stations,59060,3944,4060029,1
+51512,Television broadcasting,142225,1966,13877848,1
+515120,Television broadcasting,142225,1966,13877848,1
+5152,Cable and other subscription programming,50166,597,7321146,1
+51521,Cable and other subscription programming,50166,597,7321146,1
+515210,Cable and other subscription programming,50166,597,7321146,1
+517,Telecommunications,912645,58992,83948432,1
+5173,Wired and wireless telecommunications carriers,835631,52887,76752898,1
+51731,Wired and wireless telecommunications carriers,835631,52887,76752898,1
+517311,Wired telecommunications carriers,593911,28618,58327000,1
+517312,Wireless telecommunications carriers (except satellite),241720,24269,18425898,1
+5174,Satellite telecommunications,9919,429,1517142,1
+51741,Satellite telecommunications,9919,429,1517142,1
+517410,Satellite telecommunications,9919,429,1517142,1
+5179,Other telecommunications,67095,5676,5678392,1
+51791,Other telecommunications,67095,5676,5678392,1
+517911,Telecommunications resellers,40319,3744,2341024,1
+517919,All other telecommunications,26776,1932,3337368,1
+518,"Data processing, hosting, and related services",629527,18544,92959221,1
+5182,"Data processing, hosting, and related services",629527,18544,92959221,1
+51821,"Data processing, hosting, and related services",629527,18544,92959221,1
+518210,"Data processing, hosting, and related services",629527,18544,92959221,1
+5191,Other information services,409184,13402,119188713,1
+51911,News syndicates,5334,321,690843,1
+519110,News syndicates,5334,321,690843,1
+51912,Libraries and archives,25277,2326,1062752,1
+519120,Libraries and archives,25277,2326,1062752,1
+51913,Internet publishing and broadcasting and web search portals,369320,9763,116370451,1
+519130,Internet publishing and broadcasting and web search portals,369320,9763,116370451,1
+51919,All other information services,9253,992,1064667,1
+519190,All other information services,9253,992,1064667,1
+52,Finance and insurance,6991623,469382,876925090,1
+521,Monetary authorities - central bank,22009,66,3249583,1
+5211,Monetary authorities - central bank,22009,66,3249583,1
+52111,Monetary authorities - central bank,22009,66,3249583,1
+521110,Monetary authorities - central bank,22009,66,3249583,1
+522,Credit intermediation and related activities,2953663,176966,308198959,1
+5221,Depository credit intermediation,2072993,108792,209695540,1
+52211,Commercial banking,1630919,82989,174859900,1
+522110,Commercial banking,1630919,82989,174859900,1
+52212,Savings institutions,90728,6171,8744393,1
+522120,Savings institutions,90728,6171,8744393,1
+52213,Credit unions,348545,19605,25541156,1
+522130,Credit unions,348545,19605,25541156,1
+52219,Other depository credit intermediation,2801,27,550091,1
+522190,Other depository credit intermediation,2801,27,550091,1
+5222,Nondepository credit intermediation,570079,42371,63226089,1
+52221,Credit card issuing,75504,615,10917726,1
+522210,Credit card issuing,75504,615,10917726,1
+52222,Sales financing,82691,3353,9514083,1
+522220,Sales financing,82691,3353,9514083,1
+52229,Other nondepository credit intermediation,411884,38403,42794280,1
+522292,Real estate credit,241669,16591,24710989,1
+522293,International trade financing,889,184,103621,1
+522294,Secondary market financing,17832,149,3118549,1
+522298,All other nondepository credit intermediation,67288,9373,6716436,1
+5223,Activities related to credit intermediation,310591,25803,35277330,1
+52231,Mortgage and nonmortgage loan brokers,54952,9792,4911723,1
+522310,Mortgage and nonmortgage loan brokers,54952,9792,4911723,1
+52232,"Financial transactions processing, reserve, and clearinghouse activities",177887,4711,23585532,1
+522320,"Financial transactions processing, reserve, and clearinghouse activities",177887,4711,23585532,1
+522390,Other activities related to credit intermediation,77752,11300,6780075,1
+523,"Securities, commodity contracts, and other financial investments and related activities",1042226,113885,271464900,1
+5231,Securities and commodity contracts intermediation and brokerage,381108,27442,109316729,1
+52311,Investment banking and securities dealing,90089,3808,40097511,1
+523110,Investment banking and securities dealing,90089,3808,40097511,1
+52312,Securities brokerage,268731,21990,61777942,1
+523120,Securities brokerage,268731,21990,61777942,1
+52313,Commodity contracts dealing,9658,799,4120319,1
+523130,Commodity contracts dealing,9658,799,4120319,1
+52314,Commodity contracts brokerage,12630,845,3320957,1
+523140,Commodity contracts brokerage,12630,845,3320957,1
+5232,Securities and commodity exchanges,7056,54,1602715,1
+523210,Securities and commodity exchanges,7056,54,1602715,1
+5239,Other financial investment activities,654062,86389,160545456,1
+52391,Miscellaneous intermediation,60341,12892,14906870,1
+523910,Miscellaneous intermediation,60341,12892,14906870,1
+52392,Portfolio management,420180,44443,118838689,1
+523920,Portfolio management,420180,44443,118838689,1
+52393,Investment advice,110125,23359,18481170,1
+523930,Investment advice,110125,23359,18481170,1
+52399,All other financial investment activities,63416,5695,8318727,1
+523991,"Trust, fiduciary, and custody activities",36031,3285,4095613,1
+523999,Miscellaneous financial investment activities,27385,2410,4223114,1
+524,Insurance carriers and related activities,2964086,176459,292342907,1
+5241,Insurance carriers,1653582,28557,177159541,1
+52411,"Direct life, health, and medical insurance carriers",944645,11821,102689315,1
+524113,Direct life insurance carriers,308639,5674,41400589,1
+524114,Direct health and medical insurance carriers,636006,6147,61288726,1
+52412,"Direct insurance (except life, health, and medical) carriers",694426,16364,71603191,1
+524126,Direct property and casualty insurance carriers,620496,11888,64119993,1
+524128,"Other direct insurance (except life, health, and medical) carriers",29279,550,2761350,1
+52413,Reinsurance carriers,14511,372,2867035,1
+524130,Reinsurance carriers,14511,372,2867035,1
+5242,"Agencies, brokerages, and other insurance related activities",1310504,147902,115183366,1
+52421,Insurance agencies and brokerages,818561,133728,74350546,1
+524210,Insurance agencies and brokerages,818561,133728,74350546,1
+52429,Other insurance related activities,491943,14174,40832820,1
+524291,Claims adjusting,45406,4934,4096438,1
+524292,Third party administration of insurance and pension funds,411459,6151,33347559,1
+524298,All other insurance related activities,35078,3089,3388823,1
+525,"Funds, trusts, and other financial vehicles",9639,2006,1668741,1
+5259,Other investment pools and funds,9639,2006,1668741,1
+52591,Open-end investment funds,1820,354,358102,1
+525910,Open-end investment funds,1820,354,358102,1
+52599,Other financial vehicles,7819,1652,1310639,1
+525990,Other financial vehicles,7819,1652,1310639,1
+53,Real estate and rental and leasing,2391886,469562,167613420,1
+531,Real estate,1819631,414824,126274568,1
+5311,Lessors of real estate,605793,136539,38073548,1
+53111,Lessors of residential buildings and dwellings,348544,74459,19365050,1
+531110,Lessors of residential buildings and dwellings,348544,74459,19365050,1
+53112,Lessors of nonresidential buildings (except miniwarehouses),174571,34559,14601480,1
+531120,Lessors of nonresidential buildings (except miniwarehouses),174571,34559,14601480,1
+53113,Lessors of miniwarehouses and self-storage units,48382,18564,1961900,1
+531130,Lessors of miniwarehouses and self-storage units,48382,18564,1961900,1
+53119,Lessors of other real estate property,34296,8957,2145118,1
+531190,Lessors of other real estate property,34296,8957,2145118,1
+5312,Offices of real estate agents and brokers,395264,163894,31261611,1
+53121,Offices of real estate agents and brokers,395264,163894,31261611,1
+531210,Offices of real estate agents and brokers,395264,163894,31261611,1
+5313,Activities related to real estate,818574,114391,56939409,1
+53131,Real estate property managers,707721,78886,46887075,1
+531311,Residential property managers,536933,60818,31564334,1
+531312,Nonresidential property managers,170788,18068,15322741,1
+53132,Offices of real estate appraisers,31930,12346,2041227,1
+531320,Offices of real estate appraisers,31930,12346,2041227,1
+53139,Other activities related to real estate,78923,23159,8011107,1
+531390,Other activities related to real estate,78923,23159,8011107,1
+532,Rental and leasing services,528160,52037,35315639,1
+5321,Automotive equipment rental and leasing,175524,16466,10487138,1
+53211,Passenger car rental and leasing,93674,10080,5346975,1
+532111,Passenger car rental,84637,9548,4246355,1
+532112,Passenger car leasing,9037,532,1100620,1
+53212,"Truck, utility trailer, and RV (recreational vehicle) rental and leasing",81850,6386,5140163,1
+532120,"Truck, utility trailer, and RV (recreational vehicle) rental and leasing",81850,6386,5140163,1
+5322,Consumer goods rental,115060,15762,5718123,1
+53221,Consumer electronics and appliances rental,22867,4436,1015315,1
+532210,Consumer electronics and appliances rental,22867,4436,1015315,1
+53228,Other consumer goods rental,92193,11326,4702808,1
+532281,Formal wear and costume rental,4057,681,157509,1
+532282,Video tape and disc rental,3003,390,147482,1
+532283,Home health equipment rental,25952,1998,1510426,1
+532284,Recreational goods rental,15300,2936,702353,1
+532289,All other consumer goods rental,43881,5321,2185038,1
+5323,General rental centers,19738,2725,1165027,1
+53231,General rental centers,19738,2725,1165027,1
+532310,General rental centers,19738,2725,1165027,1
+5324,Commercial and industrial machinery and equipment rental and leasing,217838,17084,17945351,1
+53241,"Construction, transportation, mining, and forestry machinery and equipment rental and leasing",79426,6142,7493685,1
+532411,"Commercial air, rail, and water transportation equipment rental and leasing",4696,647,697129,1
+532412,"Construction, mining, and forestry machinery and equipment rental and leasing",74730,5495,6796556,1
+53242,Office machinery and equipment rental and leasing,6110,694,611117,1
+532420,Office machinery and equipment rental and leasing,6110,694,611117,1
+53249,Other commercial and industrial machinery and equipment rental and leasing,132302,10248,9840549,1
+532490,Other commercial and industrial machinery and equipment rental and leasing,132302,10248,9840549,1
+533,Lessors of nonfinancial intangible assets (except copyrighted works),44095,2701,6023213,1
+5331,Lessors of nonfinancial intangible assets (except copyrighted works),44095,2701,6023213,1
+53311,Lessors of nonfinancial intangible assets (except copyrighted works),44095,2701,6023213,1
+533110,Lessors of nonfinancial intangible assets (except copyrighted works),44095,2701,6023213,1
+54,"Professional, scientific, and technical services",10401442,989182,1114419103,1
+541,"Professional, scientific, and technical services",10401442,989182,1114419103,1
+5411,Legal services,1190297,181092,144007740,1
+54111,Offices of lawyers,1093331,165491,137300251,1
+541110,Offices of lawyers,1093331,165491,137300251,1
+54119,Other legal services,96966,15601,6707489,1
+541191,Title abstract and settlement offices,62997,9825,4187093,1
+541199,All other legal services,33969,5776,2520396,1
+5412,"Accounting, tax preparation, bookkeeping, and payroll services",1297995,137069,99784020,1
+54121,"Accounting, tax preparation, bookkeeping, and payroll services",1297995,137069,99784020,1
+541211,Offices of certified public accountants,604209,55052,60838681,1
+541213,Tax preparation services,133868,28762,3334416,1
+541214,Payroll services,309518,5556,20510140,1
+541219,Other accounting services,250400,47699,15100783,1
+5413,"Architectural, engineering, and related services",1741313,117417,178975580,1
+54131,Architectural services,189468,22805,18703680,1
+541310,Architectural services,189468,22805,18703680,1
+54132,Landscape architectural services,29046,5176,2259147,1
+541320,Landscape architectural services,29046,5176,2259147,1
+54133,Engineering services,1260577,63233,138599619,1
+541330,Engineering services,1260577,63233,138599619,1
+54134,Drafting services,10108,2963,685324,1
+541340,Drafting services,10108,2963,685324,1
+54135,Building inspection services,28755,7496,1743845,1
+541350,Building inspection services,28755,7496,1743845,1
+54136,Geophysical surveying and mapping services,7007,993,764367,1
+541360,Geophysical surveying and mapping services,7007,993,764367,1
+54137,Surveying and mapping (except geophysical) services,58087,7288,4304723,1
+541370,Surveying and mapping (except geophysical) services,58087,7288,4304723,1
+54138,Testing laboratories,158265,7463,11914875,1
+541380,Testing laboratories,158265,7463,11914875,1
+5414,Specialized design services,130292,37685,9298736,1
+54141,Interior design services,55286,16797,3691277,1
+541410,Interior design services,55286,16797,3691277,1
+54142,Industrial design services,14360,1591,1569507,1
+541420,Industrial design services,14360,1591,1569507,1
+54143,Graphic design services,49266,15828,3203710,1
+541430,Graphic design services,49266,15828,3203710,1
+54149,Other specialized design services,11380,3469,834242,1
+541490,Other specialized design services,11380,3469,834242,1
+5415,Computer systems design and related services,2050626,145813,250782943,1
+54151,Computer systems design and related services,2050626,145813,250782943,1
+541511,Custom computer programming services,1012250,68051,125775835,1
+541512,Computer systems design services,766160,58113,93602442,1
+541513,Computer facilities management services,103562,6374,10544889,1
+541519,Other computer related services,168654,13275,20859777,1
+5416,"Management, scientific, and technical consulting services",1736343,225945,184226837,1
+54161,Management consulting services,1467031,188206,158368976,1
+541612,Human resources consulting services,134151,8526,12879341,1
+541613,Marketing consulting services,315229,52258,26166723,1
+541614,"Process, physical distribution, and logistics consulting services",97017,8360,7070932,1
+541618,Other management consulting services,51177,14568,6393061,1
+54162,Environmental consulting services,88934,9696,7561625,1
+541620,Environmental consulting services,88934,9696,7561625,1
+54169,Other scientific and technical consulting services,180378,28043,18296236,1
+541690,Other scientific and technical consulting services,180378,28043,18296236,1
+54171,"Research and development in the physical, engineering, and life sciences",957341,20321,149789247,1
+541713,Research and development in nanotechnology,166018,1722,25494553,1
+541714,Research and development in biotechnology (except nanobiotechnology),194991,5670,36070277,1
+541715,"Research and development in the physical, engineering, and life sciences (except nanotechnology and biotechnology)",596332,12929,88224417,1
+54172,Research and development in the social sciences and humanities,46634,2082,4281091,1
+541720,Research and development in the social sciences and humanities,46634,2082,4281091,1
+5418,"Advertising, public relations, and related services",465231,38864,43349509,1
+54181,Advertising agencies,200465,15512,21417972,1
+541810,Advertising agencies,200465,15512,21417972,1
+54182,Public relations agencies,60066,8646,7186857,1
+541820,Public relations agencies,60066,8646,7186857,1
+54183,Media buying agencies,20819,767,2307497,1
+541830,Media buying agencies,20819,767,2307497,1
+54184,Media representatives,23093,1233,3072666,1
+541840,Media representatives,23093,1233,3072666,1
+54185,Outdoor advertising,22089,2442,1834139,1
+541850,Outdoor advertising,22089,2442,1834139,1
+54186,Direct mail advertising,30369,1705,2006470,1
+541860,Direct mail advertising,30369,1705,2006470,1
+54187,Advertising material distribution services,11284,1164,936660,1
+541870,Advertising material distribution services,11284,1164,936660,1
+54189,Other services related to advertising,97046,7395,4587248,1
+5419,"Other professional, scientific, and technical services",785370,82894,49923400,1
+54191,Marketing research and public opinion polling,78424,4401,8153864,1
+541910,Marketing research and public opinion polling,78424,4401,8153864,1
+54192,Photographic services,50967,16504,1984665,1
+541921,"Photography studios, portrait",37479,11483,1279256,1
+541922,Commercial photography,13488,5021,705409,1
+54193,Translation and interpretation services,41495,2801,2184513,1
+541930,Translation and interpretation services,41495,2801,2184513,1
+54194,Veterinary services,475106,34296,25170032,1
+541940,Veterinary services,475106,34296,25170032,1
+54199,"All other professional, scientific, and technical services",139378,24892,12430326,1
+541990,"All other professional, scientific, and technical services",139378,24892,12430326,1
+55,Management of companies and enterprises,3855720,49556,497375299,1
+551,Management of companies and enterprises,3855720,49556,497375299,1
+5511,Management of companies and enterprises,3855720,49556,497375299,1
+55111,Management of companies and enterprises,3855720,49556,497375299,1
+551111,Offices of bank holding companies,7837,643,985083,1
+551112,Offices of other holding companies,89908,6582,11031503,1
+551114,"Corporate, subsidiary, and regional managing offices",3757975,42331,485358713,1
+56,Administrative and support and waste management and remediation services,13454862,451014,762956356,1
+561,Administrative and support services,12960998,421777,727355099,1
+5611,Office administrative services,550384,36864,45154791,1
+56111,Office administrative services,550384,36864,45154791,1
+561110,Office administrative services,550384,36864,45154791,1
+5612,Facilities support services,283836,9019,15969118,1
+56121,Facilities support services,283836,9019,15969118,1
+5613,Employment services,7790831,56173,471771428,1
+56131,Employment placement agencies and executive search services,368130,13576,21896658,1
+561311,Employment placement agencies,329566,7679,16338963,1
+561312,Executive search services,38564,5897,5557695,1
+56132,Temporary help services,3645678,38254,177308415,1
+561320,Temporary help services,3645678,38254,177308415,1
+56133,Professional employer organizations,3777023,4343,272566355,1
+561330,Professional employer organizations,3777023,4343,272566355,1
+5614,Business support services,673396,29171,32176563,1
+56141,Document preparation services,36170,4375,1345921,1
+561410,Document preparation services,36170,4375,1345921,1
+56142,Telephone call centers,386187,4141,15004253,1
+561421,Telephone answering services,41582,1035,1610519,1
+561422,Telemarketing bureaus and other contact centers,344605,3106,13393734,1
+56143,Business service centers,65081,9878,2601667,1
+561431,Private mail centers,39175,7614,1249594,1
+561439,Other business service centers (including copy shops),25906,2264,1352073,1
+56144,Collection agencies,91811,2877,4677386,1
+561440,Collection agencies,91811,2877,4677386,1
+56145,Credit bureaus,26469,408,4224503,1
+561450,Credit bureaus,26469,408,4224503,1
+56149,Other business support services,67678,7492,4322833,1
+561491,Repossession services,7441,669,361622,1
+561492,Court reporting and stenotype services,12440,3195,800654,1
+561499,All other business support services,47797,3628,3160557,1
+5615,Travel arrangement and reservation services,186812,15704,19349675,1
+56151,Travel agencies,82899,9308,8106618,1
+561510,Travel agencies,82899,9308,8106618,1
+56152,Tour operators,27113,2584,1664032,1
+561520,Tour operators,27113,2584,1664032,1
+56159,Other travel arrangement and reservation services,76800,3812,9579025,1
+561591,Convention and visitors bureaus,8898,940,655577,1
+561599,All other travel arrangement and reservation services,67902,2872,8923448,1
+5616,Investigation and security services,1011407,26992,38847706,1
+56161,"Investigation, guard, and armored car services",866822,15880,29017629,1
+561611,Investigation services,41686,4013,2440526,1
+561612,Security guards and patrol services,799400,11104,25211466,1
+561613,Armored car services,25736,763,1365637,1
+56162,Security systems services,144585,11112,9830077,1
+561621,Security systems services (except locksmiths),128462,7151,9001839,1
+561622,Locksmiths,16123,3961,828238,1
+5617,Services to buildings and dwellings,2156568,227045,87196990,1
+56171,Exterminating and pest control services,139150,16535,7439859,1
+561710,Exterminating and pest control services,139150,16535,7439859,1
+56172,Janitorial services,1088193,67799,32742664,1
+561720,Janitorial services,1088193,67799,32742664,1
+56173,Landscaping services,802899,117969,41177464,1
+561730,Landscaping services,802899,117969,41177464,1
+56174,Carpet and upholstery cleaning services,36157,6673,1478811,1
+561740,Carpet and upholstery cleaning services,36157,6673,1478811,1
+56179,Other services to buildings and dwellings,90169,18069,4358192,1
+561790,Other services to buildings and dwellings,90169,18069,4358192,1
+5619,Other support services,307764,20809,16888828,1
+56191,Packaging and labeling services,52301,1972,2563249,1
+56192,Convention and trade show organizers,81648,6270,4438636,1
+56199,All other support services,173815,12567,9886943,1
+561990,All other support services,173815,12567,9886943,1
+562,Waste management and remediation services,493864,29237,35601257,1
+5621,Waste collection,263050,13064,18530328,1
+56211,Waste collection,263050,13064,18530328,1
+562111,Solid waste collection,238764,10982,16806608,1
+562112,Hazardous waste collection,10098,511,828287,1
+562119,Other waste collection,14188,1571,895433,1
+5622,Waste treatment and disposal,62599,3326,5086789,1
+56221,Waste treatment and disposal,62599,3326,5086789,1
+562211,Hazardous waste treatment and disposal,29880,994,2698860,1
+562212,Solid waste landfill,23871,1559,1645487,1
+562213,Solid waste combustors and incinerators,2390,64,253409,1
+562219,Other nonhazardous waste treatment and disposal,6458,709,489033,1
+5629,Remediation and other waste management services,168215,12847,11984140,1
+56291,Remediation services,91239,5826,7057102,1
+562910,Remediation services,91239,5826,7057102,1
+56292,Materials recovery facilities,25328,1399,1577290,1
+562920,Materials recovery facilities,25328,1399,1577290,1
+56299,All other waste management services,51648,5622,3349748,1
+562991,Septic tank and related services,32666,4054,2003667,1
+562998,All other miscellaneous waste management services,18982,1568,1346081,1
+61,Educational services,3926820,118004,197656313,1
+611,Educational services,3926820,118004,197656313,1
+6111,Elementary and secondary schools,1176824,23201,56820606,1
+61111,Elementary and secondary schools,1176824,23201,56820606,1
+611110,Elementary and secondary schools,1176824,23201,56820606,1
+6112,Junior colleges,48056,693,2145050,1
+61121,Junior colleges,48056,693,2145050,1
+611210,Junior colleges,48056,693,2145050,1
+6113,"Colleges, universities, and professional schools",1862528,3989,104638349,1
+61131,"Colleges, universities, and professional schools",1862528,3989,104638349,1
+611310,"Colleges, universities, and professional schools",1862528,3989,104638349,1
+6114,Business schools and computer and management training,85432,9794,7105059,1
+61141,Business and secretarial schools,1061,94,53692,1
+611410,Business and secretarial schools,1061,94,53692,1
+611420,Computer training,24092,1633,1988903,1
+61143,Professional and management development training,60279,8067,5062464,1
+611430,Professional and management development training,60279,8067,5062464,1
+6115,Technical and trade schools,109019,8962,5762555,1
+61151,Technical and trade schools,109019,8962,5762555,1
+611511,Cosmetology and barber schools,18623,1717,732231,1
+611512,Flight training,21508,1221,1455488,1
+611513,Apprenticeship training,14624,1367,748253,1
+611519,Other technical and trade schools,54264,4657,2826583,1
+6116,Other schools and instruction,503283,59138,12475262,1
+61161,Fine arts schools,127068,16284,2515444,1
+611610,Fine arts schools,127068,16284,2515444,1
+61162,Sports and recreation instruction,176751,20916,3980874,1
+611620,Sports and recreation instruction,176751,20916,3980874,1
+61163,Language schools,19068,1558,610470,1
+611630,Language schools,19068,1558,610470,1
+61169,All other schools and instruction,180396,20380,5368474,1
+611691,Exam preparation and tutoring,108755,9820,3014523,1
+611692,Automobile driving schools,16610,2648,508435,1
+611699,All other miscellaneous schools and instruction,55031,7912,1845516,1
+6117,Educational support services,141678,12227,8709432,1
+61171,Educational support services,141678,12227,8709432,1
+611710,Educational support services,141678,12227,8709432,1
+62,Health care and social assistance,22063238,1003398,1394716191,1
+621,Ambulatory health care services,8697480,701862,621081399,1
+6211,Offices of physicians,2771935,218066,290855928,1
+62111,Offices of physicians,2771935,218066,290855928,1
+621111,Offices of physicians (except mental health specialists),2706297,204617,285925593,1
+621112,"Offices of physicians, mental health specialists",65638,13449,4930335,1
+6212,Offices of dentists,1028889,135665,62471602,1
+62121,Offices of dentists,1028889,135665,62471602,1
+621210,Offices of dentists,1028889,135665,62471602,1
+6213,Offices of other health practitioners,1212861,204615,58497123,1
+62131,Offices of chiropractors,150066,39913,6053057,1
+621310,Offices of chiropractors,150066,39913,6053057,1
+62132,Offices of optometrists,147931,22501,7235361,1
+621320,Offices of optometrists,147931,22501,7235361,1
+62133,Offices of mental health practitioners (except physicians),276277,46513,12502175,1
+621330,Offices of mental health practitioners (except physicians),276277,46513,12502175,1
+621340,"Offices of physical, occupational and speech therapists, and audiologists",466903,52058,22909546,1
+62139,Offices of all other health practitioners,171684,43630,9796984,1
+621391,Offices of podiatrists,35977,7523,2041753,1
+621399,Offices of all other miscellaneous health practitioners,135707,36107,7755231,1
+6214,Outpatient care centers,1345946,61958,100178529,1
+62141,Family planning centers,34441,3591,2251915,1
+621410,Family planning centers,34441,3591,2251915,1
+62142,Outpatient mental health and substance abuse centers,321445,16815,17493303,1
+621420,Outpatient mental health and substance abuse centers,321445,16815,17493303,1
+62149,Other outpatient care centers,990060,41552,80433311,1
+621491,HMO medical centers,164563,2018,21542669,1
+621492,Kidney dialysis centers,137268,8418,8366724,1
+621493,Freestanding ambulatory surgical and emergency centers,196178,10042,12495695,1
+621498,All other outpatient care centers,492051,21074,38028223,1
+6215,Medical and diagnostic laboratories,332060,23603,24701770,1
+62151,Medical and diagnostic laboratories,332060,23603,24701770,1
+621511,Medical laboratories,232333,16635,17228940,1
+621512,Diagnostic imaging centers,99727,6968,7472830,1
+6216,Home health care services,1618759,40762,61660393,1
+62161,Home health care services,1618759,40762,61660393,1
+621610,Home health care services,1618759,40762,61660393,1
+6219,Other ambulatory health care services,387030,17193,22716054,1
+62191,Ambulance services,179939,5556,9308957,1
+621910,Ambulance services,179939,5556,9308957,1
+62199,All other ambulatory health care services,207091,11637,13407097,1
+621991,Blood and organ banks,90025,2110,5278648,1
+621999,All other miscellaneous ambulatory health care services,117066,9527,8128449,1
+622,Hospitals,6344178,7523,511809805,1
+6221,General medical and surgical hospitals,5815843,5777,472381030,1
+62211,General medical and surgical hospitals,5815843,5777,472381030,1
+622110,General medical and surgical hospitals,5815843,5777,472381030,1
+6222,Psychiatric and substance abuse hospitals,232220,751,16068191,1
+62221,Psychiatric and substance abuse hospitals,232220,751,16068191,1
+622210,Psychiatric and substance abuse hospitals,232220,751,16068191,1
+6223,Specialty (except psychiatric and substance abuse) hospitals,296115,995,23360584,1
+622310,Specialty (except psychiatric and substance abuse) hospitals,296115,995,23360584,1
+623,Nursing and residential care facilities,3278910,94771,136556492,1
+6231,Nursing care facilities (skilled nursing facilities),1426754,18126,63460785,1
+62311,Nursing care facilities (skilled nursing facilities),1426754,18126,63460785,1
+623110,Nursing care facilities (skilled nursing facilities),1426754,18126,63460785,1
+6232,"Residential intellectual and developmental disability, mental health, and substance abuse facilities",769808,44134,32596937,1
+62321,Residential intellectual and developmental disability facilities,545820,35559,21761495,1
+623210,Residential intellectual and developmental disability facilities,545820,35559,21761495,1
+62322,Residential mental health and substance abuse facilities,223988,8575,10835442,1
+623220,Residential mental health and substance abuse facilities,223988,8575,10835442,1
+6233,Continuing care retirement communities and assisted living facilities for the elderly,963870,26523,35330258,1
+62331,Continuing care retirement communities and assisted living facilities for the elderly,963870,26523,35330258,1
+623311,Continuing care retirement communities,455640,5639,17606318,1
+623312,Assisted living facilities for the elderly,508230,20884,17723940,1
+6239,Other residential care facilities,118478,5988,5168512,1
+623990,Other residential care facilities,118478,5988,5168512,1
+624,Social assistance,3742670,199242,125268495,1
+6241,Individual and family services,2234072,94287,75664750,1
+62411,Child and youth services,243116,16306,10434555,1
+624110,Child and youth services,243116,16306,10434555,1
+62412,Services for the elderly and persons with disabilities,1527355,40265,44442733,1
+624120,Services for the elderly and persons with disabilities,1527355,40265,44442733,1
+62419,Other individual and family services,463601,37716,20787462,1
+624190,Other individual and family services,463601,37716,20787462,1
+6242,"Community food and housing, and emergency and other relief services",239562,15967,11517005,1
+62421,Community food services,51810,5112,2324183,1
+624210,Community food services,51810,5112,2324183,1
+62422,Community housing services,152123,9587,7128337,1
+624221,Temporary shelters,88945,4768,3790783,1
+624229,Other community housing services,63178,4819,3337554,1
+62423,Emergency and other relief services,35629,1268,2064485,1
+624230,Emergency and other relief services,35629,1268,2064485,1
+6243,Vocational rehabilitation services,223984,6826,7053766,1
+62431,Vocational rehabilitation services,223984,6826,7053766,1
+624310,Vocational rehabilitation services,223984,6826,7053766,1
+6244,Child day care services,1045052,82162,31032974,1
+62441,Child day care services,1045052,82162,31032974,1
+624410,Child day care services,1045052,82162,31032974,1
+71,"Arts, entertainment, and recreation",2491408,166356,119013881,1
+711,"Performing arts, spectator sports, and related industries",542145,68638,60739893,1
+7111,Performing arts companies,127604,10511,5823443,1
+71111,Theater companies and dinner theaters,68930,3490,2696090,1
+711110,Theater companies and dinner theaters,68930,3490,2696090,1
+71112,Dance companies,11341,872,392006,1
+711120,Dance companies,11341,872,392006,1
+71113,Musical groups and artists,40175,5681,2360269,1
+711130,Musical groups and artists,40175,5681,2360269,1
+71119,Other performing arts companies,7158,468,375078,1
+711190,Other performing arts companies,7158,468,375078,1
+7112,Spectator sports,140107,5147,33011580,1
+71121,Spectator sports,140107,5147,33011580,1
+711211,Sports teams and clubs,92369,1498,30497039,1
+711212,Racetracks,31377,525,1313262,1
+711219,Other spectator sports,16361,3124,1201279,1
+7113,"Promoters of performing arts, sports, and similar events",184353,9305,7704941,1
+71131,"Promoters of performing arts, sports, and similar events with facilities",144748,4274,4965768,1
+711310,"Promoters of performing arts, sports, and similar events with facilities",144748,4274,4965768,1
+711320,"Promoters of performing arts, sports, and similar events without facilities",39605,5031,2739173,1
+7114,"Agents and managers for artists, athletes, entertainers, and other public figures",25141,4998,3920597,1
+71141,"Agents and managers for artists, athletes, entertainers, and other public figures",25141,4998,3920597,1
+711410,"Agents and managers for artists, athletes, entertainers, and other public figures",25141,4998,3920597,1
+7115,"Independent artists, writers, and performers",64940,38677,10279332,1
+71151,"Independent artists, writers, and performers",64940,38677,10279332,1
+711510,"Independent artists, writers, and performers",64940,38677,10279332,1
+712,"Museums, historical sites, and similar institutions",154570,8178,7055584,1
+7121,"Museums, historical sites, and similar institutions",154570,8178,7055584,1
+71211,Museums,91534,5480,4262858,1
+712110,Museums,91534,5480,4262858,1
+71212,Historical sites,11468,1120,470217,1
+712120,Historical sites,11468,1120,470217,1
+71213,Zoos and botanical gardens,42708,781,1906059,1
+712130,Zoos and botanical gardens,42708,781,1906059,1
+71219,Nature parks and other similar institutions,8860,797,416450,1
+712190,Nature parks and other similar institutions,8860,797,416450,1
+713,"Amusement, gambling, and recreation industries",1794693,89540,51218404,1
+7131,Amusement parks and arcades,233871,4372,6822956,1
+71311,Amusement and theme parks,161508,742,5053079,1
+713110,Amusement and theme parks,161508,742,5053079,1
+71312,Amusement arcades,72363,3630,1769877,1
+713120,Amusement arcades,72363,3630,1769877,1
+7132,Gambling industries,134287,3509,7041631,1
+71321,Casinos (except casino hotels),73015,384,3478796,1
+713210,Casinos (except casino hotels),73015,384,3478796,1
+71329,Other gambling industries,61272,3125,3562835,1
+713290,Other gambling industries,61272,3125,3562835,1
+7139,Other amusement and recreation industries,1426535,81659,37353817,1
+71391,Golf courses and country clubs,324224,10076,13284791,1
+713910,Golf courses and country clubs,324224,10076,13284791,1
+71392,Skiing facilities,74471,348,1423157,1
+71393,Marinas,32549,3739,1668362,1
+713930,Marinas,32549,3739,1668362,1
+71394,Fitness and recreational sports centers,708273,41556,13506603,1
+713940,Fitness and recreational sports centers,708273,41556,13506603,1
+71395,Bowling centers,63860,3154,1413190,1
+713950,Bowling centers,63860,3154,1413190,1
+71399,All other amusement and recreation industries,223158,22786,6057714,1
+713990,All other amusement and recreation industries,223158,22786,6057714,1
+72,Accommodation and food services,14608170,784882,393166035,1
+721,Accommodation,1963343,70350,80902978,1
+7211,Traveler accommodation,1905596,60776,78346070,1
+72111,Hotels (except casino hotels) and motels,1497840,55895,58976358,1
+721110,Hotels (except casino hotels) and motels,1497840,55895,58976358,1
+72112,Casino hotels,383387,516,18512186,1
+721120,Casino hotels,383387,516,18512186,1
+72119,Other traveler accommodation,24369,4365,857526,1
+721191,Bed-and-breakfast inns,11933,2304,356244,1
+721199,All other traveler accommodation,12436,2061,501282,1
+7212,RV (recreational vehicle) parks and recreational camps,50244,7985,2307972,1
+72121,RV (recreational vehicle) parks and recreational camps,50244,7985,2307972,1
+721211,RV (recreational vehicle) parks and campgrounds,26333,5018,1017810,1
+721214,Recreational and vacation camps (except campgrounds),23911,2967,1290162,1
+72131,Rooming and boarding houses,7503,1589,248936,1
+721310,Rooming and boarding houses,7503,1589,248936,1
+722,Food services and drinking places,12644827,714532,312263057,1
+7223,Special food services,805701,55221,24235802,1
+72231,Food service contractors,618579,29512,18649224,1
+722310,Food service contractors,618579,29512,18649224,1
+72232,Caterers,148684,13222,4590259,1
+722320,Caterers,148684,13222,4590259,1
+72233,Mobile food services,38438,12487,996319,1
+722330,Mobile food services,38438,12487,996319,1
+7224,Drinking places (alcoholic beverages),432542,40835,11078437,1
+72241,Drinking places (alcoholic beverages),432542,40835,11078437,1
+722410,Drinking places (alcoholic beverages),432542,40835,11078437,1
+7225,Restaurants and other eating places,11406584,618476,276948818,1
+72251,Restaurants and other eating places,11406584,618476,276948818,1
+722511,Full-service restaurants,5387020,258626,150931656,1
+722513,Limited-service restaurants,4965080,270088,103557315,1
+722514,"Cafeterias, grill buffets, and buffets",68901,4622,1560354,1
+722515,Snack and nonalcoholic beverage bars,985583,85140,20899493,1
+81,Other services (except public administration),5616494,807804,244270342,1
+811,Repair and maintenance,1383304,226009,74652917,1
+8111,Automotive repair and maintenance,992292,169572,48743938,1
+81111,Automotive mechanical and electrical repair and maintenance,436638,93082,23029470,1
+811111,General automotive repair,403389,84859,21391957,1
+811112,Automotive exhaust system repair,4001,1245,170956,1
+811113,Automotive transmission repair,14704,3453,741422,1
+811118,Other automotive mechanical and electrical repair and maintenance,14544,3525,725135,1
+81112,"Automotive body, paint, interior, and glass repair",283703,42230,16821991,1
+811121,"Automotive body, paint, and interior repair and maintenance",246720,35029,14981057,1
+811122,Automotive glass replacement shops,36983,7201,1840934,1
+81119,Other automotive repair and maintenance,271951,34260,8892477,1
+811191,Automotive oil change and lubrication shops,77250,9085,2733449,1
+811192,Car washes,172644,19807,5071953,1
+811198,All other automotive repair and maintenance,22057,5368,1087075,1
+8112,Electronic and precision equipment repair and maintenance,89305,10917,6137548,1
+81121,Electronic and precision equipment repair and maintenance,89305,10917,6137548,1
+811211,Consumer electronics repair and maintenance,13188,1615,615010,1
+811212,Computer and office machine repair and maintenance,28425,4531,1653400,1
+811213,Communication equipment repair and maintenance,11864,1726,705529,1
+811219,Other electronic and precision equipment repair and maintenance,35828,3045,3163609,1
+8113,Commercial and industrial machinery and equipment (except automotive and electronic) repair and maintenance,219835,22907,16106397,1
+81131,Commercial and industrial machinery and equipment (except automotive and electronic) repair and maintenance,219835,22907,16106397,1
+811310,Commercial and industrial machinery and equipment (except automotive and electronic) repair and maintenance,219835,22907,16106397,1
+8114,Personal and household goods repair and maintenance,81872,22613,3665034,1
+81141,Home and garden equipment and appliance repair and maintenance,28824,7265,1312242,1
+811411,Home and garden equipment repair and maintenance,4203,1670,154400,1
+811412,Appliance repair and maintenance,24621,5595,1157842,1
+81142,Reupholstery and furniture repair,10920,3168,444251,1
+811420,Reupholstery and furniture repair,10920,3168,444251,1
+81143,Footwear and leather goods repair,1811,698,65820,1
+811430,Footwear and leather goods repair,1811,698,65820,1
+81149,Other personal and household goods repair and maintenance,40317,11482,1842721,1
+811490,Other personal and household goods repair and maintenance,40317,11482,1842721,1
+812,Personal and laundry services,1556668,272787,52040353,1
+8121,Personal care services,764640,160726,23357671,1
+812111,Barber shops,29017,7789,976905,1
+812112,Beauty salons,391064,84176,12403477,1
+812113,Nail salons,148059,34417,3912509,1
+81219,Other personal care services,196500,34344,6064780,1
+812191,Diet and weight reducing centers,12955,2481,417513,1
+812199,Other personal care services,183545,31863,5647267,1
+8122,Death care services,140806,20232,6436145,1
+81221,Funeral homes and funeral services,107566,15183,4695206,1
+812210,Funeral homes and funeral services,107566,15183,4695206,1
+81222,Cemeteries and crematories,33240,5049,1740939,1
+812220,Cemeteries and crematories,33240,5049,1740939,1
+8123,Drycleaning and laundry services,256702,29017,9550420,1
+812310,Coin-operated laundries and drycleaners,41351,10890,1089970,1
+81232,Drycleaning and laundry services (except coin-operated),93512,15801,2704600,1
+812320,Drycleaning and laundry services (except coin-operated),93512,15801,2704600,1
+81233,Linen and uniform supply,121839,2326,5755850,1
+812331,Linen supply,55637,905,2451601,1
+812332,Industrial launderers,66202,1421,3304249,1
+8129,Other personal services,394520,62812,12696117,1
+81291,Pet care (except veterinary) services,175116,25551,4911421,1
+812910,Pet care (except veterinary) services,175116,25551,4911421,1
+81292,Photofinishing,3681,391,198114,1
+812921,Photofinishing laboratories (except one-hour),3507,332,192691,1
+812922,One-hour photofinishing,174,59,5423,1
+81293,Parking lots and garages,128501,12189,4017454,1
+812930,Parking lots and garages,128501,12189,4017454,1
+81299,All other personal services,87222,24681,3569128,1
+812990,All other personal services,87222,24681,3569128,1
+813,"Religious, grantmaking, civic, professional, and similar organizations",2676522,309008,117577072,1
+8131,Religious organizations,1576295,186801,45241230,1
+81311,Religious organizations,1576295,186801,45241230,1
+813110,Religious organizations,1576295,186801,45241230,1
+8132,Grantmaking and giving services,209473,21717,17116677,1
+81321,Grantmaking and giving services,209473,21717,17116677,1
+813211,Grantmaking foundations,110793,12588,9379568,1
+813212,Voluntary health organizations,57356,4111,5080086,1
+813219,Other grantmaking and giving services,41324,5018,2657023,1
+8133,Social advocacy organizations,214947,21255,14219630,1
+81331,Social advocacy organizations,214947,21255,14219630,1
+813311,Human rights organizations,49062,4101,3579989,1
+813312,"Environment, conservation and wildlife organizations",91424,8311,5398414,1
+813319,Other social advocacy organizations,74461,8843,5241227,1
+8134,Civic and social organizations,201423,24698,6311461,1
+81341,Civic and social organizations,201423,24698,6311461,1
+813410,Civic and social organizations,201423,24698,6311461,1
+8139,"Business, professional, labor, political, and similar organizations",474384,54537,34688074,1
+81391,Business associations,105286,14855,10441542,1
+813910,Business associations,105286,14855,10441542,1
+81392,Professional organizations,86514,6529,8758887,1
+813920,Professional organizations,86514,6529,8758887,1
+81393,Labor unions and similar labor organizations,136752,12813,6943363,1
+81394,Political organizations,9289,2200,640036,1
+813940,Political organizations,9289,2200,640036,1
+81399,"Other similar organizations (except business, professional, labor, and political organizations)",136543,18140,7904246,1
+813990,"Other similar organizations (except business, professional, labor, and political organizations)",136543,18140,7904246,1
+99,Industries not classified,13192,9389,540877,1
+813930,Labor unions and similar labor organizations,136752,12813,6943363,1
+23831,Drywall and insulation contractors,250758,20760,16706406,1
+311314,Cane sugar manufacturing,7728,54,632495,1
+31134,Nonchocolate confectionery manufacturing,28988,577,1806893,1
+31182,"Cookie, cracker, and pasta manufacturing",58388,851,3319484,1
+31223,Tobacco manufacturing,11362,125,990731,1
+31331,Textile and fabric finishing mills,14366,570,707086,1
+312230,Tobacco manufacturing,11362,125,990731,1
+3219,Other wood product manufacturing,255619,9391,13884900,1
+3221,"Pulp, paper, and paperboard mills",90792,402,8559075,1
+325620,Toilet preparation manufacturing,48968,1096,3292503,1
+327120,Clay building material and refractories manufacturing,23500,461,1470969,1
+332117,Powder metallurgy part manufacturing,8859,134,533594,1
+33311,Agricultural implement manufacturing,90207,1266,6281702,1
+335,"Electrical equipment, appliance, and component manufacturing",369456,5398,27923815,1
+335311,"Power, distribution, and specialty transformer manufacturing",26731,242,1866756,1
+33621,Motor vehicle body and trailer manufacturing,170535,2199,10070895,1
+336991,"Motorcycle, bicycle, and parts manufacturing",8445,429,447233,1
+33699,Other transportation equipment manufacturing,40630,948,2710125,1
+42371,Hardware merchant wholesalers,99773,5967,7777177,1
+424820,Wine and distilled alcoholic beverage merchant wholesalers,98833,2944,9180186,1
+42495,"Paint, varnish, and supplies merchant wholesalers",21208,1992,1579407,1
+44531,"Beer, wine, and liquor stores",193533,36433,5446519,1
+44811,Men's clothing stores,47131,6582,1678446,1
+483211,Inland water freight transportation,17758,393,1711682,1
+49312,Refrigerated warehousing and storage,66236,1376,3769171,1
+519,Other information services,409184,13402,119188713,1
+522291,Consumer lending,84206,12106,8144685,1
+52239,Other activities related to credit intermediation,77752,11300,6780075,1
+52321,Securities and commodity exchanges,7056,54,1602715,1
+524127,Direct title insurance carriers,44651,3926,4721848,1
+541611,Administrative management and general management consulting services,869457,104494,105858919,1
+5417,Scientific research and development services,1003975,22403,154070338,1
+541890,Other services related to advertising,97046,7395,4587248,1
+561210,Facilities support services,283836,9019,15969118,1
+561910,Packaging and labeling services,52301,1972,2563249,1
+561920,Convention and trade show organizers,81648,6270,4438636,1
+61142,Computer training,24092,1633,1988903,1
+62134,"Offices of physical, occupational and speech therapists, and audiologists",466903,52058,22909546,1
+62231,Specialty (except psychiatric and substance abuse) hospitals,296115,995,23360584,1
+62399,Other residential care facilities,118478,5988,5168512,1
+71132,"Promoters of performing arts, sports, and similar events without facilities",39605,5031,2739173,1
+713920,Skiing facilities,74471,348,1423157,1
+7213,Rooming and boarding houses,7503,1589,248936,1
+81211,"Hair, nail, and skin care services",568140,126382,17292891,1
+81231,Coin-operated laundries and drycleaners,41351,10890,1089970,1
