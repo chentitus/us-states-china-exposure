@@ -8,7 +8,8 @@
 :root{--bg:#fcfcfb;--panel:#fff;--line:#e4e3df;--text:#0b0b0b;--text2:#52514e;--muted:#8a8984;--accent:#2a78d6}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,"PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;font-size:14px;line-height:1.5}
-header{padding:14px 20px 8px;border-bottom:1px solid var(--line);background:var(--panel)}
+header{padding:14px 20px 8px;border-bottom:1px solid var(--line);background:var(--panel);display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:8px}
+header nav a{font-size:13px;color:var(--accent);margin-left:14px}
 header h1{font-size:18px;margin:0 0 2px;font-weight:600}
 header .sub{color:var(--text2);font-size:12px;max-width:1150px}
 nav.tabs{display:flex;gap:4px;padding:0 20px;background:var(--panel);border-bottom:1px solid var(--line)}
@@ -38,9 +39,9 @@ td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
 </style>
 </head>
 <body>
-<header><h1>美國各州對中國／台灣貿易依賴與曝險（2020–2026）</h1>
-<div class="sub">各州對中國的商品出口（起運州）與進口（目的州），換算成占州 GDP 與占州總貿易的比例，加上商品集中度、中資農地等；指標分<b>出口依賴</b>、<b>進口依賴</b>、<b>脆弱性</b>（商品集中度、報復關稅曝險）三個概念（資產與其他為可選），各算百分位平均子分數，總分 = 子分數平均。<b>這是曝險排序，不是政治行為的預測。</b></div></header>
-<nav class="tabs"><button class="active" data-tab="dash">曝險分數</button><button data-tab="state">州詳情</button><button data-tab="about">說明</button><a href="districts.html" style="margin-left:auto;align-self:center;font-size:13px;color:var(--accent)">→ 國會選區與郡</a><a href="congress.html" style="align-self:center;font-size:13px;color:var(--accent);margin-left:14px">→ 國會法案與發言</a></nav>
+<header><div><h1>美國各州對中國／台灣貿易依賴與曝險（2020–2026）</h1><div class="sub">各州對中國的商品出口（起運州）與進口（目的州），換算成占州 GDP 與占州總貿易的比例，加上商品集中度、中資農地等；指標分<b>出口依賴</b>、<b>進口依賴</b>、<b>脆弱性</b>（商品集中度、報復關稅曝險）三個概念（資產與其他為可選），各算百分位平均子分數，總分 = 子分數平均。<b>這是曝險排序，不是政治行為的預測。</b></div></div>
+<nav><a href="districts.html">國會選區與郡</a><a href="congress.html">國會法案與發言</a></nav></header>
+<nav class="tabs"><button class="active" data-tab="dash">曝險分數</button><button data-tab="state">州詳情</button><button data-tab="about">說明</button></nav>
 <div class="controls" id="controls">
   <div class="ctl">納入分數的指標（即時重算）<div class="checks" id="checks"></div></div>
   <div class="ctl">貿易對象（分數計算）<select id="partner"><option value="china">中國</option><option value="taiwan">台灣</option></select></div>
