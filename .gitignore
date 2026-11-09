@@ -3,3 +3,4 @@ data/raw/*
 !data/raw/MANIFEST.md
 scripts/__pycache__/
 .DS_Store
+mne_test.json
