@@ -2,7 +2,8 @@
 <ul>
 <li><b>法案</b>：Congress.gov API（api.congress.gov），第 116–119 屆全部法案與決議案（約 7 萬件）標題經關鍵字篩選：涉中＝China／Chinese／People's Republic of China／PRC／Beijing／Chinese Communist Party／CCP／Hong Kong／Xinjiang／Uyghur／Tibet；涉台＝Taiwan／Taiwanese／Taipei／Republic of China。一件法案可同時涉中與涉台。只看<b>標題</b>，所以標題不提中國但內文涉中的（例如國防授權法）不在內。每件法案取提案人、全部共同提案人（含加入日期、是否原始共提、是否撤回）、政策領域、最新動作、是否成為法律。</li>
 <li><b>國會記錄發言</b>：GovInfo 搜尋 API 在國會記錄（CREC，每日版）全文中找含同組關鍵字的段落（granule），再用 GovInfo 的 MODS 中繼資料取得該段落的發言議員（角色 SPEAKING，附 bioguide ID）。一個段落可能有多位發言者，各計一次。段落包含議場辯論、延伸發言（Extensions of Remarks）、法案提出說明等；投票名單與程序性段落已排除。「摘句」為段落內前兩句含關鍵字的句子。</li>
-<li><b>議員名冊</b>：unitedstates/congress-legislators（黨籍、州、選區、任期）。眾議員的選區取其最近一屆（第 119 屆優先）；2022 年重劃前的紀錄仍歸到該議員現任選區。</li>
+<li><b>議員名冊與選區歸屬</b>：unitedstates/congress-legislators（黨籍、州、選區、任期）。每件提案（提出日）、共提（共提日）與發言（日期）依任期紀錄歸到議員<b>當時</b>代表的州與選區。選區曝險只接邊界與第 119 屆一致的任期：2023 年起的任期，但 AL、GA、LA、NC、NY 五州因 2024 年再次重劃只計 2025 年起；2019–2022（重劃前）與上述五州的第 118 屆任期標示「重劃前」或「118 屆邊界」，不接選區曝險。參議員一律接州級指標。</li>
+<li><b>以選區看</b>：每個第 119 屆選區列出 2023–2026 年所有代表過它的眾議員，合計他們在邊界一致的任期內的涉中／涉台提案、共提與發言，標示 2023 年後是否換人（菱形點）。</li>
 <li><b>選區曝險</b>：來自本專案選區頁（USCBC 2024 對中商品出口與占比、支撐就業；shift-share 2024 對中／對台出口每位員工、中／台比）；參議員接州級指標（州儀表板）。</li>
 </ul>
 <h3>怎麼讀</h3>
