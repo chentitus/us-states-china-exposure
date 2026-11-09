@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>美國國會：涉中／涉台法案與發言（2019–2026）</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+:root{--bg:#fcfcfb;--panel:#fff;--line:#e4e3df;--text:#0b0b0b;--text2:#52514e;--muted:#8a8984;--accent:#2a78d6}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,"PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;font-size:14px;line-height:1.5}
+header{padding:14px 20px 8px;border-bottom:1px solid var(--line);background:var(--panel);display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:8px}
+header h1{font-size:18px;margin:0 0 2px;font-weight:600}
+header .sub{color:var(--text2);font-size:12px;max-width:1150px}
+header nav a{font-size:13px;color:var(--accent);margin-left:14px}
+nav.tabs{display:flex;gap:4px;padding:0 20px;background:var(--panel);border-bottom:1px solid var(--line)}
+nav.tabs button{background:none;border:none;border-bottom:2px solid transparent;padding:10px 12px;font:inherit;color:var(--text2);cursor:pointer}
+nav.tabs button.active{color:var(--text);border-bottom-color:var(--accent);font-weight:600}
+.controls{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end;padding:12px 20px;background:var(--panel);border-bottom:1px solid var(--line)}
+.ctl{display:flex;flex-direction:column;gap:4px;font-size:12px;color:var(--text2)}
+.ctl select,.ctl input{font:inherit;font-size:13px;padding:5px 8px;border:1px solid var(--line);border-radius:4px;background:#fff;color:var(--text)}
+.note{font-size:12px;color:var(--muted)}
+main{padding:16px 20px;max-width:1500px;margin:0 auto}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:12px 14px;min-width:0;margin-bottom:16px}
+.card h2{font-size:14px;margin:0 0 6px;font-weight:600}
+.h2row{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.grid>div{min-width:0}
+table{border-collapse:collapse;width:100%;font-size:12.5px}
+th,td{padding:4px 7px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{color:var(--text2);font-weight:600;white-space:nowrap;position:sticky;top:0;background:var(--panel);cursor:pointer;user-select:none}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+.tablewrap{max-height:560px;overflow:auto;border:1px solid var(--line);border-radius:4px}
+.D{color:#2a78d6}.R{color:#d03b3b}.I{color:#6250d6}
+.tag{display:inline-block;font-size:11px;padding:1px 6px;border-radius:3px;background:#f0efec;color:var(--text2);margin-right:4px}
+.about{max-width:950px;line-height:1.7}
+a.t{color:inherit}
+@media (max-width:1000px){.grid{grid-template-columns:1fr !important}}
+</style>
+</head>
+<body>
+<header><div><h1>美國國會：涉中／涉台法案、共同提案與國會記錄發言（第 116–119 屆，2019–2026）</h1><div class="sub">法案：Congress.gov API，標題含 China／Chinese／PRC／Beijing／CCP／Hong Kong／Xinjiang／Uyghur／Tibet（涉中）或 Taiwan／Taiwanese／Taipei／Republic of China（涉台），含提案人與全部共同提案人。發言：GovInfo 國會記錄（CREC）全文搜尋同組關鍵字的段落，發言者取自 GovInfo MODS 中繼資料（角色 SPEAKING，有 bioguide ID）。議員對接選區（眾議員：最近一屆的州＋選區；參議員：州）後，與該區對中／對台貿易曝險並列。配色：民主黨藍、共和黨紅。</div></div>
+<nav><a href="index.html">州儀表板</a><a href="districts.html">選區與郡</a></nav></header>
+<nav class="tabs"><button class="active" data-tab="mem">議員</button><button data-tab="bill">法案</button><button data-tab="net">涉台共同提案網絡</button><button data-tab="sp">國會記錄發言</button><button data-tab="about">說明</button></nav>
+<div class="controls" id="ctl-mem">
+  <div class="ctl">院<select id="mch"><option value="">兩院</option><option value="rep">眾議院</option><option value="sen">參議院</option></select></div>
+  <div class="ctl">黨<select id="mpa"><option value="">全部</option><option value="Democrat">民主黨</option><option value="Republican">共和黨</option><option value="Independent">無黨籍</option></select></div>
+  <div class="ctl">州<select id="mst"><option value="">全部</option></select></div>
+  <div class="ctl">在任<select id="m119"><option value="1">第 119 屆在任</option><option value="">含已離任（2019 起）</option></select></div>
+  <div class="ctl">散點 X<select id="mx"></select></div><div class="ctl">散點 Y<select id="my"></select></div>
+  <div class="ctl">搜尋<input type="search" id="mq" placeholder="姓名／選區 TX-21" style="width:160px"></div>
+</div>
+<div class="controls" id="ctl-bill" style="display:none">
+  <div class="ctl">屆<select id="bc"><option value="">全部</option><option value="116">116（2019–20）</option><option value="117">117（2021–22）</option><option value="118">118（2023–24）</option><option value="119">119（2025–26）</option></select></div>
+  <div class="ctl">主題<select id="bt"><option value="">涉中或涉台</option><option value="taiwan">涉台</option><option value="china">涉中</option></select></div>
+  <div class="ctl">院<select id="bch"><option value="">全部</option><option value="h">眾議院</option><option value="s">參議院</option></select></div>
+  <div class="ctl">狀態<select id="blaw"><option value="">全部</option><option value="1">已成法律</option></select></div>
+  <div class="ctl">搜尋<input type="search" id="bq" placeholder="標題／提案人" style="width:220px"></div>
+</div>
+<div class="controls" id="ctl-sp" style="display:none">
+  <div class="ctl">主題<select id="st2"><option value="taiwan">提到台灣</option><option value="china">提到中國</option><option value="">兩者</option></select></div>
+  <div class="ctl">議員<select id="smem"><option value="">全部</option></select></div>
+  <div class="ctl">年<select id="syr"><option value="">全部</option></select></div>
+  <div class="ctl">搜尋<input type="search" id="sq" placeholder="標題／摘句" style="width:220px"></div>
+</div>
+<main>
+<section id="tab-mem">
+  <div class="grid"><div class="card"><div class="h2row"><h2 id="mstitle">議員活動 vs 選區曝險</h2><span class="note">點散點看該議員。眾議員用選區指標，參議員用州指標（請在 X 選州級變數）。</span></div><div id="mscatter" style="height:440px"></div></div>
+    <div class="card"><div class="h2row"><h2>黨籍與院別彙總</h2></div><div id="mbar" style="height:440px"></div></div></div>
+  <div class="card"><div class="h2row"><h2>議員表</h2><span class="note" id="mcount"></span></div><div class="tablewrap"><table id="mt"></table></div></div>
+  <div class="card" id="mdetail" style="display:none"><h2 id="mdtitle"></h2><div class="note" id="mdnote"></div><div class="grid" style="margin-top:8px"><div><h2>提案／共同提案的涉中涉台法案</h2><div class="tablewrap" style="max-height:360px"><table id="mdbills"></table></div></div><div><h2>國會記錄中提到中國／台灣的發言</h2><div class="tablewrap" style="max-height:360px"><table id="mdsp"></table></div></div></div></div>
+</section>
+<section id="tab-bill" style="display:none"><div class="card"><div class="h2row"><h2>法案</h2><span class="note" id="bcount"></span></div><div class="tablewrap" style="max-height:75vh"><table id="bt_"></table></div></div></section>
+<section id="tab-net" style="display:none"><div class="card"><div class="h2row"><h2>涉台法案共同提案網絡（第 116–119 屆；邊＝兩人共同出現在同一件涉台法案 ≥ 2 次；取連結度前 220 名）</h2><span class="note">點節點看議員。藍＝民主黨、紅＝共和黨；節點大小＝涉台共提次數。</span></div><div id="net" style="height:720px"></div></div></section>
+<section id="tab-sp" style="display:none"><div class="card"><div class="h2row"><h2>國會記錄發言段落</h2><span class="note" id="scount"></span></div><div class="tablewrap" style="max-height:75vh"><table id="spt"></table></div></div></section>
+<section id="tab-about" style="display:none"><div class="card about" id="about"></div></section>
+<script>
+/*__DATA__*/
+const $=id=>document.getElementById(id); const f0=v=>v==null||isNaN(v)?'–':Math.round(v).toLocaleString(); const f1=v=>v==null||isNaN(v)?'–':Number(v).toFixed(1); const f2=v=>v==null||isNaN(v)?'–':Number(v).toFixed(2); const pc=v=>v==null||isNaN(v)?'–':(v*100).toFixed(0)+'%';
+const PC={Democrat:'#2a78d6',Republican:'#d03b3b',Independent:'#6250d6'}; const pcls=p=>p==='Democrat'?'D':p==='Republican'?'R':'I';
+const MVARS=[['sponsored_china','提案涉中法案數'],['sponsored_taiwan','提案涉台法案數'],['cosponsored_china','共提涉中法案數'],['cosponsored_taiwan','共提涉台法案數'],['speeches_china','國會記錄提到中國（段落數）'],['speeches_taiwan','國會記錄提到台灣（段落數）'],['cross_party_share','共提跨黨比例'],['u_goods_2024','選區：USCBC 對中商品出口 2024（百萬）'],['u_goods_share_2024','選區：中國占選區出口 %（2024）'],['u_jobs_2023','選區：對中出口支撐就業'],['ss_exp_cn_pw_2024','選區：shift-share 對中出口／員工'],['ss_exp_tw_pw_2024','選區：shift-share 對台出口／員工'],['ss_ratio_cn_tw_2024','選區：中／台出口比'],['st_exp_cn_pct_gdp_2024','州：對中出口占 GDP %（參議員）'],['st_exp_tw_pct_gdp_2024','州：對台出口占 GDP %（參議員）']];
+const st={ch:'',pa:'',st:'',only119:'1',mx:'u_goods_share_2024',my:'sponsored_taiwan',mq:'',msort:'sponsored_taiwan',mdir:-1,bc:'',bt:'',bch:'',blaw:'',bq:'',st2:'taiwan',smem:'',syr:'',sq:''};
+MVARS.forEach(([k,l])=>{[$('mx'),$('my')].forEach(s=>{const o=document.createElement('option');o.value=k;o.textContent=l;s.appendChild(o);});}); $('mx').value=st.mx;$('my').value=st.my;
+[...new Set(MEM.map(m=>m.state))].sort().forEach(s=>{const o=document.createElement('option');o.value=s;o.textContent=`${STATES_ZH[s]||s} ${s}`;$('mst').appendChild(o);});
+const BY={}; MEM.forEach(m=>BY[m.bioguide]=m);
+function mrows(){const q=st.mq.toLowerCase(); return MEM.filter(m=>(!st.ch||m.chamber===st.ch)&&(!st.pa||m.party===st.pa)&&(!st.st||m.state===st.st)&&(!st.only119||m.in_119th)&&(!q||m.name.toLowerCase().includes(q)||(m.cd_code||'').toLowerCase().includes(q)));}
+function lbl(k){return MVARS.find(v=>v[0]===k)[1];}
+const INTV=new Set(['sponsored_china','sponsored_taiwan','cosponsored_china','cosponsored_taiwan','speeches_china','speeches_taiwan','u_goods_2024','u_jobs_2023','ss_exp_cn_pw_2024','ss_exp_tw_pw_2024']); const fv=(k,v)=>INTV.has(k)?f0(v):k==='cross_party_share'?pc(v):f2(v);
+function drawScatter(rows){const kx=st.mx,ky=st.my; const d0=rows.filter(m=>m[kx]!=null&&m[ky]!=null);
+  // 同座標（例如同州兩位參議員在州級指標上）錯開顯示，並在 hover 列出同點所有議員
+  const grp={}; d0.forEach(m=>{const key=m[kx]+'|'+m[ky]; (grp[key]=grp[key]||[]).push(m);}); const xr=Math.max(...d0.map(m=>m[kx]))-Math.min(...d0.map(m=>m[kx]))||1, yr=Math.max(...d0.map(m=>m[ky]))-Math.min(...d0.map(m=>m[ky]))||1;
+  const d=d0.map(m=>{const g=grp[m[kx]+'|'+m[ky]]; const i=g.indexOf(m), n=g.length; const off=n>1?(i-(n-1)/2):0; return {...m,_x:m[kx]+off*xr*0.012,_y:m[ky]+off*yr*0.012,_same:n>1?g.filter(o=>o!==m).map(o=>o.name).join('、'):''};});
+  const tr=['Democrat','Republican','Independent'].map(p=>{const dd=d.filter(m=>m.party===p); return {type:'scatter',mode:'markers',name:p==='Democrat'?'民主黨':p==='Republican'?'共和黨':'無黨籍',x:dd.map(m=>m._x),y:dd.map(m=>m._y),customdata:dd.map(m=>m.bioguide),marker:{color:PC[p],size:8,opacity:0.65,line:{color:'#fff',width:0.5}},hovertemplate:dd.map(m=>`${m.name}（${pcls(m.party)}-${m.cd_code||m.state}）<br>${lbl(kx)}：${fv(kx,m[kx])}<br>${lbl(ky)}：${fv(ky,m[ky])}${m._same?'<br>同一位置：'+m._same:''}<extra></extra>`)};}).filter(t=>t.x.length);
+  Plotly.react('mscatter',tr,{margin:{l:55,r:10,t:10,b:45},xaxis:{title:{text:lbl(kx),font:{size:11}},gridcolor:'#eeede9',zeroline:false},yaxis:{title:{text:lbl(ky),font:{size:11}},gridcolor:'#eeede9',zeroline:false},legend:{orientation:'h',y:1.08,font:{size:11}},paper_bgcolor:'rgba(0,0,0,0)',plot_bgcolor:'rgba(0,0,0,0)',font:{size:11}},{displayModeBar:false,responsive:true});
+  $('mscatter').removeAllListeners&&$('mscatter').removeAllListeners('plotly_click'); $('mscatter').on('plotly_click',ev=>showMember(ev.points[0].customdata));
+  const g={}; rows.forEach(m=>{const k=(m.chamber==='sen'?'參':'眾')+(m.party==='Democrat'?'民主':m.party==='Republican'?'共和':'無黨'); g[k]=g[k]||{n:0,sc:0,stw:0,cc:0,ctw:0,spc:0,sptw:0}; const o=g[k]; o.n++; o.sc+=m.sponsored_china; o.stw+=m.sponsored_taiwan; o.cc+=m.cosponsored_china; o.ctw+=m.cosponsored_taiwan; o.spc+=m.speeches_china; o.sptw+=m.speeches_taiwan;});
+  const ks=Object.keys(g).sort(); const per=(k,f)=>g[k].n?g[k][f]/g[k].n:0;
+  Plotly.react('mbar',[{type:'bar',name:'提案涉中／人',x:ks,y:ks.map(k=>per(k,'sc')),marker:{color:'#e67b73'}},{type:'bar',name:'提案涉台／人',x:ks,y:ks.map(k=>per(k,'stw')),marker:{color:'#d03b3b'}},{type:'bar',name:'共提涉中／人',x:ks,y:ks.map(k=>per(k,'cc')),marker:{color:'#9ec5f4'}},{type:'bar',name:'共提涉台／人',x:ks,y:ks.map(k=>per(k,'ctw')),marker:{color:'#2a78d6'}},{type:'bar',name:'提到台灣發言／人',x:ks,y:ks.map(k=>per(k,'sptw')),marker:{color:'#52514e'}}],{title:{text:'每位議員平均（依目前篩選）',font:{size:12},x:0,xanchor:'left'},barmode:'group',margin:{l:45,r:10,t:30,b:40},xaxis:{type:'category'},yaxis:{gridcolor:'#eeede9'},legend:{orientation:'h',y:-0.18,font:{size:10}},paper_bgcolor:'rgba(0,0,0,0)',plot_bgcolor:'rgba(0,0,0,0)',font:{size:11}},{displayModeBar:false,responsive:true});}
+function drawTable(rows){const k=st.msort,d=st.mdir; rows=rows.slice().sort((a,b)=>{const x=a[k],y=b[k]; if(x==null)return 1; if(y==null)return -1; return (typeof x==='number'?x-y:String(x).localeCompare(String(y)))*d;}); $('mcount').textContent=`${rows.length} 位`;
+  const cols=[['name','議員'],['party','黨'],['chamber','院'],['cd_code','選區'],['sponsored_china','提案涉中'],['sponsored_taiwan','提案涉台'],['cosponsored_china','共提涉中'],['cosponsored_taiwan','共提涉台'],['cross_party_share','跨黨共提比'],['speeches_china','發言提中'],['speeches_taiwan','發言提台'],['u_goods_2024','選區對中出口（百萬）'],['u_goods_share_2024','中國占選區出口 %'],['ss_exp_cn_pw_2024','SS 對中／員工'],['ss_ratio_cn_tw_2024','中／台比']];
+  $('mt').innerHTML='<thead><tr>'+cols.map(([c,l])=>`<th data-k="${c}" class="${['name','party','chamber','cd_code'].includes(c)?'':'num'}">${l}${k===c?(d<0?' ▼':' ▲'):''}</th>`).join('')+'</tr></thead><tbody>'+rows.map(m=>'<tr>'+cols.map(([c])=>c==='name'?`<td><a href="#" class="t" data-b="${m.bioguide}">${m.name}</a>${m.in_119th?'':' <span class="tag">已離任</span>'}</td>`:c==='party'?`<td class="${pcls(m.party)}">${pcls(m.party)}</td>`:c==='chamber'?`<td>${m.chamber==='sen'?'參':'眾'}</td>`:c==='cd_code'?`<td>${m.cd_code||m.state}</td>`:`<td class="num">${c==='cross_party_share'?pc(m[c]):c==='ss_ratio_cn_tw_2024'?f1(m[c]):c==='u_goods_share_2024'?f0(m[c]):c.startsWith('ss_')?f0(m[c]):f0(m[c])}</td>`).join('')+'</tr>').join('')+'</tbody>';
+  $('mt').querySelectorAll('th').forEach(th=>th.onclick=()=>{const c=th.dataset.k; if(st.msort===c)st.mdir*=-1; else{st.msort=c;st.mdir=['name','party','chamber','cd_code'].includes(c)?1:-1;} drawTable(mrows());}); $('mt').querySelectorAll('a[data-b]').forEach(a=>a.onclick=e=>{e.preventDefault();showMember(a.dataset.b);});}
+function showMember(b){const m=BY[b]; if(!m)return; $('mdetail').style.display=''; $('mdtitle').innerHTML=`<span class="${pcls(m.party)}">${m.name}</span>（${m.party==='Democrat'?'民主黨':m.party==='Republican'?'共和黨':'無黨籍'}，${m.chamber==='sen'?'參議員':'眾議員'}，${m.cd_code||m.state}${m.in_119th?'':'，已離任'}）`;
+  $('mdnote').textContent=m.chamber==='rep'?`選區曝險（2024）：USCBC 對中商品出口 ${f0(m.u_goods_2024)} 百萬（中國占 ${f0(m.u_goods_share_2024)}%，支撐就業 ${f0(m.u_jobs_2023)}）；shift-share 對中出口／員工 ${f0(m.ss_exp_cn_pw_2024)} 美元、對台 ${f0(m.ss_exp_tw_pw_2024)}、中／台比 ${f1(m.ss_ratio_cn_tw_2024)}×`:`州曝險（2024）：對中出口占 GDP ${f2(m.st_exp_cn_pct_gdp_2024)}%、對台 ${f2(m.st_exp_tw_pct_gdp_2024)}%`;
+  const bs=BILLS.filter(x=>x.sponsor===b||(COS[b]||[]).includes(x.id)).sort((a,b)=>b.introduced.localeCompare(a.introduced)); $('mdbills').innerHTML='<thead><tr><th>屆</th><th>法案</th><th>角色</th><th>標題</th><th>主題</th><th>狀態</th></tr></thead><tbody>'+bs.map(x=>`<tr><td>${x.congress}</td><td style="white-space:nowrap"><a class="t" href="${x.url}" target="_blank" rel="noopener">${x.type.toUpperCase()} ${x.number}</a></td><td>${x.sponsor===b?'提案':'共提'}</td><td>${x.title}</td><td>${x.taiwan?'<span class="tag">台</span>':''}${x.china?'<span class="tag">中</span>':''}</td><td>${x.law?'<b>成法 '+x.law+'</b>':(x.latest||'').slice(0,60)}</td></tr>`).join('')+'</tbody>';
+  const sp=SPEECH.filter(s=>s.b===b).sort((a,b)=>b.date.localeCompare(a.date)); $('mdsp').innerHTML='<thead><tr><th>日期</th><th>段落</th><th>主題</th><th>摘句</th></tr></thead><tbody>'+sp.map(s=>`<tr><td style="white-space:nowrap">${s.date}</td><td><a class="t" href="https://www.govinfo.gov/app/details/${s.pkg}/${s.g}" target="_blank" rel="noopener">${s.title}</a></td><td>${s.tw?'<span class="tag">台</span>':''}${s.cn?'<span class="tag">中</span>':''}</td><td>${s.snip}</td></tr>`).join('')+'</tbody>';
+  $('mdetail').scrollIntoView({behavior:'smooth',block:'start'});}
+function updateMem(){const r=mrows(); drawScatter(r); drawTable(r);}
+// ---- bills
+function brows(){const q=st.bq.toLowerCase(); return BILLS.filter(x=>(!st.bc||String(x.congress)===st.bc)&&(!st.bt||x[st.bt])&&(!st.bch||x.type[0]===st.bch)&&(!st.blaw||x.law)&&(!q||x.title.toLowerCase().includes(q)||(x.sponsor_name||'').toLowerCase().includes(q)));}
+function drawBills(){const rows=brows().sort((a,b)=>b.introduced.localeCompare(a.introduced)); $('bcount').textContent=`${rows.length} 件；已成法律 ${rows.filter(x=>x.law).length} 件`;
+  $('bt_').innerHTML='<thead><tr><th>屆</th><th>法案</th><th>提出</th><th>標題</th><th>主題</th><th>提案人</th><th class="num">共提</th><th class="num">跨黨</th><th>政策領域</th><th>最新狀態</th></tr></thead><tbody>'+rows.slice(0,1500).map(x=>{const m=BY[x.sponsor]||{}; return `<tr><td>${x.congress}</td><td style="white-space:nowrap"><a class="t" href="${x.url}" target="_blank" rel="noopener">${x.type.toUpperCase()} ${x.number}</a></td><td style="white-space:nowrap">${x.introduced}</td><td>${x.title}</td><td>${x.taiwan?'<span class="tag">台</span>':''}${x.china?'<span class="tag">中</span>':''}</td><td><a href="#" class="t ${pcls(x.sponsor_party)}" data-b="${x.sponsor}">${x.sponsor_name||''}</a></td><td class="num">${x.n_cos}</td><td class="num">${x.n_cross}</td><td>${x.policy||''}</td><td>${x.law?'<b>成法 '+x.law+'</b>':(x.latest||'').slice(0,80)}</td></tr>`;}).join('')+'</tbody>';
+  $('bt_').querySelectorAll('a[data-b]').forEach(a=>a.onclick=e=>{e.preventDefault();document.querySelector('nav.tabs button[data-tab=mem]').click();showMember(a.dataset.b);});}
+// ---- network
+function drawNet(){const N=NET.nodes, E=NET.edges; const pos={}; N.forEach(n=>pos[n.id]=n); const ex=[],ey=[]; E.forEach(e=>{const a=pos[e.s],b=pos[e.t]; if(a&&b){ex.push(a.x,b.x,null);ey.push(a.y,b.y,null);}});
+  const tr=[{type:'scatter',mode:'lines',x:ex,y:ey,line:{color:'rgba(138,137,132,0.25)',width:0.7},hoverinfo:'skip',showlegend:false}];
+  ['Democrat','Republican','Independent'].forEach(p=>{const d=N.filter(n=>n.party===p); if(!d.length)return; tr.push({type:'scatter',mode:'markers+text',name:p==='Democrat'?'民主黨':p==='Republican'?'共和黨':'無黨籍',x:d.map(n=>n.x),y:d.map(n=>n.y),text:d.map(n=>n.tw_co+n.tw_sp>=8?n.name.split(' ').slice(-1)[0]:''),textposition:'top center',textfont:{size:9,color:'#52514e'},customdata:d.map(n=>n.id),marker:{color:PC[p],size:d.map(n=>Math.max(5,Math.min(28,4+Math.sqrt(n.tw_co+n.tw_sp)*3))),opacity:0.8,line:{color:'#fff',width:0.8}},hovertemplate:d.map(n=>`${n.name}（${pcls(n.party)}-${n.state}，${n.chamber==='sen'?'參':'眾'}）<br>涉台提案 ${n.tw_sp}、共提 ${n.tw_co}<br>共同出現加權度 ${n.deg}<extra></extra>`)});});
+  Plotly.react('net',tr,{margin:{l:10,r:10,t:10,b:10},xaxis:{visible:false},yaxis:{visible:false},legend:{orientation:'h',y:1.02,font:{size:11}},paper_bgcolor:'rgba(0,0,0,0)',plot_bgcolor:'rgba(0,0,0,0)',hovermode:'closest'},{displayModeBar:false,responsive:true});
+  $('net').removeAllListeners&&$('net').removeAllListeners('plotly_click'); $('net').on('plotly_click',ev=>{if(ev.points[0].customdata){document.querySelector('nav.tabs button[data-tab=mem]').click();showMember(ev.points[0].customdata);}});}
+// ---- speeches
+[...new Set(SPEECH.map(s=>s.date.slice(0,4)))].sort().forEach(y=>{const o=document.createElement('option');o.value=y;o.textContent=y;$('syr').appendChild(o);});
+MEM.filter(m=>m.speeches_any>0).sort((a,b)=>a.name.localeCompare(b.name)).forEach(m=>{const o=document.createElement('option');o.value=m.bioguide;o.textContent=`${m.name} (${pcls(m.party)}-${m.cd_code||m.state})`;$('smem').appendChild(o);});
+function drawSpeech(){const q=st.sq.toLowerCase(); const rows=SPEECH.filter(s=>(!st.st2||(st.st2==='taiwan'?s.tw:s.cn))&&(!st.smem||s.b===st.smem)&&(!st.syr||s.date.startsWith(st.syr))&&(!q||s.title.toLowerCase().includes(q)||s.snip.toLowerCase().includes(q))).sort((a,b)=>b.date.localeCompare(a.date)); $('scount').textContent=`${rows.length} 筆（議員×段落）；顯示前 1,500`;
+  $('spt').innerHTML='<thead><tr><th>日期</th><th>議員</th><th>段落</th><th>主題</th><th>摘句</th></tr></thead><tbody>'+rows.slice(0,1500).map(s=>{const m=BY[s.b]||{}; return `<tr><td style="white-space:nowrap">${s.date}</td><td style="white-space:nowrap"><a href="#" class="t ${pcls(m.party)}" data-b="${s.b}">${m.name||s.b}</a> <span class="note">${m.cd_code||m.state||''}</span></td><td><a class="t" href="https://www.govinfo.gov/app/details/${s.pkg}/${s.g}" target="_blank" rel="noopener">${s.title}</a></td><td>${s.tw?'<span class="tag">台</span>':''}${s.cn?'<span class="tag">中</span>':''}</td><td>${s.snip}</td></tr>`;}).join('')+'</tbody>';
+  $('spt').querySelectorAll('a[data-b]').forEach(a=>a.onclick=e=>{e.preventDefault();document.querySelector('nav.tabs button[data-tab=mem]').click();showMember(a.dataset.b);});}
+// wiring
+[['mch','ch'],['mpa','pa'],['mst','st'],['m119','only119'],['mx','mx'],['my','my']].forEach(([id,k])=>$(id).onchange=e=>{st[k]=e.target.value;updateMem();}); $('mq').oninput=e=>{st.mq=e.target.value;drawTable(mrows());};
+[['bc','bc'],['bt','bt'],['bch','bch'],['blaw','blaw']].forEach(([id,k])=>$(id).onchange=e=>{st[k]=e.target.value;drawBills();}); $('bq').oninput=e=>{st.bq=e.target.value;drawBills();};
+[['st2','st2'],['smem','smem'],['syr','syr']].forEach(([id,k])=>$(id).onchange=e=>{st[k]=e.target.value;drawSpeech();}); $('sq').oninput=e=>{st.sq=e.target.value;drawSpeech();};
+let drawn={}; document.querySelectorAll('nav.tabs button').forEach(b=>b.onclick=()=>{document.querySelectorAll('nav.tabs button').forEach(x=>x.classList.toggle('active',x===b)); const t=b.dataset.tab; ['mem','bill','net','sp','about'].forEach(x=>$('tab-'+x).style.display=x===t?'':'none'); ['mem','bill','sp'].forEach(x=>$('ctl-'+x).style.display=x===t?'':'none'); if(t==='bill'&&!drawn.bill){drawn.bill=1;drawBills();} if(t==='net'&&!drawn.net){drawn.net=1;drawNet();} if(t==='sp'&&!drawn.sp){drawn.sp=1;drawSpeech();} window.dispatchEvent(new Event('resize'));});
+$('about').innerHTML=ABOUT; updateMem();
+const qs=new URLSearchParams(location.search); if(qs.get('cd')){$('mq').value=qs.get('cd');st.mq=qs.get('cd');drawTable(mrows());}
+</script>
+</body></html>

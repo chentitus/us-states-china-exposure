@@ -1,6 +1,6 @@
 # 美國各州對中國／台灣貿易依賴與曝險（2020–2026）
 
-**線上儀表板（GitHub Pages）**：州 https://chentitus.github.io/us-states-china-exposure/dashboard/index.html ｜ 國會選區與郡 https://chentitus.github.io/us-states-china-exposure/dashboard/districts.html
+**線上儀表板（GitHub Pages）**：州 https://chentitus.github.io/us-states-china-exposure/dashboard/index.html ｜ 國會選區與郡 https://chentitus.github.io/us-states-china-exposure/dashboard/districts.html ｜ 國會法案與發言 https://chentitus.github.io/us-states-china-exposure/dashboard/congress.html
 原始碼與資料：https://github.com/chentitus/us-states-china-exposure ｜ 姊妹專案（國家層級）：https://github.com/chentitus/china-exposure-dashboard
 
 沿用 `china-exposure-dashboard`（國家層級）的方法：把金額換成依賴比率 → 概念分組 → 百分位平均子分數 → 總分；單檔儀表板 `dashboard/index.html`（雙擊開啟，Plotly CDN）。建置日期 2026-11-08。
@@ -337,3 +337,63 @@ us-states-china-exposure/
 | Marshall, KY     |                  46.1  |                    2.62 |                    3.72 |      1759.8  |             9645 |
 | Campbell, WY     |                 167.3  |                    2.52 |                    0.05 |      6628.4  |            19308 |
 | Midland, MI      |                 192.02 |                    2.47 |                    4.46 |      7778.57 |            37324 |
+
+## 10. 國會：涉中／涉台法案、共同提案與國會記錄發言（2026-11-09 新增，`dashboard/congress.html`）
+
+**資料**（需 api.data.gov key，存於 `.env` 的 `DATAGOV_API_KEY`）
+- **法案**：Congress.gov API，第 116–119 屆全部法案與決議案標題（約 7 萬件）經關鍵字篩選——涉中：China／Chinese／People's Republic of China／PRC／Beijing／Chinese Communist Party／CCP／Hong Kong／Xinjiang／Uyghur／Tibet；涉台：Taiwan／Taiwanese／Taipei／Republic of China。結果 **922 件**（涉中 755、涉台 300、兩者 133；成為法律 11 件），共同提案 7,123 筆（排除撤回）。各屆涉中 136／185／248／186、涉台 54／88／83／75（116→119）。腳本 `13_fetch_congress_bills.py` → `congress_bills.csv`、`congress_cosponsors.csv`、`congress_bill_subjects.csv`。
+- **國會記錄**：GovInfo 搜尋 API 在 CREC 2020–2026 全文搜尋同組關鍵字，得 **9,801 段**（提到中國 9,215、提到台灣 1,872，1,218 個會期日）；發言者取自每日 MODS 中繼資料的 `congMember`（bioguide ID；只取角色 SPEAKING，投票名單排除），6,697 段有發言者、777 位議員；段落全文抽前兩句含關鍵字的句子。腳本 `14_fetch_crec.py` → `crec_granules.csv`、`crec_speakers.csv`。
+- **議員名冊**：unitedstates/congress-legislators（2019 年起 895 位、2,491 個任期）→ `legislators_terms_2019_2026.csv`。眾議員接其最近一屆選區（119 屆優先）的 USCBC 與 shift-share 曝險，參議員接州級指標。`15_build_congress.py` → `congress_members.csv`、`congress_network_taiwan.json`；`16_build_congress_dashboard.py` → `congress.html`。
+
+**頁面**：議員（散點 X／Y 任選、黨籍院別平均、議員表、詳情含法案與發言）、法案（可搜尋，連 congress.gov）、涉台共同提案網絡（邊＝兩人共同出現在同一件涉台法案 ≥ 2 次，取連結度前 220 名）、國會記錄發言（可依主題、議員、年篩選，連 GovInfo）、說明。同座標的點（同州兩位參議員在州級指標上）會錯開並在 hover 列出。
+
+**初步觀察**
+- 第 119 屆眾議員（n=443）的涉台／涉中提案、共提、發言數與「中國占選區出口 %」幾乎無關（Spearman −0.07 至 0）；黨籍差異遠大於曝險差異。
+- 第 119 屆在任議員平均：
+
+|                        |   sponsored_china |   sponsored_taiwan |   cosponsored_china |   cosponsored_taiwan |   speeches_china |   speeches_taiwan |
+|:-----------------------|------------------:|-------------------:|--------------------:|---------------------:|-----------------:|------------------:|
+| ('rep', 'Democrat')    |              0.26 |               0.12 |                4.05 |                 2.54 |            22.98 |              4.72 |
+| ('rep', 'Independent') |              0    |               0    |                2    |                 0    |            32    |              3    |
+| ('rep', 'Republican')  |              1.19 |               0.42 |                9.41 |                 4.87 |            27.71 |              5.85 |
+| ('sen', 'Democrat')    |              0.98 |               0.67 |                9.33 |                 5.64 |            95.49 |             22.58 |
+| ('sen', 'Independent') |              1    |               1    |                7.5  |                 1.5  |            71    |             21    |
+| ('sen', 'Republican')  |              4.61 |               1.63 |               13.88 |                 7.79 |            97.98 |             24.63 |
+
+- 第 119 屆在任議員涉台活動前 15：
+
+| name                 | party      | chamber   | state   | cd_code   |   sponsored_taiwan |   cosponsored_taiwan |   sponsored_china |   cosponsored_china |   speeches_taiwan |   speeches_china |
+|:---------------------|:-----------|:----------|:--------|:----------|-------------------:|---------------------:|------------------:|--------------------:|------------------:|-----------------:|
+| Marco Rubio          | Republican | sen       | FL      | nan       |                 12 |                   26 |                50 |                  35 |                32 |              129 |
+| Josh Hawley          | Republican | sen       | MO      | nan       |                  9 |                    9 |                16 |                  30 |                27 |               82 |
+| Rick Scott           | Republican | sen       | FL      | nan       |                  8 |                   24 |                43 |                  55 |                39 |              160 |
+| Ami Bera             | Democrat   | rep       | CA      | CA-06     |                  8 |                   21 |                 5 |                  21 |                 3 |               20 |
+| John Cornyn          | Republican | sen       | TX      | nan       |                  8 |                   19 |                12 |                  33 |               131 |              380 |
+| John R. Curtis       | Republican | sen       | UT      | nan       |                  7 |                   29 |                 8 |                  29 |                 2 |               21 |
+| Christopher H. Smith | Republican | rep       | NJ      | NJ-04     |                  7 |                   19 |                26 |                  32 |                26 |               84 |
+| Dan Sullivan         | Republican | sen       | AK      | nan       |                  7 |                   11 |                 8 |                  23 |                55 |              144 |
+| Young Kim            | Republican | rep       | CA      | CA-40     |                  6 |                   28 |                12 |                  26 |                20 |               64 |
+| Scott Perry          | Republican | rep       | PA      | PA-10     |                  6 |                   13 |                12 |                  21 |                26 |               92 |
+| Jeff Merkley         | Democrat   | sen       | OR      | nan       |                  5 |                   25 |                 8 |                  41 |                26 |              142 |
+| Ted Cruz             | Republican | sen       | TX      | nan       |                  5 |                   24 |                 8 |                  33 |                32 |              127 |
+| Thomas P. Tiffany    | Republican | rep       | WI      | WI-07     |                  5 |                   22 |                 1 |                  32 |                11 |               41 |
+| Marsha Blackburn     | Republican | sen       | TN      | nan       |                  5 |                   20 |                 6 |                  45 |                45 |              241 |
+| Gerald E. Connolly   | Democrat   | rep       | VA      | VA-11     |                  5 |                   18 |                 0 |                  25 |                17 |               46 |
+
+- 已成為法律的 11 件：
+
+|   congress | type   |   number | title                                                                                      | law     |
+|-----------:|:-------|---------:|:-------------------------------------------------------------------------------------------|:--------|
+|        116 | s      |     1678 | Taiwan Allies International Protection and Enhancement Initiative (TAIPEI) Act of 2019     | 116-135 |
+|        116 | s      |     1838 | Hong Kong Human Rights and Democracy Act of 2019                                           | 116-76  |
+|        116 | s      |     2710 | A bill to prohibit the commercial export of covered munitions items to the Hong Kong Polic | 116-77  |
+|        116 | hr     |     6237 | PRC for Native Veterans Act                                                                | 116-311 |
+|        116 | s      |     3744 | Uyghur Human Rights Policy Act of 2020                                                     | 116-145 |
+|        116 | hr     |     7440 | Hong Kong Autonomy Act                                                                     | 116-149 |
+|        117 | s      |      812 | A bill to direct the Secretary of State to develop a strategy to regain observer status fo | 117-124 |
+|        117 | hr     |     6256 | To ensure that goods made with forced labor in the Xinjiang Uyghur Autonomous Region of th | 117-78  |
+|        118 | s      |      138 | Promoting a Resolution to the Tibet-China Dispute Act                                      | 118-70  |
+|        118 | hr     |     4004 | United States-Taiwan Initiative on 21st-Century Trade First Agreement Implementation Act   | 118-13  |
+|        119 | hr     |     1512 | Taiwan Assurance Implementation Act                                                        | 119-45  |
+
+**限制**：法案只看標題（國防授權法等標題不含中國者不在內，為下限）；國會記錄全文搜尋為上限（任何脈絡提到中國都算）；約三分之一段落在 MODS 中無發言者，不計入任何議員；部分摘句會帶到頁首樣板文字；涉中法案多為對中強硬、涉台法案多為友台，但數量不等於立場。

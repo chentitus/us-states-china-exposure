@@ -26,3 +26,6 @@
 
 ## 3. 回報格式
 最新月份、各州對中／對台出口進口的主要變動、核對表差異是否仍在容忍範圍、哪些年度來源沒有新版。
+
+## 4. 國會層（月更可選）
+刪除 `data/raw/congress/bills_list_119.json` 與 `data/raw/crec/search_*_<今年>.json`（其餘快取保留）→ `13_fetch_congress_bills.py`（新法案細節會自動補抓；既有法案的共同提案人若要更新，刪 `bills/119-*_cos*.json`）→ `14_fetch_crec.py` → `15_build_congress.py` → `16_build_congress_dashboard.py`。議員名冊每屆換屆時重新下載 YAML。

@@ -15,3 +15,6 @@
 | Census CBP 2023 | `cbp/cbp2023_us.json`、`cbp2023_county_XX.json`、`cbp2023_cd_XX.json` | `https://api.census.gov/data/2023/cbp` | 郡＝NAICS 2–6 位；選區只有 2 位 |
 | BEA Regional CAGDP2 | `bea/cagdp2_{2020..2024}.json` | BEA API Regional dataset | 郡 GDP |
 | Census 邊界與關係檔 | `geo/cb_2024_us_cd119_5m.zip`、`cb_2024_us_county_20m.zip`、`geo/rel/tab20_cd11920_county20_natl.txt` | www2.census.gov/geo/… | 119 屆選區、郡；選區—郡土地面積關係 |
+| Congress.gov API | `congress/bills_list_{116..119}.json`、`congress/bills/*.json`（法案細節、共同提案人、主題） | https://api.congress.gov/v3/bill/... | 需 api.data.gov key；2026-11-09 抓取 |
+| GovInfo API | `crec/search_{china,taiwan}_{2020..2026}.json`、`crec/mods/*.xml`（1,218 日）、`crec/htm/*.htm`（9,801 段） | https://api.govinfo.gov/search 、/packages/{id}/mods 、/granules/{id}/htm | 同上 key |
+| unitedstates/congress-legislators | `congress/legislators-{current,historical}.yaml` | https://github.com/unitedstates/congress-legislators | 公共領域 |
