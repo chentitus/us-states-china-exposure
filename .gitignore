@@ -4,3 +4,6 @@ data/raw/*
 scripts/__pycache__/
 .DS_Store
 mne_test.json
+officials/.env
+officials/data/raw
+officials/scripts/__pycache__/

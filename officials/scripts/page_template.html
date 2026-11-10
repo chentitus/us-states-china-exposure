@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>州官員與州議會對中立場</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<style>
+/* layout: one column of numbered panels; maps side by side, stacking under 900px */
+:root{
+  --bg:#fcfcfb; --panel:#ffffff; --line:#e4e3df; --text:#0b0b0b; --muted:#77766f; --accent:#2a78d6;
+  --china:#c8312b; --china-soft:#eaa29d; --taiwan:#2a78d6; --comp:#c98a1b; --demo:#9a9993; --rep:#3d3d3a; --gop:#d1342f; --dem:#2166c4;
+  --warn-bg:#fff6e5; --warn-line:#e9c98a;
+  --sans:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#141413; --panel:#1c1c1a; --line:#33332f; --text:#ecebe6; --muted:#9d9c95; --accent:#5b9be6;
+  --china:#e0584f; --china-soft:#8f4a45; --taiwan:#5b9be6; --comp:#d9a23e; --demo:#8a8984; --rep:#cfcfca; --gop:#ef5a52; --dem:#5a95e8;
+  --warn-bg:#2a2416; --warn-line:#6b5426; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141413; --panel:#1c1c1a; --line:#33332f; --text:#ecebe6; --muted:#9d9c95; --accent:#5b9be6;
+  --china:#e0584f; --china-soft:#8f4a45; --taiwan:#5b9be6; --comp:#d9a23e; --demo:#8a8984; --rep:#cfcfca; --gop:#ef5a52; --dem:#5a95e8;
+  --warn-bg:#2a2416; --warn-line:#6b5426; color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:14px/1.6 var(--sans)}
+.wrap{max-width:1240px;margin:0 auto;padding-block:24px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:20px}
+h1{font-size:24px;margin:0;text-wrap:balance}
+h2{font-size:17px;margin:0 0 4px;text-wrap:balance}
+.sub{color:var(--muted);margin:0}
+.banner{background:var(--warn-bg);border:1px solid var(--warn-line);border-radius:6px;padding:10px 14px}
+.banner ul{margin:4px 0 0;padding-left:20px}
+section{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:16px;display:grid;gap:12px;min-width:0}
+.ctrls{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center}
+.ctrls label{color:var(--muted);font-size:13px;display:flex;gap:6px;align-items:center}
+input#who{font:inherit;padding:3px 6px;border:1px solid var(--line);border-radius:4px;background:var(--panel);color:var(--text);width:16em;max-width:100%}
+input#who:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+select{font:inherit;padding:3px 6px;border:1px solid var(--line);border-radius:4px;background:var(--panel);color:var(--text)}
+select:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.two>*{min-width:0}
+@media (max-width:900px){.two{grid-template-columns:1fr}}
+.plot{width:100%;min-height:340px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.card{border:1px solid var(--line);border-radius:6px;padding:12px}
+.card h3{margin:0 0 6px;font-size:15px}
+.kv{display:grid;grid-template-columns:1fr auto;gap:2px 12px;font-variant-numeric:tabular-nums}
+.kv span:nth-child(odd){color:var(--muted)}
+.formula{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13px;color:var(--muted)}
+.sw{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:4px;vertical-align:-1px}
+.tbl{overflow-x:auto;max-height:520px;overflow-y:auto;border:1px solid var(--line);border-radius:6px}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{padding:5px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{position:sticky;top:0;background:var(--panel);color:var(--muted);font-weight:600}
+td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+a{color:var(--accent)}
+.chip{display:inline-block;padding:0 6px;border-radius:9px;font-size:12px;color:#fff;white-space:nowrap}
+.methods{max-width:78ch}
+.xnav{display:flex;flex-wrap:wrap;gap:4px 16px;justify-content:flex-end;font-size:13px;margin-bottom:6px}
+.methods dt{font-weight:600;margin-top:8px}
+.methods dd{margin:0}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <nav class="xnav"><a href="index.html">州儀表板</a><a href="districts.html">國會選區與郡</a><a href="congress.html">國會法案與發言</a></nav>
+  <h1>州官員與州議會的對中、對台立場（觀察州：加州、德州，2025–26）</h1>
+  <p class="sub">2025–2026　法案與決議來自 LegiScan；行政部門為州長、副州長、州務卿官網新聞稿；曝險為州層級分數</p>
+</header>
+<div class="banner"><strong>觀察州：目前只涵蓋加州、德州</strong>
+  <ul>
+    <li>所有代碼由單一編碼者判讀，尚未做第二編碼者驗證。</li>
+    <li id="pending"></li>
+    <li>議員的對中曝險為其州議會選區的估計值（出貨地、生產地、混合三種口徑並列，見方法說明）；州層級分數仍可在散布圖中切換。</li>
+    <li>選區地圖顯示 2025–26 會期議員；議員層級指標只計該會期的法案與投票。</li>
+  </ul>
+</div>
+
+<section id="s1">
+  <h2>① 州層級立場</h2>
+  <div>
+      <div class="ctrls"><label for="cmpA">比較州 1<select id="cmpA"></select></label>
+        <label for="cmpB">比較州 2<select id="cmpB"></select></label>
+        <span class="sub">點選地圖上有資料的州，可換掉比較州 2；粗框為目前比較的兩州</span></div>
+      <div class="ctrls"><label for="m1">立場指標
+        <select id="m1">
+          <option value="bill|R_per_1000">抗中法案（主旨）：每千件法案</option>
+          <option value="bill|Rc_per_1000">抗中條款（一般法案）：每千件法案</option>
+          <option value="resolution|T_per_1000">友台決議：每千件決議</option>
+          <option value="resolution|R_per_1000">抗中決議：每千件決議</option>
+          <option value="bill|direction">法案方向（抗中−合作）÷（抗中＋合作）</option>
+          <option value="bill|R_pass_rate">抗中法案（主旨）通過率</option>
+        </select></label></div>
+      <div id="map1" class="plot" style="min-height:420px"></div>
+  </div>
+  <div class="cards" id="cards"></div>
+</section>
+
+<section id="s2">
+  <h2>② 時間軸</h2>
+  <div class="ctrls"><label for="kind">類型
+    <select id="kind"><option value="bill">法案</option><option value="resolution">決議</option></select></label>
+    <span class="legend"><span><i class="sw" style="background:var(--china)"></i>抗中（提出）</span><span><i class="sw" style="background:var(--china-soft)"></i>合作</span><span><i class="sw" style="background:var(--taiwan)"></i>友台</span><span>深色外框＝其中已通過</span></span>
+  </div>
+  <div id="bars" class="plot"></div>
+  <p class="sub">行政部門新聞稿（每點一篇；點擊開啟原文）</p>
+  <span class="legend"><span><i class="sw" style="background:var(--china)"></i>批評或限制</span><span><i class="sw" style="background:var(--china-soft)"></i>合作</span><span><i class="sw" style="background:var(--comp)"></i>競爭框架</span><span><i class="sw" style="background:var(--taiwan)"></i>友台</span><span>大點＝主旨；小點＝附帶提及</span></span>
+  <div id="events" class="plot" style="min-height:260px"></div>
+</section>
+
+<section id="s2b">
+  <h2>③ 提案行為（比較州 1、2）</h2>
+  <div class="ctrls"><label for="spm">指標<select id="spm">
+      <option value="bills_primary">主提案件數（至少一位主提案人屬該黨）</option>
+      <option value="bills_any">提案＋連署件數（至少一位提案或連署人屬該黨）</option>
+      <option value="share_active">參與議員比例（提案或連署 ≥ 1 件者 ÷ 該黨議員數）</option></select></label>
+    <span class="legend"><span style="color:var(--dem)">■ 民主黨</span><span style="color:var(--gop)">■ 共和黨</span></span></div>
+  <div id="sbars" class="plot" style="min-height:320px"></div>
+  <p class="sub">2025–26 會期。記名表決只能看到已排上議程的法案；提案行為還包括沒有付諸表決、在委員會就停住的法案，所以在少數黨推不動議案的州（例如加州共和黨）也看得到立場。</p>
+</section>
+
+<section id="s3">
+  <h2>④ 議員選區</h2>
+  <div class="ctrls">
+    <label for="dst">州<select id="dst"><option value="CA">加州</option><option value="TX">德州</option></select></label>
+    <label for="dch">議院<select id="dch"><option value="upper">州參議院</option><option value="lower">州眾議院</option></select></label>
+    <label for="dm">著色
+      <select id="dm">
+        <option value="spons_R_any">抗中法案（主旨）：提案＋連署件數</option>
+        <option value="yea_share_R">抗中法案（主旨）：贊成票比例</option>
+        <option value="signed_dev_R">偏離本黨・方向（抗中主旨；正＝比本黨更抗中）</option>
+        <option value="dev_R">偏離本黨・比例（抗中主旨）</option>
+        <option value="yea_share_Rc">抗中條款（一般法案）：贊成票比例</option>
+        <option value="spons_Rc_any">抗中條款（一般法案）：提案＋連署件數</option>
+        <option value="yea_share_T">友台法案：贊成票比例</option>
+        <option value="spons_T_any">友台：提案＋連署件數</option>
+        <option value="party">政黨</option>
+        <option value="x:hybrid_china_per_worker">選區曝險：對中出口每位勞工（混合）</option>
+        <option value="x:origin_china_per_worker">選區曝險：對中出口每位勞工（出貨地）</option>
+        <option value="x:production_china_per_worker">選區曝險：對中出口每位勞工（生產地）</option>
+        <option value="x:hybrid_china_share">選區曝險：對中占總出口（混合）</option>
+        <option value="x:hybrid_taiwan_per_worker">選區曝險：對台出口每位勞工（混合）</option>
+      </select></label>
+  </div>
+  <div id="dmap" class="plot" style="min-height:520px"></div>
+  <p class="sub">2025–26 會期；選區為 2020 年普查後重劃的選區（Census 2024 年邊界檔）。會期中途換人時，地圖以最後仍有投票紀錄者著色，滑鼠提示列出所有人。</p>
+</section>
+
+<section id="s4">
+  <h2>⑤ 議員立場與曝險</h2>
+  <div class="ctrls">
+    <label for="sx">橫軸<select id="sx">
+      <option value="x:hybrid_china_per_worker">選區：對中出口每位勞工（混合）</option>
+      <option value="x:origin_china_per_worker">選區：對中出口每位勞工（出貨地）</option>
+      <option value="x:production_china_per_worker">選區：對中出口每位勞工（生產地）</option>
+      <option value="x:hybrid_china_share">選區：對中占總出口（混合）</option>
+      <option value="score">州層級：對中總分</option><option value="s_export">州層級：出口依賴</option><option value="s_import">州層級：進口依賴</option><option value="s_vul">州層級：脆弱性</option></select></label>
+    <label for="sy">縱軸<select id="sy"><option value="signed_dev_R">偏離本黨・方向（抗中主旨；正＝比本黨更抗中）</option><option value="dev_R">偏離本黨・比例（抗中主旨）</option><option value="yea_share_R">抗中法案（主旨）贊成票比例</option><option value="signed_dev_Rc">偏離本黨・方向（抗中條款）</option><option value="yea_share_Rc">抗中條款（一般法案）贊成票比例</option><option value="yea_share_T">友台法案贊成票比例</option><option value="spons_R_any">抗中法案（主旨）提案＋連署件數</option></select></label>
+    <label for="who">搜尋議員<input id="who" list="wholist" placeholder="輸入姓名，例如 Talarico" autocomplete="off"></label><datalist id="wholist"></datalist>
+    <span id="whonote" class="sub"></span>
+    <span class="legend"><span style="color:var(--dem)">● 民主黨</span><span style="color:var(--gop)">▲ 共和黨</span><span>點大小＝投票次數</span></span>
+  </div>
+  <div id="scatter" class="plot" style="min-height:440px"></div>
+  <p class="sub">選區曝險為估計值，三種口徑並列（見方法說明）。點大小＝投票次數；選州層級分數時，同州議員落在同一垂直帶上（加水平抖動）。</p>
+</section>
+
+<section id="s5">
+  <h2>⑥ 清單</h2>
+  <div class="ctrls">
+    <label for="ls">清單<select id="ls"><option value="bills">法案與決議</option><option value="releases">行政部門新聞稿</option></select></label>
+    <label for="lf">州<select id="lf"><option value="">全部</option><option value="CA">加州</option><option value="TX">德州</option></select></label>
+    <label for="lc">代碼<select id="lc"><option value="">全部</option><option>R</option><option>Rc</option><option>Rp</option><option>C</option><option>Cp</option><option>K</option><option>T</option><option>Tp</option></select></label>
+    <span id="lcount" class="sub"></span>
+  </div>
+  <div class="tbl"><table id="tbl"></table></div>
+</section>
+
+<section id="s6" class="methods">
+  <h2>⑦ 方法與代碼</h2>
+  <dl>
+    <dt>代碼</dt>
+    <dd>R＝法案本身針對中國或外國敵對勢力（抗中主旨）；Rc＝一般法案（隱私、公債、採購、國土安全等）夾帶有效的涉中條款；Rp＝附帶批評。贊成票比例預設只計 R，因為 Rc 法案的表決主要反映法案其他部分。C＝對中合作是主旨；Cp＝附帶提及合作（含 2023 年五份 MOU 的固定段落）。K＝競爭框架：把中國當經濟或科技對手，主要用來批評聯邦政策。T＝友台是主旨；Tp＝附帶友台。主要指標計 R、Rc、C、T，各自分開呈現；方向與友台占比只用 R。</dd>
+    <dt>篩選流程</dt>
+    <dd>LegiScan 全文搜尋與新聞稿關鍵字 → 規則排除（悼念祝賀、族裔節慶、語言服務、只在人口類別或地名中出現）→ 人工判讀標題與關鍵字上下文。</dd>
+    <dt>州層級公式</dt>
+    <dd class="formula">每千件 = 1000 × 件數 ÷ 同州 2025–26 會期提出的全部法案（或決議）<br>方向 = (R − C) ÷ (R + C)<br>友台占比 = T ÷ (R + C + T)<br>通過率 = 通過件數 ÷ 提出件數（LegiScan status = passed）</dd>
+    <dt>議員層級公式</dt>
+    <dd class="formula">提案＋連署件數 = 該議員為主提案人或連署人的 R（或 T）件數<br>贊成票比例 = Yea ÷ (Yea + Nay)，含委員會與院會表決</dd>
+    <dt>偏離本黨</dt>
+    <dd class="formula">每次記名表決：本黨多數票 = 本黨投 Yea／Nay 者過半的一方（同票則該黨該次不計）<br>偏離比例 = 與本黨多數不同的票數 ÷ 計入票數<br>偏離方向 = (本黨多數 Nay 時投 Yea − 本黨多數 Yea 時投 Nay) ÷ 計入票數；對 R 法案，正值＝比本黨更抗中</dd>
+    <dt>選區曝險（估計，2025）</dt>
+    <dd class="formula">出貨地 = Σ_i 州對中出口_i × 選區就業_i ÷ 州就業_i（Census 州 × NAICS4，Origin of Movement）<br>生產地 = Σ_i 全國對中出口_i × 選區就業_i ÷ 全國就業_i<br>混合 = 農林漁（NAICS 11）與礦業（21）用生產地，其餘用出貨地<br>每位勞工 = 對中出口 ÷ 選區私部門就業；占總出口 = 對中出口 ÷ 同口徑對全世界出口<br>選區就業：ZBP 2023 設立數 × 全國每設立平均就業，ZCTA→選區依土地面積；農場就業用 QCEW 2024 郡資料，郡→選區依土地面積</dd>
+    <dt>州層級曝險分數</dt>
+    <dd class="formula">出口依賴 = 平均百分位(對中出口÷GDP, 對中出口占總出口)<br>進口依賴 = 平均百分位(自中進口÷GDP, 自中進口占總進口)<br>脆弱性 = 平均百分位(最大 HS4 品項占比, HHI)<br>總分 = 三者平均；百分位以 50 州＋DC 計，2025 年</dd>
+  </dl>
+</section>
+</div>
+
+<script>
+/*__DATA__*/
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const ZH = {CA:"加州", TX:"德州"};
+const OFFICE = {governor:"州長", lieutenant_governor:"副州長", secretary_of_state:"州務卿"};
+const CODE_COLOR = c => ({R:css("--china"),Rc:css("--china"),Rp:css("--china"),C:css("--china-soft"),Cp:css("--china-soft"),K:css("--comp"),T:css("--taiwan"),Tp:css("--taiwan")}[c]);
+const base = () => ({paper_bgcolor:"rgba(0,0,0,0)",plot_bgcolor:"rgba(0,0,0,0)",font:{family:css("--sans"),color:css("--text"),size:12},margin:{l:40,r:10,t:10,b:30}});
+const cfg = {displayModeBar:false,responsive:true};
+const fmt = (v,d=2) => v===null||v===undefined||Number.isNaN(v) ? "—" : (+v).toFixed(d);
+document.getElementById("pending").textContent = DATA.pending;
+const expo = Object.fromEntries(DATA.expo.map(r=>[r.state,r]));
+const pooled = (st,kind) => DATA.pooled.find(r=>r.state===st && r.kind===kind) || {};
+
+const NAME = s => ZH[s] || (expo[s] && expo[s].state_name_zh) || s;
+const DATA_STATES = [...new Set(DATA.pooled.map(r=>r.state))].sort();
+["cmpA","cmpB"].forEach((id,i)=>{const el=document.getElementById(id);
+  el.innerHTML = DATA_STATES.map(s=>`<option value="${s}">${NAME(s)}</option>`).join(""); el.value = DATA_STATES[Math.min(i,DATA_STATES.length-1)];});
+const SEL = () => [document.getElementById("cmpA").value, document.getElementById("cmpB").value];
+
+function usMap(div, locs, vals, scale, title, hover){
+  const allStates = DATA.expo.map(r=>r.state), sel = SEL();
+  Plotly.react(div,[
+    {type:"choropleth",locationmode:"USA-states",locations:allStates,z:allStates.map(()=>0),showscale:false,
+     colorscale:[[0,css("--line")],[1,css("--line")]],hoverinfo:"skip",marker:{line:{color:css("--text"),width:.6}}},
+    {type:"choropleth",locationmode:"USA-states",locations:locs,z:vals,colorscale:scale,text:hover,hovertemplate:"%{text}<extra></extra>",
+     marker:{line:{color:css("--text"),width:.6}},colorbar:{thickness:10,len:.6,title:{text:title,side:"right"}}},
+    {type:"choropleth",locationmode:"USA-states",locations:sel,z:sel.map(()=>0),showscale:false,hoverinfo:"skip",
+     colorscale:[[0,"rgba(0,0,0,0)"],[1,"rgba(0,0,0,0)"]],marker:{line:{color:css("--text"),width:3.5}}}],
+   {...base(),geo:{scope:"usa",bgcolor:"rgba(0,0,0,0)",lakecolor:"rgba(0,0,0,0)",showlakes:false},margin:{l:0,r:0,t:0,b:0},height:420},cfg);
+}
+const EXPO = [[0,"#fff3d6"],[.5,"#f0a842"],[1,"#8c4a0b"]];
+const money = v => v===null||v===undefined ? "—" : "$"+Math.round(v).toLocaleString();
+const expoTxt = (st,ch,id) => {const e=DATA.sld[`${st}_${ch}_${id}`]; if(!e) return "";
+  return `<br>對中出口每位勞工：出貨地 ${money(e.origin_china_per_worker)}／生產地 ${money(e.production_china_per_worker)}／混合 ${money(e.hybrid_china_per_worker)}<br>對中占總出口（混合）：${fmt(e.hybrid_china_share*100,1)}%`;};
+const DIV = () => [[0,"#7b5ea7"],[.5,css("--panel")],[1,css("--china")]];
+const RED = () => [[0,css("--panel")],[1,css("--china")]], BLUE = () => [[0,css("--panel")],[1,css("--taiwan")]];
+
+function drawS1(){
+  const [kind,key] = document.getElementById("m1").value.split("|");
+  const sts = DATA_STATES, vals = sts.map(s=>pooled(s,kind)[key]);
+  const scale = key==="T_per_1000" ? BLUE() : RED();
+  usMap("map1", sts, vals, scale, "", sts.map((s,i)=>`${NAME(s)}<br>${document.getElementById("m1").selectedOptions[0].text}：${fmt(vals[i])}`));
+  document.getElementById("cards").innerHTML = SEL().map(s=>{
+    const b = pooled(s,"bill"), r = pooled(s,"resolution"), e = expo[s] || {};
+    return `<div class="card"><h3>${NAME(s)}</h3><div class="kv">
+      <span>法案總數</span><span>${(b.total||0).toLocaleString()}</span>
+      <span>抗中法案・主旨（通過）</span><span>${b.R} (${b.R_pass})</span>
+      <span>抗中條款法案（通過）</span><span>${b.Rc} (${b.Rc_pass})</span>
+      <span>合作法案（通過）</span><span>${b.C} (${b.C_pass})</span>
+      <span>抗中法案每千件</span><span>${fmt(b.R_per_1000)}</span>
+      <span>抗中法案通過率</span><span>${fmt(b.R_pass_rate)}</span>
+      <span>決議總數</span><span>${(r.total||0).toLocaleString()}</span>
+      <span>友台決議（通過）</span><span>${r.T} (${r.T_pass})</span>
+      <span>友台決議每千件</span><span>${fmt(r.T_per_1000)}</span>
+      <span>對中曝險總分</span><span>${fmt(e.score)}</span>
+      <span>出口／進口／脆弱性</span><span>${fmt(e.s_export)} / ${fmt(e.s_import)} / ${fmt(e.s_vul)}</span>
+    </div></div>`;}).join("");
+}
+
+function drawS2(){
+  const kind = document.getElementById("kind").value, years = ["2025","2026"];
+  const traces = [];
+  SEL().forEach((s,i)=>{
+    const row = y => DATA.yearly.find(r=>r.state===s && r.kind===kind && String(r.year)===y) || {};
+    [["R","抗中",css("--china")],["C","合作",css("--china-soft")],["T","友台",css("--taiwan")]].forEach(([c,name,col])=>{
+      traces.push({type:"bar",x:years,y:years.map(y=>row(y)[c]||0),name:`${NAME(s)} ${name}`,marker:{color:col,line:{color:css("--text"),width:years.map(y=>(row(y)[c+"_pass"]||0)>0?1.2:0)}},
+        customdata:years.map(y=>row(y)[c+"_pass"]||0),hovertemplate:`${NAME(s)} ${name} %{x}：提出 %{y}，通過 %{customdata}<extra></extra>`,xaxis:`x${i+1}`,yaxis:`y${i+1}`,showlegend:false});
+    });
+  });
+  Plotly.react("bars",traces,{...base(),barmode:"group",height:300,grid:{rows:1,columns:2,pattern:"independent"},
+    annotations:SEL().map((s,i)=>({text:NAME(s),xref:`x${i+1} domain`,yref:`y${i+1} domain`,x:0,y:1.08,showarrow:false,xanchor:"left",font:{size:13}})),
+    yaxis:{gridcolor:css("--line"),rangemode:"tozero"},yaxis2:{gridcolor:css("--line"),rangemode:"tozero"},margin:{l:36,r:10,t:26,b:30}},cfg);
+  const rows = [];
+  SEL().forEach(s=>["governor","lieutenant_governor","secretary_of_state"].forEach(o=>rows.push(`${NAME(s)} ${OFFICE[o]}`)));
+  const ev = DATA.releases.filter(r=>SEL().includes(r.state));
+  Plotly.react("events",[{type:"scatter",mode:"markers",x:ev.map(r=>r.date),y:ev.map(r=>`${NAME(r.state)} ${OFFICE[r.office]}`),
+    marker:{color:ev.map(r=>CODE_COLOR(r.code)),size:ev.map(r=>r.code.length===1?11:6),opacity:.85,line:{width:0}},
+    text:ev.map(r=>`${r.date}　${r.code}<br>${r.title.slice(0,90)}`),customdata:ev.map(r=>r.url),hovertemplate:"%{text}<extra></extra>"}],
+    {...base(),height:260,yaxis:{categoryorder:"array",categoryarray:rows.slice().reverse(),gridcolor:css("--line")},xaxis:{range:["2025-01-01","2026-12-31"],gridcolor:css("--line")},margin:{l:96,r:10,t:10,b:30}},cfg);
+}
+
+const CH_ZH = {upper:"州參議員", lower:"州眾議員"};
+document.getElementById("wholist").innerHTML = DATA.leg_session.filter(l=>l.seat_holder||true).slice().sort((a,b)=>a.name.localeCompare(b.name))
+  .map(l=>`<option value="${l.name}">${NAME(l.state)} ${CH_ZH[l.chamber]} ${l.district}（${l.party}）</option>`).join("");
+const PICK = () => { const v = document.getElementById("who").value.trim().toLowerCase(); if(!v) return null;
+  return DATA.leg_session.find(l=>l.name.toLowerCase()===v) || DATA.leg_session.find(l=>l.name.toLowerCase().includes(v)) || null; };
+const CODE_ZH = {R:"抗中（主旨）",Rc:"抗中（條款）",C:"對中合作",T:"友台"};
+function drawSB(){
+  const k = document.getElementById("spm").value, sts = SEL(), codes = ["R","Rc","C","T"], traces = [];
+  sts.forEach((st,si)=>[["D","民主黨",css("--dem")],["R","共和黨",css("--gop")]].forEach(([pa,name,col])=>{
+    const row = c => DATA.spons.find(r=>r.state===st && r.party===pa && r.code===c) || {};
+    traces.push({type:"bar",name,x:codes.map(c=>CODE_ZH[c]),y:codes.map(c=>row(c)[k] ?? 0),marker:{color:col},xaxis:`x${si+1}`,yaxis:`y${si+1}`,showlegend:false,
+      customdata:codes.map(c=>row(c).members),hovertemplate:`${NAME(st)} ${name}<br>%{x}：%{y}${k==="share_active"?"":" 件"}<br>該黨議員 %{customdata} 人<extra></extra>`});
+  }));
+  const lay = {...base(),barmode:"group",height:320,grid:{rows:1,columns:sts.length,pattern:"independent"},margin:{l:44,r:10,t:28,b:40},
+    annotations:sts.map((s,i)=>({text:NAME(s),xref:`x${i+1} domain`,yref:`y${i+1} domain`,x:0,y:1.1,showarrow:false,xanchor:"left",font:{size:13}}))};
+  sts.forEach((s,i)=>{lay[`yaxis${i?i+1:""}`]={gridcolor:css("--line"),rangemode:"tozero",...(k==="share_active"?{tickformat:".0%"}:{})};});
+  Plotly.react("sbars",traces,lay,cfg);
+}
+
+function drawS3(){
+  const st = document.getElementById("dst").value, ch = document.getElementById("dch").value, m = document.getElementById("dm").value;
+  const se = "2025-2026";
+  const gj = DATA.geo[`${st}_${ch}_${se >= "2023" ? "new" : "old"}`];
+  const legs = DATA.leg_session.filter(l=>l.state===st && l.chamber===ch && l.biennium===se);
+  const byDist = Object.fromEntries(legs.filter(l=>l.seat_holder).map(l=>[l.dist,l]));
+  const others = {}; legs.filter(l=>!l.seat_holder).forEach(l=>(others[l.dist] ||= []).push(l));
+  const ids = gj.features.map(f=>f.id);
+  const leg = id => byDist[id] || {};
+  const extra = id => (others[id]||[]).map(o=>`<br>同會期另有：${o.name}（${o.party}），抗中贊成 ${o.yea_R}／反對 ${o.nay_R}`).join("");
+  const PARTY = {D:0,R:1,I:.5};
+  const isX = m.startsWith("x:"), xc = m.slice(2), sv = id => (DATA.sld[`${st}_${ch}_${id}`]||{})[xc];
+  const z = ids.map(id => isX ? (sv(id) ?? null) : m==="party" ? PARTY[leg(id).party] ?? null : leg(id)[m]);
+  const signed = m.startsWith("signed_dev");
+  const scale = signed ? DIV() : isX ? (xc.includes("taiwan") ? BLUE() : EXPO) : m==="party" ? [[0,css("--demo")],[.5,"#b9b8b1"],[1,css("--rep")]] : (m.endsWith("_T")||m==="spons_T_any") ? BLUE() : RED();
+  const text = ids.map(id=>{const l=leg(id);return l.name?`${ch==="upper"?"參議員":"眾議員"}選區 ${+id}<br>${l.name}（${l.party}）<br>抗中（主旨）：提案＋連署 ${l.spons_R_any}，贊成 ${l.yea_R}／反對 ${l.nay_R}<br>抗中（條款）：贊成 ${l.yea_Rc}／反對 ${l.nay_Rc}<br>偏離本黨（抗中主旨）：比例 ${fmt(l.dev_R)}，方向 ${fmt(l.signed_dev_R)}（${l.n_dev_R??0} 票）<br>友台：提案＋連署 ${l.spons_T_any}，贊成 ${l.yea_T}／反對 ${l.nay_T}${extra(id)}${expoTxt(st,ch,id)}`:`選區 ${+id}<br>（此會期無資料）`;});
+  // base layer draws every district (incl. those without data) so all boundaries show; data layer on top
+  const has = ids.map((id,i)=>z[i]!==null && z[i]!==undefined);
+  const edge = {color:css("--text"),width:.8};
+  Plotly.react("dmap",[
+    {type:"choropleth",geojson:gj,featureidkey:"id",locations:ids,z:ids.map(()=>0),showscale:false,
+     colorscale:[[0,css("--line")],[1,css("--line")]],text:text,hovertemplate:"%{text}<extra></extra>",marker:{line:edge}},
+    {type:"choropleth",geojson:gj,featureidkey:"id",locations:ids.filter((_,i)=>has[i]),z:z.filter((_,i)=>has[i]),colorscale:scale,showscale:m!=="party",...(signed?{zmid:0,zmin:-1,zmax:1}:{}),
+     text:text.filter((_,i)=>has[i]),hovertemplate:"%{text}<extra></extra>",marker:{line:edge},colorbar:{thickness:10,len:.6}},
+    ...((pk=>pk && pk.state===st && pk.chamber===ch ? [{type:"choropleth",geojson:gj,featureidkey:"id",locations:[pk.dist],z:[0],showscale:false,hoverinfo:"skip",
+      colorscale:[[0,"rgba(0,0,0,0)"],[1,"rgba(0,0,0,0)"]],marker:{line:{color:css("--accent"),width:4}}}] : [])(PICK()))],
+    {...base(),geo:{fitbounds:"locations",visible:false,bgcolor:"rgba(0,0,0,0)"},margin:{l:0,r:0,t:0,b:0},height:520},cfg);
+}
+
+function drawS4(){
+  const xk = document.getElementById("sx").value, yk = document.getElementById("sy").value;
+  const isX = xk.startsWith("x:"), xc = xk.slice(2), perW = xc.endsWith("per_worker"), share = xc.endsWith("share");
+  const sts = DATA_STATES, traces = [];
+  sts.forEach((st,si)=>{
+    [["D","民主黨","circle",css("--dem")],["R","共和黨","triangle-up",css("--gop")]].forEach(([p,name,sym,col])=>{
+      const L = DATA.leg_session.filter(l=>l.state===st && l.party===p && l[yk]!==null);
+      let seed = 7+si; const rnd = () => (seed = (seed*9301+49297)%233280)/233280 - .5;
+      const xv = l => isX ? (DATA.sld[`${l.state}_${l.chamber}_${l.dist}`]||{})[xc] ?? null : expo[l.state][xk] + rnd()*0.03 + (p==="R"?0.012:-0.012);
+      const K = L.filter(l=>xv(l)!==null && (!perW || xv(l)>0));
+      traces.push({type:"scatter",mode:"markers",name,xaxis:`x${si+1}`,yaxis:`y${si+1}`,x:K.map(l=>share?xv(l)*100:xv(l)),y:K.map(l=>l[yk]),
+        marker:{symbol:sym,color:col,opacity:.65,size:K.map(l=>4+Math.sqrt((l.yea_R+l.nay_R+l.yea_T+l.nay_T)||0)*1.4),line:{width:0}},
+        text:K.map(l=>`${l.name}（${l.party}，${NAME(l.state)} ${l.district}）<br>${document.getElementById("sy").selectedOptions[0].text}：${fmt(l[yk])}${expoTxt(l.state,l.chamber,l.dist)}`),hovertemplate:"%{text}<extra></extra>"});
+    });
+    const pk = PICK();
+    if(pk && pk.state===st){
+      const x0 = isX ? (DATA.sld[`${pk.state}_${pk.chamber}_${pk.dist}`]||{})[xc] ?? null : expo[pk.state][xk];
+      if(x0!==null && pk[yk]!==null) traces.push({type:"scatter",mode:"markers+text",xaxis:`x${si+1}`,yaxis:`y${si+1}`,x:[share?x0*100:x0],y:[pk[yk]],
+        text:[pk.name],textposition:"top center",textfont:{size:13,color:css("--text")},hoverinfo:"skip",showlegend:false,
+        marker:{size:24,color:"rgba(0,0,0,0)",line:{color:css("--accent"),width:3}}});
+    }
+  });
+  const xlab = document.getElementById("sx").selectedOptions[0].text + (perW ? "（美元，對數軸）" : share ? "（%）" : "（百分位，0–1）");
+  const lay = {...base(),height:460,showlegend:false,grid:{rows:1,columns:sts.length,pattern:"independent"},margin:{l:56,r:10,t:30,b:50},
+    annotations:sts.map((s,i)=>({text:NAME(s),xref:`x${i+1} domain`,yref:`y${i+1} domain`,x:0,y:1.07,showarrow:false,xanchor:"left",font:{size:13}}))};
+  sts.forEach((s,i)=>{lay[`xaxis${i?i+1:""}`]={type:perW?"log":"linear",title:{text:xlab,font:{size:11}},gridcolor:css("--line"),...(isX?{}:{range:[0,1]})};
+    lay[`yaxis${i?i+1:""}`]={title:{text:i?"":document.getElementById("sy").selectedOptions[0].text},gridcolor:css("--line"),...(yk.startsWith("signed")?{range:[-1.05,1.05],zeroline:true,zerolinecolor:css("--muted")}:{rangemode:"tozero"})};});
+  Plotly.react("scatter",traces,lay,cfg);
+}
+
+const STATUS = {introduced:"提出",engrossed:"一院通過",enrolled:"兩院通過",passed:"通過",vetoed:"否決",failed:"未通過"};
+function drawS5(){
+  const which = document.getElementById("ls").value, sf = document.getElementById("lf").value, cf = document.getElementById("lc").value;
+  const chip = c => `<span class="chip" style="background:${CODE_COLOR(c)}">${c}</span>`;
+  const esc = s => String(s??"").replace(/[&<>"]/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[ch]));
+  let html, n;
+  if(which==="bills"){
+    const rows = DATA.bills.filter(b=>(!sf||b.state===sf)&&(!cf||b.code===cf)).sort((a,b)=>String(b.first_action).localeCompare(String(a.first_action)));
+    n = rows.length;
+    html = `<tr><th>代碼</th><th>州</th><th>案號</th><th>提出</th><th>狀態</th><th>標題</th></tr>` + rows.map(b=>`<tr><td>${chip(b.code)}</td><td>${ZH[b.state]}</td><td class="n"><a href="${esc(b.state_link)}" target="_blank" rel="noopener">${esc(b.bill_number)}</a></td><td class="n">${esc(b.first_action)}</td><td>${STATUS[b.status]||esc(b.status)}</td><td><a href="${esc(b.url)}" target="_blank" rel="noopener">${esc(b.title)}</a></td></tr>`).join("");
+  } else {
+    const rows = DATA.releases.filter(r=>(!sf||r.state===sf)&&(!cf||r.code===cf)).sort((a,b)=>b.date.localeCompare(a.date));
+    n = rows.length;
+    html = `<tr><th>代碼</th><th>州</th><th>職位</th><th>日期</th><th>標題</th></tr>` + rows.map(r=>`<tr><td>${chip(r.code)}</td><td>${ZH[r.state]}</td><td>${OFFICE[r.office]}</td><td class="n">${r.date}</td><td><a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.title)}</a></td></tr>`).join("");
+  }
+  document.getElementById("tbl").innerHTML = html;
+  document.getElementById("lcount").textContent = `${n} 筆`;
+}
+
+function drawAll(){drawS1();drawS2();drawSB();drawS3();drawS4();drawS5();}
+["m1"].forEach(id=>document.getElementById(id).addEventListener("change",drawS1));
+["cmpA","cmpB"].forEach(id=>document.getElementById(id).addEventListener("change",()=>{drawS1();drawS2();drawSB();}));
+document.getElementById("spm").addEventListener("change",drawSB);
+document.getElementById("kind").addEventListener("change",drawS2);
+["dst","dch","dm"].forEach(id=>document.getElementById(id).addEventListener("change",drawS3));
+document.getElementById("who").addEventListener("change",()=>{
+  const pk = PICK(), note = document.getElementById("whonote");
+  if(pk){ document.getElementById("dst").value = pk.state; document.getElementById("dch").value = pk.chamber;
+    note.textContent = `${pk.name}：${NAME(pk.state)} ${CH_ZH[pk.chamber]} ${pk.district}（${pk.party}）` + (pk[document.getElementById("sy").value]===null ? "；此縱軸指標無資料" : "");
+  } else note.textContent = document.getElementById("who").value.trim() ? "找不到這位議員" : "";
+  drawS3(); drawS4();
+});
+["sx","sy"].forEach(id=>document.getElementById(id).addEventListener("change",drawS4));
+["ls","lf","lc"].forEach(id=>document.getElementById(id).addEventListener("change",drawS5));
+drawAll();
+document.getElementById("map1").on("plotly_click",e=>{const s=e.points[0].location; if(!DATA_STATES.includes(s)||SEL().includes(s)) return; document.getElementById("cmpB").value=s; drawS1(); drawS2(); drawSB();});
+document.getElementById("events").on("plotly_click",e=>{const u=e.points[0].customdata; if(u) window.open(u,"_blank","noopener");});
+matchMedia("(prefers-color-scheme: dark)").addEventListener("change",drawAll);
+</script>
+</body>
+</html>
