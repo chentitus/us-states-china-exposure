@@ -1,6 +1,6 @@
 # 美國各州對中國／台灣貿易依賴與曝險（2020–2026）
 
-**線上儀表板（GitHub Pages）**：州 https://chentitus.github.io/us-states-china-exposure/dashboard/index.html ｜ 國會選區與郡 https://chentitus.github.io/us-states-china-exposure/dashboard/districts.html ｜ 國會法案與發言 https://chentitus.github.io/us-states-china-exposure/dashboard/congress.html
+**線上儀表板（GitHub Pages）**：州 https://chentitus.github.io/us-states-china-exposure/dashboard/index.html ｜ 國會選區與郡 https://chentitus.github.io/us-states-china-exposure/dashboard/districts.html ｜ 國會法案與發言 https://chentitus.github.io/us-states-china-exposure/dashboard/congress.html ｜ 州官員與州議會 https://chentitus.github.io/us-states-china-exposure/dashboard/officials.html
 原始碼與資料：https://github.com/chentitus/us-states-china-exposure ｜ 姊妹專案（國家層級）：https://github.com/chentitus/china-exposure-dashboard
 
 沿用 `china-exposure-dashboard`（國家層級）的方法：把金額換成依賴比率 → 概念分組 → 百分位平均子分數 → 總分；單檔儀表板 `dashboard/index.html`（雙擊開啟，Plotly CDN）。建置日期 2026-11-08。
@@ -399,3 +399,15 @@ us-states-china-exposure/
 **選區歸屬（2026-11-10 修正，`17_congress_events.py`）**：每件提案（提出日）、共提（共提日）、發言（日期）依任期紀錄歸到議員**當時**代表的州與選區（`congress_events.csv`）。選區曝險只接邊界與第 119 屆一致的任期：2023 年起，但 AL、GA、LA、NC、NY 五州因 2024 年再次重劃只計 2025 年起。其餘任期標示「重劃前」（230 位前議員）或「118 屆邊界」（14 位），不接選區曝險（修正前有 220 位前議員以重劃前選區編號誤接第 119 屆曝險）。新增「以選區看」頁籤（`congress_districts.csv`）：441 個第 119 屆選區，各列 2023–2026 年所有代表過該區的眾議員與其在邊界一致任期內的涉中／涉台活動合計；其中 70 區在 2023 年後換過議員。
 
 **限制**：法案只看標題（國防授權法等標題不含中國者不在內，為下限）；國會記錄全文搜尋為上限（任何脈絡提到中國都算）；約三分之一段落在 MODS 中無發言者，不計入任何議員；部分摘句會帶到頁首樣板文字；涉中法案多為對中強硬、涉台法案多為友台，但數量不等於立場。
+
+## 11. 州官員與州議會的對中、對台立場（2026-11-10 新增，`dashboard/officials.html`）
+
+觀察州：加州、德州。期間：行政部門新聞稿自 2025-01-01 起；議會為 2025–26 會期（含 2024 年底預先提出的法案）。其他州擴充時比照同一期間。
+
+- **行政部門**：州長、副州長、州務卿官網新聞稿，關鍵字篩選 → 規則排除（族裔節慶、語言服務等）→ 人工判讀。
+- **議會**：LegiScan 會期資料與全文搜尋（法案、決議、提案人、記名表決）→ 規則排除 → 人工判讀。
+- **代碼**：R＝法案本身針對中國或外國敵對勢力；Rc＝一般法案夾帶涉中條款；Rp＝附帶批評；C／Cp＝對中合作（主旨／附帶）；K＝競爭框架；T／Tp＝友台（主旨／附帶）。所有代碼由單一編碼者判讀，尚未做第二編碼者驗證。
+- **州層級指標**：每千件法案（或決議）的 R、Rc、C、T 件數；方向 (R − C) ÷ (R + C)；通過率。
+- **議員層級指標**（議員 × 會期）：提案與連署件數；贊成票比例；偏離本黨（每次表決以本黨過半票為準，計算偏離比例與方向）。
+- **選區曝險**（州參議員區、州眾議員區，2024 年選區，2025 年貿易，皆為估計）：出貨地（州 × NAICS4 出口按選區就業分配）、生產地（全國出口按選區占全國就業分配）、混合（農礦用生產地，其餘用出貨地）；分母為占總出口、每位私部門勞工。選區就業：ZBP 2023 經 ZCTA 對照（Census rel2020 tab20_sld{u,l}202420_zcta520），農場就業用 QCEW 2024 郡資料經郡對照。
+- 頁面為單一 HTML（Plotly CDN）。建置腳本位於另一個專案資料夾，尚未納入本 repo。
