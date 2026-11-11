@@ -402,7 +402,7 @@ us-states-china-exposure/
 
 ## 11. 州官員與州議會的對中、對台立場（2026-11-10 新增，`dashboard/officials.html`）
 
-觀察州：全部 50 州。期間：行政部門新聞稿自 2025-01-01 起；議會為 2025 年起的會期（含 2024 年底預先提出的法案）。
+涵蓋全部 50 州。期間：行政部門新聞稿自 2025-01-01 起；議會為 2025 年起的會期（含 2024 年底預先提出的法案）。
 
 - **行政部門來源**：官網（WordPress API 或新聞列表，每秒 1 次、標明研究用途的 User-Agent）；官網拒絕爬蟲（HTTP 403）或列表為動態載入時，依 Internet Archive CDX 索引取得網址，能連上官網者向官網抓原文，否則用 Internet Archive 存檔（KY、AZ、MI、IN、MN 等）。涵蓋不完整處列於頁面說明欄。第三至五批（IN、GA、IL、VA、MN、OR、TN、LA、PA、IA；OH、MS、SC、SD、MO、WI、NV、KS、NJ、CO）只收州長新聞稿；網址沒有日期者，只收 Internet Archive 首次存檔於 2025 年以後的文件。第六批（其餘 20 州）同樣只收州長新聞稿。AK、KS、CO 無行政部門資料；NE、NH、WV 涵蓋率很低。選區邊界依州拆成 `dashboard/officials_geo/{州}.js`，頁面在需要時載入。
 - **表決**：只計投贊成即支持法案的表決（院會通過、委員會 do pass、同意他院修正），排除修正案與擱置、暫緩審議、重議等程序動議。
