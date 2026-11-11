@@ -11,7 +11,7 @@ COS = {}
 for r in C.itertuples(): COS.setdefault(r.bioguide, []).append(r.bill_id)
 S = SP[SP.role=='SPEAKING'].merge(G[['granuleId','china','taiwan','date','title','snippet','packageId']], on='granuleId').drop_duplicates(['granuleId','bioguide'])
 SPEECH = [{'b':r.bioguide,'g':r.granuleId,'pkg':r.packageId,'date':str(r.date)[:10],'title':(r.title or '')[:120],'cn':bool(r.china),'tw':bool(r.taiwan),'snip':(r.snippet if isinstance(r.snippet,str) else '')[:400]} for r in S.itertuples()]
-NET = json.loads((CLEAN/'congress_network_taiwan.json').read_text())
+NETS = json.loads((CLEAN/'congress_networks_taiwan.json').read_text())   # by chamber x Congress (17_congress_networks.py)
 DD = pd.read_csv(CLEAN/'congress_districts.csv'); DIST = [{k: nn(v) for k,v in r.items()} for r in DD.round(3).to_dict('records')]
 EV = pd.read_csv(CLEAN/'congress_events.csv', parse_dates=['date']); E = EV[(EV.chamber=='rep')&(EV.boundary=='119')]
 TT = pd.read_csv(CLEAN/'legislators_terms_2019_2026.csv'); TT = TT[(TT.chamber=='rep')&(TT.end>'2023-01-03')]; TT['cd_code']=[f"{s}-{'AL' if int(d)==0 else str(int(d)).zfill(2)}" for s,d in zip(TT.state,TT.district)]
@@ -20,6 +20,6 @@ EVD = {}
 for (cd,bg), g in E.groupby(['cd_code','bioguide']):
     EVD.setdefault(cd,{})[bg] = {'sc':int(((g.kind=='sponsor')&g.china).sum()),'st':int(((g.kind=='sponsor')&g.taiwan).sum()),'cc':int(((g.kind=='cosponsor')&g.china).sum()),'ct':int(((g.kind=='cosponsor')&g.taiwan).sum()),'pc':int(((g.kind=='speech')&g.china).sum()),'pt':int(((g.kind=='speech')&g.taiwan).sum())}
 for (cd,bg), r in span.iterrows(): EVD.setdefault(cd,{}).setdefault(bg,{})['span'] = f"{str(r.a)[:7]}–{min(str(r.b)[:7],'2026-11')}" 
-js = 'const MEM='+json.dumps(MEM,ensure_ascii=False,separators=(',',':'))+';\nconst BILLS='+json.dumps(BILLS,ensure_ascii=False,separators=(',',':'))+';\nconst COS='+json.dumps(COS,separators=(',',':'))+';\nconst SPEECH='+json.dumps(SPEECH,ensure_ascii=False,separators=(',',':'))+';\nconst NET='+json.dumps(NET,ensure_ascii=False,separators=(',',':'))+';\nconst DIST='+json.dumps(DIST,ensure_ascii=False,separators=(',',':'))+';\nconst EVD='+json.dumps(EVD,separators=(',',':'))+';\nconst STATES_ZH='+json.dumps(STATES_ZH,ensure_ascii=False)+';\nconst ABOUT='+json.dumps((SCRIPTS/'dashboard_congress_about.html').read_text(encoding='utf-8'),ensure_ascii=False)+';'
+js = 'const MEM='+json.dumps(MEM,ensure_ascii=False,separators=(',',':'))+';\nconst BILLS='+json.dumps(BILLS,ensure_ascii=False,separators=(',',':'))+';\nconst COS='+json.dumps(COS,separators=(',',':'))+';\nconst SPEECH='+json.dumps(SPEECH,ensure_ascii=False,separators=(',',':'))+';\nconst NETS='+json.dumps(NETS,ensure_ascii=False,separators=(',',':'))+';\nconst DIST='+json.dumps(DIST,ensure_ascii=False,separators=(',',':'))+';\nconst EVD='+json.dumps(EVD,separators=(',',':'))+';\nconst STATES_ZH='+json.dumps(STATES_ZH,ensure_ascii=False)+';\nconst ABOUT='+json.dumps((SCRIPTS/'dashboard_congress_about.html').read_text(encoding='utf-8'),ensure_ascii=False)+';'
 html = (SCRIPTS/'dashboard_congress_template.html').read_text(encoding='utf-8').replace('/*__DATA__*/', js)
 (ROOT/'dashboard/congress.html').write_text(html, encoding='utf-8'); print('dashboard/congress.html', round((ROOT/'dashboard/congress.html').stat().st_size/1e6,1),'MB; members',len(MEM),'bills',len(BILLS),'speech rows',len(SPEECH))
