@@ -14,7 +14,7 @@ OUT = ROOT / "data" / "processed"
 STATUS = {1: "introduced", 2: "engrossed", 3: "enrolled", 4: "passed", 5: "vetoed", 6: "failed"}
 
 bills, spons, votes, people = [], [], [], []
-for state in ["CA", "TX"]:
+for state in sorted(f.stem.split("_")[1] for f in LS.glob("search_*.json")):
     hits = {h["bill_id"]: h["terms"] for h in json.load(open(LS / f"search_{state}.json"))}
     for sess in glob.glob(str(LS / f"{state}_*/{state}/*")):
         sname = Path(sess).name

@@ -75,6 +75,11 @@ sp = pd.concat([
 ], axis=1)
 
 V = pd.read_csv(P / "votes_china_taiwan.csv").assign(code=lambda d: d.bill_id.map(code))
+# Only roll calls where Yea = support for the bill (passage, committee "do pass", concurrence). Dropped: motions where
+# Yea means something else (NY "Held for Consideration" = Yea keeps the bill in committee; motions to table, postpone,
+# recommit, reconsider) and votes on amendments (Yea = support the amendment, not the bill). Added 2026-11-10.
+ADVERSE = r"held for consideration|\btable\b|postpone|recommit|reconsider|\bamendment\b(?! ?\(?s\)?\b)|strike|substitute"
+V = V[~V.desc.fillna("").str.contains(ADVERSE, case=False, regex=True) | V.desc.fillna("").str.contains(r"concurs", case=False)]
 V = V[V.code.isin(CORE) & V.vote.isin(["Yea", "Nay"]) & V.bill_id.isin(IN_WINDOW)]
 vt = V.pivot_table(index="people_id", columns=["vote", "code"], values="roll_call_id", aggfunc="count")
 vt.columns = [f"{'yea' if v == 'Yea' else 'nay'}_{c}" for v, c in vt.columns]

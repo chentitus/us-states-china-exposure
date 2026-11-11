@@ -28,7 +28,7 @@ def call(**p):
 
 def datasets(state):
     for d in call(op="getDatasetList", state=state)["datasetlist"]:
-        if d["year_end"] < 2020:
+        if d["year_start"] < 2025:   # analysis window: sessions starting 2025+ (CA/TX were fetched earlier from 2019)
             continue
         dest = OUT / f"{state}_{d['session_id']}"
         if dest.exists():
@@ -39,7 +39,7 @@ def datasets(state):
 
 def search(state):
     hits = {}
-    for y in range(2019, 2027):
+    for y in range(2025, 2027):
         for t in TERMS:
             page = 1
             while True:

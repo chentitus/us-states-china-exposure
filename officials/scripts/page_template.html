@@ -66,10 +66,11 @@ a{color:var(--accent)}
 <div class="wrap">
 <header>
   <nav class="xnav"><a href="index.html">州儀表板</a><a href="districts.html">國會選區與郡</a><a href="congress.html">國會法案與發言</a></nav>
-  <h1>州官員與州議會的對中、對台立場（觀察州：加州、德州，2025–26）</h1>
+  <h1>州官員與州議會的對中、對台立場（2025–26）</h1>
+  <p class="sub">觀察州：__OBSERVED__</p>
   <p class="sub">2025–2026　法案與決議來自 LegiScan；行政部門為州長、副州長、州務卿官網新聞稿；曝險為州層級分數</p>
 </header>
-<div class="banner"><strong>觀察州：目前只涵蓋加州、德州</strong>
+<div class="banner"><strong>觀察州：__OBSERVED__</strong>
   <ul>
     <li>所有代碼由單一編碼者判讀，尚未做第二編碼者驗證。</li>
     <li id="pending"></li>
@@ -124,7 +125,7 @@ a{color:var(--accent)}
 <section id="s3">
   <h2>④ 議員選區</h2>
   <div class="ctrls">
-    <label for="dst">州<select id="dst"><option value="CA">加州</option><option value="TX">德州</option></select></label>
+    <label for="dst">州<select id="dst"></select></label>
     <label for="dch">議院<select id="dch"><option value="upper">州參議院</option><option value="lower">州眾議院</option></select></label>
     <label for="dm">著色
       <select id="dm">
@@ -149,7 +150,7 @@ a{color:var(--accent)}
 </section>
 
 <section id="s4">
-  <h2>⑤ 議員立場與曝險</h2>
+  <h2>⑤ 議員立場與曝險（比較州 1、2）</h2>
   <div class="ctrls">
     <label for="sx">橫軸<select id="sx">
       <option value="x:hybrid_china_per_worker">選區：對中出口每位勞工（混合）</option>
@@ -170,7 +171,7 @@ a{color:var(--accent)}
   <h2>⑥ 清單</h2>
   <div class="ctrls">
     <label for="ls">清單<select id="ls"><option value="bills">法案與決議</option><option value="releases">行政部門新聞稿</option></select></label>
-    <label for="lf">州<select id="lf"><option value="">全部</option><option value="CA">加州</option><option value="TX">德州</option></select></label>
+    <label for="lf">州<select id="lf"><option value="">全部</option></select></label>
     <label for="lc">代碼<select id="lc"><option value="">全部</option><option>R</option><option>Rc</option><option>Rp</option><option>C</option><option>Cp</option><option>K</option><option>T</option><option>Tp</option></select></label>
     <span id="lcount" class="sub"></span>
   </div>
@@ -187,7 +188,7 @@ a{color:var(--accent)}
     <dt>州層級公式</dt>
     <dd class="formula">每千件 = 1000 × 件數 ÷ 同州 2025–26 會期提出的全部法案（或決議）<br>方向 = (R − C) ÷ (R + C)<br>友台占比 = T ÷ (R + C + T)<br>通過率 = 通過件數 ÷ 提出件數（LegiScan status = passed）</dd>
     <dt>議員層級公式</dt>
-    <dd class="formula">提案＋連署件數 = 該議員為主提案人或連署人的 R（或 T）件數<br>贊成票比例 = Yea ÷ (Yea + Nay)，含委員會與院會表決</dd>
+    <dd class="formula">提案＋連署件數 = 該議員為主提案人或連署人的 R（或 T）件數<br>贊成票比例 = Yea ÷ (Yea + Nay)，含委員會與院會表決；只計投贊成即支持法案的表決（院會通過、委員會「do pass」、同意他院修正），排除修正案表決與擱置、暫緩審議、重議等程序動議</dd>
     <dt>偏離本黨</dt>
     <dd class="formula">每次記名表決：本黨多數票 = 本黨投 Yea／Nay 者過半的一方（同票則該黨該次不計）<br>偏離比例 = 與本黨多數不同的票數 ÷ 計入票數<br>偏離方向 = (本黨多數 Nay 時投 Yea − 本黨多數 Yea 時投 Nay) ÷ 計入票數；對 R 法案，正值＝比本黨更抗中</dd>
     <dt>選區曝險（估計，2025）</dt>
@@ -201,7 +202,7 @@ a{color:var(--accent)}
 <script>
 /*__DATA__*/
 const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
-const ZH = {CA:"加州", TX:"德州"};
+const ZH = {CA:"加州", TX:"德州", AL:"阿拉巴馬州", FL:"佛羅里達州", NY:"紐約州", WA:"華盛頓州", NC:"北卡羅來納州", KY:"肯塔基州", AZ:"亞利桑那州", MI:"密西根州", IN:"印第安納州", GA:"喬治亞州", IL:"伊利諾州", VA:"維吉尼亞州", MN:"明尼蘇達州", OR:"奧勒岡州", TN:"田納西州", LA:"路易斯安那州", PA:"賓州", IA:"愛荷華州"};
 const OFFICE = {governor:"州長", lieutenant_governor:"副州長", secretary_of_state:"州務卿"};
 const CODE_COLOR = c => ({R:css("--china"),Rc:css("--china"),Rp:css("--china"),C:css("--china-soft"),Cp:css("--china-soft"),K:css("--comp"),T:css("--taiwan"),Tp:css("--taiwan")}[c]);
 const base = () => ({paper_bgcolor:"rgba(0,0,0,0)",plot_bgcolor:"rgba(0,0,0,0)",font:{family:css("--sans"),color:css("--text"),size:12},margin:{l:40,r:10,t:10,b:30}});
@@ -214,7 +215,9 @@ const pooled = (st,kind) => DATA.pooled.find(r=>r.state===st && r.kind===kind) |
 const NAME = s => ZH[s] || (expo[s] && expo[s].state_name_zh) || s;
 const DATA_STATES = [...new Set(DATA.pooled.map(r=>r.state))].sort();
 ["cmpA","cmpB"].forEach((id,i)=>{const el=document.getElementById(id);
-  el.innerHTML = DATA_STATES.map(s=>`<option value="${s}">${NAME(s)}</option>`).join(""); el.value = DATA_STATES[Math.min(i,DATA_STATES.length-1)];});
+  el.innerHTML = DATA_STATES.map(s=>`<option value="${s}">${NAME(s)}</option>`).join(""); el.value = ["CA","TX"].every(s=>DATA_STATES.includes(s)) ? ["CA","TX"][i] : DATA_STATES[Math.min(i,DATA_STATES.length-1)];});
+document.getElementById("dst").innerHTML = DATA_STATES.map(s=>`<option value="${s}">${NAME(s)}</option>`).join("");
+document.getElementById("lf").innerHTML += DATA_STATES.map(s=>`<option value="${s}">${NAME(s)}</option>`).join("");
 const SEL = () => [document.getElementById("cmpA").value, document.getElementById("cmpB").value];
 
 function usMap(div, locs, vals, scale, title, hover){
@@ -307,7 +310,7 @@ function drawS3(){
   const others = {}; legs.filter(l=>!l.seat_holder).forEach(l=>(others[l.dist] ||= []).push(l));
   const ids = gj.features.map(f=>f.id);
   const leg = id => byDist[id] || {};
-  const extra = id => (others[id]||[]).map(o=>`<br>同會期另有：${o.name}（${o.party}），抗中贊成 ${o.yea_R}／反對 ${o.nay_R}`).join("");
+  const extra = id => (others[id]||[]).map(o=>`<br>同選區另有：${o.name}（${o.party}），抗中贊成 ${o.yea_R}／反對 ${o.nay_R}`).join("");
   const PARTY = {D:0,R:1,I:.5};
   const isX = m.startsWith("x:"), xc = m.slice(2), sv = id => (DATA.sld[`${st}_${ch}_${id}`]||{})[xc];
   const z = ids.map(id => isX ? (sv(id) ?? null) : m==="party" ? PARTY[leg(id).party] ?? null : leg(id)[m]);
@@ -330,7 +333,7 @@ function drawS3(){
 function drawS4(){
   const xk = document.getElementById("sx").value, yk = document.getElementById("sy").value;
   const isX = xk.startsWith("x:"), xc = xk.slice(2), perW = xc.endsWith("per_worker"), share = xc.endsWith("share");
-  const sts = DATA_STATES, traces = [];
+  const sts = SEL(), traces = [];
   sts.forEach((st,si)=>{
     [["D","民主黨","circle",css("--dem")],["R","共和黨","triangle-up",css("--gop")]].forEach(([p,name,sym,col])=>{
       const L = DATA.leg_session.filter(l=>l.state===st && l.party===p && l[yk]!==null);
@@ -378,7 +381,7 @@ function drawS5(){
 
 function drawAll(){drawS1();drawS2();drawSB();drawS3();drawS4();drawS5();}
 ["m1"].forEach(id=>document.getElementById(id).addEventListener("change",drawS1));
-["cmpA","cmpB"].forEach(id=>document.getElementById(id).addEventListener("change",()=>{drawS1();drawS2();drawSB();}));
+["cmpA","cmpB"].forEach(id=>document.getElementById(id).addEventListener("change",()=>{drawS1();drawS2();drawSB();drawS4();}));
 document.getElementById("spm").addEventListener("change",drawSB);
 document.getElementById("kind").addEventListener("change",drawS2);
 ["dst","dch","dm"].forEach(id=>document.getElementById(id).addEventListener("change",drawS3));
@@ -392,7 +395,7 @@ document.getElementById("who").addEventListener("change",()=>{
 ["sx","sy"].forEach(id=>document.getElementById(id).addEventListener("change",drawS4));
 ["ls","lf","lc"].forEach(id=>document.getElementById(id).addEventListener("change",drawS5));
 drawAll();
-document.getElementById("map1").on("plotly_click",e=>{const s=e.points[0].location; if(!DATA_STATES.includes(s)||SEL().includes(s)) return; document.getElementById("cmpB").value=s; drawS1(); drawS2(); drawSB();});
+document.getElementById("map1").on("plotly_click",e=>{const s=e.points[0].location; if(!DATA_STATES.includes(s)||SEL().includes(s)) return; document.getElementById("cmpB").value=s; drawS1(); drawS2(); drawSB(); drawS4();});
 document.getElementById("events").on("plotly_click",e=>{const u=e.points[0].customdata; if(u) window.open(u,"_blank","noopener");});
 matchMedia("(prefers-color-scheme: dark)").addEventListener("change",drawAll);
 </script>
