@@ -23,7 +23,7 @@ import numpy as np, pandas as pd, requests
 ROOT = Path(__file__).resolve().parents[1]
 EX = ROOT.parent   # repository root (officials/ sits inside it)
 P, REL = ROOT / "data" / "processed", ROOT / "data" / "raw" / "geo" / "rel"
-YEAR, STATES = 2025, {"CA": "06", "TX": "48", "AL": "01", "FL": "12", "NY": "36", "WA": "53", "NC": "37", "KY": "21", "AZ": "04", "MI": "26", "IN": "18", "GA": "13", "IL": "17", "VA": "51", "MN": "27", "OR": "41", "TN": "47", "LA": "22", "PA": "42", "IA": "19"}
+YEAR, STATES = 2025, {"CA": "06", "TX": "48", "AL": "01", "FL": "12", "NY": "36", "WA": "53", "NC": "37", "KY": "21", "AZ": "04", "MI": "26", "IN": "18", "GA": "13", "IL": "17", "VA": "51", "MN": "27", "OR": "41", "TN": "47", "LA": "22", "PA": "42", "IA": "19", "OH": "39", "MS": "28", "SC": "45", "SD": "46", "MO": "29", "WI": "55", "NV": "32", "KS": "20", "NJ": "34", "CO": "08"}
 PARTNERS = {"china": "5700", "taiwan": "5830", "world": "-"}
 KEY = dict(l.strip().split("=", 1) for l in open(EX / ".env") if "=" in l)["CENSUS_API_KEY"]
 is_farm = lambda n: n[:3] in ("111", "112")

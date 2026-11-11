@@ -35,9 +35,42 @@ ARCH = {
     "LA": [("governor", [("gov.louisiana.gov/news/", "prefix", r"/news/\d+")])],
     "PA": [("governor", [("pa.gov/governor/newsroom/", "prefix", None)])],
     "IA": [("governor", [("governor.iowa.gov/press-release/", "prefix", None)])],
+    # batch 5 governors
+    "OH": [("governor", [("governor.ohio.gov/media/news-and-media/", "prefix", None)])],
+    "SC": [("governor", [("governor.sc.gov/news/", "prefix", None)])],
+    "MO": [("governor", [("governor.mo.gov/press-releases/", "prefix", None)])],
+    "KS": [("governor", [("governor.kansas.gov/", "prefix", r"kansas\.gov/governor-")])],
+    "CO": [("governor", [("governor.colorado.gov/press-release/", "prefix", None)])],
+    "NV": [("governor", [("gov.nv.gov/Newsroom/PRs/", "prefix", None)])],
+    "NJ": [("governor", [("nj.gov/governor/news/news/562025/", "prefix", None), ("nj.gov/governor/news/news/562026/", "prefix", None)])],
+    "WI": [("governor", [("content.govdelivery.com/accounts/WIGOV/bulletins/", "prefix", None)])],
+    "SD": [("governor", [("news.sd.gov/news", "prefix", r"sys_id=")])],   # all state agencies: keep governor items (FILTER)
 }
-MODE = {"AZ": "archive", "MI": "archive", "KY": "archive", "IN": "archive", "MN": "archive",
+# keep only releases issued by the governor's office where the source mixes agencies
+FILTER = {"SD": r"\bGov\.|\bGovernor\b"}
+MODE = {"OH": "archive", "SC": "archive", "MO": "archive", "KS": "archive", "CO": "archive",
+        "NV": "auto", "NJ": "auto", "WI": "auto", "SD": "auto",
+        "AZ": "archive", "MI": "archive", "KY": "archive", "IN": "archive", "MN": "archive",
         "VA": "auto", "OR": "auto", "TN": "auto", "LA": "auto", "PA": "auto", "IA": "auto"}
+
+# States where only URLs first captured on/after 2025-01-01 are fetched (decided 2026-11-11: "只抓有明確2025年的文件").
+# The earliest Archive capture of a URL is an upper bound on its publication date, so a first capture before 2025
+# means the document is older; URLs without a 2025+ first capture are skipped without being fetched.
+EARLIEST_2025 = {"WI", "SD", "SC", "MO", "KS", "CO"}
+
+def cdx_first(url, match):
+    """Earliest capture per URL (no date filter; collapse keeps the first capture of each urlkey)."""
+    for i in range(6):
+        try:
+            time.sleep(5)
+            r = requests.get("https://web.archive.org/cdx/search/cdx", params={"url": url, "matchType": match,
+                             "output": "json", "fl": "timestamp,original", "filter": "statuscode:200",
+                             "collapse": "urlkey", "limit": "100000"}, timeout=300)
+            rows = r.json()
+            return rows[1:] if rows else []
+        except Exception:
+            time.sleep(30 * (i + 1))
+    return []
 
 def cdx(url, match):
     for i in range(6):
@@ -57,7 +90,11 @@ for st in sys.argv[1:]:
     for office, specs in ARCH[st]:
         latest = {}
         for url, match, keep in specs:
-            for ts, orig in cdx(url, match):
+            rows = cdx(url, match)
+            if st in EARLIEST_2025:
+                first = {re.sub(r"^https?://(www\.)?", "", o).replace(":80/", "/"): t for t, o in cdx_first(url, match)}
+                rows = [(t, o) for t, o in rows if first.get(re.sub(r"^https?://(www\.)?", "", o).replace(":80/", "/"), "0") >= "20250101"]
+            for ts, orig in rows:
                 key = re.sub(r"^https?://(www\.)?", "", orig).replace(":80/", "/")
                 if keep and not re.search(keep, key):
                     continue
@@ -83,6 +120,8 @@ for st in sys.argv[1:]:
                 m = re.search(rf"({c.MONTHS})\s+(\d{{1,2}}),?\s+(\d{{4}})", rec["title"] + " " + rec["text"][:800])
                 rec["date"] = time.strftime("%Y-%m-%d", time.strptime(f"{m.group(1)} {m.group(2)} {m.group(3)}", "%B %d %Y")) if m else ""
             if rec["date"] and rec["date"] < c.START:
+                continue
+            if st in FILTER and not re.search(FILTER[st], rec["title"] + " " + rec["text"][:600]):
                 continue
             recs.append(rec)
         with (RAW / f"{c.OFFICE_FILE[office]}_{st}.jsonl").open("w") as f:

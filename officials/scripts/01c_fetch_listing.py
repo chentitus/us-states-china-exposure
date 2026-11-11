@@ -54,6 +54,8 @@ CONFIG = {
                          "link": r'href="(/press-releases/(\d{4})-[^"?#]+)"', "base": "https://gov.georgia.gov"})],
     "IL": [("governor", {"kind": "listing", "list": "https://gov-pritzker-newsroom.prezly.com/?page={p}",
                          "link": r'href="(/[a-z0-9-]{25,})"', "base": "https://gov-pritzker-newsroom.prezly.com", "start": 1})],
+    # batch 5 (2026-11-11)
+    "MS": [("governor", {"kind": "wp", "base": "https://governorreeves.ms.gov"})],
 }
 OFFICE_FILE = {"governor": "gov", "lieutenant_governor": "lg", "secretary_of_state": "sos"}
 

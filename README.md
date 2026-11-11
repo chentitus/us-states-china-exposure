@@ -402,9 +402,9 @@ us-states-china-exposure/
 
 ## 11. 州官員與州議會的對中、對台立場（2026-11-10 新增，`dashboard/officials.html`）
 
-觀察州（20）：AL、AZ、CA、FL、GA、IA、IL、IN、KY、LA、MI、MN、NC、NY、OR、PA、TN、TX、VA、WA。期間：行政部門新聞稿自 2025-01-01 起；議會為 2025 年起的會期（含 2024 年底預先提出的法案）。
+觀察州（30）：AL、AZ、CA、CO、FL、GA、IA、IL、IN、KS、KY、LA、MI、MN、MO、MS、NC、NJ、NV、NY、OH、OR、PA、SC、SD、TN、TX、VA、WA、WI。期間：行政部門新聞稿自 2025-01-01 起；議會為 2025 年起的會期（含 2024 年底預先提出的法案）。
 
-- **行政部門來源**：官網（WordPress API 或新聞列表，每秒 1 次、標明研究用途的 User-Agent）；官網拒絕爬蟲（HTTP 403）或列表為動態載入時，依 Internet Archive CDX 索引取得網址，能連上官網者向官網抓原文，否則用 Internet Archive 存檔（KY、AZ、MI、IN、MN 等）。涵蓋不完整處列於頁面說明欄。第三、四批（IN、GA、IL、VA、MN、OR、TN、LA、PA、IA）只收州長新聞稿。
+- **行政部門來源**：官網（WordPress API 或新聞列表，每秒 1 次、標明研究用途的 User-Agent）；官網拒絕爬蟲（HTTP 403）或列表為動態載入時，依 Internet Archive CDX 索引取得網址，能連上官網者向官網抓原文，否則用 Internet Archive 存檔（KY、AZ、MI、IN、MN 等）。涵蓋不完整處列於頁面說明欄。第三至五批（IN、GA、IL、VA、MN、OR、TN、LA、PA、IA；OH、MS、SC、SD、MO、WI、NV、KS、NJ、CO）只收州長新聞稿；網址沒有日期者，只收 Internet Archive 首次存檔於 2025 年以後的文件。KS、CO 無行政部門資料。
 - **表決**：只計投贊成即支持法案的表決（院會通過、委員會 do pass、同意他院修正），排除修正案與擱置、暫緩審議、重議等程序動議。
 
 - **行政部門**：州長、副州長、州務卿官網新聞稿，關鍵字篩選 → 規則排除（族裔節慶、語言服務等）→ 人工判讀。
