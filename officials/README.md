@@ -7,7 +7,7 @@
 |---|---|---|
 | `01_fetch_governors.py` | 州長新聞稿（CA：WordPress API；TX：官網分頁，可用 `TX-resume <offset>` 續抓） | `data/raw/gov_*.jsonl` |
 | `01b_fetch_lg_sos.py` | 副州長、州務卿新聞稿 | `data/raw/{lg,sos}_*.jsonl` |
-| `01c_fetch_listing.py <州…>` | 其他觀察州：WordPress API、Squarespace JSON、官網新聞列表 | `data/raw/{gov,lg,sos}_*.jsonl`、`fetch_status_*.json` |
+| `01c_fetch_listing.py <州…>` | CA、TX 以外各州：WordPress API、Squarespace JSON、官網新聞列表 | `data/raw/{gov,lg,sos}_*.jsonl`、`fetch_status_*.json` |
 | `01d_fill_from_cdx.py` | 佛州 2025 年補抓（CDX 網址＋官網原文）；日期修補、去重、去除翻譯下載區塊 | 同上 |
 | `01e_fetch_archive.py <州…>` | 官網拒絕爬蟲或列表為動態載入：CDX 索引＋官網原文或 Internet Archive 存檔 | 同上 |
 | `02_filter_keywords.py` | 涉中／涉台關鍵字篩選 | `releases_*.csv` |
