@@ -56,6 +56,11 @@ CONFIG = {
                          "link": r'href="(/[a-z0-9-]{25,})"', "base": "https://gov-pritzker-newsroom.prezly.com", "start": 1})],
     # batch 5 (2026-11-11)
     "MS": [("governor", {"kind": "wp", "base": "https://governorreeves.ms.gov"})],
+    # batch 6 (2026-11-11)
+    "HI": [("governor", {"kind": "wp", "base": "https://governor.hawaii.gov"})],
+    "UT": [("governor", {"kind": "wp", "base": "https://governor.utah.gov"})],
+    "AR": [("governor", {"kind": "wp", "base": "https://governor.arkansas.gov", "ptype": "news_post"})],
+    "DE": [("governor", {"kind": "wp", "base": "https://news.delaware.gov", "filter": r"\bGov(ernor|\.) (Matt )?Meyer\b"})],
 }
 OFFICE_FILE = {"governor": "gov", "lieutenant_governor": "lg", "secretary_of_state": "sos"}
 
@@ -98,7 +103,7 @@ def title(h):
 def wp(st, office, c):
     recs, p = [], 1
     while True:
-        r = get(f"{c['base']}/wp-json/wp/v2/posts?per_page=100&page={p}&after={START}T00:00:00&_fields=date,link,title,content")
+        r = get(f"{c['base']}/wp-json/wp/v2/{c.get('ptype', 'posts')}?per_page=100&page={p}&after={START}T00:00:00&_fields=date,link,title,content")
         if r is None or r.status_code != 200 or not r.json():
             break
         recs += [{"state": st, "office": office, "date": x["date"][:10], "title": strip(x["title"]["rendered"]), "url": x["link"],
@@ -106,6 +111,8 @@ def wp(st, office, c):
         if p >= int(r.headers.get("X-WP-TotalPages", p)):
             break
         p += 1
+    if c.get("filter"):   # multi-agency news sites: keep releases naming the governor
+        recs = [x for x in recs if re.search(c["filter"], x["title"] + " " + x["text"][:600])]
     return recs, "ok"
 
 def sqsp(st, office, c):

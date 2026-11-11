@@ -47,6 +47,8 @@ for f in sorted(RAW.glob("*_*.jsonl")):
                 r["date"], fixed = d, fixed + 1
         # NY governor pages end with a "Translations" download block (Arabic, Bengali, Chinese, ...): drop it
         r["text"] = re.sub(r"\n\s*Translations\s*\n.*$", "", r["text"], flags=re.S)
+        if sum(ch == "\ufffd" for ch in r["text"][:2000]) >= 20:   # binary capture (PDF/image) decoded as text
+            continue
         out.append(r)
     out = [r for r in out if not r["date"] or r["date"] >= c.START]
     # MN archived captures are mostly the script-rendered listing page, not the release itself: drop them

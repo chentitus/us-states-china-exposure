@@ -3,7 +3,7 @@ Embeds: state exposure scores (recomputed from data/clean/summary_state.csv with
 same percentile formulas as that project's 04_exposure.py), legislative indicators (09), coded bills (07),
 coded releases (08), legislators (09), and Census 2024 cartographic boundaries (state 20m; CA/TX SLDU/SLDL 500k).
 """
-import io, json, zipfile
+import io, json, re, zipfile
 from pathlib import Path
 import pandas as pd, numpy as np, shapefile
 from shapely.geometry import shape
@@ -12,7 +12,7 @@ TOL = 0.005   # degrees (raised from 0.003 at 30 states to keep the page under ~
 ROOT = Path(__file__).resolve().parents[1]
 P, GEO = ROOT / "data" / "processed", ROOT / "data" / "raw" / "geo"
 EXPO = ROOT.parent / "data" / "clean" / "summary_state.csv"
-FIPS = {"CA": "06", "TX": "48", "AL": "01", "FL": "12", "NY": "36", "WA": "53", "NC": "37", "KY": "21", "AZ": "04", "MI": "26", "IN": "18", "GA": "13", "IL": "17", "VA": "51", "MN": "27", "OR": "41", "TN": "47", "LA": "22", "PA": "42", "IA": "19", "OH": "39", "MS": "28", "SC": "45", "SD": "46", "MO": "29", "WI": "55", "NV": "32", "KS": "20", "NJ": "34", "CO": "08"}
+FIPS = {"CA": "06", "TX": "48", "AL": "01", "FL": "12", "NY": "36", "WA": "53", "NC": "37", "KY": "21", "AZ": "04", "MI": "26", "IN": "18", "GA": "13", "IL": "17", "VA": "51", "MN": "27", "OR": "41", "TN": "47", "LA": "22", "PA": "42", "IA": "19", "OH": "39", "MS": "28", "SC": "45", "SD": "46", "MO": "29", "WI": "55", "NV": "32", "KS": "20", "NJ": "34", "CO": "08", "AK": "02", "AR": "05", "CT": "09", "DE": "10", "HI": "15", "ID": "16", "ME": "23", "MD": "24", "MA": "25", "MT": "30", "NE": "31", "NH": "33", "NM": "35", "ND": "38", "OK": "40", "RI": "44", "UT": "49", "VT": "50", "WV": "54", "WY": "56"}
 
 def geojson(zf, idf, keep=lambda rec: True):
     z = zipfile.ZipFile(GEO / zf); base = [n for n in z.namelist() if n.endswith(".shp")][0][:-4]
@@ -40,8 +40,9 @@ geo = {"states": geojson("cb_2024_us_state_20m.zip", "STUSPS", lambda r: r["STUS
 # 2024 file = plans drawn after the 2020 census (first used in the 2023-24 legislature)
 for st, fp in FIPS.items():
     for yr, era in (("2024", "new"),):  # window starts 2025 -> only the post-2020-census plans are needed
-        geo[f"{st}_upper_{era}"] = geojson(f"cb_{yr}_{fp}_sldu_500k.zip", "SLDUST")
-        geo[f"{st}_lower_{era}"] = geojson(f"cb_{yr}_{fp}_sldl_500k.zip", "SLDLST")
+        for ch, key in (("sldu", "upper"), ("sldl", "lower")):
+            if zipfile.is_zipfile(GEO / f"cb_{yr}_{fp}_{ch}_500k.zip"):   # Nebraska: no lower chamber (Census returns an error page)
+                geo[f"{st}_{key}_{era}"] = geojson(f"cb_{yr}_{fp}_{ch}_500k.zip", "SLDUST" if ch == "sldu" else "SLDLST")
 
 # state exposure (50 states + DC), same formulas as scripts/04_exposure.py
 S = pd.read_csv(EXPO)
@@ -65,10 +66,12 @@ def prep(L):
     return L.drop(columns=[c for c in L.columns if c.endswith("_primary") or c == "ballotpedia"]).replace({np.nan: None})
 L = prep(pd.read_csv(P / "ind_legislator.csv"))
 LB = prep(pd.read_csv(P / "ind_legislator_session.csv"))
+keep = ["state", "name", "party", "district", "chamber", "dist", "seat_holder"] + [c for c in LB.columns if re.match(r"(spons_\w+_any|yea_|nay_|dev_|signed_dev_|n_dev_)", c)]
+LB = LB[keep].round(3)
 
 SL = pd.read_csv(P / "sld_exposure_2025.csv", dtype={"district": str})
-cols = [f"{m}_{pn}_{k}" for m in ("origin", "production", "hybrid") for pn in ("china", "taiwan") for k in ("usd_mn", "share", "per_worker")]
-sld = {f"{r.state}_{r.chamber}_{r.district}": {c: (None if pd.isna(getattr(r, c)) else round(float(getattr(r, c)), 5)) for c in cols + ["emp_total"]}
+cols = ["origin_china_per_worker", "production_china_per_worker", "hybrid_china_per_worker", "hybrid_china_share", "hybrid_taiwan_per_worker"]   # only fields the page shows
+sld = {f"{r.state}_{r.chamber}_{r.district}": {c: (None if pd.isna(getattr(r, c)) else float(f"{getattr(r, c):.4g}")) for c in cols}
        for r in SL.itertuples()}
 # sponsorship by party (window: sessions starting 2025+), per state x party x code
 #   bills_primary : distinct bills with >= 1 primary sponsor from the party
@@ -90,11 +93,18 @@ for st in sorted(LW.state.unique()):
                           "bills_primary": int(x[x.sponsor_type == "primary"].bill_id.nunique()),
                           "bills_any": int(x.bill_id.nunique()),
                           "share_active": round(float(x.people_id.isin(mem).groupby(x.people_id).any().sum()) / len(mem), 4) if len(mem) else None})
+# District boundaries are written per state to dashboard/officials_geo/{ST}.js and loaded on demand by the page
+# (keeps the page small; a script tag also works when the file is opened locally).
+GEO_DIR = ROOT.parent / "dashboard" / "officials_geo"; GEO_DIR.mkdir(exist_ok=True)
+for st in FIPS:
+    part = {k: v for k, v in geo.items() if k.startswith(st + "_")}
+    (GEO_DIR / f"{st}.js").write_text("(window.__geo=window.__geo||{})[" + json.dumps(st) + "]=" + json.dumps(part, separators=(",", ":")) + ";")
+geo = {}
 data = {"spons": spons, "sld": sld, "expo": expo.replace({np.nan: None}).to_dict("records"), "pooled": pooled.replace({np.nan: None}).to_dict("records"),
         "yearly": yearly.replace({np.nan: None}).to_dict("records"), "bills": B.replace({np.nan: None}).to_dict("records"),
-        "releases": R.to_dict("records"), "legislators": L.to_dict("records"), "leg_session": LB.to_dict("records"), "geo": geo,
-        "pending": "資料期間：2025 年 1 月起的行政部門新聞稿，以及 2025–26 會期的法案、決議與表決（含 2024 年底預先提出的法案）。行政部門缺漏：佛州、華州州務卿網站拒絕研究用爬蟲；紐約副州長無獨立新聞室；阿拉巴馬州、華州副州長 2025 年起未發布新聞稿；佛州州長 2025 年新聞稿依 Internet Archive 網址索引補抓，可能不完整。肯塔基州、亞利桑那州、密西根州的官網拒絕研究用爬蟲，州長（及亞利桑那、密西根州務卿）新聞稿取自 Internet Archive 存檔，涵蓋不完整；北卡州務卿只以 PDF 發布、肯塔基州務卿無新聞列表，均未收錄；亞利桑那州無副州長。第三、四批（印第安納、喬治亞、伊利諾、維吉尼亞、明尼蘇達、奧勒岡、田納西、路易斯安那、賓州、愛荷華）只收州長新聞稿：喬治亞、伊利諾取自官網列表；其餘依 Internet Archive 網址索引取得網址，能連上官網者向官網抓原文，否則用存檔；明尼蘇達的存檔多為列表頁，只得 72 篇，印第安納州長新聞稿發布於州政府活動系統，依存檔取得，兩州涵蓋率低。第五批（俄亥俄、密西西比、南卡、南達科他、密蘇里、威斯康辛、內華達、堪薩斯、紐澤西、科羅拉多）只收州長新聞稿；網址無日期者只收 Internet Archive 首次存檔於 2025 年以後的文件；堪薩斯、科羅拉多官網封鎖或無法連線且存檔中無新聞稿，無行政部門資料。"}
-ZH = {"CA": "加州", "TX": "德州", "AL": "阿拉巴馬州", "FL": "佛羅里達州", "NY": "紐約州", "WA": "華盛頓州", "NC": "北卡羅來納州", "KY": "肯塔基州", "AZ": "亞利桑那州", "MI": "密西根州", "IN": "印第安納州", "GA": "喬治亞州", "IL": "伊利諾州", "VA": "維吉尼亞州", "MN": "明尼蘇達州", "OR": "奧勒岡州", "TN": "田納西州", "LA": "路易斯安那州", "PA": "賓州", "IA": "愛荷華州", "OH": "俄亥俄州", "MS": "密西西比州", "SC": "南卡羅來納州", "SD": "南達科他州", "MO": "密蘇里州", "WI": "威斯康辛州", "NV": "內華達州", "KS": "堪薩斯州", "NJ": "紐澤西州", "CO": "科羅拉多州"}
+        "releases": R.to_dict("records"), "leg_session": LB.to_dict("records"), "geo": geo,
+        "pending": "資料期間：2025 年 1 月起的行政部門新聞稿，以及 2025–26 會期的法案、決議與表決（含 2024 年底預先提出的法案）。行政部門缺漏：佛州、華州州務卿網站拒絕研究用爬蟲；紐約副州長無獨立新聞室；阿拉巴馬州、華州副州長 2025 年起未發布新聞稿；佛州州長 2025 年新聞稿依 Internet Archive 網址索引補抓，可能不完整。肯塔基州、亞利桑那州、密西根州的官網拒絕研究用爬蟲，州長（及亞利桑那、密西根州務卿）新聞稿取自 Internet Archive 存檔，涵蓋不完整；北卡州務卿只以 PDF 發布、肯塔基州務卿無新聞列表，均未收錄；亞利桑那州無副州長。第三、四批（印第安納、喬治亞、伊利諾、維吉尼亞、明尼蘇達、奧勒岡、田納西、路易斯安那、賓州、愛荷華）只收州長新聞稿：喬治亞、伊利諾取自官網列表；其餘依 Internet Archive 網址索引取得網址，能連上官網者向官網抓原文，否則用存檔；明尼蘇達的存檔多為列表頁，只得 72 篇，印第安納州長新聞稿發布於州政府活動系統，依存檔取得，兩州涵蓋率低。第五批（俄亥俄、密西西比、南卡、南達科他、密蘇里、威斯康辛、內華達、堪薩斯、紐澤西、科羅拉多）只收州長新聞稿；網址無日期者只收 Internet Archive 首次存檔於 2025 年以後的文件；堪薩斯、科羅拉多官網封鎖或無法連線且存檔中無新聞稿，無行政部門資料。第六批（其餘 20 州）同樣只收州長新聞稿：夏威夷官網新聞包含各機關，只計州長本人者；德拉瓦取自州政府新聞網並篩出州長；阿拉斯加存檔中無新聞稿；內布拉斯加、新罕布夏、西維吉尼亞涵蓋率很低。"}
+ZH = {"CA": "加州", "TX": "德州", "AL": "阿拉巴馬州", "FL": "佛羅里達州", "NY": "紐約州", "WA": "華盛頓州", "NC": "北卡羅來納州", "KY": "肯塔基州", "AZ": "亞利桑那州", "MI": "密西根州", "IN": "印第安納州", "GA": "喬治亞州", "IL": "伊利諾州", "VA": "維吉尼亞州", "MN": "明尼蘇達州", "OR": "奧勒岡州", "TN": "田納西州", "LA": "路易斯安那州", "PA": "賓州", "IA": "愛荷華州", "OH": "俄亥俄州", "MS": "密西西比州", "SC": "南卡羅來納州", "SD": "南達科他州", "MO": "密蘇里州", "WI": "威斯康辛州", "NV": "內華達州", "KS": "堪薩斯州", "NJ": "紐澤西州", "CO": "科羅拉多州", "AK": "阿拉斯加州", "AR": "阿肯色州", "CT": "康乃狄克州", "DE": "德拉瓦州", "HI": "夏威夷州", "ID": "愛達荷州", "ME": "緬因州", "MD": "馬里蘭州", "MA": "麻州", "MT": "蒙大拿州", "NE": "內布拉斯加州", "NH": "新罕布夏州", "NM": "新墨西哥州", "ND": "北達科他州", "OK": "奧克拉荷馬州", "RI": "羅德島州", "UT": "猶他州", "VT": "佛蒙特州", "WV": "西維吉尼亞州", "WY": "懷俄明州"}
 observed = "、".join(ZH[s] for s in FIPS)
 tpl = (ROOT / "scripts" / "page_template.html").read_text().replace("__OBSERVED__", observed)
 out = ROOT.parent / "dashboard" / "officials.html"   # published with the US dashboards (GitHub Pages)

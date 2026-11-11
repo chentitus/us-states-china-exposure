@@ -202,7 +202,7 @@ a{color:var(--accent)}
 <script>
 /*__DATA__*/
 const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
-const ZH = {CA:"加州", TX:"德州", AL:"阿拉巴馬州", FL:"佛羅里達州", NY:"紐約州", WA:"華盛頓州", NC:"北卡羅來納州", KY:"肯塔基州", AZ:"亞利桑那州", MI:"密西根州", IN:"印第安納州", GA:"喬治亞州", IL:"伊利諾州", VA:"維吉尼亞州", MN:"明尼蘇達州", OR:"奧勒岡州", TN:"田納西州", LA:"路易斯安那州", PA:"賓州", IA:"愛荷華州", OH:"俄亥俄州", MS:"密西西比州", SC:"南卡羅來納州", SD:"南達科他州", MO:"密蘇里州", WI:"威斯康辛州", NV:"內華達州", KS:"堪薩斯州", NJ:"紐澤西州", CO:"科羅拉多州"};
+const ZH = {CA:"加州", TX:"德州", AL:"阿拉巴馬州", FL:"佛羅里達州", NY:"紐約州", WA:"華盛頓州", NC:"北卡羅來納州", KY:"肯塔基州", AZ:"亞利桑那州", MI:"密西根州", IN:"印第安納州", GA:"喬治亞州", IL:"伊利諾州", VA:"維吉尼亞州", MN:"明尼蘇達州", OR:"奧勒岡州", TN:"田納西州", LA:"路易斯安那州", PA:"賓州", IA:"愛荷華州", OH:"俄亥俄州", MS:"密西西比州", SC:"南卡羅來納州", SD:"南達科他州", MO:"密蘇里州", WI:"威斯康辛州", NV:"內華達州", KS:"堪薩斯州", NJ:"紐澤西州", CO:"科羅拉多州", AK:"阿拉斯加州", AR:"阿肯色州", CT:"康乃狄克州", DE:"德拉瓦州", HI:"夏威夷州", ID:"愛達荷州", ME:"緬因州", MD:"馬里蘭州", MA:"麻州", MT:"蒙大拿州", NE:"內布拉斯加州", NH:"新罕布夏州", NM:"新墨西哥州", ND:"北達科他州", OK:"奧克拉荷馬州", RI:"羅德島州", UT:"猶他州", VT:"佛蒙特州", WV:"西維吉尼亞州", WY:"懷俄明州"};
 const OFFICE = {governor:"州長", lieutenant_governor:"副州長", secretary_of_state:"州務卿"};
 const CODE_COLOR = c => ({R:css("--china"),Rc:css("--china"),Rp:css("--china"),C:css("--china-soft"),Cp:css("--china-soft"),K:css("--comp"),T:css("--taiwan"),Tp:css("--taiwan")}[c]);
 const base = () => ({paper_bgcolor:"rgba(0,0,0,0)",plot_bgcolor:"rgba(0,0,0,0)",font:{family:css("--sans"),color:css("--text"),size:12},margin:{l:40,r:10,t:10,b:30}});
@@ -301,10 +301,17 @@ function drawSB(){
   Plotly.react("sbars",traces,lay,cfg);
 }
 
+function loadGeo(st, done){
+  const el = document.createElement("script"); el.src = `officials_geo/${st}.js`;
+  el.onload = () => { Object.assign(DATA.geo, (window.__geo || {})[st] || {}); done(); };
+  el.onerror = () => { document.getElementById("dmap").textContent = "選區邊界檔載入失敗"; };
+  document.head.appendChild(el);
+}
 function drawS3(){
   const st = document.getElementById("dst").value, ch = document.getElementById("dch").value, m = document.getElementById("dm").value;
+  if (!DATA.geo[`${st}_upper_new`]) { loadGeo(st, drawS3); return; }
   const se = "2025-2026";
-  const gj = DATA.geo[`${st}_${ch}_${se >= "2023" ? "new" : "old"}`];
+  const gj = DATA.geo[`${st}_${ch}_${se >= "2023" ? "new" : "old"}`] || DATA.geo[`${st}_upper_new`];   // Nebraska: unicameral
   const legs = DATA.leg_session.filter(l=>l.state===st && l.chamber===ch && l.biennium===se);
   const byDist = Object.fromEntries(legs.filter(l=>l.seat_holder).map(l=>[l.dist,l]));
   const others = {}; legs.filter(l=>!l.seat_holder).forEach(l=>(others[l.dist] ||= []).push(l));

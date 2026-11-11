@@ -23,7 +23,7 @@ import numpy as np, pandas as pd, requests
 ROOT = Path(__file__).resolve().parents[1]
 EX = ROOT.parent   # repository root (officials/ sits inside it)
 P, REL = ROOT / "data" / "processed", ROOT / "data" / "raw" / "geo" / "rel"
-YEAR, STATES = 2025, {"CA": "06", "TX": "48", "AL": "01", "FL": "12", "NY": "36", "WA": "53", "NC": "37", "KY": "21", "AZ": "04", "MI": "26", "IN": "18", "GA": "13", "IL": "17", "VA": "51", "MN": "27", "OR": "41", "TN": "47", "LA": "22", "PA": "42", "IA": "19", "OH": "39", "MS": "28", "SC": "45", "SD": "46", "MO": "29", "WI": "55", "NV": "32", "KS": "20", "NJ": "34", "CO": "08"}
+YEAR, STATES = 2025, {"CA": "06", "TX": "48", "AL": "01", "FL": "12", "NY": "36", "WA": "53", "NC": "37", "KY": "21", "AZ": "04", "MI": "26", "IN": "18", "GA": "13", "IL": "17", "VA": "51", "MN": "27", "OR": "41", "TN": "47", "LA": "22", "PA": "42", "IA": "19", "OH": "39", "MS": "28", "SC": "45", "SD": "46", "MO": "29", "WI": "55", "NV": "32", "KS": "20", "NJ": "34", "CO": "08", "AK": "02", "AR": "05", "CT": "09", "DE": "10", "HI": "15", "ID": "16", "ME": "23", "MD": "24", "MA": "25", "MT": "30", "NE": "31", "NH": "33", "NM": "35", "ND": "38", "OK": "40", "RI": "44", "UT": "49", "VT": "50", "WV": "54", "WY": "56"}
 PARTNERS = {"china": "5700", "taiwan": "5830", "world": "-"}
 KEY = dict(l.strip().split("=", 1) for l in open(EX / ".env") if "=" in l)["CENSUS_API_KEY"]
 is_farm = lambda n: n[:3] in ("111", "112")
@@ -96,7 +96,10 @@ L_us = pd.concat([L_us, farm.groupby("naics4").emp.sum()])
 def rel(chamber, kind):
     out = []
     for st, fp in STATES.items():
-        r = pd.read_csv(REL / f"tab20_{chamber}202420_{kind}_st{fp}.txt", sep="|", dtype=str, encoding="utf-8-sig")
+        f = REL / f"tab20_{chamber}202420_{kind}_st{fp}.txt"
+        if not f.exists() or f.stat().st_size < 500:   # Nebraska is unicameral: no lower-chamber districts
+            continue
+        r = pd.read_csv(f, sep="|", dtype=str, encoding="utf-8-sig")
         g, a = f"GEOID_{kind.upper()}" if False else ("GEOID_ZCTA5_20" if kind == "zcta520" else "GEOID_COUNTY_20"), \
                ("AREALAND_ZCTA5_20" if kind == "zcta520" else "AREALAND_COUNTY_20")
         r = r[r[g].notna() & (r[g] != "")]

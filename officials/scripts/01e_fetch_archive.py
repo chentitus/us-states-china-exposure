@@ -45,10 +45,30 @@ ARCH = {
     "NJ": [("governor", [("nj.gov/governor/news/news/562025/", "prefix", None), ("nj.gov/governor/news/news/562026/", "prefix", None)])],
     "WI": [("governor", [("content.govdelivery.com/accounts/WIGOV/bulletins/", "prefix", None)])],
     "SD": [("governor", [("news.sd.gov/news", "prefix", r"sys_id=")])],   # all state agencies: keep governor items (FILTER)
+    # batch 6 governors
+    "AK": [("governor", [("gov.alaska.gov/", "prefix", r"gov\.alaska\.gov/[^?]*(dunleavy|governor|news|press)")])],
+    "CT": [("governor", [("portal.ct.gov/governor/news/press-releases/2025/", "prefix", None), ("portal.ct.gov/governor/news/press-releases/2026/", "prefix", None)])],
+    "ID": [("governor", [("gov.idaho.gov/pressrelease/", "prefix", None)])],
+    "ME": [("governor", [("maine.gov/governor/mills/news/", "prefix", None)])],
+    "MD": [("governor", [("governor.maryland.gov/news/press/", "prefix", None)])],
+    "MA": [("governor", [("mass.gov/news/governor-healey", "prefix", None)])],
+    "MT": [("governor", [("news.mt.gov/Governors-Office/", "prefix", None)])],
+    "NE": [("governor", [("governor.nebraska.gov/", "prefix", r"governor\.nebraska\.gov/(press|news)/")])],
+    "NH": [("governor", [("governor.nh.gov/news-and-media/", "prefix", None)])],
+    "NM": [("governor", [("governor.state.nm.us/newsroom/", "prefix", None)])],
+    "ND": [("governor", [("governor.nd.gov/news/", "prefix", None)])],
+    "OK": [("governor", [("oklahoma.gov/governor/newsroom/newsroom/2025/", "prefix", None), ("oklahoma.gov/governor/newsroom/newsroom/2026/", "prefix", None)])],
+    "RI": [("governor", [("governor.ri.gov/press-releases/", "prefix", None)])],
+    "VT": [("governor", [("governor.vermont.gov/press-release/", "prefix", None)])],
+    "WV": [("governor", [("governor.wv.gov/News/", "prefix", None)])],
+    "WY": [("governor", [("governor.wyo.gov/", "prefix", r"governor\.wyo\.gov/[^?]*(news|press|release)")])],
 }
 # keep only releases issued by the governor's office where the source mixes agencies
 FILTER = {"SD": r"\bGov\.|\bGovernor\b"}
-MODE = {"OH": "archive", "SC": "archive", "MO": "archive", "KS": "archive", "CO": "archive",
+MODE = {"AK": "archive", "MA": "archive", "NH": "archive", "RI": "archive", "ND": "archive",
+        "CT": "auto", "ID": "auto", "ME": "auto", "MD": "auto", "MT": "auto", "NE": "auto", "NM": "auto", "OK": "auto",
+        "VT": "auto", "WV": "auto", "WY": "auto",
+        "OH": "archive", "SC": "archive", "MO": "archive", "KS": "archive", "CO": "archive",
         "NV": "auto", "NJ": "auto", "WI": "auto", "SD": "auto",
         "AZ": "archive", "MI": "archive", "KY": "archive", "IN": "archive", "MN": "archive",
         "VA": "auto", "OR": "auto", "TN": "auto", "LA": "auto", "PA": "auto", "IA": "auto"}
@@ -56,7 +76,7 @@ MODE = {"OH": "archive", "SC": "archive", "MO": "archive", "KS": "archive", "CO"
 # States where only URLs first captured on/after 2025-01-01 are fetched (decided 2026-11-11: "只抓有明確2025年的文件").
 # The earliest Archive capture of a URL is an upper bound on its publication date, so a first capture before 2025
 # means the document is older; URLs without a 2025+ first capture are skipped without being fetched.
-EARLIEST_2025 = {"WI", "SD", "SC", "MO", "KS", "CO"}
+EARLIEST_2025 = {"WI", "SD", "SC", "MO", "KS", "CO", "AK", "ID", "ME", "MD", "MA", "MT", "NE", "NH", "NM", "ND", "RI", "VT", "WV", "WY"}
 
 def cdx_first(url, match):
     """Earliest capture per URL (no date filter; collapse keeps the first capture of each urlkey)."""
