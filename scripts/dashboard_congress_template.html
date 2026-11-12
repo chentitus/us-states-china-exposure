@@ -84,6 +84,7 @@ a.t{color:inherit}
 <div class="ctl" style="display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin:6px 0">
 <label>議院 <select id="nch"><option value="house">眾議院</option><option value="senate">參議院</option></select></label>
 <label>屆別 <select id="ncg"><option value="119">第 119 屆（2025–26）</option><option value="118">第 118 屆（2023–24）</option><option value="117">第 117 屆（2021–22）</option><option value="116">第 116 屆（2019–20）</option><option value="all">第 116–119 屆合併</option></select></label>
+<label>議員 <input type="search" id="nwho" list="nwholist" placeholder="輸入姓名，例如 Cruz" style="width:200px" autocomplete="off"></label><datalist id="nwholist"></datalist>
 <span id="nstat" class="note"></span></div>
 <div id="nsel" class="note" style="margin:2px 0 6px"></div>
 <div id="net" style="height:680px"></div>
@@ -94,7 +95,7 @@ a.t{color:inherit}
 /*__DATA__*/
 const $=id=>document.getElementById(id); const f0=v=>v==null||isNaN(v)?'–':Math.round(v).toLocaleString(); const f1=v=>v==null||isNaN(v)?'–':Number(v).toFixed(1); const f2=v=>v==null||isNaN(v)?'–':Number(v).toFixed(2); const pc=v=>v==null||isNaN(v)?'–':(v*100).toFixed(0)+'%';
 const PC={Democrat:'#2a78d6',Republican:'#d03b3b',Independent:'#6250d6'}; const pcls=p=>p==='Democrat'?'D':p==='Republican'?'R':'I';
-const MVARS=[['sponsored_china','提案涉中法案數'],['sponsored_taiwan','提案涉台法案數'],['cosponsored_china','共提涉中法案數'],['cosponsored_taiwan','共提涉台法案數'],['speeches_china','國會記錄提到中國（段落數）'],['speeches_taiwan','國會記錄提到台灣（段落數）'],['cross_party_share','共提跨黨比例'],['u_goods_2024','選區：USCBC 對中商品出口 2024（百萬）'],['u_goods_share_2024','選區：中國占選區出口 %（2024）'],['u_jobs_2023','選區：對中出口支撐就業'],['ss_exp_cn_pw_2024','選區：shift-share 對中出口／員工'],['ss_exp_tw_pw_2024','選區：shift-share 對台出口／員工'],['ss_ratio_cn_tw_2024','選區：中／台出口比'],['st_exp_cn_pct_gdp_2024','州：對中出口占 GDP %（參議員）'],['st_exp_tw_pct_gdp_2024','州：對台出口占 GDP %（參議員）']];
+const MVARS=[['sponsored_china','提案涉中法案數'],['sponsored_taiwan','提案涉台法案數'],['cosponsored_china','共提涉中法案數'],['cosponsored_taiwan','共提涉台法案數'],['speeches_china','國會記錄提到中國（段落數）'],['speeches_taiwan','國會記錄提到台灣（段落數）'],['cross_party_share','共提跨黨比例'],['u_goods_2024','選區：USCBC 對中商品出口 2024（百萬）'],['u_goods_share_2024','選區：中國占選區出口 %（2024）'],['u_jobs_2023','選區：對中出口支撐就業'],['ss_exp_cn_pw_2024','選區：shift-share 對中出口／員工'],['ss_exp_tw_pw_2024','選區：shift-share 對台出口／員工'],['ss_ratio_cn_tw_2024','選區：中／台出口比'],['st_exp_cn_pct_gdp_2024','州：對中出口占 GDP %（參議員）'],['st_exp_cn_share_pct','州：中國占州出口 %（參議員）'],['st_exp_tw_pct_gdp_2024','州：對台出口占 GDP %（參議員）']];
 const st={ch:'',pa:'',st:'',only119:'1',mx:'u_goods_share_2024',my:'sponsored_taiwan',mq:'',msort:'sponsored_taiwan',mdir:-1,bc:'',bt:'',bch:'',blaw:'',bq:'',st2:'taiwan',smem:'',syr:'',sq:''};
 MVARS.forEach(([k,l])=>{[$('mx'),$('my')].forEach(s=>{const o=document.createElement('option');o.value=k;o.textContent=l;s.appendChild(o);});}); $('mx').value=st.mx;$('my').value=st.my;
 [...new Set(MEM.map(m=>m.state))].sort().forEach(s=>{const o=document.createElement('option');o.value=s;o.textContent=`${STATES_ZH[s]||s} ${s}`;$('mst').appendChild(o);});
@@ -105,17 +106,23 @@ const mmatch=(m,q)=>!q||m.name.toLowerCase().includes(q)||(m.cd_code||'').toLowe
 function mrows(useQ=true){const q=useQ?normq(st.mq):''; return MEM.filter(m=>(!st.ch||m.chamber===st.ch)&&(!st.pa||m.party===st.pa)&&(!st.st||m.state===st.st)&&(!st.only119||m.in_119th)&&mmatch(m,q));}
 function lbl(k){return MVARS.find(v=>v[0]===k)[1];}
 const INTV=new Set(['sponsored_china','sponsored_taiwan','cosponsored_china','cosponsored_taiwan','speeches_china','speeches_taiwan','u_goods_2024','u_jobs_2023','ss_exp_cn_pw_2024','ss_exp_tw_pw_2024']); const fv=(k,v)=>INTV.has(k)?f0(v):k==='cross_party_share'?pc(v):f2(v);
-function drawScatter(rows){const kx=st.mx,ky=st.my; const d0=rows.filter(m=>m[kx]!=null&&m[ky]!=null);
+// Senators have no district values: where a state-level counterpart exists, they use it (marked in the hover)
+MEM.forEach(m=>{if(m.st_exp_cn_share_2024!=null) m.st_exp_cn_share_pct=m.st_exp_cn_share_2024*100;});
+const FB={u_goods_share_2024:'st_exp_cn_share_pct'};
+function drawScatter(rows){const kx=st.mx,ky=st.my;
+  rows=rows.map(m=>{if(m.chamber!=='sen')return m; const o={...m}; [kx,ky].forEach(k=>{if(o[k]==null&&FB[k]&&o[FB[k]]!=null){o[k]=o[FB[k]]; o._fb=true;}}); return o;});
+  const d0=rows.filter(m=>m[kx]!=null&&m[ky]!=null);
   // 同座標（例如同州兩位參議員在州級指標上）錯開顯示，並在 hover 列出同點所有議員
   const grp={}; d0.forEach(m=>{const key=m[kx]+'|'+m[ky]; (grp[key]=grp[key]||[]).push(m);}); const xr=Math.max(...d0.map(m=>m[kx]))-Math.min(...d0.map(m=>m[kx]))||1, yr=Math.max(...d0.map(m=>m[ky]))-Math.min(...d0.map(m=>m[ky]))||1;
   const d=d0.map(m=>{const g=grp[m[kx]+'|'+m[ky]]; const i=g.indexOf(m), n=g.length; const off=n>1?(i-(n-1)/2):0; return {...m,_x:m[kx]+off*xr*0.012,_y:m[ky]+off*yr*0.012,_same:n>1?g.filter(o=>o!==m).map(o=>o.name).join('、'):''};});
-  const tr=['Democrat','Republican','Independent'].map(p=>{const dd=d.filter(m=>m.party===p); return {type:'scatter',mode:'markers',name:p==='Democrat'?'民主黨':p==='Republican'?'共和黨':'無黨籍',x:dd.map(m=>m._x),y:dd.map(m=>m._y),customdata:dd.map(m=>m.bioguide),marker:{color:PC[p],size:8,opacity:0.65,line:{color:'#fff',width:0.5}},hovertemplate:dd.map(m=>`${m.name}（${pcls(m.party)}-${m.cd_code||m.state}）<br>${lbl(kx)}：${fv(kx,m[kx])}<br>${lbl(ky)}：${fv(ky,m[ky])}${m._same?'<br>同一位置：'+m._same:''}<extra></extra>`)};}).filter(t=>t.x.length);
+  const tr=['Democrat','Republican','Independent'].map(p=>{const dd=d.filter(m=>m.party===p); return {type:'scatter',mode:'markers',name:p==='Democrat'?'民主黨':p==='Republican'?'共和黨':'無黨籍',x:dd.map(m=>m._x),y:dd.map(m=>m._y),customdata:dd.map(m=>m.bioguide),marker:{color:PC[p],size:8,opacity:0.65,line:{color:'#fff',width:0.5}},hovertemplate:dd.map(m=>`${m.name}（${pcls(m.party)}-${m.cd_code||m.state}）<br>${lbl(kx)}：${fv(kx,m[kx])}<br>${lbl(ky)}：${fv(ky,m[ky])}${m._same?'<br>同一位置：'+m._same:''}${m._fb?'<br>（參議員：用所屬州的數值）':''}<extra></extra>`)};}).filter(t=>t.x.length);
   // highlight members matching the search box: ring + label; all other members stay visible
   const q=normq(st.mq), hit=q?d.filter(m=>mmatch(m,q)):[];
   if(hit.length&&hit.length<=40){tr.forEach(t=>t.marker.opacity=0.25);
     tr.push({type:'scatter',mode:'markers+text',name:'搜尋結果',x:hit.map(m=>m._x),y:hit.map(m=>m._y),text:hit.map(m=>`${m.name.replace(/^(Rep|Sen)\.\s*/,'').split(',')[0].split(' ').slice(-1)[0]} ${m.cd_code||m.state}`),textposition:'top center',textfont:{size:12,color:'#111'},customdata:hit.map(m=>m.bioguide),
       marker:{color:hit.map(m=>PC[m.party]||'#888'),size:16,opacity:1,line:{color:'#111',width:2.5}},hovertemplate:hit.map(m=>`${m.name}（${pcls(m.party)}-${m.cd_code||m.state}）<br>${lbl(kx)}：${fv(kx,m[kx])}<br>${lbl(ky)}：${fv(ky,m[ky])}<extra></extra>`)});}
-  Plotly.react('mscatter',tr,{uirevision:st.mx+st.my,dragmode:'zoom',margin:{l:55,r:10,t:10,b:45},xaxis:{title:{text:lbl(kx),font:{size:11}},gridcolor:'#eeede9',zeroline:false},yaxis:{title:{text:lbl(ky),font:{size:11}},gridcolor:'#eeede9',zeroline:false},legend:{orientation:'h',y:1.08,font:{size:11}},paper_bgcolor:'rgba(0,0,0,0)',plot_bgcolor:'rgba(0,0,0,0)',font:{size:11}},{displayModeBar:true,displaylogo:false,scrollZoom:true,responsive:true,modeBarButtons:[['zoom2d','pan2d','zoomIn2d','zoomOut2d','resetScale2d']]});
+  const empty=!d0.length&&rows.length;   // e.g. senators with a district-only variable
+  Plotly.react('mscatter',tr,{annotations:empty?[{text:'目前篩選的議員在這組變數上沒有資料。<br>參議員沒有選區層級資料：X 請改選「州：…」開頭的州級變數。',xref:'paper',yref:'paper',x:0.5,y:0.5,showarrow:false,font:{size:13,color:'#52514e'}}]:[],uirevision:st.mx+st.my,dragmode:'zoom',margin:{l:55,r:10,t:10,b:45},xaxis:{title:{text:lbl(kx),font:{size:11}},gridcolor:'#eeede9',zeroline:false},yaxis:{title:{text:lbl(ky),font:{size:11}},gridcolor:'#eeede9',zeroline:false},legend:{orientation:'h',y:1.08,font:{size:11}},paper_bgcolor:'rgba(0,0,0,0)',plot_bgcolor:'rgba(0,0,0,0)',font:{size:11}},{displayModeBar:true,displaylogo:false,scrollZoom:true,responsive:true,modeBarButtons:[['zoom2d','pan2d','zoomIn2d','zoomOut2d','resetScale2d']]});
   $('mscatter').removeAllListeners&&$('mscatter').removeAllListeners('plotly_click'); $('mscatter').on('plotly_click',ev=>showMember(ev.points[0].customdata));
   const g={}; rows.forEach(m=>{const k=(m.chamber==='sen'?'參':'眾')+(m.party==='Democrat'?'民主':m.party==='Republican'?'共和':'無黨'); g[k]=g[k]||{n:0,sc:0,stw:0,cc:0,ctw:0,spc:0,sptw:0}; const o=g[k]; o.n++; o.sc+=m.sponsored_china; o.stw+=m.sponsored_taiwan; o.cc+=m.cosponsored_china; o.ctw+=m.cosponsored_taiwan; o.spc+=m.speeches_china; o.sptw+=m.speeches_taiwan;});
   const ks=Object.keys(g).sort(); const per=(k,f)=>g[k].n?g[k][f]/g[k].n:0;
@@ -161,7 +168,10 @@ function drawBills(){const rows=brows().sort((a,b)=>b.introduced.localeCompare(a
 const NS={sel:null,view:null,key:null};
 const lastName=n=>n.name.replace(/^(Rep|Sen)\.\s*/,'').split(',')[0].split(' ').slice(-1)[0];
 function drawNet(){const k=$('nch').value+'_'+$('ncg').value, G=NETS[k]||{nodes:[],edges:[]}, N=G.nodes, E=G.edges; const pos={}; N.forEach(n=>pos[n.id]=n);
-  if(NS.key!==k){NS.key=k; NS.sel=null; NS.view=null;}
+  if(NS.key!==k){NS.key=k; NS.view=null;
+    // member list for the search box = members drawn in this chamber x Congress
+    $('nwholist').innerHTML=[...N].sort((a,b)=>a.name.localeCompare(b.name)).map(n=>`<option value="${n.name}">${pcls(n.party)}-${n.state}，涉台法案 ${n.nb} 件</option>`).join('');
+    if(NS.sel&&!pos[NS.sel]) NS.sel=null;}
   const nb=new Set(); if(NS.sel){nb.add(NS.sel); E.forEach(e=>{if(e.s===NS.sel)nb.add(e.t); if(e.t===NS.sel)nb.add(e.s);});}
   const on=e=>!NS.sel||e.s===NS.sel||e.t===NS.sel;
   // fixed bins of co-occurring Taiwan bills, the same in every view so graphs can be compared
@@ -185,7 +195,8 @@ function drawNet(){const k=$('nch').value+'_'+$('ncg').value, G=NETS[k]||{nodes:
     const strong=ties.slice().sort((a,b)=>b.w-a.w).slice(0,5).map(e=>{const o=pos[e.s===m.id?e.t:e.s]; return `${lastName(o)}（${pcls(o.party)}，${e.w} 件）`;}).join('、');
     $('nsel').innerHTML=`已選：<b>${m.name}</b>（${pcls(m.party)}-${m.state}）— 連結 ${ties.length} 位，其中跨黨 ${cross} 位；最常一起提案：${strong||'—'}　<a href="#" id="nmem">查看議員資料</a>　<a href="#" id="nclr">取消選取</a>`;
     $('nmem').onclick=e=>{e.preventDefault();document.querySelector('nav.tabs button[data-tab=mem]').click();showMember(m.id);};
-    $('nclr').onclick=e=>{e.preventDefault();NS.sel=null;drawNet();};}
+    $('nclr').onclick=e=>{e.preventDefault();NS.sel=null;$('nwho').value='';drawNet();};
+    if($('nwho').value!==m.name) $('nwho').value=m.name;}
   else $('nsel').textContent='點選議員可凸顯他的連線；放大後會顯示畫面內更多議員的名字。';
   // zoom: mouse wheel / pinch, drag to pan, double-click or the reset button to return; uirevision keeps the zoom across redraws
   Plotly.react('net',tr,{uirevision:k,margin:{l:10,r:10,t:10,b:10},dragmode:'pan',xaxis:{visible:false},yaxis:{visible:false,scaleanchor:'x'},legend:{orientation:'h',y:1.02,font:{size:11}},paper_bgcolor:'rgba(0,0,0,0)',plot_bgcolor:'rgba(0,0,0,0)',hovermode:'closest'},
@@ -195,6 +206,13 @@ function drawNet(){const k=$('nch').value+'_'+$('ncg').value, G=NETS[k]||{nodes:
   let t=null; el.on('plotly_relayout',ev=>{if(ev['xaxis.autorange']||ev['xaxis.range[0]']===undefined&&!ev['xaxis.range']){if(ev['xaxis.autorange']){NS.view=null; clearTimeout(t); t=setTimeout(drawNet,50);} return;}
     const xa=el._fullLayout.xaxis.range, ya=el._fullLayout.yaxis.range; NS.view={x:xa.slice(),y:ya.slice()}; clearTimeout(t); t=setTimeout(drawNet,150);});}
 $('nch').onchange=drawNet; $('ncg').onchange=drawNet;
+// search a member by name: select them in the graph (same as clicking their node)
+$('nwho').onchange=()=>{const q=$('nwho').value.trim().toLowerCase(); const G=NETS[$('nch').value+'_'+$('ncg').value]||{nodes:[]};
+  if(!q){NS.sel=null; drawNet(); return;}
+  const n=G.nodes.find(x=>x.name.toLowerCase()===q)||G.nodes.find(x=>x.name.toLowerCase().includes(q));
+  if(n){NS.sel=n.id; drawNet();}
+  else {NS.sel=null; drawNet(); const inMem=MEM.find(m=>m.name.toLowerCase().includes(q));
+    $('nsel').textContent=inMem?`${inMem.name} 不在這張圖中：在此議院／屆別沒有涉台法案的共同提案，或連線未達顯示門檻。可換議院或屆別再試。`:'找不到這位議員。';}};
 // ---- speeches
 [...new Set(SPEECH.map(s=>s.date.slice(0,4)))].sort().forEach(y=>{const o=document.createElement('option');o.value=y;o.textContent=y;$('syr').appendChild(o);});
 MEM.filter(m=>m.speeches_any>0).sort((a,b)=>a.name.localeCompare(b.name)).forEach(m=>{const o=document.createElement('option');o.value=m.bioguide;o.textContent=`${m.name} (${pcls(m.party)}-${m.cd_code||m.state})`;$('smem').appendChild(o);});
