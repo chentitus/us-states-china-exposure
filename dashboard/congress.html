@@ -215,12 +215,14 @@ function drawNet(){const k=$('nch').value+'_'+$('ncg').value, G=NETS[k]||{nodes:
     const xa=el._fullLayout.xaxis.range, ya=el._fullLayout.yaxis.range; NS.view={x:xa.slice(),y:ya.slice()}; clearTimeout(t); t=setTimeout(drawNet,150);});}
 $('nch').onchange=drawNet; $('ncg').onchange=drawNet;
 // search a member by name: select them in the graph (same as clicking their node)
-$('nwho').onchange=()=>{const q=$('nwho').value.trim().toLowerCase(); const G=NETS[$('nch').value+'_'+$('ncg').value]||{nodes:[]};
+// runs while typing (debounced), on Enter and on picking a suggestion
+function netFind(){const q=$('nwho').value.trim().toLowerCase(); const G=NETS[$('nch').value+'_'+$('ncg').value]||{nodes:[]};
   if(!q){NS.sel=null; drawNet(); return;}
   const n=G.nodes.find(x=>x.name.toLowerCase()===q)||G.nodes.find(x=>x.name.toLowerCase().includes(q));
   if(n){NS.sel=n.id; drawNet();}
   else {NS.sel=null; drawNet(); const inMem=MEM.find(m=>m.name.toLowerCase().includes(q));
-    $('nsel').textContent=inMem?`${inMem.name} 不在這張圖中：在此議院／屆別沒有涉台法案的共同提案，或連線未達顯示門檻。可換議院或屆別再試。`:'找不到這位議員。';}};
+    $('nsel').innerHTML=`<span style="color:#b3261e;font-weight:600">${inMem?`${inMem.name} 不在這張圖中：在此議院／屆別沒有提出或共同提出涉台法案，或連線未達顯示門檻。可換議院或屆別再試。`:'找不到這位議員。'}</span>`;}}
+let nwt=null; $('nwho').oninput=()=>{clearTimeout(nwt); nwt=setTimeout(netFind,400);}; $('nwho').onchange=netFind;
 // ---- speeches
 [...new Set(SPEECH.map(s=>s.date.slice(0,4)))].sort().forEach(y=>{const o=document.createElement('option');o.value=y;o.textContent=y;$('syr').appendChild(o);});
 MEM.filter(m=>m.speeches_any>0).sort((a,b)=>a.name.localeCompare(b.name)).forEach(m=>{const o=document.createElement('option');o.value=m.bioguide;o.textContent=`${m.name} (${pcls(m.party)}-${m.cd_code||m.state})`;$('smem').appendChild(o);});
