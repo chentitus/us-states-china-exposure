@@ -29,3 +29,6 @@
 
 ## 4. 國會層（月更可選）
 刪除 `data/raw/congress/bills_list_119.json` 與 `data/raw/crec/search_*_<今年>.json`（其餘快取保留）→ `13_fetch_congress_bills.py`（新法案細節會自動補抓；既有法案的共同提案人若要更新，刪 `bills/119-*_cos*.json`）→ `14_fetch_crec.py` → `15_build_congress.py` → `16_build_congress_dashboard.py`。議員名冊每屆換屆時重新下載 YAML。
+
+## 5. 英文版（每次重建任何頁面後都要做）
+`python3.12 scripts/make_en.py` → 產生 `dashboard/en/{index,districts,congress,officials}.html`。英文版由中文頁自動轉換：說明頁換成 `scripts/*_about_en.html`，其餘中文依 `scripts/i18n_en.json` 取代。若輸出列出「leftover Chinese segments」不為 0，未翻譯的字串會寫在 `scripts/i18n_en_todo.txt`，補進 `i18n_en.json` 後重跑。改了中文說明頁（`*_about.html`）時，也要同步改英文版。

@@ -1,0 +1,20 @@
+<h3>Sources and inclusion rules</h3>
+<ul>
+<li><b>Bills</b>: Congress.gov API (api.congress.gov). Titles of all bills and resolutions of the 116th–119th Congresses (about 70,000) are screened by keyword: China-related = China / Chinese / People's Republic of China / PRC / Beijing / Chinese Communist Party / CCP / Hong Kong / Xinjiang / Uyghur / Tibet; Taiwan-related = Taiwan / Taiwanese / Taipei / Republic of China. A bill can be both. Only the <b>title</b> is screened, so bills whose title does not mention China but whose text does (for example the National Defense Authorization Act) are not included. For each bill we take the sponsor, all cosponsors (with date joined, original cosponsor or not, withdrawn or not), policy area, latest action, and whether it became law.</li>
+<li><b>Congressional Record speech</b>: the GovInfo search API finds passages (granules) in the full text of the Congressional Record (CREC, daily edition) that contain the same keywords; GovInfo MODS metadata then gives the members speaking in each passage (role SPEAKING, with bioguide ID). A passage can have several speakers, each counted once. Passages include floor debate, Extensions of Remarks, bill introduction statements and so on; vote lists and procedural passages are excluded. The "excerpt" is the first two sentences in the passage that contain a keyword.</li>
+<li><b>Member roster and district assignment</b>: unitedstates/congress-legislators (party, state, district, terms). Each sponsorship (introduction date), cosponsorship (date joined) and speech (date) is assigned to the state and district the member represented <b>at that time</b>. District exposure is linked only for terms whose boundaries match the 119th Congress: terms from 2023, except AL, GA, LA, NC and NY, which were redrawn again in 2024 and count from 2025 only; terms in 2019–2022 (before redistricting) and 118th-Congress terms in those five states are marked "pre-redistricting" or "118th boundaries" and are not linked to district exposure. Senators are always linked to state-level indicators.</li>
+<li><b>By district</b>: each 119th-Congress district lists every House member who represented it in 2023–2026, summing their China- and Taiwan-related sponsorships, cosponsorships and speeches during terms with matching boundaries, and flags districts whose member changed after 2023 (diamond markers).</li>
+<li><b>District exposure</b>: from this project's district page (USCBC 2024 goods exports to China and share, jobs supported; shift-share 2024 exports to China / Taiwan per worker, China/Taiwan ratio); senators are linked to state-level indicators (state dashboard).</li>
+</ul>
+<h3>How to read it</h3>
+<ul>
+<li>Sponsorship and cosponsorship counts show how active a member is on the issue, not their position. Most China-related bills are hawkish toward China (sanctions, export controls, investment screening, farmland) and almost all Taiwan-related bills are pro-Taiwan (arms sales, international participation, trade agreements), so many Taiwan cosponsorships can be read as a pro-Taiwan signal and many China cosponsorships as a China-hawk signal.</li>
+<li>The scatter defaults to X = China's share of district exports (%) and Y = Taiwan-related bills sponsored, to ask whether members whose districts depend more on the Chinese market engage less with Taiwan- or China-related issues; for senators, choose a state-level X variable.</li>
+<li>The cosponsorship network covers Taiwan-related bills only; ties connect two members who appear together on Taiwan-related bills (see the network tab for thresholds); many cross-party ties indicate bipartisan consensus on Taiwan.</li>
+</ul>
+<h3>Limitations</h3>
+<ul>
+<li>Title screening is a lower bound; GovInfo full-text search is an upper bound (passages that mention China include any context, such as trade, the pandemic or chips).</li>
+<li>Speaker attribution in the Congressional Record comes from GovInfo metadata and is occasionally missing (a few passages have no congMember); such passages are not counted for any member.</li>
+<li>119th-Congress data grow over time; bill status is as of the download date.</li>
+</ul>

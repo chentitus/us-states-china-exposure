@@ -7,3 +7,4 @@ mne_test.json
 officials/.env
 officials/data/raw
 officials/scripts/__pycache__/
+scripts/i18n_en_todo.txt
